@@ -169,7 +169,7 @@ public class Main {
 						
 						
 						
-							int numeroGerado = randomica.nextInt(5000) + 1;
+							int numeroGerado = 0;
 							int numeroGerado2 = randomica.nextInt(3) + 1;
 							
 							
@@ -177,18 +177,21 @@ public class Main {
 							case 1:
 								tipoConcha = "grande";
 								Item item2 = new Item("espada", 1234, "+1 atk");
+								numeroGerado = randomica.nextInt(50000) + 1;
 								item1 = item2;
 								
 								break;
 							case 2:
 								tipoConcha = "media";
 								Item item3 = new Item("machado", 1234, "+3 atk");
+								numeroGerado = randomica.nextInt(500) + 1;
 								item1 = item3;
 								
 								break;
 							case 3:
 								tipoConcha = "pequena";
 								Item item4 = new Item("potion", 1234, "+5 hp");
+								numeroGerado = randomica.nextInt(5) + 1;
 								item1 = item4;
 								
 								break;
