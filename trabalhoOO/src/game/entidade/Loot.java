@@ -15,12 +15,12 @@ import game.entidade.Item;
  */
 public class Loot {
 	
-	Inimigo inimigo;
-	Dinheiro conchas = new Dinheiro();
-	Item item;
-	Dinheiro conchaPq = new Dinheiro("pequena", 0);
-	Dinheiro conchaGr = new Dinheiro("grande", 0);
-	Dinheiro conchaMed = new Dinheiro("media", 0);
+	private Inimigo inimigo;
+	private Dinheiro conchas = new Dinheiro();
+	private Item item;
+	private Dinheiro conchaPq = new Dinheiro("pequena", 0);
+	private Dinheiro conchaGr = new Dinheiro("grande", 0);
+	private Dinheiro conchaMed = new Dinheiro("media", 0);
 	
 	
 	public Loot(Inimigo inimigo){
