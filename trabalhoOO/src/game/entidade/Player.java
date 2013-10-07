@@ -124,6 +124,23 @@ public class Player {
 		this.xp = xp;
 	}
 	
+	public boolean validaPlayer(String sexo){
+		boolean validacao;
+		
+		String mulher = "mulher";
+		String homem = "homem";
+		
+		if(sexo.equalsIgnoreCase(mulher)){
+			validacao = true;
+		}else if(sexo.equalsIgnoreCase(homem)){
+			validacao = true;
+		}else{
+			System.out.println("Sexo Invalido!");
+			validacao = false;
+		}
+		
+		return validacao;
+	}
 	 
 
 }

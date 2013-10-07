@@ -143,7 +143,7 @@ public class Main {
 				Item item1 = null;
 				
 				randomica.nextInt(50);
-				
+				Inimigo monstro1 = new Inimigo();
 				Criar inimigo = new Criar(senha2);
 				
 			
@@ -212,15 +212,16 @@ public class Main {
 						loot.setInimigo(monstro);
 						monstro.getLoot().setConchas(dinheiros);
 						inimigo.CriarMonstro(adm.getSenha(), senha2, monstro);
-						inimigo.listarInimigo();
+						monstro.listarInimigo(inimigo.getMonstro());
 						loot.listarLoot();
 						conchas.clear();
+						monstro1 = monstro;
 						
 					}
 					
 				}while(x==1);
 				
-				inimigo.listarInimigo();
+				monstro1.listarInimigo(inimigo.getMonstro());
 				
 			break;
 			case 3:
@@ -331,8 +332,9 @@ public class Main {
                  int sexoN;
                  
                  Criar NPC = new Criar(senha2);
+                 NPC npc1= new NPC();
                  do{
-                         System.out.println("Deseja criar um novo npc? : 1/sim 2/n�o");
+                         System.out.println("Deseja criar um novo npc? : 1/sim 2/nao");
                          x=scanIn.nextInt();
                          if (x==1){
                                  
@@ -346,12 +348,13 @@ public class Main {
                                  nomeN= scanIn.next();
                                  
                                  NPC npc= new NPC(nomeN, funcaoN, sexoN);
+                                 npc1 = npc;
                                  NPC.criarNPC(adm.getSenha(), senha2, npc);
-                                 NPC.listarNPC();
+                                 npc.listarNPC(NPC.getNPC());
                          }
                  } while (x==1);
                  
-                 NPC.listarNPC();
+                 npc1.listarNPC(NPC.getNPC());
 			
 			break;
 			}
@@ -369,16 +372,16 @@ public class Main {
 			String sexoP;
 			
 			Criar jogador = new Criar();
-			
+			Player player1 = new Player();
 			
 			
 			do{
 			
 				System.out.println("Voce e homem ou mulher?");
 				sexoP = scanIn.next();
-				jogador.validaPlayer(sexoP);
+				//player1.validaPlayer(sexoP);
 				
-			}while(jogador.validaPlayer(sexoP) == false);
+			}while(player1.validaPlayer(sexoP) == false);
 			
 			int verificaNome = 2;
 			do{

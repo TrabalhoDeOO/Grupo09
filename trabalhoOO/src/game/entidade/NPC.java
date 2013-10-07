@@ -1,9 +1,12 @@
 package game.entidade;
 
+import java.util.ArrayList;
+
 public class NPC {
 	public String nome;
 	public int funcao;
 	public int sexo;
+	
 		
 	public NPC() {
 		this.nome = "...";
@@ -41,4 +44,26 @@ public class NPC {
 		this.sexo = sexo;
 	}
 	
+	public void listarNPC(ArrayList<NPC> npcs){
+		String sexoN = null;
+		String funcaoN = null;
+		for (int i=0;i<npcs.size(); i++){
+			if(npcs.get(i).sexo == 1){
+				sexoN = "feminino";
+			}else{
+				sexoN = "masculino";
+			}
+			
+			if (npcs.get(i).funcao == 1){
+				funcaoN = "informante";
+			}else if(npcs.get(i).funcao == 2){
+				funcaoN = "auxiliar";
+			}else if(npcs.get(i).funcao == 3){
+				funcaoN = "negociante";
+			}
+			
+			System.out.println(npcs.get(i).nome + " " + " " + funcaoN + " " + sexoN);
+		}			
+
+	}
 }
