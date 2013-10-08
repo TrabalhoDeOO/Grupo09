@@ -15,7 +15,7 @@ public class TestarItem {
 
 	@After
 	public void tearDown() throws Exception {
-		System.out.println("testando item");
+		System.out.println("testando a classe item");
 	}
 
 	@Test
