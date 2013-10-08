@@ -4,7 +4,6 @@ public class InimigoEvento extends Inimigo{
 	public int atk;
 	public int def;
 	public int inte;
-	public int hp;
 	
 	
 	public InimigoEvento() {
@@ -22,5 +21,27 @@ public class InimigoEvento extends Inimigo{
 		this.inte   = (this.lvl*2);
 	}
 	
-	
+	public int getAtk() {
+		return atk;
+	}
+
+	public void setAtk(int atk) {
+		this.atk = atk;
+	}
+
+	public int getDef() {
+		return def;
+	}
+
+	public void setDef(int def) {
+		this.def = def;
+	}
+	public int getInte() {
+		return inte;
+	}
+
+	public void setInte(int inte) {
+		this.inte = inte;
+	}
+
 }

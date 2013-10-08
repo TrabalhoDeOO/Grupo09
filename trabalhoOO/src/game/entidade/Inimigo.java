@@ -1,7 +1,7 @@
 package game.entidade;
 
 import game.entidade.Loot;
-import java.util.ArrayList;
+//import java.util.ArrayList;
 /**
  * 
  */
@@ -20,6 +20,7 @@ public class Inimigo {
 	public String tipo;
 	public int spe;
 	public Loot loot;
+	public int hp;
 	
 	
 	public Inimigo() {
@@ -79,22 +80,6 @@ public class Inimigo {
 	public void setTipo(String tipo){
 		this.tipo = tipo;
 	}
-
-	public int getAtk() {
-		return atk;
-	}
-
-	public void setAtk(int atk) {
-		this.atk = atk;
-	}
-
-	public int getDef() {
-		return def;
-	}
-
-	public void setDef(int def) {
-		this.def = def;
-	}
 	
 	public int getHp() {
 		return hp;
@@ -102,14 +87,6 @@ public class Inimigo {
 
 	public void setHp(int hp) {
 		this.hp = hp;
-	}
-
-	public int getInte() {
-		return inte;
-	}
-
-	public void setInte(int inte) {
-		this.inte = inte;
 	}
 
 	public int getSpe() {
@@ -125,14 +102,16 @@ public class Inimigo {
 		setLoot(loot);
 	}
 	
-	public void listarInimigo(ArrayList<Inimigo> monstro){
+	/* Essa implementação deverá ser melhorada e melhor estudada em cada uma das subclasses 
+	 public void listarInimigo(ArrayList<Inimigo> monstro){
+	 
 		for(int i = 0; i < monstro.size(); i++){
 			System.out.println(monstro.get(i).nome + " " +  monstro.get(i).tipo + " lvl " + monstro.get(i).lvl + " hp: " + monstro.get(i).hp + " atk: " + monstro.get(i).atk
 					+ " def: " + monstro.get(i).def + " int: " + monstro.get(i).inte  + " spe: " + monstro.get(i).spe);
 			
 		}
 	
-	}
+	}*/
 	 
 
 }

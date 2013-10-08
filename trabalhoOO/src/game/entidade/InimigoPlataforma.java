@@ -6,7 +6,7 @@ public int jump;
 public InimigoPlataforma(){
 	this.jump = 0;
 }
-public InimigoPlataforma(int Jump){
+public InimigoPlataforma(int jump){
 	this.jump= jump;
 }
 public int getJump() {
