@@ -23,7 +23,6 @@ public class Inimigo {
 	public int hp;
 	public int inte;
 	public int spe;
-	public int jump;
 	public Loot loot;
 	
 	
@@ -37,7 +36,7 @@ public class Inimigo {
 		this.hp = (this.atk/2+this.def*2);
 		this.inte   = (this.lvl*2);
 		this.spe = ((this.lvl*2)-hp/2);
-		this.jump = 0;
+		
 		Loot loot = new Loot(this);
 		this.loot = loot;
 		
@@ -54,7 +53,6 @@ public class Inimigo {
 		this.hp = (this.atk/2+this.def*2);
 		this.inte   = (this.lvl*2);
 		this.spe = ((this.lvl*3)-hp/2);
-		this.jump = 20;
 		Loot loot = new Loot(this);
 		this.loot = loot;
 		
@@ -134,6 +132,16 @@ public class Inimigo {
 		this.spe = spe;
 	}
 
+	
+	public class InimigoFases extends Inimigo{
+	public int jump;
+	
+	public InimigoFases(){
+		this.jump = 0;
+	}
+	public InimigoFases(int Jump){
+		this.jump= jump;
+	}
 	public int getJump() {
 		return jump;
 	}
@@ -141,7 +149,7 @@ public class Inimigo {
 	public void setJump(int jump) {
 		this.jump = jump;
 	}
-	
+	}
 	
 	public void criarLoot(){
 		Loot loot = new Loot(null);
