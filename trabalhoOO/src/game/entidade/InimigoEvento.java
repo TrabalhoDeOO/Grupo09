@@ -1,5 +1,6 @@
 package game.entidade;
 
+// Trabalhar a questão do ArrayList depois
 public class InimigoEvento extends Inimigo{
 	public int atk;
 	public int def;
