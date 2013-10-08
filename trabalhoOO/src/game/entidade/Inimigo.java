@@ -18,10 +18,6 @@ public class Inimigo {
 	public String nome;
 	public int lvl;
 	public String tipo;
-	public int atk;
-	public int def;
-	public int hp;
-	public int inte;
 	public int spe;
 	public Loot loot;
 	
@@ -29,13 +25,9 @@ public class Inimigo {
 	public Inimigo() {
 		// TODO Auto-generated constructor stub
 		this.nome = "sem nome";
-		this.lvl = 0;
 		this.tipo = "sem tipo";
-		this.atk =  (this.lvl*4);
-		this.def = (this.lvl*2);
-		this.hp = (this.atk/2+this.def*2);
-		this.inte   = (this.lvl*2);
 		this.spe = ((this.lvl*2)-hp/2);
+		
 		
 		Loot loot = new Loot(this);
 		this.loot = loot;
@@ -48,10 +40,6 @@ public class Inimigo {
 		this.nome = nomeInimigo;
 		this.lvl = lvlInimigo;
 		this.tipo = tipoInimigo;
-		this.atk =  (this.lvl*4);
-		this.def = (this.lvl*2);
-		this.hp = (this.atk/2+this.def*2);
-		this.inte   = (this.lvl*2);
 		this.spe = ((this.lvl*3)-hp/2);
 		Loot loot = new Loot(this);
 		this.loot = loot;
@@ -130,25 +118,6 @@ public class Inimigo {
 
 	public void setSpe(int spe) {
 		this.spe = spe;
-	}
-
-	
-	public class InimigoFases extends Inimigo{
-	public int jump;
-	
-	public InimigoFases(){
-		this.jump = 0;
-	}
-	public InimigoFases(int Jump){
-		this.jump= jump;
-	}
-	public int getJump() {
-		return jump;
-	}
-
-	public void setJump(int jump) {
-		this.jump = jump;
-	}
 	}
 	
 	public void criarLoot(){
