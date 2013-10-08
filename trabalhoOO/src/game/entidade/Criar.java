@@ -19,7 +19,7 @@ public class Criar {
 	
 	public int senha;
 	ArrayList<Dinheiro> conchas = new ArrayList <Dinheiro>();
-	ArrayList<Inimigo> monstro = new ArrayList <Inimigo>();
+	//ArrayList<Inimigo> monstro = new ArrayList <Inimigo>();
 	ArrayList<Item> itens = new ArrayList<Item>();
 	ArrayList<Loja> lojas = new ArrayList<Loja>();
 	ArrayList<NPC> npcs = new ArrayList<NPC>();
@@ -59,13 +59,13 @@ public class Criar {
 		this.conchas = conchas;
 	}
 	
-	public ArrayList<Inimigo> getMonstro(){
+	/*public ArrayList<Inimigo> getMonstro(){
 		return monstro;
 	}
 	
 	public void setMonstro(ArrayList<Inimigo> monstro){
 		this.monstro = monstro;
-	}
+	}*/
 	
 	public Player getPlayer(){
 		return player;
@@ -236,7 +236,7 @@ public class Criar {
 		
 	}
 	
-	public void CriarMonstro(int senhaAdm, int senha1 , Inimigo inimigo){
+	/*public void CriarMonstro(int senhaAdm, int senha1 , Inimigo inimigo){
 		
 		Adm adm = new Adm();
 		
@@ -266,7 +266,7 @@ public class Criar {
 				
 			}
 		
-	}
+	}*/
 		
 		public void criarPlayer(Player player){
 			

@@ -4,6 +4,7 @@ public class InimigoPlataforma extends Inimigo{
 public int jump;
 
 public InimigoPlataforma(){
+	super();
 	this.jump = 0;
 }
 public InimigoPlataforma(int jump){

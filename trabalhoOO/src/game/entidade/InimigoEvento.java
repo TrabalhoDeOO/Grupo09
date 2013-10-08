@@ -7,6 +7,7 @@ public class InimigoEvento extends Inimigo{
 	
 	
 	public InimigoEvento() {
+		super();
 		this.lvl = 0;
 		this.atk =  (this.lvl*4);
 		this.def = (this.lvl*2);

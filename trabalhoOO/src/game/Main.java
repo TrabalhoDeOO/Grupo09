@@ -147,7 +147,7 @@ public class Main {
 				Criar inimigo = new Criar(senha2);
 				
 			
-				do{
+			/*	do{
 					System.out.println("deseja criar um novo monstro?: 1/sim  2/nao");
 					x = scanIn.nextInt();
 					
@@ -222,7 +222,7 @@ public class Main {
 				
 				inimigo.listarInimigo();
 				
-			break;
+			break;*/
 			case 3:
 				//implementacao Item.
 				String nomeI;
