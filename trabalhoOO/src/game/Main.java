@@ -143,7 +143,7 @@ public class Main {
 				Item item1 = null;
 				
 				randomica.nextInt(50);
-				Inimigo monstro1 = new Inimigo();
+				
 				Criar inimigo = new Criar(senha2);
 				
 			
@@ -177,7 +177,7 @@ public class Main {
 							case 1:
 								tipoConcha = "grande";
 								Item item2 = new Item("espada", 1234, "+1 atk");
-								numeroGerado = randomica.nextInt(5) + 1;
+								numeroGerado = randomica.nextInt(50000) + 1;
 								item1 = item2;
 								
 								break;
@@ -191,7 +191,7 @@ public class Main {
 							case 3:
 								tipoConcha = "pequena";
 								Item item4 = new Item("potion", 1234, "+5 hp");
-								numeroGerado = randomica.nextInt(50000) + 1;
+								numeroGerado = randomica.nextInt(5) + 1;
 								item1 = item4;
 								
 								break;
@@ -212,16 +212,15 @@ public class Main {
 						loot.setInimigo(monstro);
 						monstro.getLoot().setConchas(dinheiros);
 						inimigo.CriarMonstro(adm.getSenha(), senha2, monstro);
-						monstro.listarInimigo(inimigo.getMonstro());
+						inimigo.listarInimigo();
 						loot.listarLoot();
 						conchas.clear();
-						monstro1 = monstro;
 						
 					}
 					
 				}while(x==1);
 				
-				monstro1.listarInimigo(inimigo.getMonstro());
+				inimigo.listarInimigo();
 				
 			break;
 			case 3:
@@ -332,9 +331,8 @@ public class Main {
                  int sexoN;
                  
                  Criar NPC = new Criar(senha2);
-                 NPC npc1= new NPC();
                  do{
-                         System.out.println("Deseja criar um novo npc? : 1/sim 2/nao");
+                         System.out.println("Deseja criar um novo npc? : 1/sim 2/n�o");
                          x=scanIn.nextInt();
                          if (x==1){
                                  
@@ -348,13 +346,12 @@ public class Main {
                                  nomeN= scanIn.next();
                                  
                                  NPC npc= new NPC(nomeN, funcaoN, sexoN);
-                                 npc1 = npc;
                                  NPC.criarNPC(adm.getSenha(), senha2, npc);
-                                 npc.listarNPC(NPC.getNPC());
+                                 NPC.listarNPC();
                          }
                  } while (x==1);
                  
-                 npc1.listarNPC(NPC.getNPC());
+                 NPC.listarNPC();
 			
 			break;
 			}
@@ -372,16 +369,16 @@ public class Main {
 			String sexoP;
 			
 			Criar jogador = new Criar();
-			Player player1 = new Player();
+			
 			
 			
 			do{
 			
 				System.out.println("Voce e homem ou mulher?");
 				sexoP = scanIn.next();
-				//player1.validaPlayer(sexoP);
+				jogador.validaPlayer(sexoP);
 				
-			}while(player1.validaPlayer(sexoP) == false);
+			}while(jogador.validaPlayer(sexoP) == false);
 			
 			int verificaNome = 2;
 			do{
