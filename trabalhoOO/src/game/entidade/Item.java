@@ -1,20 +1,28 @@
 package game.entidade;
 
+import java.util.ArrayList;
+
 public class Item {
+	public ArrayList<Item> item = new ArrayList<Item>();
 	public String nomeItem;
 	public int codItem;
-	public String bonus;
+	
 
 	public Item() {
 		this.nomeItem = "...";
 		this.codItem= 0;
-		this.bonus= "...";
+		
 	}
 	
-	public Item(String nomeItem, int codItem, String bonus){
+	public Item(String nomeItem, int codItem){
 		this.nomeItem= nomeItem;
 		this.codItem= codItem;
-		this.bonus= bonus;
+		
+	}
+	
+	@Override
+	public String toString(){
+		return String.format("--------\nNome Item: %s\nCodigo: %d\n--------\n", nomeItem, codItem);
 	}
 
 	public String getNomeItem() {
@@ -32,13 +40,18 @@ public class Item {
 	public void setCodItem(int codItem) {
 		this.codItem = codItem;
 	}
-
-	public String getBonus() {
-		return bonus;
+	
+	
+	public void adicionaItem(Item item1){
+		item.add(item1);
+		
 	}
 
-	public void setBonus(String bonus) {
-		this.bonus = bonus;
+	public void listarItens(){
+		for (int i=0;i<item.size(); i++){
+			System.out.println(item.get(i));
+		}			
 	}
+	
 		
 }

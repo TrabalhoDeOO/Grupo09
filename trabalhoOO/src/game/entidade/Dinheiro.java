@@ -48,7 +48,7 @@ public class Dinheiro {
 		this.quantidade = quantidade;
 	}
 	
-	 
+	
 
 }
 

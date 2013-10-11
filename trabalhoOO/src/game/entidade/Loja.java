@@ -7,6 +7,7 @@ public class Loja {
 	public String nomeLoja;
 	public String tipoLoja;
 	ArrayList<Item> itens = new ArrayList<Item>();
+	ArrayList<Loja> lojas = new ArrayList<Loja>();
 	
 	public Loja() {
 		
@@ -62,4 +63,16 @@ public class Loja {
 			System.out.println(itens.get(i).nomeItem+ " "+   "codItem: " +itens.get(i).codItem);
 		}
 	}
+	
+	public void adicionaLoja(Loja loja){
+		lojas.add(loja);
+	}
+	
+	public void listarloja(){
+		
+		for (int i=0;i<lojas.size(); i++){
+			System.out.println("A loja " + lojas.get(i).nomeLoja+ " vende: " +lojas.get(i).tipoLoja);
+		}			
+	}
+	
 }

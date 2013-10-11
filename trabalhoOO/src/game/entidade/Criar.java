@@ -98,7 +98,7 @@ public class Criar {
 		this.npcs = npcs;
 	}
 	
-	public void criarItem (int senhaAdm, int senha1, Item item){
+	public void criarItem (int senhaAdm, int senha1,String tipo, Item item){
 		Adm adm = new Adm();
 		adm.setSenha(senhaAdm);
 		this.senha = senha1;
@@ -113,11 +113,6 @@ public class Criar {
 		}
 	}
 	
-	public void listarItens(){
-		for (int i=0;i<itens.size(); i++){
-			System.out.println(itens.get(i).nomeItem+ " "+   "codItem: " +itens.get(i).codItem+ " " + itens.get(i).bonus);
-		}			
-	}
 	
 	public void criarLoja (int senhaAdm, int senha1, Loja loja){
 		Adm adm = new Adm();
@@ -134,12 +129,7 @@ public class Criar {
 		}
 	}
 	
-	public void listarloja(){
-		
-		for (int i=0;i<lojas.size(); i++){
-			System.out.println("A loja " + lojas.get(i).nomeLoja+ " vende: " +lojas.get(i).tipoLoja);
-		}			
-	}
+	
 	public void criarDinheiro(int senhaAdm, int senha1,Dinheiro dinheiro){
 		
 		int conchaP=conchaPq.getQuantidade(), conchaM=conchaMed.getQuantidade(), conchaG=conchaGr.getQuantidade();
@@ -202,25 +192,6 @@ public class Criar {
 			conchaMed.setQuantidade(conchaM);
 			conchaGr.setQuantidade(conchaG);
 			
-			//conchas.add(dinheiro);
-			
-				/*
-				for(int i = 1; i < conchas.size(); i++){	
-					for(int j=0;j<conchas.size();j++){
-						if(conchas.size()>1){
-							if(i!=j){
-						//for(int j=0;j<conchas.size();j++){
-							if(conchas.get(j).tipo.equalsIgnoreCase(conchas.get(i).tipo)){
-								
-									conchas.get(j).quantidade = conchas.get(j).quantidade + conchas.get(i).quantidade;
-									conchas.remove(i);
-								}
-							}
-						}
-				}
-			}
-			
-			*/
 		}
 		else{
 			
@@ -278,7 +249,7 @@ public class Criar {
 			
 			sexoP = player1.getSexo();
 			
-			boolean resultValid = this.validaPlayer(sexoP);
+			boolean resultValid = player1.validaPlayer(sexoP);
 			
 			if (resultValid == true){
 				player1 = player;
@@ -290,24 +261,6 @@ public class Criar {
 			
 		}
 		
-		public boolean validaPlayer(String sexo){
-			boolean validacao;
-			
-			String mulher = "mulher";
-			String homem = "homem";
-			
-			if(sexo.equalsIgnoreCase(mulher)){
-				validacao = true;
-			}else if(sexo.equalsIgnoreCase(homem)){
-				validacao = true;
-			}else{
-				System.out.println("Sexo Invalido!");
-				validacao = false;
-			}
-			
-			return validacao;
-		}
-			
 	public void CriarLoot(int senhaAdm, int senhaT, Loot loot){
 			
 			Adm adm = new Adm();
@@ -339,7 +292,7 @@ public class Criar {
 					npcs.add(npc);			
 				}
 				else{
-					System.out.println("Autoriza��o Negada!");
+					System.out.println("Autorizacao Negada!");
 				}
 			}
 			

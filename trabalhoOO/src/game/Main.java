@@ -7,6 +7,8 @@ package game;
  */
 
 import game.entidade.Adm;
+import game.entidade.Arma;
+import game.entidade.Consumivel;
 import game.entidade.Criar;
 import game.entidade.Dinheiro;
 import game.entidade.Inimigo;
@@ -15,6 +17,7 @@ import game.entidade.Player;
 import game.entidade.Item;
 import game.entidade.NPC;
 import game.entidade.Loja;
+import game.entidade.Vestimenta;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -227,14 +230,19 @@ public class Main {
 				//implementacao Item.
 				String nomeI;
 				int codI;
-				String bonusI;
-				
+				int bonusI;
+				String tipoI;
+				Item item11 = new Item();
 				
 				Criar itens = new Criar(senha2);
 				do{
 					System.out.println("Deseja criar um novo item?: 1/sim 2/não");
 					x=scanIn.nextInt();
 					if (x==1){
+						
+						
+						System.out.println("Qual o tipo do item?");
+						tipoI= scanIn.next();
 						
 						System.out.println("Qual o nome do item?");
 						nomeI= scanIn.next();
@@ -243,22 +251,33 @@ public class Main {
 						codI= scanIn.nextInt();
 						
 						System.out.println("Qual o bônus do item?");
-						bonusI= scanIn.next();
+						bonusI= scanIn.nextInt();
 						
-						Item item = new Item(nomeI, codI, bonusI);
-						itens.criarItem(adm.getSenha(), senha2, item);
-						itens.listarItens();
+						if(tipoI.equalsIgnoreCase("arma")){
+							Arma arma = new Arma(nomeI, codI, bonusI);
+							item11.adicionaItem(arma);
+						}else if(tipoI.equalsIgnoreCase("vestimenta")){
+							Vestimenta vestimenta = new Vestimenta(nomeI, codI, bonusI);
+							item11.adicionaItem(vestimenta);
+						}else if(tipoI.equalsIgnoreCase("consumivel")){
+							Consumivel consumivel = new Consumivel(nomeI, codI, bonusI);
+							item11.adicionaItem(consumivel);
+						}
+						
+						item11.listarItens();
 							
 					}
 				} while (x==1);
-				itens.listarItens();
+				item11.listarItens();
 			
 			break;
 			case 4:
 				//implementacao Loja.
 				String nomeL;
 				String tipoL;
-				
+				Loja loja1 = new Loja();
+				Item item2 = new Item();
+						
 				ArrayList<Item> itens1 = new ArrayList<Item>();
 				
 				Criar loja = new Criar(senha2);
@@ -291,19 +310,29 @@ public class Main {
 									codI= scanIn.nextInt();
 								
 									System.out.println("Qual o bônus do novo item ?");
-									bonusI= scanIn.next();
+									bonusI= scanIn.nextInt();
 								
-									
-										Item item = new Item(nomeI, codI, bonusI);
-										loja.criarItem(adm.getSenha(), senha2, item);
-										Loja loja1 = new Loja(nomeL,tipoL, itens1);
+										
+									if(tipoL.equalsIgnoreCase("arma")){
+										Arma arma = new Arma(nomeI, codI, bonusI);
+										item2.adicionaItem(arma);
+									}else if(tipoL.equalsIgnoreCase("vestimenta")){
+										Vestimenta vestimenta = new Vestimenta(nomeI, codI, bonusI);
+										item2.adicionaItem(vestimenta);
+									}else if(tipoL.equalsIgnoreCase("consumivel")){
+										Consumivel consumivel = new Consumivel(nomeI, codI, bonusI);
+										item2.adicionaItem(consumivel);
+									}
+										item2 = new Item(nomeI, codI);
+										loja.criarItem(adm.getSenha(), senha2, tipoL, item2);
+										loja1 = new Loja(nomeL,tipoL, itens1);
 										if(loja.getItem().size() == 1){
-											loja.criarLoja(adm.getSenha(), senha2, loja1);
+										loja.criarLoja(adm.getSenha(), senha2, loja1);
 										}
 									
 									
 									
-									loja.listarItens();
+									loja1.listarItens();
 									itens1 = loja.getItem();
 									
 									
@@ -314,12 +343,12 @@ public class Main {
 						
 						
 						
-						loja.listarloja();
-						loja.listarItens();
+						loja1.listarloja();
+						loja1.listarItens();
 						loja.getItem().clear();	
 					}
 				} while (x==1);
-				loja.listarloja();
+				loja1.listarloja();
 			
 				//System.out.println("Area em desenvolvimento");
 			break;
@@ -369,16 +398,16 @@ public class Main {
 			String sexoP;
 			
 			Criar jogador = new Criar();
-			
+			Player player = new Player();
 			
 			
 			do{
 			
 				System.out.println("Voce e homem ou mulher?");
 				sexoP = scanIn.next();
-				jogador.validaPlayer(sexoP);
+				player.validaPlayer(sexoP);
 				
-			}while(jogador.validaPlayer(sexoP) == false);
+			}while(player.validaPlayer(sexoP) == false);
 			
 			int verificaNome = 2;
 			do{
@@ -390,7 +419,7 @@ public class Main {
 			
 			}while(verificaNome == 2);
 			
-			Player player = new Player(nomeP, sexoP);
+			player = new Player(nomeP, sexoP);
 			jogador.criarPlayer(player);
 			
 			System.out.println(player.getNome() + " lvl: " + player.getLvl() + "  hp: " + player.getHp());
