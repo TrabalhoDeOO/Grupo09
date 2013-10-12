@@ -129,6 +129,12 @@ public class Criar {
 		}
 	}
 	
+	public void listarloja(){
+		
+		for (int i=0;i<lojas.size(); i++){
+			System.out.println("A loja " + lojas.get(i).nomeLoja+ " vende: " +lojas.get(i).tipoLoja);
+		}			
+	}
 	
 	public void criarDinheiro(int senhaAdm, int senha1,Dinheiro dinheiro){
 		
@@ -296,12 +302,6 @@ public class Criar {
 				}
 			}
 			
-			public void listarNPC(){
-				for (int i=0;i<npcs.size(); i++){
-					System.out.println(npcs.get(i).nome+ " "+ " " +npcs.get(i).funcao+ " "+npcs.get(i).sexo);
-				}			
-		
-			}
 		
 	}
 	

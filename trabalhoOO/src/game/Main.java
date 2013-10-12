@@ -224,8 +224,9 @@ public class Main {
 				}while(x==1);
 				
 				inimigo.listarInimigo();
-				
-			break;*/
+				*/
+				System.out.print("area em manutencao!\n");
+			break;
 			case 3:
 				//implementacao Item.
 				String nomeI;
@@ -272,13 +273,11 @@ public class Main {
 			
 			break;
 			case 4:
-				//implementacao Loja.
+				
 				String nomeL;
 				String tipoL;
-				Loja loja1 = new Loja();
-				Item item2 = new Item();
-						
-				ArrayList<Item> itens1 = new ArrayList<Item>();
+				Item item = new Item();
+				
 				
 				Criar loja = new Criar(senha2);
 				do{
@@ -293,64 +292,40 @@ public class Main {
 						System.out.println("Qual o tipo de itens que ela vende?");
 						tipoL= scanIn.next();
 						
-						while(a == 1){
-							if(loja.getItem().size()>2){
-								a = 2;
-							}else{
-								System.out.println("Deseja adicionar um novo item a loja?: 1/sim 2/não");
-								a=scanIn.nextInt();
+						do{
+							System.out.println("Deseja adicionar um item a loja?: 1/sim 2/não");
+							a=scanIn.nextInt();
+							if(a==1){
+								System.out.println("Qual o tipo do item?");
+								tipoI= scanIn.next();
 								
-	
-								 if(a==1){
-	
-									System.out.println("Qual o nome do novo item ?");
-									nomeI= scanIn.next();
+								System.out.println("Qual o nome do item?");
+								nomeI= scanIn.next();
 								
-									System.out.println("Qual o código do novo item ?");
-									codI= scanIn.nextInt();
+								System.out.println("Qual o código do item?");
+								codI= scanIn.nextInt();
 								
-									System.out.println("Qual o bônus do novo item ?");
-									bonusI= scanIn.nextInt();
+								System.out.println("Qual o bônus do item?");
+								bonusI= scanIn.nextInt();
 								
-										
-									if(tipoL.equalsIgnoreCase("arma")){
-										Arma arma = new Arma(nomeI, codI, bonusI);
-										item2.adicionaItem(arma);
-									}else if(tipoL.equalsIgnoreCase("vestimenta")){
-										Vestimenta vestimenta = new Vestimenta(nomeI, codI, bonusI);
-										item2.adicionaItem(vestimenta);
-									}else if(tipoL.equalsIgnoreCase("consumivel")){
-										Consumivel consumivel = new Consumivel(nomeI, codI, bonusI);
-										item2.adicionaItem(consumivel);
-									}
-										item2 = new Item(nomeI, codI);
-										loja.criarItem(adm.getSenha(), senha2, tipoL, item2);
-										loja1 = new Loja(nomeL,tipoL, itens1);
-										if(loja.getItem().size() == 1){
-										loja.criarLoja(adm.getSenha(), senha2, loja1);
-										}
-									
-									
-									
-									loja1.listarItens();
-									itens1 = loja.getItem();
-									
-									
+								if(tipoI.equalsIgnoreCase("arma")){
+									Arma arma = new Arma(nomeI, codI, bonusI);
+									item.adicionaItem(arma);
+								}else if(tipoI.equalsIgnoreCase("vestimenta")){
+									Vestimenta vestimenta = new Vestimenta(nomeI, codI, bonusI);
+									item.adicionaItem(vestimenta);
+								}else if(tipoI.equalsIgnoreCase("consumivel")){
+									Consumivel consumivel = new Consumivel(nomeI, codI, bonusI);
+									item.adicionaItem(consumivel);
 								}
-								 
+								
+								item.listarItens();
 							}
-						}
-						
-						
-						
-						loja1.listarloja();
-						loja1.listarItens();
-						loja.getItem().clear();	
+						}while (a==1);
 					}
-				} while (x==1);
-				loja1.listarloja();
-			
-				//System.out.println("Area em desenvolvimento");
+				}while(x==1);
+				
+				System.out.println("Area em manutencao");
 			break;
 			
 			case 5:
@@ -361,7 +336,7 @@ public class Main {
                  
                  Criar NPC = new Criar(senha2);
                  do{
-                         System.out.println("Deseja criar um novo npc? : 1/sim 2/n�o");
+                         System.out.println("Deseja criar um novo npc? : 1/sim 2/nao");
                          x=scanIn.nextInt();
                          if (x==1){
                                  
@@ -376,11 +351,11 @@ public class Main {
                                  
                                  NPC npc= new NPC(nomeN, funcaoN, sexoN);
                                  NPC.criarNPC(adm.getSenha(), senha2, npc);
-                                 NPC.listarNPC();
+                                 npc.listarNPC(NPC.getNPC());
                          }
                  } while (x==1);
                  
-                 NPC.listarNPC();
+                 
 			
 			break;
 			}
