@@ -276,10 +276,11 @@ public class Main {
 				
 				String nomeL;
 				String tipoL;
-				Item item = new Item();
+			
 				
 				
 				Criar loja = new Criar(senha2);
+				Loja loja1 = new Loja();
 				do{
 					int a = 1;
 					System.out.println("Deseja criar uma nova loja?: 1/sim 2/não");
@@ -292,12 +293,15 @@ public class Main {
 						System.out.println("Qual o tipo de itens que ela vende?");
 						tipoL= scanIn.next();
 						
+						loja1 = new Loja(nomeL, tipoL);
+						loja.criarLoja(adm.getSenha(), senha2, loja1);
+					
 						do{
 							System.out.println("Deseja adicionar um item a loja?: 1/sim 2/não");
 							a=scanIn.nextInt();
 							if(a==1){
-								System.out.println("Qual o tipo do item?");
-								tipoI= scanIn.next();
+								
+								
 								
 								System.out.println("Qual o nome do item?");
 								nomeI= scanIn.next();
@@ -308,24 +312,26 @@ public class Main {
 								System.out.println("Qual o bônus do item?");
 								bonusI= scanIn.nextInt();
 								
-								if(tipoI.equalsIgnoreCase("arma")){
+								if(tipoL.equalsIgnoreCase("arma")){
 									Arma arma = new Arma(nomeI, codI, bonusI);
-									item.adicionaItem(arma);
-								}else if(tipoI.equalsIgnoreCase("vestimenta")){
+									loja1.adicionaItem(arma);
+								}else if(tipoL.equalsIgnoreCase("vestimenta")){
 									Vestimenta vestimenta = new Vestimenta(nomeI, codI, bonusI);
-									item.adicionaItem(vestimenta);
-								}else if(tipoI.equalsIgnoreCase("consumivel")){
+									loja1.adicionaItem(vestimenta);
+								}else if(tipoL.equalsIgnoreCase("consumivel")){
 									Consumivel consumivel = new Consumivel(nomeI, codI, bonusI);
-									item.adicionaItem(consumivel);
+									loja1.adicionaItem(consumivel);
 								}
 								
-								item.listarItens();
+								loja1.listarItens();
 							}
 						}while (a==1);
+						
+						loja.listarloja();
 					}
 				}while(x==1);
 				
-				System.out.println("Area em manutencao");
+				
 			break;
 			
 			case 5:

@@ -132,7 +132,7 @@ public class Criar {
 	public void listarloja(){
 		
 		for (int i=0;i<lojas.size(); i++){
-			System.out.println("A loja " + lojas.get(i).nomeLoja+ " vende: " +lojas.get(i).tipoLoja);
+			System.out.println(lojas.get(i));
 		}			
 	}
 	

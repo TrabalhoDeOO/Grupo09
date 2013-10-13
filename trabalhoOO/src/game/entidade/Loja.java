@@ -24,6 +24,11 @@ public class Loja {
 	
 	}
 	
+	@Override
+	public String toString(){
+		return String.format("Nome Loja: %s\nTipo de Itens: %s\n", nomeLoja, tipoLoja);
+	}
+	
 	// gets and setters dos atributos da classe
 	public String getNomeLoja() {
 		return nomeLoja;
@@ -63,7 +68,7 @@ public class Loja {
 	
 	public void listarItens(){
 		for (int i=0;i<itens.size(); i++){
-			System.out.println(itens.get(i).nomeItem+ " "+   "codItem: " +itens.get(i).codItem);
+			System.out.println(itens.get(i));
 		}
 	}
 	
