@@ -18,4 +18,12 @@ public int getJump() {
 public void setJump(int jump) {
 	this.jump = jump;
 	}
+public int getAtk() {
+	return this.atk;
+}
+
+public void setAtk(int atk) {
+	this.atk = atk;
+}
+
 }

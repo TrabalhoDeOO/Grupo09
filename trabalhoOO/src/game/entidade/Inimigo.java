@@ -28,7 +28,7 @@ public class Inimigo {
 		this.nome = "sem nome";
 		this.tipo = "sem tipo";
 		this.spe = ((this.lvl*2)-hp/2);
-		
+		this.atk =0;
 		
 		Loot loot = new Loot(this);
 		this.loot = loot;
@@ -120,6 +120,5 @@ public class Inimigo {
 		}
 	
 	}
-	 
-
+	
 }
