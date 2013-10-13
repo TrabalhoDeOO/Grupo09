@@ -7,7 +7,8 @@ public InimigoPlataforma(){
 	super();
 	this.jump = 0;
 }
-public InimigoPlataforma(int jump){
+public InimigoPlataforma(int jump, String nomeInimigo, int lvlInimigo,	String tipoInimigo){
+	super(nomeInimigo,lvlInimigo,tipoInimigo);
 	this.jump= jump;
 }
 public int getJump() {
