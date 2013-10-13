@@ -12,6 +12,8 @@ import game.entidade.Consumivel;
 import game.entidade.Criar;
 import game.entidade.Dinheiro;
 import game.entidade.Inimigo;
+import game.entidade.InimigoEvento;
+import game.entidade.InimigoPlataforma;
 import game.entidade.Loot;
 import game.entidade.Player;
 import game.entidade.Item;

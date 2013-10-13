@@ -213,7 +213,7 @@ public class Criar {
 		
 	}
 	
-	/*public void CriarMonstro(int senhaAdm, int senha1 , Inimigo inimigo){
+	public void CriarMonstro(int senhaAdm, int senha1 , Inimigo inimigo){
 		
 		Adm adm = new Adm();
 		
@@ -239,11 +239,11 @@ public class Criar {
 		public void listarInimigo(){
 			for(int i = 0; i < monstro.size(); i++){
 				System.out.println(monstro.get(i).nome + " " +  monstro.get(i).tipo + " lvl " + monstro.get(i).lvl + " hp: " + monstro.get(i).hp + " atk: " + monstro.get(i).atk
-						+ " def: " + monstro.get(i).def + " int: " + monstro.get(i).inte  + " spe: " + monstro.get(i).spe);
+						+/** " def: " + monstro.get(i).def + **/ " spe: " + monstro.get(i).spe);
 				
 			}
 		
-	}*/
+	}
 		
 		public void criarPlayer(Player player){
 			
