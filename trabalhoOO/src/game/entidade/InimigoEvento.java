@@ -4,8 +4,7 @@ package game.entidade;
 public class InimigoEvento extends Inimigo{
 	public int atk;
 	public int def;
-	public int inte;
-	
+		
 	
 	public InimigoEvento() {
 		super();
@@ -13,15 +12,13 @@ public class InimigoEvento extends Inimigo{
 		this.atk =  (this.lvl*4);
 		this.def = (this.lvl*2);
 		this.hp = (this.atk/2+this.def*2);
-		this.inte   = (this.lvl*2);
-	}
+		}
 	
 	public InimigoEvento(int atk, int def){
 		this.atk =  (this.lvl*4);
 		this.def = (this.lvl*2);
 		this.hp = (this.atk/2+this.def*2);
-		this.inte   = (this.lvl*2);
-	}
+		}
 	
 	public int getAtk() {
 		return atk;
@@ -38,12 +35,4 @@ public class InimigoEvento extends Inimigo{
 	public void setDef(int def) {
 		this.def = def;
 	}
-	public int getInte() {
-		return inte;
-	}
-
-	public void setInte(int inte) {
-		this.inte = inte;
-	}
-
 }
