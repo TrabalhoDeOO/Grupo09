@@ -27,14 +27,14 @@ public class CriarTest {
 	@Test
 	public void testGetItem() {
 		
-		Item espada = new Item("Angra Mainyu",1113,"+80 atk");
-		Item escudo = new Item("Ahura Madza",1114,"+80 def");
-		Item cajado = new Item("Vareta",15,"+1 int");
+		Item espada = new Item("Angra Mainyu",1113);
+		Item escudo = new Item("Ahura Madza",1114);
+		Item cajado = new Item("Vareta",15);
 		Criar criar = new Criar(1234);
 		
-		criar.criarItem(1234, 1234, espada);
-		criar.criarItem(1234, 1234, escudo);
-		criar.criarItem(1234, 1234, cajado);
+		criar.criarItem(1234, 1234, "Armamento", espada);
+		criar.criarItem(1234, 1234, "Armamento", escudo);
+		criar.criarItem(1234, 1234, "Armamento", cajado);
 		
 		ArrayList<Item> itens = new ArrayList<Item>();
 		

@@ -1,7 +1,7 @@
 package game.entidade;
 
 import game.entidade.Loot;
-//import java.util.ArrayList;
+import java.util.ArrayList;
 /**
  * 
  */
@@ -21,14 +21,14 @@ public class Inimigo {
 	public int spe;
 	public Loot loot;
 	public int hp;
-	
+	public int atk;	
 	
 	public Inimigo() {
 		// TODO Auto-generated constructor stub
 		this.nome = "sem nome";
 		this.tipo = "sem tipo";
 		this.spe = ((this.lvl*2)-hp/2);
-		
+		this.atk =0;
 		
 		Loot loot = new Loot(this);
 		this.loot = loot;
@@ -96,22 +96,29 @@ public class Inimigo {
 	public void setSpe(int spe) {
 		this.spe = spe;
 	}
-	
+	public int getAtk() {
+		return atk;
+	}
+
+	public void setAtk(int atk) {
+		this.atk = atk;
+	}
+
 	public void criarLoot(){
 		Loot loot = new Loot(null);
 		setLoot(loot);
 	}
 	
-	/* Essa implementação deverá ser melhorada e melhor estudada em cada uma das subclasses 
+	
 	 public void listarInimigo(ArrayList<Inimigo> monstro){
-	 
+	
+		 // consultar a professora sobre como referenciar o atributo defesa, fruto de uma sub classe
 		for(int i = 0; i < monstro.size(); i++){
 			System.out.println(monstro.get(i).nome + " " +  monstro.get(i).tipo + " lvl " + monstro.get(i).lvl + " hp: " + monstro.get(i).hp + " atk: " + monstro.get(i).atk
-					+ " def: " + monstro.get(i).def + " int: " + monstro.get(i).inte  + " spe: " + monstro.get(i).spe);
+					+/** " def: " + monstro.get(i).def + **/" spe: " + monstro.get(i).spe);
 			
 		}
 	
-	}*/
-	 
-
+	}
+	
 }
