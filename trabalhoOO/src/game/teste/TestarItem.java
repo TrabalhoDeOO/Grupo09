@@ -29,6 +29,7 @@ public class TestarItem {
 	public void testGetCodItem() {
 		Item item = new Item("Poção", 001,"+20 HP");
 		assertEquals(item.getCodItem(), 001);
+		
 	}
 
 }

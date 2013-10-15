@@ -29,6 +29,7 @@ public class AdmTeste {
 	public void testGetLogin() {
 		Adm adm= new Adm(1234, "admteste");
 		assertEquals(adm.getLogin(), "admteste");
+		
 	}
 
 
