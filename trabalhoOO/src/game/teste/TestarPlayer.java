@@ -20,7 +20,7 @@ public class TestarPlayer {
 
 	@Test
 	public void testGetSexo() {
-		Player player= new Player("Jõao", "homem");
+		Player player= new Player("Jõao", "homem", 1);
 		assertEquals(player.getSexo(), "homem");
 	}
 }

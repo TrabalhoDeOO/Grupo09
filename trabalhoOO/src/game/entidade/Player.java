@@ -1,11 +1,13 @@
 package game.entidade;
+import java.util.ArrayList;
 
 
 public class Player {
 	
 	public String nome;
 	public String sexo;
-	public int lvl = 1;
+	public ArrayList<Item> mochila = new ArrayList<Item>();
+	public int lvl;
 	public int atk = (lvl*5);
 	public int def = (lvl*2);
 	public int hp = (atk/2+def*2);
@@ -20,7 +22,7 @@ public class Player {
 		this.sexo = "nao informado";
 		this.lvl = 0;
 		this.atk =  (this.lvl*4);
-		this.def = (this.lvl*2);
+		this.def = (this.lvl*4);
 		this.hp = (this.atk/2+this.def*2);
 		this.inte   = (this.lvl*2);
 		this.speed = ((this.lvl*2)-hp/2);
@@ -29,11 +31,11 @@ public class Player {
 		
 	}
 	
-	public Player(String nomeP, String sexoP){
+	public Player(String nomeP, String sexoP, int lvlP){
 		
 		this.nome = nomeP;
 		this.sexo = sexoP;
-		this.lvl = 1;
+		this.lvl = lvlP;
 		this.atk =  (this.lvl*4);
 		this.def = (this.lvl*2);
 		this.hp = (this.atk/2+this.def*2);
@@ -124,6 +126,15 @@ public class Player {
 		this.xp = xp;
 	}
 	
+	
+	public ArrayList<Item> getMochila() {
+		return mochila;
+	}
+
+	public void setMochila(ArrayList<Item> mochila) {
+		this.mochila = mochila;
+	}
+
 	public boolean validaPlayer(String sexo){
 		boolean validacao;
 		
@@ -140,6 +151,17 @@ public class Player {
 		}
 		
 		return validacao;
+	}
+	
+	public void adicionaItem(Item item){
+		
+		if (mochila.size()>3){
+			System.out.println("mochila cheia");
+		}else{
+			mochila.add(item);
+			
+		}
+		
 	}
 	 
 

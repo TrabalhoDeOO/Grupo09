@@ -13,7 +13,7 @@ public class InimigoEvento extends Inimigo{
 		this.hp = (this.atk/2+this.def*2);
 		}
 	
-	public InimigoEvento(int atk, int def,String nomeInimigo, int lvlInimigo,	String tipoInimigo){
+	public InimigoEvento(String nomeInimigo, int lvlInimigo,	String tipoInimigo){
 		super(nomeInimigo,lvlInimigo,tipoInimigo);
 		this.atk =  (this.lvl*4);
 		this.def = (this.lvl*2);

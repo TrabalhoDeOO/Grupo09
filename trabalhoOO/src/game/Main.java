@@ -8,6 +8,7 @@ package game;
 
 import game.entidade.Adm;
 import game.entidade.Arma;
+import game.entidade.BatalhaTurno;
 import game.entidade.Consumivel;
 import game.entidade.Criar;
 import game.entidade.Dinheiro;
@@ -244,7 +245,7 @@ public class Main {
 					if (x==1){
 						
 						
-						System.out.println("Qual o tipo do item?");
+						System.out.println("Qual o tipo do item?(arma/vertimenta/consumivel)");
 						tipoI= scanIn.next();
 						
 						System.out.println("Qual o nome do item?");
@@ -402,11 +403,17 @@ public class Main {
 			
 			}while(verificaNome == 2);
 			
-			player = new Player(nomeP, sexoP);
+			player = new Player(nomeP, sexoP, 1);
 			jogador.criarPlayer(player);
 			
 			System.out.println(player.getNome() + " lvl: " + player.getLvl() + "  hp: " + player.getHp());
 			
+			
+			InimigoEvento inimigo1 = new InimigoEvento("jav", 12, "javali");
+			
+			BatalhaTurno batalha1 = new BatalhaTurno();
+			
+			batalha1.batalha(player, inimigo1);
 		}
 		
 		scanIn.close();
