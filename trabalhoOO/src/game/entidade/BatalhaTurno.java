@@ -41,7 +41,7 @@ public class BatalhaTurno {
 	}
 	
 	
-	public void batalha(Player player, InimigoEvento inimigo){
+	public int batalha(Player player, InimigoEvento inimigo){
 		
 		Player player1 = new Player(player.getNome(), player.getSexo(), 10);
 		InimigoEvento inimigo1 = new InimigoEvento();
@@ -97,6 +97,7 @@ public class BatalhaTurno {
 					if(hpI<0){
 						hpI=0;
 					}
+					
 					System.out.println("hp inimigo : -" + dano);
 				}else if(y==1){
 					dano = atkP - (escudoI/2);
@@ -104,6 +105,7 @@ public class BatalhaTurno {
 					if(hpI<0){
 						hpI=0;
 					}
+					
 					System.out.println("hp inimigo : -" + dano);
 				}else if(y == 2){
 					dano = atkP - (escudoI/2);
@@ -111,6 +113,7 @@ public class BatalhaTurno {
 					if(hpI<0){
 						hpI=0;
 					}
+					
 					System.out.println("hp inimigo : -" + dano);
 				}else if(y==3){
 					dano = atkP - escudoI;
@@ -121,8 +124,17 @@ public class BatalhaTurno {
 					if(hpI<0){
 						hpI=0;
 					}
+					
 					System.out.println("hp inimigo : -" + dano);
 				}
+				
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
 				System.out.println(player.getNome() +" - hp: "+ hpP +" dano: " + atkP + " escudo: " + escudoP);
 				System.out.println(inimigo.getTipo() +" - hp: "+ hpI +" dano: " + atkI + " escudo: " + escudoI);
 				break;
@@ -138,12 +150,27 @@ public class BatalhaTurno {
 					e.printStackTrace();
 				}
 				
-					escudoI = escudoI - atkP/2;
+				if(y==1){
+					escudoI = escudoI - (atkP/2);
+					System.out.println("dano escudo inimigo : -" + atkP/2);
+				}else if(y==2){
+					escudoI = escudoI - (atkP/2);
+					System.out.println("dano escudo inimigo : -" + atkP/2);
+				}else if (y==3){
+					escudoI = escudoI -(atkP/4);
+					System.out.println("dano escudo inimigo : -" + atkP/4);
+				}
 				if (escudoI < 0){
 					escudoI = 0;
 				}
 				
-				System.out.println("dano escudo inimigo : -" + atkP/2);
+				
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				System.out.println(player.getNome() +" - hp: "+ hpP +" dano: " + atkP + " escudo: " + escudoP);
 				System.out.println(inimigo.getTipo() +" - hp: "+ hpI +" dano: " + atkI + " escudo: " + escudoI);
 				break;
@@ -152,6 +179,12 @@ public class BatalhaTurno {
 				
 				if (y==1){
 					System.out.println("DANO OBSORVIDO");
+				}
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
 				}
 				System.out.println(player.getNome() +" - hp: "+ hpP +" dano: " + atkP + " escudo: " + escudoP);
 				System.out.println(inimigo.getTipo() +" - hp: "+ hpI +" dano: " + atkI + " escudo: " + escudoI);
@@ -162,7 +195,12 @@ public class BatalhaTurno {
 			
 			if (hpI <= 0){
 				
-				
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				resultB = 2;
 				System.out.println("inimigo abatido");
 				break;
@@ -257,15 +295,22 @@ public class BatalhaTurno {
 				}
 				
 				System.out.println("ataca escudo");
-				
-				escudoP = escudoP - (atkI/2);
-			
+				if(x==1){
+					escudoP = escudoP - (atkI/2);
+					System.out.println("dano escudo PLAYER : -" + atkI/2);
+				}else if(x==2){
+					escudoP = escudoP - (atkI/2);
+					System.out.println("dano escudo PLAYER : -" + atkI/2);
+				}else{
+					escudoP = escudoP -(atkI/4);
+					System.out.println("dano escudo PLAYER : -" + atkI/4);
+				}
 				if (escudoP<0){
 					escudoP = 0;
 				}
 				
 				
-				System.out.println("dano escudo PLAYER : -" + atkI/2);
+				
 				
 				try {
 					Thread.sleep(1000);
@@ -311,7 +356,7 @@ public class BatalhaTurno {
 			
 			if (hpP <= 0){
 				
-				resultB = 2;
+				resultB = 3;
 				System.out.println("GAME OVER!");
 				
 			}
@@ -321,6 +366,7 @@ public class BatalhaTurno {
 		
 		scanIn.close();
 		
+		return resultB;
 	}
 	
 	

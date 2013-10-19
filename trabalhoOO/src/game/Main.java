@@ -437,7 +437,11 @@ public class Main {
 			
 			BatalhaTurno batalha1 = new BatalhaTurno();
 			
-			batalha1.batalha(player, inimigo1);
+			
+				batalha1.batalha(player, inimigo1);
+				
+					
+			
 		}
 		
 		scanIn.close();
