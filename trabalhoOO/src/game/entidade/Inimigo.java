@@ -20,10 +20,13 @@ public abstract class Inimigo {
 	public Loot loot;
 	public int hp;
 	public int atk;	
+	public int def;
 	
 	public Inimigo() {
 	}
-		
+	
+	public abstract int getDef();
+
 	public abstract Loot getLoot();
 		
 	public abstract String getNome();

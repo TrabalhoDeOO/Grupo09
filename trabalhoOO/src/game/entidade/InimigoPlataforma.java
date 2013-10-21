@@ -8,7 +8,7 @@ public InimigoPlataforma(){
 	this.jump = 0;
 }
 public InimigoPlataforma(int jump, String nomeInimigo, int lvlInimigo,	String tipoInimigo){
-	super(nomeInimigo,lvlInimigo,tipoInimigo);
+	super();
 	this.jump= jump;
 }
 public int getJump() {
@@ -25,5 +25,47 @@ public int getAtk() {
 public void setAtk(int atk) {
 	this.atk = atk;
 }
+
+public int getDef() {
+	return def;
+}
+
+public void setDef(int def) {
+	this.def = def;
+}
+public Loot getLoot(){
+	return loot;
+}
+
+public void setLoot(Loot loot){
+	this.loot = loot;
+}
+
+public String getNome(){
+	return nome;
+}
+
+public void setNome(String nome){
+	
+	this.nome = nome;
+	
+}
+
+public int getLvl(){
+	return lvl;
+}
+
+public void setLvl(int lvl){
+	this.lvl = lvl;
+}
+
+public String getTipo(){
+	return tipo;
+}
+
+public void setTipo(String tipo){
+	this.tipo = tipo;
+}
+
 
 }
