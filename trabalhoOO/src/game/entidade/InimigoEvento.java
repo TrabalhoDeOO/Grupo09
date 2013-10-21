@@ -24,11 +24,12 @@ public class InimigoEvento extends Inimigo{
 		}
 	//, int atkI, int defI, int hpI
 	public InimigoEvento(String nomeInimigo, int lvlInimigo, String tipoInimigo){
+		this.lvl = lvlInimigo;
 		this.atk =   (this.lvl*4);
 		this.def = (this.lvl*2);
 		this.hp = (this.atk/2+this.def*2);
 		this.nome = nomeInimigo;
-		this.lvl = lvlInimigo;
+		
 		this.tipo = tipoInimigo;
 		this.spe = ((this.lvl*3)-hp/2);
 		Loot loot = new Loot(this);
