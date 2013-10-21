@@ -1,16 +1,20 @@
 package game.entidade;
 
+import java.util.ArrayList;
+
 public class InimigoPlataforma extends Inimigo{
-public int jump;
+	public int jump;
+	ArrayList<InimigoPlataforma> monstro = new ArrayList <InimigoPlataforma>();
 
 public InimigoPlataforma(){
 	super();
 	this.jump = 0;
-}
+	}
+
 public InimigoPlataforma(int jump, String nomeInimigo, int lvlInimigo,	String tipoInimigo){
 	super();
 	this.jump= jump;
-}
+	}
 public int getJump() {
 	return jump;
 }
@@ -67,5 +71,14 @@ public void setTipo(String tipo){
 	this.tipo = tipo;
 }
 
+public void criarLoot(){
+	Loot loot = new Loot(null);
+	setLoot(loot);
+	
+	for(int i = 0; i < monstro.size(); i++){
+		System.out.println(monstro.get(i).nome + " " +  monstro.get(i).tipo + " hp: " + monstro.get(i).hp + " atk: " + monstro.get(i).atk
+				+ " jump: " + monstro.get(i).jump);
+	}
+}
 
 }
