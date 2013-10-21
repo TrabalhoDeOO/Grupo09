@@ -27,7 +27,7 @@ public class Criar {
 	Dinheiro conchaGr = new Dinheiro("grande", 0);
 	Dinheiro conchaMed = new Dinheiro("media", 0);
 	
-	
+	private final static int MAX_CONCHA = 100;
 	
 	
 	Player player;
@@ -160,35 +160,35 @@ public class Criar {
 				
 			}else	if (dinheiroNovo.getTipo().equalsIgnoreCase("media")){
 				do{
-					if(conchaM < 100){
+					if(conchaM < MAX_CONCHA){
 						conchaM += dinheiroNovo.getQuantidade();
 					}else {
-						conchaM = conchaM - 100;
+						conchaM = conchaM - MAX_CONCHA;
 						conchaG+=1;
 					}
 					
-				}while(conchaM >= 100);
+				}while(conchaM >= MAX_CONCHA);
 				
 				
 			}else	if (dinheiroNovo.getTipo().equalsIgnoreCase("pequena")){
 				
 			do{
 				
-				if(conchaP<100){
+				if(conchaP<MAX_CONCHA){
 					conchaP+=dinheiroNovo.getQuantidade();
 				}else{
-					conchaP-=100;
+					conchaP-=MAX_CONCHA;
 					conchaM+=1;
 				}
 				do{
-					if(conchaM >= 100){
+					if(conchaM >= MAX_CONCHA){
 						
-						conchaM = conchaM - 100;
+						conchaM = conchaM - MAX_CONCHA;
 						conchaG+=1;
 					}
 					
-				}while(conchaM >= 100);
-			}while(conchaP >= 100);
+				}while(conchaM >= MAX_CONCHA);
+			}while(conchaP >= MAX_CONCHA);
 			
 			}else{
 				System.out.println("Tamanho invalido");

@@ -364,7 +364,7 @@ public class BatalhaTurno {
 		}while(resultB == 1);
 			
 		
-		scanIn.close();
+		//scanIn.close();
 		
 		return resultB;
 	}

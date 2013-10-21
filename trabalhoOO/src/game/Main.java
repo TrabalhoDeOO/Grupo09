@@ -406,41 +406,41 @@ public class Main {
 			
 			player = new Player(nomeP, sexoP, 1);
 			jogador.criarPlayer(player);
-			
-			System.out.println(player.getNome() + " lvl: " + player.getLvl() + "  hp: " + player.getHp() + " atk:  " + player.getAtk() + " def: " + player.getDef());
-			
-			int numeroGerado3 = randomica.nextInt(5) + 1;
-			
-			InimigoEvento inimigo1 = new InimigoEvento();
-			switch(numeroGerado3){
-			case 1:
-				//, 30 , 25, 65
-				inimigo1 = new InimigoEvento("jav", 11, "javali");
-				break;
-			case 2:
-				inimigo1 = new InimigoEvento("veloc", 11, "velociraptor");
-				break;
-			case 3:
-				inimigo1 = new InimigoEvento("many", 12, "mamute");
-				break;
-			case 4:
-				inimigo1 = new InimigoEvento("esquilo", 9, "esquilo gigante pre-historico");
-				break;
-			case 5:
-				inimigo1 = new InimigoEvento("ptero", 12, "pterodactil");
-				break;
-			case 6:
-				inimigo1 = new InimigoEvento("diego", 13, "tigre-dente-de-sabre");
-				break;
-			}
-			
-			
-			BatalhaTurno batalha1 = new BatalhaTurno();
-			
-			
+			for (int i = 0; i < 5; i++) {
+				System.out.println("\n\n"+player.getNome() + " lvl: " + player.getLvl() + "  hp: " + player.getHp() + " atk:  " + player.getAtk() + " def: " + player.getDef());
+
+				int numeroGerado3 = randomica.nextInt(5) + 1;
+
+				InimigoEvento inimigo1 = new InimigoEvento();
+				switch(numeroGerado3){
+				case 1:
+					//, 30 , 25, 65
+					inimigo1 = new InimigoEvento("jav", 11, "javali");
+					break;
+				case 2:
+					inimigo1 = new InimigoEvento("veloc", 11, "velociraptor");
+					break;
+				case 3:
+					inimigo1 = new InimigoEvento("many", 12, "mamute");
+					break;
+				case 4:
+					inimigo1 = new InimigoEvento("esquilo", 9, "esquilo gigante pre-historico");
+					break;
+				case 5:
+					inimigo1 = new InimigoEvento("ptero", 12, "pterodactil");
+					break;
+				case 6:
+					inimigo1 = new InimigoEvento("diego", 13, "tigre-dente-de-sabre");
+					break;
+				}
+
+
+
+				BatalhaTurno batalha1 = new BatalhaTurno();
 				batalha1.batalha(player, inimigo1);
-				
-					
+			}
+
+
 			
 		}
 		
