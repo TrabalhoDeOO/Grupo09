@@ -30,7 +30,4 @@ public abstract class Inimigo {
 	public abstract Loot getLoot();
 		
 	public abstract String getNome();
-		
-	public abstract void setLvl(int lvl);
-		
-	}
+}
