@@ -52,7 +52,7 @@ public class BatalhaTurno {
 		int atkI, defI, hpI, escudoI;
 		int dano;
 		int resultB = 1;
-		boolean resultado; 
+		 
 		
 		
 		inimigo1 = inimigo;
@@ -149,7 +149,10 @@ public class BatalhaTurno {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				
+				if(y==0){
+					escudoI = escudoI - (atkP/2);
+					System.out.println("dano escudo inimigo : -" + atkP/2);
+				}else
 				if(y==1){
 					escudoI = escudoI - (atkP/2);
 					System.out.println("dano escudo inimigo : -" + atkP/2);
@@ -201,6 +204,7 @@ public class BatalhaTurno {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
+				this.resultado = true;
 				resultB = 2;
 				System.out.println("inimigo abatido");
 				break;
@@ -355,7 +359,13 @@ public class BatalhaTurno {
 			
 			
 			if (hpP <= 0){
-				
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				this.resultado = false;
 				resultB = 3;
 				System.out.println("GAME OVER!");
 				

@@ -406,8 +406,11 @@ public class Main {
 			
 			player = new Player(nomeP, sexoP, 1);
 			jogador.criarPlayer(player);
-			for (int i = 0; i < 5; i++) {
-				System.out.println("\n\n"+player.getNome() + " lvl: " + player.getLvl() + "  hp: " + player.getHp() + " atk:  " + player.getAtk() + " def: " + player.getDef());
+			
+			System.out.println("\n\n"+player.getNome() + " lvl: " + player.getLvl() + "  hp: " + player.getHp() + " atk:  " + player.getAtk() + " def: " + player.getDef());
+			
+			for (int i = 1; i > 0; i++) {
+				
 
 				int numeroGerado3 = randomica.nextInt(5) + 1;
 
@@ -438,6 +441,11 @@ public class Main {
 
 				BatalhaTurno batalha1 = new BatalhaTurno();
 				batalha1.batalha(player, inimigo1);
+				
+				
+				if (batalha1.isResultado() == false){
+					break;
+				}
 			}
 
 
