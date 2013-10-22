@@ -81,4 +81,10 @@ public void criarLoot(){
 	}
 }
 
+@Override
+public int getHp() {
+	// TODO Auto-generated method stub
+	return 0;
+}
+
 }
