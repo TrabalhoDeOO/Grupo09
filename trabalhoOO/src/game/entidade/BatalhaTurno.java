@@ -81,11 +81,16 @@ public class BatalhaTurno {
 		if(speedP>speedI){
 			do{
 				int numeroGerado;
+				
+				//verificao para evitar que inimigo fique atacando o escudo do player depois que chegar a 0
+				
 				if (escudoP==0){
 					numeroGerado = randomica.nextInt(6) + 1;
 				}else{
 					numeroGerado = randomica.nextInt(9) + 1;
 				}
+				
+				//ação player
 				
 				System.out.println("voce : 1/ataca 2/ ataca escudo 3/defende:");
 				x = scanIn.nextInt();
@@ -224,7 +229,7 @@ public class BatalhaTurno {
 				}
 				
 				
-				
+				//ação inimigo.
 				
 				switch(numeroGerado){
 				case 1:
@@ -372,7 +377,9 @@ public class BatalhaTurno {
 					
 				}
 				
-				
+				if(hpP < player1.getHp()/4){
+					System.out.println("ATENÇÃO:  HP BAIXO");
+				}
 				
 				if (hpP <= 0){
 					try {
@@ -389,6 +396,15 @@ public class BatalhaTurno {
 				
 			}while(resultB == 1);
 			
+			
+			
+			
+			
+			
+			
+			
+			
+			
 		}else{
 			do{
 				int numeroGerado;
@@ -399,6 +415,8 @@ public class BatalhaTurno {
 				}
 				
 				
+				
+				//ação inimigo.
 				
 				switch(numeroGerado){
 				case 1:
@@ -570,6 +588,13 @@ public class BatalhaTurno {
 					System.out.println("GAME OVER!");
 					
 				}
+				
+				if(hpP < player1.getHp()/4){
+					System.out.println("ATENÇÃO:  HP BAIXO");
+				}
+				
+				
+				//ação player
 				
 				System.out.println("voce : 1/ataca 2/ ataca escudo 3/defende:");
 				x = scanIn.nextInt();
