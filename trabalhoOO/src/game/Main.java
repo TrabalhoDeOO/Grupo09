@@ -412,7 +412,7 @@ public class Main {
 			for (int i = 1; i > 0; i++) {
 				
 
-				int numeroGerado3 = randomica.nextInt(5) + 1;
+				int numeroGerado3 = randomica.nextInt(6) + 1;
 
 				InimigoEvento inimigo1 = new InimigoEvento();
 				switch(numeroGerado3){

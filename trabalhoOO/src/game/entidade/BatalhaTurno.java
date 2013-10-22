@@ -73,7 +73,13 @@ public class BatalhaTurno {
 		System.out.println("Voce encontrou um " + inimigo1.getTipo() + " lvl: " + inimigo1.getLvl());
 		
 		do{
-			int numeroGerado = randomica.nextInt(9) + 1;
+			int numeroGerado;
+			if (escudoP==0){
+				numeroGerado = randomica.nextInt(6) + 1;
+			}else{
+				numeroGerado = randomica.nextInt(9) + 1;
+			}
+			
 			System.out.println("voce : 1/ataca 2/ ataca escudo 3/defende:");
 			x = scanIn.nextInt();
 			
