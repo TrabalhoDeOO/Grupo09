@@ -31,7 +31,7 @@ public class InimigoEvento extends Inimigo{
 		this.nome = nomeInimigo;
 		
 		this.tipo = tipoInimigo;
-		this.spe = ((this.lvl*3)-hp/2);
+		this.spe = ((this.lvl*3)-this.hp/4);
 		Loot loot = new Loot(this);
 		this.loot = loot;
 		}

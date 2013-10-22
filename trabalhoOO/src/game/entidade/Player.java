@@ -40,7 +40,7 @@ public class Player {
 		this.def = (this.lvl*2);
 		this.hp = (this.atk/2+this.def*2);
 		this.inte   = (this.lvl*2);
-		this.speed = ((this.lvl*2)-hp/2);
+		this.speed = ((this.lvl*2)-this.hp/4);
 		this.jump = 20;
 		this.xp = 0;
 		

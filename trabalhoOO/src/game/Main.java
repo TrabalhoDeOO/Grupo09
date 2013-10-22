@@ -407,7 +407,7 @@ public class Main {
 			player = new Player(nomeP, sexoP, 1);
 			jogador.criarPlayer(player);
 			
-			System.out.println("\n\n"+player.getNome() + " lvl: " + player.getLvl() + "  hp: " + player.getHp() + " atk:  " + player.getAtk() + " def: " + player.getDef());
+			System.out.println("\n\n"+player.getNome() + " lvl: " + player.getLvl() + "  hp: " + player.getHp() + " atk:  " + player.getAtk() + " def: " + player.getDef() + " speed:" + player.getSpeed());
 			
 			for (int i = 1; i > 0; i++) {
 				
