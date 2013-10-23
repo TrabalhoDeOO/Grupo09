@@ -413,27 +413,101 @@ public class Main {
 				
 
 				int numeroGerado3 = randomica.nextInt(6) + 1;
+				int senha1 = 1234;
+				int senh2 = 1234;
 
 				InimigoEvento inimigo1 = new InimigoEvento();
+				Criar batalha = new Criar();
+				
+				Arma lootI;
+				Dinheiro lootD;
+				
+				System.out.println("VERSAO DEMO: nessa versao demo voce tem a opcao de batalhar com 5 tipode diferentes\n" +
+									"de inimigos escolhidos aleatoriamente e o drop desses inimigos é meramente ilustrativo\n" +
+									"nao ira afetar em nada seu personagem (os bonus do item encontrado nao serao adicionados\n" +
+									"ao seus atributos) \n\n" +
+									"TUTORIAL: nesse demo sao apresentados 3 atributos na tela o seu HP que representa seus pontos de vida\n" +
+									"o ATAQUE que representa seu dano maximo e o ESCUDO que representa o dano maximo que voce consegue absolver\n" +
+									"voce vai ter 3 opcoes a primeira é atacar diretamente o adiversario se ele nao estiver defendendo seu dano \n" +
+									"sera igual ao seu ATK menos metade do ESCUDO do inimigo, mas se ele estiver defendendo sera seu ATK menos o ESCUDO\n" +
+									" voce pode atacar o escudo do adiversario, fazendo isso voce ira diminuir o escudo dele, se ele nao estiver defendendo\n" +
+									"seu dano no escudo sera igual a metade do seu ataque  mas se ele estiver defendendo sera um quarto do seu ataque\n" +
+									"e voce pode defender o proximo ataque do inimigo. E para decidir quem ira comecar atacando levamos em conta a speed\n" +
+									"dos 2 acrecida de um numero randomico\n" +
+									"Bom Jogo!!!\n");
+				
+				try {
+					Thread.sleep(10000);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				Loot loot2;
 				switch(numeroGerado3){
 				case 1:
 					//, 30 , 25, 65
 					inimigo1 = new InimigoEvento("jav", 11, "javali");
+					lootI = new Arma("dente de javali", 0001, 2);
+					lootD = new Dinheiro("pequena", 50);
+					batalha.criarDinheiro(senha1, senha1, lootD);
+					batalha.criarItem(senha1, senha1, "arma", lootI);
+					loot2 = new Loot(lootD, lootI);
+					loot2.setInimigo(inimigo1);
+					
+					inimigo1.setLoot(loot2);
 					break;
 				case 2:
 					inimigo1 = new InimigoEvento("veloc", 11, "velociraptor");
+					lootI = new Arma("garra de veloc", 0002, 2);
+					lootD = new Dinheiro("pequena", 50);
+					batalha.criarDinheiro(senha1, senha1, lootD);
+					batalha.criarItem(senha1, senha1, "arma", lootI);
+					loot2 = new Loot(lootD, lootI);
+					loot2.setInimigo(inimigo1);
+					inimigo1.setLoot(loot2);
 					break;
 				case 3:
 					inimigo1 = new InimigoEvento("many", 12, "mamute");
+					lootI = new Arma("presa de mamute", 0003, 3);
+					lootD = new Dinheiro("media", 20);
+					batalha.criarDinheiro(senha1, senha1, lootD);
+					batalha.criarItem(senha1, senha1, "arma", lootI);
+					loot2 = new Loot(lootD, lootI);
+					loot2.setInimigo(inimigo1);
+					loot2.setInimigo(inimigo1);
+					inimigo1.criarLoot(loot2);
 					break;
 				case 4:
 					inimigo1 = new InimigoEvento("esquilo", 9, "esquilo gigante pre-historico");
+					lootI = new Arma("noz gigante", 0004, 1);
+					lootD = new Dinheiro("pequena", 20);
+					batalha.criarDinheiro(senha1, senha1, lootD);
+					batalha.criarItem(senha1, senha1, "arma", lootI);
+					loot2 = new Loot(lootD, lootI);
+					loot2.setInimigo(inimigo1);
+					inimigo1.setLoot(loot2);
 					break;
 				case 5:
 					inimigo1 = new InimigoEvento("ptero", 12, "pterodactil");
+					lootI = new Arma("bico de ptero", 0005, 3);
+					lootD = new Dinheiro("media", 20);
+					batalha.criarDinheiro(senha1, senha1, lootD);
+					batalha.criarItem(senha1, senha1, "arma", lootI);
+					loot2 = new Loot(lootD, lootI);
+					loot2.setInimigo(inimigo1);
+					inimigo1.setLoot(loot2);
+					
 					break;
 				case 6:
 					inimigo1 = new InimigoEvento("diego", 13, "tigre-dente-de-sabre");
+					lootI = new Arma("dente de sabre", 0006, 5);
+					lootD = new Dinheiro("pequena", 50);
+					batalha.criarDinheiro(senha1, senha1, lootD);
+					batalha.criarItem(senha1, senha1, "arma", lootI);
+					loot2 = new Loot(lootD, lootI);
+					loot2.setInimigo(inimigo1);
+					inimigo1.setLoot(loot2);
 					break;
 				}
 

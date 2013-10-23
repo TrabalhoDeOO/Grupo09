@@ -100,15 +100,14 @@ public class InimigoEvento extends Inimigo{
 		this.atk = atk;
 	}
 
-	public void criarLoot(){
-		Loot loot = new Loot(null);
+	public void criarLoot(Loot loot1){
+		Loot loot = loot1;
 		setLoot(loot);
 			
-	for(int i = 0; i < monstro.size(); i++){
-		System.out.println(monstro.get(i).nome + " " +  monstro.get(i).tipo + " lvl " + monstro.get(i).lvl + " hp: " + monstro.get(i).hp + " atk: " + monstro.get(i).atk
-				+ " def: " + monstro.get(i).def + " spe: " + monstro.get(i).spe);
-		
 	}
-
-}
+	
+	public void listarLoot(){
+		Loot loot1 = this.loot;
+		loot1.listarLoot();
+	}
 }
