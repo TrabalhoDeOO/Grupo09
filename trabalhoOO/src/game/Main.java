@@ -166,24 +166,21 @@ public class Main {
 					
 					if(x==1){
 						
+						System.out.println("qual o tipo do monstro?: a- Inimigo Plataforma b- Inimigo BatalhaTurno");
+						tipoM = scanIn.next();
+
 						System.out.println("qual o nome do monstro");
 						nomeM = scanIn.next();
 					
 						System.out.println("qual o lvl do monstro");
 						lvlM = scanIn.nextInt();
 						
-						System.out.println("qual o tipo do monstro?: 1/ Inimigo Plataforma 2/ Inimigo BatalhaTurno");
-						tipoM = scanIn.next();
-						
-						if (x==1){
-							InimigoPlataforma inimigoplataforma = new InimigoPlataforma ();
-							//Inimigo monstro = new InimigoPlataforma(nomeM, lvlM, tipoM);
-						}
-						else{
-							//InimigoEvento monstro = new InimigoEvento();
-							
-							InimigoEvento monstro = new InimigoEvento(nomeM, lvlM, tipoM);
-							inimigo.listarInimigoEvento();
+						if(tipoM.equalsIgnoreCase("a")){
+							Inimigo monstro = new InimigoPlataforma(/*nomeM,lvlM*/);}
+							else if (tipoM.equalsIgnoreCase("b")){
+							//	Inimigo monstro = new InimigoEvento(nomeM, lvlM);
+								
+							}					
 						}
 						
 						//gerando randomicamente o loot de dinheiro
@@ -238,14 +235,14 @@ public class Main {
 						inimigo.listarInimigo();
 						loot.listarLoot();
 						conchas.clear();
-					*/	
+						
 					}
-					
+					*/
 				}while(x==1);
 				
-				inimigo.listarInimigoEvento();
-				
-				//System.out.print("area em manutencao!\n");
+				//inimigo.listarInimigoEvento();
+			//}
+				System.out.print("area em manutencao!\n");
 			break;
 			case 3:
 				//implementacao Item.
