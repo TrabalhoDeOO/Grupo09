@@ -154,7 +154,7 @@ public class Main {
 				Criar inimigo = new Criar(senha2);
 				
 			
-			/*	do{
+				do{
 					System.out.println("deseja criar um novo monstro?: 1/sim  2/nao");
 					x = scanIn.nextInt();
 					
@@ -163,16 +163,25 @@ public class Main {
 						System.out.println("qual o nome do monstro");
 						nomeM = scanIn.next();
 					
-						System.out.println("qual o tipo do monstro");
-						tipoM = scanIn.next();
-						
 						System.out.println("qual o lvl do monstro");
 						lvlM = scanIn.nextInt();
 						
+						System.out.println("qual o tipo do monstro?: 1/ Inimigo Plataforma 2/ Inimigo BatalhaTurno");
+						tipoM = scanIn.next();
+						
+						if (x==1){
+							InimigoPlataforma inimigoplataforma = new InimigoPlataforma ();
+							//Inimigo monstro = new InimigoPlataforma(nomeM, lvlM, tipoM);
+						}
+						if (x==2){
+							InimigoEvento inimigoevento = new InimigoEvento();
+							
+							Inimigo monstro = new InimigoEvento(nomeM, lvlM, tipoM);
+						}
 						
 						//gerando randomicamente o loot de dinheiro
 						
-						String tipoConcha = null;
+						/*String tipoConcha = null;
 						
 						
 						
@@ -213,7 +222,7 @@ public class Main {
 							
 						
 						
-						Inimigo monstro = new Inimigo(nomeM, lvlM, tipoM);
+						Inimigo monstro = new InimigoEvento(nomeM, lvlM, tipoM);
 						Loot loot = new Loot(dinheiros, item1);
 						inimigo.CriarLoot(adm.getSenha(), senha2, loot);
 						loot.setInimigo(monstro);
@@ -222,14 +231,14 @@ public class Main {
 						inimigo.listarInimigo();
 						loot.listarLoot();
 						conchas.clear();
-						
+					*/	
 					}
 					
 				}while(x==1);
 				
 				inimigo.listarInimigo();
-				*/
-				System.out.print("area em manutencao!\n");
+				
+				//System.out.print("area em manutencao!\n");
 			break;
 			case 3:
 				//implementacao Item.
@@ -408,6 +417,7 @@ public class Main {
 			jogador.criarPlayer(player);
 			
 			System.out.println("\n\n"+player.getNome() + " lvl: " + player.getLvl() + "  hp: " + player.getHp() + " atk:  " + player.getAtk() + " def: " + player.getDef() + " speed:" + player.getSpeed());
+<<<<<<< HEAD
 
 			System.out.println("VERSAO DEMO: nessa versao demo voce tem a opcao de batalhar com 5 tipode diferentes\n" +
 								"de inimigos escolhidos aleatoriamente e o drop desses inimigos é meramente ilustrativo\n" +
@@ -422,6 +432,40 @@ public class Main {
 								"e voce pode defender o proximo ataque do inimigo. E para decidir quem ira comecar atacando levamos em conta a speed\n" +
 								"dos 2 acrecida de um numero randomico\n" +
 								"Bom Jogo!!!\n");
+=======
+			
+			int verificaTutorial = 0;
+			
+			System.out.println("VERSAO DEMO: nessa versao demo voce tem a opcao de batalhar com 5 tipode diferentes\n" +
+					"de inimigos escolhidos aleatoriamente e o drop desses inimigos é meramente ilustrativo\n" +
+					"nao ira afetar em nada seu personagem (os bonus do item encontrado nao serao adicionados\n" +
+					"ao seus atributos) \n\n"); 
+			System.out.println("deseja ver o tutorial? 1/sim 2/nao");
+			verificaTutorial = scanIn.nextInt();
+			if (verificaTutorial == 1){
+				
+				System.out.println("TUTORIAL: nesse demo sao apresentados 3 atributos na tela o seu HP que representa seus pontos de vida\n" +
+						"o ATAQUE que representa seu dano maximo e o ESCUDO que representa o dano maximo que voce consegue absolver\n" +
+						"voce vai ter 3 opcoes a primeira é atacar diretamente o adiversario se ele nao estiver defendendo seu dano \n" +
+						"sera igual ao seu ATK menos metade do ESCUDO do inimigo, mas se ele estiver defendendo sera seu ATK menos o ESCUDO\n" +
+						" voce pode atacar o escudo do adiversario, fazendo isso voce ira diminuir o escudo dele, se ele nao estiver defendendo\n" +
+						"seu dano no escudo sera igual a metade do seu ataque  mas se ele estiver defendendo sera um quarto do seu ataque\n" +
+						"e voce pode defender o proximo ataque do inimigo. E para decidir quem ira comecar atacando levamos em conta a speed\n" +
+						"dos 2 acrecida de um numero randomico\n" +
+						"Bom Jogo!!!\n");
+				
+				try {
+					Thread.sleep(10000);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			
+			
+
+			
+>>>>>>> 2696d1a3824a70f23fbdf27281b3897f36d429de
 			for (int i = 1; i > 0; i++) {
 				
 
@@ -436,13 +480,8 @@ public class Main {
 				Dinheiro lootD;
 				
 				
-				try {
-					Thread.sleep(10000);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
 				
+								
 				Loot loot2;
 				switch(numeroGerado3){
 				case 1:

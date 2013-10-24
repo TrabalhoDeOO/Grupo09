@@ -211,6 +211,10 @@ public class BatalhaTurno {
 					System.out.println(player.getNome() +" - hp: "+ hpP +" dano: " + atkP + " escudo: " + escudoP );
 					System.out.println(inimigo.getTipo() +" - hp: "+ hpI +" dano: " + atkI + " escudo: " + escudoI + "\n");
 					break;
+					
+				default:
+					System.out.println("entrada invalida" + "\n");
+					
 			
 				
 				}
@@ -388,6 +392,7 @@ public class BatalhaTurno {
 			
 					default:
 						System.out.println("entrada invalida" + "\n");
+						
 				}
 				
 				if(hpP < player1.getHp()/2){
@@ -586,6 +591,7 @@ public class BatalhaTurno {
 					
 				default:
 					System.out.println("entrada invalida" + "\n");
+					
 			
 					
 				}
