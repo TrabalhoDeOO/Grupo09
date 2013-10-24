@@ -417,7 +417,6 @@ public class Main {
 			jogador.criarPlayer(player);
 			
 			System.out.println("\n\n"+player.getNome() + " lvl: " + player.getLvl() + "  hp: " + player.getHp() + " atk:  " + player.getAtk() + " def: " + player.getDef() + " speed:" + player.getSpeed());
-<<<<<<< HEAD
 
 			System.out.println("VERSAO DEMO: nessa versao demo voce tem a opcao de batalhar com 5 tipode diferentes\n" +
 								"de inimigos escolhidos aleatoriamente e o drop desses inimigos é meramente ilustrativo\n" +
@@ -432,8 +431,7 @@ public class Main {
 								"e voce pode defender o proximo ataque do inimigo. E para decidir quem ira comecar atacando levamos em conta a speed\n" +
 								"dos 2 acrecida de um numero randomico\n" +
 								"Bom Jogo!!!\n");
-=======
-			
+
 			int verificaTutorial = 0;
 			
 			System.out.println("VERSAO DEMO: nessa versao demo voce tem a opcao de batalhar com 5 tipode diferentes\n" +
@@ -462,10 +460,6 @@ public class Main {
 				}
 			}
 			
-			
-
-			
->>>>>>> 2696d1a3824a70f23fbdf27281b3897f36d429de
 			for (int i = 1; i > 0; i++) {
 				
 
