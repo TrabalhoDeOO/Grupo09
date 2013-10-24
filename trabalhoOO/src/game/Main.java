@@ -21,6 +21,7 @@ import game.entidade.Item;
 import game.entidade.NPC;
 import game.entidade.Loja;
 import game.entidade.Vestimenta;
+import game.entidade.grimorio.Grimorio;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -64,6 +65,11 @@ public class Main {
 		int z = 0;
 		//variavel para validacao de ADM
 		int validaAdm = 0;
+		
+		Grimorio grimorio = new Grimorio();
+		grimorio.listarGrimorio();
+		
+		
 		
 		System.out.println("Voce e um player ou adm? 1/player 2/Adm");
 		z = scanIn.nextInt();
@@ -453,7 +459,7 @@ public class Main {
 			for (int i = 1; i > 0; i++) {
 				
 
-				int numeroGerado3 = randomica.nextInt(6) + 1;
+				int numeroGerado3 = randomica.nextInt(10);
 				int senha1 = 1234;
 				int senh2 = 1234;
 
@@ -465,7 +471,7 @@ public class Main {
 				
 				
 				
-								
+				/*				
 				Loot loot2;
 				switch(numeroGerado3){
 				case 1:
@@ -534,7 +540,11 @@ public class Main {
 					break;
 				}
 
-
+				*/
+				
+				inimigo1 = grimorio.getGrimorioInimigos().get(numeroGerado3);
+				
+				
 				BatalhaTurno batalha1 = new BatalhaTurno();
 				batalha1.batalha(player, inimigo1);
 				
