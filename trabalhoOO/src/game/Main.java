@@ -154,7 +154,7 @@ public class Main {
 				Criar inimigo = new Criar(senha2);
 				
 			
-			/*	do{
+				do{
 					System.out.println("deseja criar um novo monstro?: 1/sim  2/nao");
 					x = scanIn.nextInt();
 					
@@ -163,16 +163,25 @@ public class Main {
 						System.out.println("qual o nome do monstro");
 						nomeM = scanIn.next();
 					
-						System.out.println("qual o tipo do monstro");
-						tipoM = scanIn.next();
-						
 						System.out.println("qual o lvl do monstro");
 						lvlM = scanIn.nextInt();
 						
+						System.out.println("qual o tipo do monstro?: 1/ Inimigo Plataforma 2/ Inimigo BatalhaTurno");
+						tipoM = scanIn.next();
+						
+						if (x==1){
+							InimigoPlataforma inimigoplataforma = new InimigoPlataforma ();
+							//Inimigo monstro = new InimigoPlataforma(nomeM, lvlM, tipoM);
+						}
+						if (x==2){
+							InimigoEvento inimigoevento = new InimigoEvento();
+							
+							Inimigo monstro = new InimigoEvento(nomeM, lvlM, tipoM);
+						}
 						
 						//gerando randomicamente o loot de dinheiro
 						
-						String tipoConcha = null;
+						/*String tipoConcha = null;
 						
 						
 						
@@ -213,7 +222,7 @@ public class Main {
 							
 						
 						
-						Inimigo monstro = new Inimigo(nomeM, lvlM, tipoM);
+						Inimigo monstro = new InimigoEvento(nomeM, lvlM, tipoM);
 						Loot loot = new Loot(dinheiros, item1);
 						inimigo.CriarLoot(adm.getSenha(), senha2, loot);
 						loot.setInimigo(monstro);
@@ -222,14 +231,14 @@ public class Main {
 						inimigo.listarInimigo();
 						loot.listarLoot();
 						conchas.clear();
-						
+					*/	
 					}
 					
 				}while(x==1);
 				
 				inimigo.listarInimigo();
-				*/
-				System.out.print("area em manutencao!\n");
+				
+				//System.out.print("area em manutencao!\n");
 			break;
 			case 3:
 				//implementacao Item.
