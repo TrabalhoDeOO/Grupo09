@@ -173,10 +173,11 @@ public class Main {
 							InimigoPlataforma inimigoplataforma = new InimigoPlataforma ();
 							//Inimigo monstro = new InimigoPlataforma(nomeM, lvlM, tipoM);
 						}
-						if (x==2){
-							InimigoEvento inimigoevento = new InimigoEvento();
+						else{
+							//InimigoEvento monstro = new InimigoEvento();
 							
-							Inimigo monstro = new InimigoEvento(nomeM, lvlM, tipoM);
+							InimigoEvento monstro = new InimigoEvento(nomeM, lvlM, tipoM);
+							inimigo.listarInimigoEvento();
 						}
 						
 						//gerando randomicamente o loot de dinheiro
@@ -236,7 +237,7 @@ public class Main {
 					
 				}while(x==1);
 				
-				inimigo.listarInimigo();
+				inimigo.listarInimigoEvento();
 				
 				//System.out.print("area em manutencao!\n");
 			break;

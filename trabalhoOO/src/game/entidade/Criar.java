@@ -19,7 +19,7 @@ public class Criar {
 	
 	public int senha;
 	ArrayList<Dinheiro> conchas = new ArrayList <Dinheiro>();
-	ArrayList<Inimigo> monstro = new ArrayList <Inimigo>();
+	ArrayList<InimigoEvento> monstro = new ArrayList <InimigoEvento>();
 	ArrayList<Item> itens = new ArrayList<Item>();
 	ArrayList<Loja> lojas = new ArrayList<Loja>();
 	ArrayList<NPC> npcs = new ArrayList<NPC>();
@@ -59,11 +59,11 @@ public class Criar {
 		this.conchas = conchas;
 	}
 	
-	public ArrayList<Inimigo> getMonstro(){
+	public ArrayList<InimigoEvento> getMonstro(){
 		return monstro;
 	}
 	
-	public void setMonstro(ArrayList<Inimigo> monstro){
+	public void setMonstro(ArrayList<InimigoEvento> monstro){
 		this.monstro = monstro;
 	}
 	
@@ -225,7 +225,7 @@ public class Criar {
 			if(monstro.size()<1)
 				System.out.println("Autorizado!");
 				
-				monstro.add(inimigo);
+				monstro.add((InimigoEvento) inimigo);
 			
 		}
 		else{
@@ -236,7 +236,7 @@ public class Criar {
 		}
 		
 
-		public void listarInimigo(){
+		public void listarInimigoEvento(){
 			for(int i = 0; i < monstro.size(); i++){
 				System.out.println(monstro.get(i).nome + " " +  monstro.get(i).tipo + " lvl " + monstro.get(i).lvl + " hp: " + monstro.get(i).hp + " atk: " + monstro.get(i).atk
 						+ " def: " + monstro.get(i).def + " spe: " + monstro.get(i).spe);
