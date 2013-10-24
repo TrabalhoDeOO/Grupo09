@@ -112,6 +112,9 @@ public class BatalhaTurno {
 					
 					if(y==0){
 						dano = atkP - (escudoI/2);
+						if(dano<1){
+							dano = 1;
+						}
 						hpI -= dano;
 						if(hpI<0){
 							hpI=0;
@@ -120,6 +123,9 @@ public class BatalhaTurno {
 						System.out.println("hp inimigo : -" + dano + "\n");
 					}else if(y==1){
 						dano = atkP - (escudoI/2);
+						if(dano<1){
+							dano = 1;
+						}
 						hpI -= dano;
 						if(hpI<0){
 							hpI=0;
@@ -128,6 +134,9 @@ public class BatalhaTurno {
 						System.out.println("hp inimigo : -" + dano + "\n");
 					}else if(y == 2){
 						dano = atkP - (escudoI/2);
+						if(dano<1){
+							dano = 1;
+						}
 						hpI -= dano;
 						if(hpI<0){
 							hpI=0;
@@ -287,6 +296,9 @@ public class BatalhaTurno {
 					if(x==1){
 						
 						dano = atkI - (escudoP/2);
+						if(dano<1){
+							dano = 1;
+						}
 						hpP -= dano;
 						if(hpP<0){
 							hpP=0;
@@ -295,6 +307,9 @@ public class BatalhaTurno {
 						
 					}else if(x == 2){
 						dano = atkI - (escudoP/2);
+						if(dano<1){
+							dano = 1;
+						}
 						hpP -= dano;
 						if(hpP<0){
 							hpP=0;

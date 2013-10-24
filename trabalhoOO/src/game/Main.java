@@ -21,6 +21,7 @@ import game.entidade.Item;
 import game.entidade.NPC;
 import game.entidade.Loja;
 import game.entidade.Vestimenta;
+import game.entidade.grimorio.Grimorio;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -64,6 +65,11 @@ public class Main {
 		int z = 0;
 		//variavel para validacao de ADM
 		int validaAdm = 0;
+		
+		Grimorio grimorio = new Grimorio();
+		grimorio.listarGrimorio();
+		
+		
 		
 		System.out.println("Voce e um player ou adm? 1/player 2/Adm");
 		z = scanIn.nextInt();
@@ -160,24 +166,21 @@ public class Main {
 					
 					if(x==1){
 						
+						System.out.println("qual o tipo do monstro?: a- Inimigo Plataforma b- Inimigo BatalhaTurno");
+						tipoM = scanIn.next();
+
 						System.out.println("qual o nome do monstro");
 						nomeM = scanIn.next();
 					
 						System.out.println("qual o lvl do monstro");
 						lvlM = scanIn.nextInt();
 						
-						System.out.println("qual o tipo do monstro?: 1/ Inimigo Plataforma 2/ Inimigo BatalhaTurno");
-						tipoM = scanIn.next();
-						
-						if (x==1){
-							InimigoPlataforma inimigoplataforma = new InimigoPlataforma ();
-							//Inimigo monstro = new InimigoPlataforma(nomeM, lvlM, tipoM);
-						}
-						else{
-							//InimigoEvento monstro = new InimigoEvento();
-							
-							InimigoEvento monstro = new InimigoEvento(nomeM, lvlM, tipoM);
-							inimigo.listarInimigoEvento();
+						if(tipoM.equalsIgnoreCase("a")){
+							Inimigo monstro = new InimigoPlataforma(/*nomeM,lvlM*/);}
+							else if (tipoM.equalsIgnoreCase("b")){
+							//	Inimigo monstro = new InimigoEvento(nomeM, lvlM);
+								
+							}					
 						}
 						
 						//gerando randomicamente o loot de dinheiro
@@ -232,14 +235,14 @@ public class Main {
 						inimigo.listarInimigo();
 						loot.listarLoot();
 						conchas.clear();
-					*/	
+						
 					}
-					
+					*/
 				}while(x==1);
 				
-				inimigo.listarInimigoEvento();
-				
-				//System.out.print("area em manutencao!\n");
+				//inimigo.listarInimigoEvento();
+			//}
+				System.out.print("area em manutencao!\n");
 			break;
 			case 3:
 				//implementacao Item.
@@ -464,7 +467,7 @@ public class Main {
 			for (int i = 1; i > 0; i++) {
 				
 
-				int numeroGerado3 = randomica.nextInt(6) + 1;
+				int numeroGerado3 = randomica.nextInt(10);
 				int senha1 = 1234;
 				int senh2 = 1234;
 
@@ -476,7 +479,7 @@ public class Main {
 				
 				
 				
-								
+				/*				
 				Loot loot2;
 				switch(numeroGerado3){
 				case 1:
@@ -545,7 +548,11 @@ public class Main {
 					break;
 				}
 
-
+				*/
+				
+				inimigo1 = grimorio.getGrimorioInimigos().get(numeroGerado3);
+				
+				
 				BatalhaTurno batalha1 = new BatalhaTurno();
 				batalha1.batalha(player, inimigo1);
 				
