@@ -6,7 +6,7 @@ import java.util.ArrayList;
 // Trabalhar a questão do ArrayList depois
 public class InimigoEvento extends Inimigo{
 	public int def;
-	ArrayList<Inimigo> monstro = new ArrayList <Inimigo>();	
+	ArrayList<InimigoEvento> monstro = new ArrayList <InimigoEvento>();	
 	
 	public InimigoEvento() {
 		super();
