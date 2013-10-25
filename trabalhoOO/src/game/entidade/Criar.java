@@ -98,35 +98,62 @@ public class Criar {
 		this.npcs = npcs;
 	}
 	
-	public void criarItem (int senhaAdm, int senha1,String tipo, Item item){
+	public Item criarItem (int senhaAdm, int senha1,String tipo, String nome, int codigo, int bonus){
+		Item item = new Item();
+		Arma arma;
+		Vestimenta vestimenta;
+		Consumivel consumivel;
 		Adm adm = new Adm();
 		adm.setSenha(senhaAdm);
 		this.senha = senha1;
 		if (senha == adm.getSenha()){
 			if(itens.size()<1)
 				System.out.println("Autorizado!");
-			
-			itens.add(item);			
+				if (tipo.equalsIgnoreCase("arma")){
+					arma = new Arma(nome, codigo, bonus);
+					itens.add(arma);
+					return arma;
+				}else if (tipo.equalsIgnoreCase("vestimenta")){
+					vestimenta = new Vestimenta(nome, codigo, bonus);
+					itens.add(vestimenta);
+					return vestimenta;
+				}else if (tipo.equalsIgnoreCase("consumivel")){
+					consumivel = new Consumivel(nome, codigo, bonus);
+					itens.add(consumivel);
+					return consumivel;
+				}else {
+					item = new Item(nome, codigo);
+					itens.add(item);
+					
+				}
+				
+						
 		}
 		else{
 			System.out.println("Autorização Negada!");
 		}
+		
+		return item;
 	}
 	
 	
-	public void criarLoja (int senhaAdm, int senha1, Loja loja){
+	
+	public Loja criarLoja (int senhaAdm, int senha1, String nome, String tipo){
+		Loja loja = new Loja();;
 		Adm adm = new Adm();
 		adm.setSenha(senhaAdm);
 		this.senha = senha1;
 		if (senha == adm.getSenha()){
 			if(lojas.size()<1)
 				System.out.println("Autorizado!");
+			loja = new Loja(nome, tipo);
+			lojas.add(loja);
 			
-			lojas.add(loja);			
 		}
 		else{
 			System.out.println("Autorização Negada!");
 		}
+		return loja;
 	}
 	
 	public void listarloja(){
@@ -245,25 +272,21 @@ public class Criar {
 		
 	}
 		
-		public void criarPlayer(Player player){
+		public Player criarPlayer(String nome, String sexo, int lvl){
 			
-			String sexoP;
+			Player player1 = new Player(nome, sexo, lvl);
 			
-			Player player1 = new Player();
 			
-			player1 = player;
-			
-			sexoP = player1.getSexo();
-			
-			boolean resultValid = player1.validaPlayer(sexoP);
+			boolean resultValid = player1.validaPlayer(sexo);
 			
 			if (resultValid == true){
-				player1 = player;
+				player1 = new Player(nome, sexo, lvl);
 			}else{
 				System.out.println("sexo invalido!");
+				player1 = new Player();
 			}
 			
-			
+			return player1;
 			
 		}
 		
@@ -289,19 +312,26 @@ public class Criar {
 			
 	}
 		
-	public void criarNPC (int senhaAdm, int senha1, NPC npc){
+	public NPC criarNPC (int senhaAdm, int senha1, String nome, int funcao, int sexo){
+		
+		//funcao  1/informante 2/auxiliar 3/negociante
+		//sexo 1/feminino 2/masculino
+		
+				NPC npc = new NPC();
 				Adm adm = new Adm();
 				adm.setSenha(senhaAdm);
 				this.senha = senha1;
 				if (senha == adm.getSenha()){
 					if(npcs.size()<1)
 						System.out.println("Autorizado!");
-					
+					npc = new NPC(nome, funcao, sexo);
 					npcs.add(npc);			
 				}
 				else{
 					System.out.println("Autorizacao Negada!");
 				}
+				
+				return npc;
 			}
 			
 		

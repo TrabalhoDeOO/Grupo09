@@ -4,6 +4,7 @@ import game.entidade.Arma;
 import game.entidade.Criar;
 import game.entidade.Dinheiro;
 import game.entidade.InimigoEvento;
+import game.entidade.Item;
 import game.entidade.Loot;
 import game.entidade.Vestimenta;
 
@@ -18,8 +19,8 @@ public class Grimorio {
 		
 		Criar batalha = new Criar();
 		int senha1 = 1234;
-		Arma lootI;
-		Vestimenta lootI2;
+		Item lootI;
+		
 		Dinheiro lootD;
 		Loot loot2;
 		int novoValorAtributo;
@@ -28,11 +29,11 @@ public class Grimorio {
 		
 		//inimigos lvl1  posicao na lista 0-4
 		InimigoEvento inimigo1 = new InimigoEvento("sid", 1, "preguiça pre-historica" );
-		lootI2 = new Vestimenta("pele de preguiça", 0001, 2);
+		//lootI2 = new Vestimenta("pele de preguiça", 0001, 2);
 		lootD = new Dinheiro("pequena", 5);
 		batalha.criarDinheiro(senha1, senha1, "pequena", 5);
-		batalha.criarItem(senha1, senha1, "arma", lootI2);
-		loot2 = new Loot(lootD, lootI2);
+		lootI = batalha.criarItem(senha1, senha1, "vestimenta", "pele de preguiça", 0001, 2);
+		loot2 = new Loot(lootD, lootI);
 		loot2.setInimigo(inimigo1);
 		inimigo1.criarLoot(loot2);
 		grimorioInimigos.add(inimigo1);
@@ -42,11 +43,11 @@ public class Grimorio {
 		novoValorAtributo = inimigo2.getDef() + 1;
 		inimigo2.setDef(novoValorAtributo);
 		
-		lootI2 = new Vestimenta("couro de javali", 0002, 2);
+		//lootI2 = new Vestimenta("couro de javali", 0002, 2);
 		lootD = new Dinheiro("pequena", 20);
 		batalha.criarDinheiro(senha1, senha1, "pequena", 20);
-		batalha.criarItem(senha1, senha1, "arma", lootI2);
-		loot2 = new Loot(lootD, lootI2);
+		lootI = batalha.criarItem(senha1, senha1, "vestimenta", "couro de javali", 0002, 2);
+		loot2 = new Loot(lootD, lootI);
 		loot2.setInimigo(inimigo2);
 		inimigo2.criarLoot(loot2);
 		grimorioInimigos.add(inimigo2);
@@ -56,10 +57,10 @@ public class Grimorio {
 		novoValorAtributo = inimigo3.getDef() + 1;
 		inimigo3.setDef(novoValorAtributo);
 		
-		lootI = new Arma("dente de javali", 0003, 2);
+		//lootI = new Arma("dente de javali", 0003, 2);
 		lootD = new Dinheiro("pequena", 30);
 		batalha.criarDinheiro(senha1, senha1, "pequena", 30);
-		batalha.criarItem(senha1, senha1, "arma", lootI);
+		lootI = batalha.criarItem(senha1, senha1, "arma", "dente de javali", 0003, 2);
 		loot2 = new Loot(lootD, lootI);
 		loot2.setInimigo(inimigo3);
 		inimigo3.criarLoot(loot2);
@@ -70,10 +71,10 @@ public class Grimorio {
 		novoValorAtributo = inimigo4.getDef() + 1;
 		inimigo4.setDef(novoValorAtributo);
 		
-		lootI = new Arma("dente de javali", 0003, 2);
+		//lootI = new Arma("dente de javali", 0003, 2);
 		lootD = new Dinheiro("pequena", 40);
 		batalha.criarDinheiro(senha1, senha1, "pequena", 40);
-		batalha.criarItem(senha1, senha1, "arma", lootI);
+		lootI = batalha.criarItem(senha1, senha1, "arma", "dente de javali", 0003, 2);
 		loot2 = new Loot(lootD, lootI);
 		loot2.setInimigo(inimigo4);
 		inimigo4.criarLoot(loot2);
@@ -84,10 +85,10 @@ public class Grimorio {
 		novoValorAtributo = inimigo5.getSpe() + 5;
 		inimigo5.setSpe(novoValorAtributo);
 		
-		lootI = new Arma("garra de velocirraptor", 0004, 3);
+		//lootI = new Arma("garra de velocirraptor", 0004, 3);
 		lootD = new Dinheiro("pequena", 50);
 		batalha.criarDinheiro(senha1, senha1, "pequena", 50);
-		batalha.criarItem(senha1, senha1, "arma", lootI);
+		lootI = batalha.criarItem(senha1, senha1, "arma", "garra de velocirraptor", 0004, 3);
 		loot2 = new Loot(lootD, lootI);
 		loot2.setInimigo(inimigo5);
 		inimigo5.criarLoot(loot2);
@@ -100,10 +101,10 @@ public class Grimorio {
 		inimigo6.setDef(novoValorAtributo);
 		inimigo6.setSpe(novoValorAtributo2);
 		
-		lootI2 = new Vestimenta("couro de mamute bebe", 0005, 3);
+		//lootI2 = new Vestimenta("couro de mamute bebe", 0005, 3);
 		lootD = new Dinheiro("pequena", 60);
 		batalha.criarDinheiro(senha1, senha1, "pequena", 60);
-		batalha.criarItem(senha1, senha1, "arma", lootI);
+		lootI = batalha.criarItem(senha1, senha1, "vestimenta", "couro de mamute bebe", 0005, 3);
 		loot2 = new Loot(lootD, lootI);
 		loot2.setInimigo(inimigo6);
 		inimigo6.criarLoot(loot2);
@@ -116,10 +117,10 @@ public class Grimorio {
 		inimigo7.setDef(novoValorAtributo);
 		inimigo7.setSpe(novoValorAtributo2);
 		
-		lootI2 = new Vestimenta("couro de mamute bebe", 0005, 4);
+		//lootI2 = new Vestimenta("couro de mamute bebe", 0005, 4);
 		lootD = new Dinheiro("pequena", 60);
 		batalha.criarDinheiro(senha1, senha1, "pequena", 60);
-		batalha.criarItem(senha1, senha1, "arma", lootI);
+		lootI = batalha.criarItem(senha1, senha1, "vestimenta", "couro de mamute bebe", 0005, 4);
 		loot2 = new Loot(lootD, lootI);
 		loot2.setInimigo(inimigo7);
 		inimigo7.criarLoot(loot2);
@@ -132,10 +133,10 @@ public class Grimorio {
 		inimigo8.setDef(novoValorAtributo);
 		inimigo8.setSpe(novoValorAtributo2);
 		
-		lootI = new Arma("presa de mamute", 0005, 3);
+		//lootI = new Arma("presa de mamute", 0005, 3);
 		lootD = new Dinheiro("pequena", 60);
 		batalha.criarDinheiro(senha1, senha1, "pequena", 60);
-		batalha.criarItem(senha1, senha1, "arma", lootI);
+		lootI = batalha.criarItem(senha1, senha1, "arma", "presa de mamute", 0005, 3);
 		loot2 = new Loot(lootD, lootI);
 		loot2.setInimigo(inimigo8);
 		inimigo8.criarLoot(loot2);
@@ -148,10 +149,10 @@ public class Grimorio {
 		novoValorAtributo2 = inimigo9.getAtk()+5;
 		inimigo9.setAtk(novoValorAtributo2);
 		
-		lootI = new Arma("dente-de-sabre", 0005, 4);
+		//lootI = new Arma("dente-de-sabre", 0005, 4);
 		lootD = new Dinheiro("media", 6);
 		batalha.criarDinheiro(senha1, senha1, "media", 6);
-		batalha.criarItem(senha1, senha1, "arma", lootI);
+		lootI = batalha.criarItem(senha1, senha1, "arma", "dente-de-sabre", 0005, 4);
 		loot2 = new Loot(lootD, lootI);
 		loot2.setInimigo(inimigo9);
 		inimigo9.criarLoot(loot2);
@@ -170,10 +171,10 @@ public class Grimorio {
 		novoValorAtributo2 = inimigo10.getDef()+10;
 		inimigo10.setDef(novoValorAtributo2);		
 		
-		lootI = new Arma("presa de javali-Gigante", 0010, 10);
+		//lootI = new Arma("presa de javali-Gigante", 0010, 10);
 		lootD = new Dinheiro("grande", 5);
 		batalha.criarDinheiro(senha1, senha1, "grande", 5);
-		batalha.criarItem(senha1, senha1, "arma", lootI);
+		lootI = batalha.criarItem(senha1, senha1, "arma", "presa de javali-Gigante", 0010, 10);
 		loot2 = new Loot(lootD, lootI);
 		loot2.setInimigo(inimigo10);
 		inimigo10.criarLoot(loot2);

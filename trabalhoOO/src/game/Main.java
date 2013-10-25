@@ -310,8 +310,8 @@ public class Main {
 						System.out.println("Qual o tipo de itens que ela vende?");
 						tipoL= scanIn.next();
 						
-						loja1 = new Loja(nomeL, tipoL);
-						loja.criarLoja(adm.getSenha(), senha2, loja1);
+						
+						loja1 = loja.criarLoja(adm.getSenha(), senha2, nomeL, tipoL);
 					
 						do{
 							System.out.println("Deseja adicionar um item a loja?: 1/sim 2/não");
@@ -356,6 +356,7 @@ public class Main {
 				 String nomeN;
                  int funcaoN;
                  int sexoN;
+                 NPC npc = new NPC();
                  
                  Criar NPC = new Criar(senha2);
                  do{
@@ -372,13 +373,13 @@ public class Main {
                                  System.out.println("Qual o nome do npc? ");
                                  nomeN= scanIn.next();
                                  
-                                 NPC npc= new NPC(nomeN, funcaoN, sexoN);
-                                 NPC.criarNPC(adm.getSenha(), senha2, npc);
+                                 
+                                 npc = NPC.criarNPC(adm.getSenha(), senha2,nomeN, funcaoN, sexoN);
                                  npc.listarNPC(NPC.getNPC());
                          }
                  } while (x==1);
                  
-                 
+                 npc.listarNPC(NPC.getNPC());
 			
 			break;
 			}
@@ -417,24 +418,11 @@ public class Main {
 			
 			}while(verificaNome == 2);
 			
-			player = new Player(nomeP, sexoP, 1);
-			jogador.criarPlayer(player);
+			//player = new Player(nomeP, sexoP, 1);
+			player = jogador.criarPlayer(nomeP, sexoP, 1);
 			
 			System.out.println("\n\n"+player.getNome() + " lvl: " + player.getLvl() + "  hp: " + player.getHp() + " atk:  " + player.getAtk() + " def: " + player.getDef() + " speed:" + player.getSpeed());
 
-			System.out.println("VERSAO DEMO: nessa versao demo voce tem a opcao de batalhar com 5 tipode diferentes\n" +
-								"de inimigos escolhidos aleatoriamente e o drop desses inimigos é meramente ilustrativo\n" +
-								"nao ira afetar em nada seu personagem (os bonus do item encontrado nao serao adicionados\n" +
-								"ao seus atributos) \n\n" +
-								"TUTORIAL: nesse demo sao apresentados 3 atributos na tela o seu HP que representa seus pontos de vida\n" +
-								"o ATAQUE que representa seu dano maximo e o ESCUDO que representa o dano maximo que voce consegue absolver\n" +
-								"voce vai ter 3 opcoes a primeira é atacar diretamente o adiversario se ele nao estiver defendendo seu dano \n" +
-								"sera igual ao seu ATK menos metade do ESCUDO do inimigo, mas se ele estiver defendendo sera seu ATK menos o ESCUDO\n" +
-								" voce pode atacar o escudo do adiversario, fazendo isso voce ira diminuir o escudo dele, se ele nao estiver defendendo\n" +
-								"seu dano no escudo sera igual a metade do seu ataque  mas se ele estiver defendendo sera um quarto do seu ataque\n" +
-								"e voce pode defender o proximo ataque do inimigo. E para decidir quem ira comecar atacando levamos em conta a speed\n" +
-								"dos 2 acrecida de um numero randomico\n" +
-								"Bom Jogo!!!\n");
 
 			int verificaTutorial = 0;
 			
@@ -552,6 +540,7 @@ public class Main {
 				*/
 				
 				inimigo1 = grimorio.getGrimorioInimigos().get(numeroGerado3);
+				
 				
 				
 				BatalhaTurno batalha1 = new BatalhaTurno();
