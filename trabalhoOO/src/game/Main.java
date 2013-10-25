@@ -67,7 +67,7 @@ public class Main {
 		int validaAdm = 0;
 		
 		Grimorio grimorio = new Grimorio();
-		grimorio.listarGrimorio();
+		//grimorio.listarGrimorio();
 		
 		
 		
@@ -111,7 +111,7 @@ public class Main {
 			
 			
 			case 1:
-				
+				//conchas
 			String tipoD;
 			int qntD;
 			
@@ -134,7 +134,7 @@ public class Main {
 					
 					Dinheiro concha = new Dinheiro(tipoD, qntD);
 					
-					dinheiro.criarDinheiro(adm.getSenha(), senha2, concha);
+					dinheiro.criarDinheiro(adm.getSenha(), senha2, tipoD, qntD);
 					dinheiro.listarDinheiro();
 					
 				}
@@ -148,7 +148,7 @@ public class Main {
 			dinheiro.listarDinheiro();
 			break;
 			case 2:
-
+					//monstro
 				String nomeM;
 				String tipoM;
 				int lvlM;
@@ -290,7 +290,7 @@ public class Main {
 			
 			break;
 			case 4:
-				
+				//loja
 				String nomeL;
 				String tipoL;
 			
@@ -424,10 +424,11 @@ public class Main {
 			
 			int verificaTutorial = 0;
 			
-			System.out.println("VERSAO DEMO: nessa versao demo voce tem a opcao de batalhar com 5 tipode diferentes\n" +
+			System.out.println("VERSAO DEMO: nessa versao demo voce tem a opcao de batalhar com 10 tipode diferentes\n" +
 					"de inimigos escolhidos aleatoriamente e o drop desses inimigos é meramente ilustrativo\n" +
 					"nao ira afetar em nada seu personagem (os bonus do item encontrado nao serao adicionados\n" +
-					"ao seus atributos) \n\n"); 
+					"ao seus atributos) \nVoce tera seu lvl upado diretamente para o lvl 7 nesse demo para\n" +
+					"melhor experiencia de jogo aproveitem!!\n\n"); 
 			System.out.println("deseja ver o tutorial? 1/sim 2/nao");
 			verificaTutorial = scanIn.nextInt();
 			if (verificaTutorial == 1){

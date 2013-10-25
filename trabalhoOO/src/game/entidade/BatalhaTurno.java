@@ -41,7 +41,7 @@ public class BatalhaTurno {
 	
 	public int batalha(Player player, InimigoEvento inimigo){
 		
-		Player player1 = new Player(player.getNome(), player.getSexo(), 10);
+		Player player1 = new Player(player.getNome(), player.getSexo(), 7);
 		InimigoEvento inimigo1 = new InimigoEvento();
 		
 		
@@ -110,30 +110,10 @@ public class BatalhaTurno {
 						e.printStackTrace();
 					}
 					
-					if(y==0){
+					if(y == 1 | y == 2 | y == 0){
+						//calculando dano
 						dano = atkP - (escudoI/2);
-						if(dano<1){
-							dano = 1;
-						}
-						hpI -= dano;
-						if(hpI<0){
-							hpI=0;
-						}
-						
-						System.out.println("hp inimigo : -" + dano + "\n");
-					}else if(y==1){
-						dano = atkP - (escudoI/2);
-						if(dano<1){
-							dano = 1;
-						}
-						hpI -= dano;
-						if(hpI<0){
-							hpI=0;
-						}
-						
-						System.out.println("hp inimigo : -" + dano + "\n");
-					}else if(y == 2){
-						dano = atkP - (escudoI/2);
+						//verificando se o dano eh minimo (evitando dano negativo)
 						if(dano<1){
 							dano = 1;
 						}
@@ -490,6 +470,9 @@ public class BatalhaTurno {
 					if (x==0){
 
 						dano = atkI - (escudoP/2);
+						if(dano<1){
+							dano = 1;
+						}
 						hpP -= dano;
 						if(hpP<0){
 							hpP=0;
@@ -498,6 +481,9 @@ public class BatalhaTurno {
 					}else if(x==1){
 						
 						dano = atkI - (escudoP/2);
+						if(dano<1){
+							dano = 1;
+						}
 						hpP -= dano;
 						if(hpP<0){
 							hpP=0;
@@ -506,6 +492,9 @@ public class BatalhaTurno {
 						
 					}else if(x == 2){
 						dano = atkI - (escudoP/2);
+						if(dano<1){
+							dano = 1;
+						}
 						hpP -= dano;
 						if(hpP<0){
 							hpP=0;
