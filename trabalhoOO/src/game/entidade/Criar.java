@@ -267,7 +267,7 @@ public class Criar {
 			
 		}
 		
-	public void CriarLoot(int senhaAdm, int senhaT, Loot loot){
+	public void CriarLoot(int senhaAdm, int senhaT, Dinheiro dinheiro, Item item, Inimigo inimigo){
 			
 			Adm adm = new Adm();
 			adm.setSenha(senhaAdm);
@@ -277,8 +277,10 @@ public class Criar {
 			if(senha == adm.getSenha()){
 				System.out.println("Autorizado!");
 				
-				Loot loot1 = new Loot(null);
-				loot1 = loot;
+				Loot loot1 = new Loot(dinheiro, item);
+				
+				loot1.setInimigo(inimigo);
+				
 				
 			}else{
 				
