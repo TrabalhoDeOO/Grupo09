@@ -39,7 +39,7 @@ public class BatalhaTurno {
 	}
 	
 	
-	public int batalha(Player player, InimigoEvento inimigo){
+	public int batalha(Player player, InimigoEvento inimigo) throws NumberFormatException{
 		
 		Player player1 = new Player(player.getNome(), player.getSexo(), 7);
 		InimigoEvento inimigo1 = new InimigoEvento();
@@ -99,6 +99,21 @@ public class BatalhaTurno {
 				
 				System.out.println("voce : 1/ataca 2/ ataca escudo 3/defende:");
 				x = scanIn.nextInt();
+				
+				
+				try{
+					
+					if (x>3|x<1){
+						throw new java.lang.Exception();
+					}
+				}catch (Exception e){
+						do {
+							System.err.println("Entrada invalida!!!");
+							System.out.println("voce : 1/ataca 2/ ataca escudo 3/defende:");
+							x = scanIn.nextInt();
+						}while(x>3|x<1);
+				}
+				
 				
 				
 				
@@ -222,10 +237,6 @@ public class BatalhaTurno {
 					System.out.println(inimigo.getTipo() +" - hp: "+ hpI +" dano: " + atkI + " escudo: " + escudoI + "\n");
 					break;
 					
-				default:
-					System.out.println("entrada invalida" + "\n");
-					
-			
 				
 				}
 				
@@ -651,6 +662,18 @@ public class BatalhaTurno {
 				
 				System.out.println("voce : 1/ataca 2/ ataca escudo 3/defende:" + "\n");
 				x = scanIn.nextInt();
+				
+				try{
+					if (x>3|x<1){
+						throw new java.lang.Exception();
+					}
+				}catch (Exception e){
+						do {
+							System.err.println("Entrada invalida!!!");
+							System.out.println("voce : 1/ataca 2/ ataca escudo 3/defende:");
+							x = scanIn.nextInt();
+						}while(x>3|x<1);
+				}
 				
 				switch(x){
 				case 1:
