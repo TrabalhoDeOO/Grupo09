@@ -22,6 +22,7 @@ import game.entidade.NPC;
 import game.entidade.Loja;
 import game.entidade.Vestimenta;
 import game.entidade.grimorio.Grimorio;
+import game.entidade.grimorio.GrimorioItens;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -66,6 +67,9 @@ public class Main {
 		//variavel para validacao de ADM
 		int validaAdm = 0;
 		
+		//GrimorioItens grimorioI = new GrimorioItens();
+		
+		//grimorioI.listarGrimorioItem();
 		Grimorio grimorio = new Grimorio();
 		//grimorio.listarGrimorio();
 		
@@ -538,8 +542,8 @@ public class Main {
 				}
 
 				*/
-				
-				inimigo1 = grimorio.getGrimorioInimigos().get(numeroGerado3);
+				//numeroGerado3
+				inimigo1 = grimorio.getGrimorioInimigos().get(0);
 				
 				
 				

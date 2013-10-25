@@ -20,6 +20,7 @@ public class Grimorio {
 		Criar batalha = new Criar();
 		int senha1 = 1234;
 		Item lootI;
+		GrimorioItens grimorioI = null;
 		
 		Dinheiro lootD;
 		Loot loot2;
@@ -30,10 +31,14 @@ public class Grimorio {
 		//inimigos lvl1  posicao na lista 0-4
 		InimigoEvento inimigo1 = new InimigoEvento("sid", 1, "preguiça pre-historica" );
 		//lootI2 = new Vestimenta("pele de preguiça", 0001, 2);
+		
+		
+		//grimorioI.getGrimorioItens().get(25);
+	
 		lootD = new Dinheiro("pequena", 5);
 		batalha.criarDinheiro(senha1, senha1, "pequena", 5);
-		lootI = batalha.criarItem(senha1, senha1, "vestimenta", "pele de preguiça", 0001, 2);
-		loot2 = new Loot(lootD, lootI);
+		lootI =  grimorioI.getGrimorioItens().get(20);
+		loot2 = new Loot(lootD,lootI);
 		loot2.setInimigo(inimigo1);
 		inimigo1.criarLoot(loot2);
 		grimorioInimigos.add(inimigo1);
@@ -46,8 +51,8 @@ public class Grimorio {
 		//lootI2 = new Vestimenta("couro de javali", 0002, 2);
 		lootD = new Dinheiro("pequena", 20);
 		batalha.criarDinheiro(senha1, senha1, "pequena", 20);
-		lootI = batalha.criarItem(senha1, senha1, "vestimenta", "couro de javali", 0002, 2);
-		loot2 = new Loot(lootD, lootI);
+		lootI =  grimorioI.getGrimorioItens().get(4);
+		loot2 = new Loot(lootD,lootI);
 		loot2.setInimigo(inimigo2);
 		inimigo2.criarLoot(loot2);
 		grimorioInimigos.add(inimigo2);
