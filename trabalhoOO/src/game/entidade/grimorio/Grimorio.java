@@ -25,14 +25,16 @@ public class Grimorio {
 		int novoValorAtributo;
 		int novoValorAtributo2;
 		
+		
 		//inimigos lvl1  posicao na lista 0-4
 		InimigoEvento inimigo1 = new InimigoEvento("sid", 1, "preguiça pre-historica" );
 		lootI2 = new Vestimenta("pele de preguiça", 0001, 2);
 		lootD = new Dinheiro("pequena", 5);
-		batalha.criarDinheiro(senha1, senha1, lootD);
+		batalha.criarDinheiro(senha1, senha1, "pequena", 5);
 		batalha.criarItem(senha1, senha1, "arma", lootI2);
 		loot2 = new Loot(lootD, lootI2);
 		loot2.setInimigo(inimigo1);
+		inimigo1.criarLoot(loot2);
 		grimorioInimigos.add(inimigo1);
 		
 		//inimigos lvl2  posicao na lista 5-9
@@ -42,10 +44,11 @@ public class Grimorio {
 		
 		lootI2 = new Vestimenta("couro de javali", 0002, 2);
 		lootD = new Dinheiro("pequena", 20);
-		batalha.criarDinheiro(senha1, senha1, lootD);
+		batalha.criarDinheiro(senha1, senha1, "pequena", 20);
 		batalha.criarItem(senha1, senha1, "arma", lootI2);
 		loot2 = new Loot(lootD, lootI2);
 		loot2.setInimigo(inimigo2);
+		inimigo2.criarLoot(loot2);
 		grimorioInimigos.add(inimigo2);
 		
 		//inimigos lvl3  posicao na lista 10-14
@@ -54,11 +57,12 @@ public class Grimorio {
 		inimigo3.setDef(novoValorAtributo);
 		
 		lootI = new Arma("dente de javali", 0003, 2);
-		lootD = new Dinheiro("pequena", 50);
-		batalha.criarDinheiro(senha1, senha1, lootD);
+		lootD = new Dinheiro("pequena", 30);
+		batalha.criarDinheiro(senha1, senha1, "pequena", 30);
 		batalha.criarItem(senha1, senha1, "arma", lootI);
 		loot2 = new Loot(lootD, lootI);
 		loot2.setInimigo(inimigo3);
+		inimigo3.criarLoot(loot2);
 		grimorioInimigos.add(inimigo3);
 		
 		//inimigos lvl4  posicao na lista 15-19
@@ -68,10 +72,11 @@ public class Grimorio {
 		
 		lootI = new Arma("dente de javali", 0003, 2);
 		lootD = new Dinheiro("pequena", 40);
-		batalha.criarDinheiro(senha1, senha1, lootD);
+		batalha.criarDinheiro(senha1, senha1, "pequena", 40);
 		batalha.criarItem(senha1, senha1, "arma", lootI);
 		loot2 = new Loot(lootD, lootI);
 		loot2.setInimigo(inimigo4);
+		inimigo4.criarLoot(loot2);
 		grimorioInimigos.add(inimigo4);
 		
 		//inimigos lvl5  posicao na lista 20-24
@@ -81,10 +86,11 @@ public class Grimorio {
 		
 		lootI = new Arma("garra de velocirraptor", 0004, 3);
 		lootD = new Dinheiro("pequena", 50);
-		batalha.criarDinheiro(senha1, senha1, lootD);
+		batalha.criarDinheiro(senha1, senha1, "pequena", 50);
 		batalha.criarItem(senha1, senha1, "arma", lootI);
 		loot2 = new Loot(lootD, lootI);
 		loot2.setInimigo(inimigo5);
+		inimigo5.criarLoot(loot2);
 		grimorioInimigos.add(inimigo5);
 		
 		//inimigos lvl6  posicao na lista 25-29
@@ -96,11 +102,11 @@ public class Grimorio {
 		
 		lootI2 = new Vestimenta("couro de mamute bebe", 0005, 3);
 		lootD = new Dinheiro("pequena", 60);
-		batalha.criarDinheiro(senha1, senha1, lootD);
+		batalha.criarDinheiro(senha1, senha1, "pequena", 60);
 		batalha.criarItem(senha1, senha1, "arma", lootI);
 		loot2 = new Loot(lootD, lootI);
 		loot2.setInimigo(inimigo6);
-		
+		inimigo6.criarLoot(loot2);
 		grimorioInimigos.add(inimigo6);
 		
 		//inimigos lvl7  posicao na lista 30-34
@@ -112,10 +118,11 @@ public class Grimorio {
 		
 		lootI2 = new Vestimenta("couro de mamute bebe", 0005, 4);
 		lootD = new Dinheiro("pequena", 60);
-		batalha.criarDinheiro(senha1, senha1, lootD);
+		batalha.criarDinheiro(senha1, senha1, "pequena", 60);
 		batalha.criarItem(senha1, senha1, "arma", lootI);
 		loot2 = new Loot(lootD, lootI);
 		loot2.setInimigo(inimigo7);
+		inimigo7.criarLoot(loot2);
 		grimorioInimigos.add(inimigo7);
 		
 		//inimigos lvl8  posicao na lista 35-39
@@ -127,10 +134,11 @@ public class Grimorio {
 		
 		lootI = new Arma("presa de mamute", 0005, 3);
 		lootD = new Dinheiro("pequena", 60);
-		batalha.criarDinheiro(senha1, senha1, lootD);
+		batalha.criarDinheiro(senha1, senha1, "pequena", 60);
 		batalha.criarItem(senha1, senha1, "arma", lootI);
 		loot2 = new Loot(lootD, lootI);
 		loot2.setInimigo(inimigo8);
+		inimigo8.criarLoot(loot2);
 		grimorioInimigos.add(inimigo8);
 		
 		//inimigos lvl9  posicao na lista 40-44
@@ -141,12 +149,15 @@ public class Grimorio {
 		inimigo9.setAtk(novoValorAtributo2);
 		
 		lootI = new Arma("dente-de-sabre", 0005, 4);
-		lootD = new Dinheiro("pequena", 60);
-		batalha.criarDinheiro(senha1, senha1, lootD);
+		lootD = new Dinheiro("media", 6);
+		batalha.criarDinheiro(senha1, senha1, "media", 6);
 		batalha.criarItem(senha1, senha1, "arma", lootI);
 		loot2 = new Loot(lootD, lootI);
 		loot2.setInimigo(inimigo9);
+		inimigo9.criarLoot(loot2);
 		grimorioInimigos.add(inimigo9);
+		
+		
 		
 		//inimigos lvl10  posicao na lista 45-49
 		InimigoEvento inimigo10 = new InimigoEvento("javali gigante", 10, "javali/boss" );
@@ -156,7 +167,16 @@ public class Grimorio {
 		inimigo10.setHp(novoValorAtributo2);
 		novoValorAtributo = inimigo10.getSpe()-5;
 		inimigo10.setSpe(novoValorAtributo);
+		novoValorAtributo2 = inimigo10.getDef()+10;
+		inimigo10.setDef(novoValorAtributo2);		
 		
+		lootI = new Arma("presa de javali-Gigante", 0010, 10);
+		lootD = new Dinheiro("grande", 5);
+		batalha.criarDinheiro(senha1, senha1, "grande", 5);
+		batalha.criarItem(senha1, senha1, "arma", lootI);
+		loot2 = new Loot(lootD, lootI);
+		loot2.setInimigo(inimigo10);
+		inimigo10.criarLoot(loot2);
 		grimorioInimigos.add(inimigo10);
 		
 		// TODO Auto-generated constructor stub

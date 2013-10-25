@@ -136,7 +136,7 @@ public class Criar {
 		}			
 	}
 	
-	public void criarDinheiro(int senhaAdm, int senha1,Dinheiro dinheiro){
+	public void criarDinheiro(int senhaAdm, int senha1,String tipo, int quantidade){
 		
 		int conchaP=conchaPq.getQuantidade(), conchaM=conchaMed.getQuantidade(), conchaG=conchaGr.getQuantidade();
 		
@@ -152,16 +152,16 @@ public class Criar {
 		if(senha == adm.getSenha()){
 			
 			
-			Dinheiro dinheiroNovo = dinheiro;
 			
-			if (dinheiroNovo.getTipo().equalsIgnoreCase(conchaGr.getTipo())){
+			
+			if (tipo.equalsIgnoreCase(conchaGr.getTipo())){
 				
-				conchaG += dinheiroNovo.getQuantidade();
+				conchaG += quantidade;
 				
-			}else	if (dinheiroNovo.getTipo().equalsIgnoreCase("media")){
+			}else	if (tipo.equalsIgnoreCase("media")){
 				do{
 					if(conchaM < MAX_CONCHA){
-						conchaM += dinheiroNovo.getQuantidade();
+						conchaM += quantidade;
 					}else {
 						conchaM = conchaM - MAX_CONCHA;
 						conchaG+=1;
@@ -170,12 +170,12 @@ public class Criar {
 				}while(conchaM >= MAX_CONCHA);
 				
 				
-			}else	if (dinheiroNovo.getTipo().equalsIgnoreCase("pequena")){
+			}else	if (tipo.equalsIgnoreCase("pequena")){
 				
 			do{
 				
 				if(conchaP<MAX_CONCHA){
-					conchaP+=dinheiroNovo.getQuantidade();
+					conchaP+=quantidade;
 				}else{
 					conchaP-=MAX_CONCHA;
 					conchaM+=1;
@@ -267,7 +267,7 @@ public class Criar {
 			
 		}
 		
-	public void CriarLoot(int senhaAdm, int senhaT, Loot loot){
+	public void CriarLoot(int senhaAdm, int senhaT, Dinheiro dinheiro, Item item, Inimigo inimigo){
 			
 			Adm adm = new Adm();
 			adm.setSenha(senhaAdm);
@@ -277,8 +277,10 @@ public class Criar {
 			if(senha == adm.getSenha()){
 				System.out.println("Autorizado!");
 				
-				Loot loot1 = new Loot(null);
-				loot1 = loot;
+				Loot loot1 = new Loot(dinheiro, item);
+				
+				loot1.setInimigo(inimigo);
+				
 				
 			}else{
 				
