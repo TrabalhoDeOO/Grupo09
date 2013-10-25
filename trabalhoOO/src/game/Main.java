@@ -310,8 +310,8 @@ public class Main {
 						System.out.println("Qual o tipo de itens que ela vende?");
 						tipoL= scanIn.next();
 						
-						loja1 = new Loja(nomeL, tipoL);
-						loja.criarLoja(adm.getSenha(), senha2, loja1);
+						
+						loja1 = loja.criarLoja(adm.getSenha(), senha2, nomeL, tipoL);
 					
 						do{
 							System.out.println("Deseja adicionar um item a loja?: 1/sim 2/não");
@@ -356,6 +356,7 @@ public class Main {
 				 String nomeN;
                  int funcaoN;
                  int sexoN;
+                 NPC npc = new NPC();
                  
                  Criar NPC = new Criar(senha2);
                  do{
@@ -372,13 +373,13 @@ public class Main {
                                  System.out.println("Qual o nome do npc? ");
                                  nomeN= scanIn.next();
                                  
-                                 NPC npc= new NPC(nomeN, funcaoN, sexoN);
-                                 NPC.criarNPC(adm.getSenha(), senha2, npc);
+                                 
+                                 npc = NPC.criarNPC(adm.getSenha(), senha2,nomeN, funcaoN, sexoN);
                                  npc.listarNPC(NPC.getNPC());
                          }
                  } while (x==1);
                  
-                 
+                 npc.listarNPC(NPC.getNPC());
 			
 			break;
 			}
@@ -417,8 +418,8 @@ public class Main {
 			
 			}while(verificaNome == 2);
 			
-			player = new Player(nomeP, sexoP, 1);
-			jogador.criarPlayer(player);
+			//player = new Player(nomeP, sexoP, 1);
+			player = jogador.criarPlayer(nomeP, sexoP, 1);
 			
 			System.out.println("\n\n"+player.getNome() + " lvl: " + player.getLvl() + "  hp: " + player.getHp() + " atk:  " + player.getAtk() + " def: " + player.getDef() + " speed:" + player.getSpeed());
 
@@ -539,6 +540,7 @@ public class Main {
 				*/
 				
 				inimigo1 = grimorio.getGrimorioInimigos().get(numeroGerado3);
+				
 				
 				
 				BatalhaTurno batalha1 = new BatalhaTurno();

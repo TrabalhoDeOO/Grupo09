@@ -4,9 +4,11 @@ import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 
+import game.entidade.Arma;
 import game.entidade.Criar;
 import game.entidade.NPC;
 import game.entidade.Item;
+import game.entidade.Vestimenta;
 
 import org.junit.After;
 import org.junit.Before;
@@ -27,14 +29,14 @@ public class CriarTest {
 	@Test
 	public void testGetItem() {
 		
-		Item espada = new Item("Angra Mainyu",1113);
-		Item escudo = new Item("Ahura Madza",1114);
-		Item cajado = new Item("Vareta",15);
+		Item espada;
+		Item escudo;
+		Item cajado;
 		Criar criar = new Criar(1234);
 		
-		criar.criarItem(1234, 1234, "Armamento", espada);
-		criar.criarItem(1234, 1234, "Armamento", escudo);
-		criar.criarItem(1234, 1234, "Armamento", cajado);
+		espada = criar.criarItem(1234, 1234, "Arma", "Angra Mainyu",1113, 10);
+		escudo = criar.criarItem(1234, 1234, "Vestimenta", "Ahura Madza",1114, 10);
+		cajado = criar.criarItem(1234, 1234, "Arma", "Vareta",15, 25);
 		
 		ArrayList<Item> itens = new ArrayList<Item>();
 		
@@ -48,15 +50,15 @@ public class CriarTest {
 	@Test
 	public void testGetNPC() {
 		
-		NPC guide = new NPC("Guia",1,1);
-		NPC banco = new NPC("Banqueiro",2,2);
-		NPC ladra = new NPC("Arruaceira",3,1);
+		NPC guide;
+		NPC banco;
+		NPC ladra;
 		
 		Criar criar = new Criar(1234);
 		
-		criar.criarNPC(1234, 1234, guide);
-		criar.criarNPC(1234, 1234, banco);
-		criar.criarNPC(1234, 1234, ladra);
+		guide = criar.criarNPC(1234, 1234, "Guia",1,1);
+		banco = criar.criarNPC(1234, 1234, "Banqueiro",2,2);
+		ladra = criar.criarNPC(1234, 1234, "Arruaceira",3,1);
 		
 		ArrayList<NPC> npc = new ArrayList<NPC>();
 		
