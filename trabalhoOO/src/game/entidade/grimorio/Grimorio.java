@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class Grimorio {
 	
 	private ArrayList<InimigoEvento> grimorioInimigos = new ArrayList<InimigoEvento>();  
-
+	
 	
 	public Grimorio() { 
 		
@@ -179,7 +179,6 @@ public class Grimorio {
 		inimigo10.criarLoot(loot2);
 		grimorioInimigos.add(inimigo10);
 		
-		// TODO Auto-generated constructor stub
 	}
 	
 	public ArrayList<InimigoEvento> getGrimorioInimigos() {
@@ -195,5 +194,6 @@ public class Grimorio {
 		}
 	}
 	
-
+	
 }
+	
