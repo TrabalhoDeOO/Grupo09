@@ -7,14 +7,14 @@ package game.entidade;
 
 import java.util.Scanner;
 import java.util.Random;
-
+import game.interfaces.*;
 
 
 /**
  * @author Bruno
  *
  */
-public class BatalhaTurno {
+public class BatalhaTurno /*implements SetandoBonus*/{
 	
 	private Random randomica = new Random(System.currentTimeMillis());
 	Scanner scanIn = new Scanner(System.in);
@@ -51,6 +51,7 @@ public class BatalhaTurno {
 		int dano;
 		int resultB = 1;
 		int speedP, speedI;
+		Item item;
 		
 		 
 		int dadospeedI = randomica.nextInt(80) + 1;
@@ -264,6 +265,7 @@ public class BatalhaTurno {
 					}
 					//listando loot
 					lootB.listarLoot();
+													
 					
 					break;
 				}
@@ -652,7 +654,7 @@ public class BatalhaTurno {
 					break;
 					
 				}
-				//verificacao se hpde player esta abaixo da metade
+				//verificacao se o hp de player esta abaixo da metade
 				if(hpP < player1.getHp()/2){
 					System.out.println("ATENÇÃO:  HP BAIXO" + "");
 				}
