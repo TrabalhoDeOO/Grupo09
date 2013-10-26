@@ -11,7 +11,6 @@ public class Player {
 	public int atk = (lvl*5);
 	public int def = (lvl*2);
 	public int hp = (atk/2+def*2);
-	public int inte = (lvl*2);
 	public int speed = (lvl*2)-hp/2;
 	public int jump = 20;
 	public int xp = 0;
@@ -24,7 +23,6 @@ public class Player {
 		this.atk =  (this.lvl*4);
 		this.def = (this.lvl*4);
 		this.hp = (this.atk/2+this.def*2);
-		this.inte   = (this.lvl*2);
 		this.speed = ((this.lvl*2)-hp/2);
 		this.jump = 0;
 		this.xp = 0;
@@ -39,7 +37,6 @@ public class Player {
 		this.atk =  (this.lvl*4);
 		this.def = (this.lvl*2);
 		this.hp = (this.atk/2+this.def*2);
-		this.inte   = (this.lvl*2);
 		this.speed = ((this.lvl*2)-this.hp/4);
 		this.jump = 20;
 		this.xp = 0;
@@ -92,14 +89,6 @@ public class Player {
 
 	public void setHp(int hp) {
 		this.hp = hp;
-	}
-
-	public int getInte() {
-		return inte;
-	}
-
-	public void setInte(int inte) {
-		this.inte = inte;
 	}
 
 	public int getSpeed() {
