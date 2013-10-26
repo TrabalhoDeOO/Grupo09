@@ -406,7 +406,8 @@ public class Main {
 			}else{
 				System.out.println("Autorizacao Negada!");
 			}
-			
+		
+		// TODO Ação Player 	
 		}else if(z==1){
 			
 			String nomeP;
@@ -437,9 +438,10 @@ public class Main {
 			//player = new Player(nomeP, sexoP, 1);
 			player = jogador.criarPlayer(nomeP, sexoP, 1);
 			
+			/**
 			System.out.println("\n\n"+player.getNome() + " lvl: " + player.getLvl() + "  hp: " + player.getHp() + " atk:  "
 			+ player.getAtk() + " def: " + player.getDef() + " speed:" + player.getSpeed() + " xp:" +player.getXp()+"/"+player.getXpMax());
-
+			*/
 
 			int verificaTutorial = 0;
 			
@@ -465,12 +467,14 @@ public class Main {
 				try {
 					Thread.sleep(10000);
 				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
+					
 					e.printStackTrace();
 				}
 			}
 			
 			player = new Player(player.getNome(), player.getSexo(), 7);
+			System.out.println(player.getStatus());
+			
 			int contadorDescanco = 5;
 			
 			for (int i = 1; i > 0; i++) {
@@ -489,7 +493,7 @@ public class Main {
 				
 				int hpMax = player.getHpMax();
 				
-				System.out.println( " xp:" +player.getXp()+"/"+player.getXpMax());
+				//System.out.println( " xp:" +player.getXp()+"/"+player.getXpMax());
 				
 				
 				inimigo1 = grimorio.getGrimorioInimigos().get(numeroGerado3);

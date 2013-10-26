@@ -41,7 +41,7 @@ public class Player {
 		this.def = (this.lvl*2);
 		this.hp = (this.atk/2+this.def*2);
 		this.hpMax = (this.atk/2+this.def*2);
-		this.speed = ((this.lvl*2)-this.hp/4);
+		this.speed = (int)((this.lvl*3)+(this.atk*0.65)-(this.def*0.4));
 		this.jump = 20;
 		//this.xp = 0;
 		this.xpMax = (this.lvl*5);
@@ -49,7 +49,7 @@ public class Player {
 	
 	public String getStatus(){
 		return String.format("%s - %s\tLevel: %d\nAtk: %d\t\tDef: %d\n" +
-				"Hp: %d/%d\tSpeed: %d\nJump: %d\tExp: %d/%d", this.nome,
+				"Hp: %d/%d\tSpeed: %d\nJump: %d\tExp: %d/%d\n", this.nome,
 				this.sexo,this.lvl,this.atk,this.def,this.hp, this.hpMax,
 				this.speed,this.jump,this.xp,this.xpMax);
 	}
@@ -63,7 +63,9 @@ public class Player {
 		 while (this.xp >= this.xpMax){
 			 this.xp -= this.xpMax;
 			 int newlvl = this.lvl + 1;
+			 System.out.println("\tLVL UP!!!!!!!\n");
 			 setLvl(newlvl);
+			 System.out.println(getStatus()+"\n");			 
 		}
 	}
 

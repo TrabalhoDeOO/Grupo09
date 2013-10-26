@@ -54,10 +54,11 @@ public class BatalhaTurno /*implements SetandoBonus*/{
 		int speedP, speedI;
 		int novaxp;
 		Item item;
+		int velholvl = player.lvl, novolvl;
 		
 		 
-		int dadospeedI = randomica.nextInt(80);
-		int dadospeedP = randomica.nextInt(100);
+		int dadospeedI = inimigo.getSpe();
+		int dadospeedP = player.getSpeed();
 		
 		inimigo1 = inimigo;
 		
@@ -82,6 +83,8 @@ public class BatalhaTurno /*implements SetandoBonus*/{
 		System.out.println("Voce encontrou um " + inimigo1.getTipo() + " lvl: " + inimigo1.getLvl() + "\n");
 		
 		System.out.println("speed inimigo : " + speedI + " speed player: " + speedP  + "\n");
+		
+		// TODO Player Ataca Primeiro
 		if(speedP>speedI){
 			
 			System.out.println(player.getNome() + "- lvl:"+ player1.getLvl() + " hp: "+ hpP +" dano: " + atkP + " escudo: " + escudoP );
@@ -90,7 +93,7 @@ public class BatalhaTurno /*implements SetandoBonus*/{
 			do{
 				int numeroGerado;
 				
-				//verificao para evitar que inimigo fique atacando o escudo do player depois que chegar a 0
+				// TODO verificao para evitar que inimigo fique atacando o escudo do player depois que chegar a 0
 				
 				if (escudoP==0){
 					numeroGerado = randomica.nextInt(6) + 1;
@@ -130,7 +133,7 @@ public class BatalhaTurno /*implements SetandoBonus*/{
 					try {
 						Thread.sleep(1000);
 					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
+					
 						e.printStackTrace();
 					}
 					//verificacao se inimigo esta defendendo
@@ -171,7 +174,7 @@ public class BatalhaTurno /*implements SetandoBonus*/{
 					try {
 						Thread.sleep(1000);
 					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
+					
 						e.printStackTrace();
 					}
 					
@@ -188,7 +191,7 @@ public class BatalhaTurno /*implements SetandoBonus*/{
 					try {
 						Thread.sleep(1000);
 					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
+						
 						e.printStackTrace();
 					}
 					//verificando se inimigo esta defendendo
@@ -213,7 +216,7 @@ public class BatalhaTurno /*implements SetandoBonus*/{
 					try {
 						Thread.sleep(1000);
 					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
+						
 						e.printStackTrace();
 					}
 					
@@ -232,7 +235,7 @@ public class BatalhaTurno /*implements SetandoBonus*/{
 					try {
 						Thread.sleep(1000);
 					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
+						
 						e.printStackTrace();
 					}
 					
@@ -243,13 +246,13 @@ public class BatalhaTurno /*implements SetandoBonus*/{
 				
 				}
 				
-				//verificando se inimigo ainda tem hp
+				// TODO verificando se inimigo ainda tem hp
 				if (hpI <= 0){
 					//delay
 					try {
 						Thread.sleep(1000);
 					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
+						
 						e.printStackTrace();
 					}
 					// definindo resultado da batalha para o retorno
@@ -262,12 +265,14 @@ public class BatalhaTurno /*implements SetandoBonus*/{
 					try {
 						Thread.sleep(1000);
 					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 					//listando loot
 					lootB.listarLoot();
-													
+					
+					player1.addXp(inimigo1.getXp());
+					
+					/**								
 					novaxp = player1.getXp() + inimigo1.getXp();
 					
 					if(player1.getXp() > player1.getXpMax()){
@@ -278,15 +283,14 @@ public class BatalhaTurno /*implements SetandoBonus*/{
 					}else{
 						player1.setXp(novaxp);
 					}
-					
-					
-					System.out.println( " xp:" +player1.getXp()+"/"+player1.getXpMax());
+					*/
+					System.out.println("\nXp: " +player1.getXp()+"/"+player1.getXpMax());
 					
 					break;
 				}
 				
 				
-				//ação inimigo.
+				// TODO ação inimigo.
 				
 				switch(numeroGerado){
 				case 1:
@@ -318,7 +322,7 @@ public class BatalhaTurno /*implements SetandoBonus*/{
 					try {
 						Thread.sleep(1000);
 					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
+						
 						e.printStackTrace();
 					}
 					
@@ -361,7 +365,7 @@ public class BatalhaTurno /*implements SetandoBonus*/{
 					try {
 						Thread.sleep(1000);
 					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
+						
 						e.printStackTrace();
 					}
 					
@@ -376,7 +380,7 @@ public class BatalhaTurno /*implements SetandoBonus*/{
 					try {
 						Thread.sleep(1000);
 					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
+						
 						e.printStackTrace();
 					}
 					
@@ -405,7 +409,7 @@ public class BatalhaTurno /*implements SetandoBonus*/{
 					try {
 						Thread.sleep(1000);
 					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
+						
 						e.printStackTrace();
 					}
 					
@@ -420,7 +424,7 @@ public class BatalhaTurno /*implements SetandoBonus*/{
 					try {
 						Thread.sleep(1000);
 					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
+						
 						e.printStackTrace();
 					}
 					//imprimindo acao inimigo
@@ -429,7 +433,7 @@ public class BatalhaTurno /*implements SetandoBonus*/{
 					try {
 						Thread.sleep(1000);
 					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
+						
 						e.printStackTrace();
 					}
 					//verificando se inimigo esta atacando
@@ -450,13 +454,13 @@ public class BatalhaTurno /*implements SetandoBonus*/{
 					System.out.println("ATENÇÃO:  HP BAIXO" + "\n");
 				}
 				
-				//verificando se player continua vivo
+				// TODO verificando se player continua vivo
 				if (hpP <= 0){
 					//delay
 					try {
 						Thread.sleep(1000);
 					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
+						
 						e.printStackTrace();
 					}
 					// definindo resultado da batalha para o retorno
@@ -477,7 +481,7 @@ public class BatalhaTurno /*implements SetandoBonus*/{
 			
 			
 			
-			
+		// TODO Inimigo Ataca primeiro
 		}else{
 			do{
 				int numeroGerado;
@@ -524,7 +528,7 @@ public class BatalhaTurno /*implements SetandoBonus*/{
 					try {
 						Thread.sleep(1000);
 					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
+						
 						e.printStackTrace();
 					}
 					//imprimindo acao inimigo
@@ -567,7 +571,7 @@ public class BatalhaTurno /*implements SetandoBonus*/{
 					try {
 						Thread.sleep(1000);
 					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
+						
 						e.printStackTrace();
 					}
 					
@@ -584,7 +588,7 @@ public class BatalhaTurno /*implements SetandoBonus*/{
 					try {
 						Thread.sleep(1000);
 					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
+						
 						e.printStackTrace();
 					}
 					
@@ -612,7 +616,7 @@ public class BatalhaTurno /*implements SetandoBonus*/{
 					try {
 						Thread.sleep(1000);
 					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
+						
 						e.printStackTrace();
 					}
 					
@@ -625,7 +629,7 @@ public class BatalhaTurno /*implements SetandoBonus*/{
 					try {
 						Thread.sleep(1000);
 					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
+						
 						e.printStackTrace();
 					}
 					
@@ -634,7 +638,7 @@ public class BatalhaTurno /*implements SetandoBonus*/{
 					try {
 						Thread.sleep(1000);
 					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
+						
 						e.printStackTrace();
 					}
 					
@@ -654,12 +658,12 @@ public class BatalhaTurno /*implements SetandoBonus*/{
 				}
 				
 				
-				//verificacao se player continua vivo
+				// TODO verificacao se player continua vivo
 				if (hpP <= 0){
 					try {
 						Thread.sleep(1000);
 					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
+						
 						e.printStackTrace();
 					}
 					this.resultado = false;
@@ -675,7 +679,7 @@ public class BatalhaTurno /*implements SetandoBonus*/{
 				}
 				
 				
-				//ação player
+				// TODO ação player
 				
 				System.out.println("voce : 1/ataca 2/ ataca escudo 3/defende:" + "\n");
 				x = scanIn.nextInt();
@@ -699,7 +703,7 @@ public class BatalhaTurno /*implements SetandoBonus*/{
 					try {
 						Thread.sleep(1000);
 					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
+						
 						e.printStackTrace();
 					}
 					//verificacoes se inimigo esta defendendo
@@ -738,7 +742,7 @@ public class BatalhaTurno /*implements SetandoBonus*/{
 					try {
 						Thread.sleep(1000);
 					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
+						
 						e.printStackTrace();
 					}
 					
@@ -752,7 +756,7 @@ public class BatalhaTurno /*implements SetandoBonus*/{
 					try {
 						Thread.sleep(1000);
 					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
+						
 						e.printStackTrace();
 					}
 					//verificando se inimigo esta atacando
@@ -776,7 +780,7 @@ public class BatalhaTurno /*implements SetandoBonus*/{
 					try {
 						Thread.sleep(1000);
 					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
+						
 						e.printStackTrace();
 					}
 					
@@ -794,7 +798,7 @@ public class BatalhaTurno /*implements SetandoBonus*/{
 					try {
 						Thread.sleep(1000);
 					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
+						
 						e.printStackTrace();
 					}
 					System.out.println(player.getNome() +" - hp: "+ hpP +" dano: " + atkP + " escudo: " + escudoP );
@@ -806,13 +810,14 @@ public class BatalhaTurno /*implements SetandoBonus*/{
 			
 				
 				}
-				//verificando se inimigo foi abatido
+				
+				// TODO verificando se inimigo foi abatido
 				if (hpI <= 0){
 					//delay
 					try {
 						Thread.sleep(1000);
 					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
+						
 						e.printStackTrace();
 					}
 					//setando resultado da batalha para o return
@@ -824,12 +829,15 @@ public class BatalhaTurno /*implements SetandoBonus*/{
 					try {
 						Thread.sleep(1000);
 					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
+						
 						e.printStackTrace();
 					}
 					//listando loot
 					lootB.listarLoot();
+
+					player1.addXp(inimigo1.getXp());
 					
+					/**								
 					novaxp = player1.getXp() + inimigo1.getXp();
 					
 					if(player1.getXp() > player1.getXpMax()){
@@ -840,8 +848,8 @@ public class BatalhaTurno /*implements SetandoBonus*/{
 					}else{
 						player1.setXp(novaxp);
 					}
-					
-					System.out.println( " xp:" +player.getXp()+"/"+player.getXpMax());
+					*/
+					System.out.println("\nXp: " +player1.getXp()+"/"+player1.getXpMax());
 				}
 				
 				
@@ -852,9 +860,11 @@ public class BatalhaTurno /*implements SetandoBonus*/{
 			}while(resultB == 1);
 		}
 		
+		novolvl = player.getLvl();
 		
-		player1.setHp(hpP);
-		
+		if(velholvl == novolvl){
+			player1.setHp(hpP);
+		}
 		
 		//retornando resultado da batalha
 		return player1;
