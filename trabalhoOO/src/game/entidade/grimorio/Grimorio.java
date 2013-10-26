@@ -34,7 +34,7 @@ public class Grimorio {
 		
 		
 		//grimorioI.getGrimorioItens().get(25);
-	
+	/*
 		lootD = new Dinheiro("pequena", 5);
 		batalha.criarDinheiro(senha1, senha1, "pequena", 5);
 		lootI =  grimorioI.getGrimorioItens().get(20);
@@ -184,7 +184,7 @@ public class Grimorio {
 		loot2.setInimigo(inimigo10);
 		inimigo10.criarLoot(loot2);
 		grimorioInimigos.add(inimigo10);
-		
+		*/
 	}
 	
 	public ArrayList<InimigoEvento> getGrimorioInimigos() {

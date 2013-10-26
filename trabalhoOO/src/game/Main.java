@@ -136,10 +136,10 @@ public class Main {
 					qntD = scanIn.nextInt();
 				
 					
-					Dinheiro concha = new Dinheiro(tipoD, qntD);
+					
 					
 					dinheiro.criarDinheiro(adm.getSenha(), senha2, tipoD, qntD);
-					dinheiro.listarDinheiro();
+					
 					
 				}
 				
@@ -149,7 +149,7 @@ public class Main {
 			
 			
 			
-			dinheiro.listarDinheiro();
+			
 			break;
 			case 2:
 					//monstro
