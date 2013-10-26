@@ -11,6 +11,7 @@ public class TestarPlayer {
 
 	@Before
 	public void setUp() throws Exception {
+		System.out.println("Finalizado...");
 	}
 
 	@After
@@ -19,8 +20,14 @@ public class TestarPlayer {
 	}
 
 	@Test
-	public void testGetSexo() {
+	public void testGetAtk() {
 		Player player= new Player("Jõao", "homem", 1);
-		assertEquals(player.getSexo(), "homem");
+		System.out.println(player.getStatus());
+		player.addXp(51);
+		System.out.println("\n"+player.getStatus());
+		player.setLvl(10);
+		System.out.println("\n"+player.getStatus());		
+	
+		assertEquals(player.getAtk(), 40);
 	}
 }
