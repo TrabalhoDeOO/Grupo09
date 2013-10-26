@@ -71,7 +71,7 @@ public class Main {
 		
 		//grimorioI.listarGrimorioItem();
 		Grimorio grimorio = new Grimorio();
-		grimorio.listarGrimorio();
+		//grimorio.listarGrimorio();
 		
 		
 		
@@ -154,14 +154,17 @@ public class Main {
 			case 2:
 					//monstro
 				String nomeM;
-				String tipoM;
+				String tipoM, tipoIn;
 				int lvlM;
+				int jump = 3;
 				ArrayList<Dinheiro> conchas = new ArrayList<Dinheiro>();
 				Item item1 = null;
 				
 				randomica.nextInt(50);
 				
 				Criar inimigo = new Criar(senha2);
+				InimigoPlataforma monstro1;
+				InimigoEvento monstro2;
 				
 			
 				do{
@@ -175,16 +178,26 @@ public class Main {
 
 						System.out.println("qual o nome do monstro");
 						nomeM = scanIn.next();
+						
+						System.out.println("qual a especie do monstro?");
+						tipoIn = scanIn.next();
 					
 						System.out.println("qual o lvl do monstro");
 						lvlM = scanIn.nextInt();
 						
 						if(tipoM.equalsIgnoreCase("a")){
-							Inimigo monstro = new InimigoPlataforma(/*nomeM,lvlM*/);}
+							System.out.println("qual o jump do monstro");
+							jump = scanIn.nextInt();
+							
+							monstro1 = (InimigoPlataforma) inimigo.CriarMonstro(adm.getSenha(), senha2, nomeM, tipoM, tipoIn, lvlM, jump);
+							}
 							else if (tipoM.equalsIgnoreCase("b")){
-							//	Inimigo monstro = new InimigoEvento(nomeM, lvlM);
+							
+							monstro2 = (InimigoEvento) inimigo.CriarMonstro(adm.getSenha(), senha2, nomeM, tipoM, tipoIn, lvlM, jump);
 								
-							}					
+							}		
+						
+						inimigo.listarInimigo();
 						}
 						
 						//gerando randomicamente o loot de dinheiro

@@ -8,11 +8,31 @@ public class InimigoPlataforma extends Inimigo{
 
 public InimigoPlataforma(){
 	super();
+	this.nome = "sem nome";
+	this.tipo = "sem tipo";
+	this.spe = ((this.lvl*2)-hp/2);
+	this.atk =0;
+	this.lvl = 0;
+	this.def = 0;
+	this.hp = 0;
+	
+	Loot loot = new Loot(this);
+	this.loot = loot;
 	this.jump = 0;
 	}
 
 public InimigoPlataforma(int jump, String nomeInimigo, int lvlInimigo,	String tipoInimigo){
 	super();
+	this.lvl = lvlInimigo;
+	this.atk =   (this.lvl*4);
+	this.def = (this.lvl*2);
+	this.hp = (this.atk/2+this.def*2);
+	this.nome = nomeInimigo;
+	
+	this.tipo = tipoInimigo;
+	this.spe = ((this.lvl*3)-this.hp/4);
+	Loot loot = new Loot(this);
+	this.loot = loot;
 	this.jump= jump;
 	}
 public int getJump() {
@@ -75,10 +95,12 @@ public void criarLoot(){
 	Loot loot = new Loot(null);
 	setLoot(loot);
 	
-	for(int i = 0; i < monstro.size(); i++){
-		System.out.println(monstro.get(i).nome + " " +  monstro.get(i).tipo + " hp: " + monstro.get(i).hp + " atk: " + monstro.get(i).atk
-				+ " jump: " + monstro.get(i).jump);
-	}
+	
+}
+
+@Override
+public String toString(){
+	return String.format("plataforma: %s %s lvl: %d hp: %d atk: %d def: %d spe: %d jump: %d", nome, tipo, lvl, hp, atk, def, spe, jump);
 }
 
 @Override

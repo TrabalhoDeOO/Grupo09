@@ -240,10 +240,10 @@ public class Criar {
 		
 	}
 	
-	public void CriarMonstro(int senhaAdm, int senha1 , Inimigo inimigo){
+	public Inimigo CriarMonstro(int senhaAdm, int senha1 , String nome, String tipoInimigo, String tipoMonstro, int lvl, int jump){
 		
 		Adm adm = new Adm();
-		
+		Inimigo inimigo= null;
 		adm.setSenha(senhaAdm);
 		this.senha = senha1;
 		
@@ -251,7 +251,13 @@ public class Criar {
 		if(senha == adm.getSenha()){
 			if(monstro.size()<1)
 				System.out.println("Autorizado!");
-				
+				if(tipoInimigo.equalsIgnoreCase("a")){
+					InimigoPlataforma inimigo1 = new InimigoPlataforma(jump, nome, lvl, tipoMonstro);
+					inimigo = inimigo1;
+				}else if(tipoInimigo.equalsIgnoreCase("b")){
+					InimigoEvento inimigo1 = new InimigoEvento(nome, lvl, tipoMonstro);
+					inimigo = inimigo1;
+				}
 				monstro.add(inimigo);
 			
 		}
@@ -259,7 +265,8 @@ public class Criar {
 			System.out.println("Autorizacao Negada!");
 		}
 			
-			
+			return inimigo;
+		
 		}
 		
 

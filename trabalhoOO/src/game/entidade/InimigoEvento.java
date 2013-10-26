@@ -102,7 +102,7 @@ public class InimigoEvento extends Inimigo{
 	
 	@Override
 	public String toString(){
-		return String.format("%s %s lvl: %d hp: %d atk: %d def: %d spe: %d", nome, tipo, lvl, hp, atk, def, spe);
+		return String.format("Batalha por Turno: %s %s lvl: %d hp: %d atk: %d def: %d spe: %d", nome, tipo, lvl, hp, atk, def, spe);
 	}
 
 	public void criarLoot(Loot loot1){
