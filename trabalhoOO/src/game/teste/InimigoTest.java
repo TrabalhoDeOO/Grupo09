@@ -1,6 +1,7 @@
 package game.teste;
 
 import static org.junit.Assert.*;
+import game.entidade.Criar;
 import game.entidade.InimigoEvento;
 
 import org.junit.After;
@@ -21,7 +22,9 @@ public class InimigoTest {
 
 	@Test
 	public void testGetDef() {
-		InimigoEvento inimigo = new InimigoEvento("Slime", 15, "Monstro Geleia");
+		Criar criar = new Criar();
+		InimigoEvento inimigo = (InimigoEvento) criar.CriarMonstro(1234, 1234, "Slime", "b", "Monstro Geleia", 15, 0);
+		
 		System.out.println(inimigo.getNome()+" Def "+inimigo.getDef()
 				+" Atk "+inimigo.getAtk()+" Spe "+inimigo.getSpe()
 				+" Hp "+inimigo.getHp()+" Lvl "+inimigo.getLvl());

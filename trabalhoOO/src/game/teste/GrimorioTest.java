@@ -23,7 +23,7 @@ public class GrimorioTest {
 		Grimorio grimorio = new Grimorio();
 		grimorio.listarGrimorio();
 		Item loot = new Item();
-		loot = grimorio.getGrimorioInimigos().get(0).getLoot().getItem();
+		loot = grimorio.getGrimorioInimigos().get(6).getLoot().getItem();
 		System.out.println(loot);
 		
 		assertTrue(true);

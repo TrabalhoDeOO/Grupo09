@@ -190,12 +190,11 @@ public class Main {
 							jump = scanIn.nextInt();
 							
 							monstro1 = (InimigoPlataforma) inimigo.CriarMonstro(adm.getSenha(), senha2, nomeM, tipoM, tipoIn, lvlM, jump);
-							}
-							else if (tipoM.equalsIgnoreCase("b")){
+						}else if (tipoM.equalsIgnoreCase("b")){
 							
 							monstro2 = (InimigoEvento) inimigo.CriarMonstro(adm.getSenha(), senha2, nomeM, tipoM, tipoIn, lvlM, jump);
 								
-							}		
+						}		
 						
 						inimigo.listarInimigo();
 						}

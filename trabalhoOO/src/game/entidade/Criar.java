@@ -251,14 +251,14 @@ public class Criar {
 		if(senha == adm.getSenha()){
 			if(monstro.size()<1)
 				System.out.println("Autorizado!");
-				if(tipoInimigo.equalsIgnoreCase("a")){
-					InimigoPlataforma inimigo1 = new InimigoPlataforma(jump, nome, lvl, tipoMonstro);
-					inimigo = inimigo1;
-				}else if(tipoInimigo.equalsIgnoreCase("b")){
-					InimigoEvento inimigo1 = new InimigoEvento(nome, lvl, tipoMonstro);
-					inimigo = inimigo1;
-				}
-				monstro.add(inimigo);
+			if(tipoInimigo.equalsIgnoreCase("a")){
+				InimigoPlataforma inimigo1 = new InimigoPlataforma(jump, nome, lvl, tipoMonstro);
+				inimigo = inimigo1;
+			}else if(tipoInimigo.equalsIgnoreCase("b")){
+				InimigoEvento inimigo1 = new InimigoEvento(nome, lvl, tipoMonstro);
+				inimigo = inimigo1;
+			}
+			monstro.add(inimigo);
 			
 		}
 		else{

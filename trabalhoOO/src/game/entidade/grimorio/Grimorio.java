@@ -198,7 +198,7 @@ public class Grimorio {
 		}else if(rand()==2){
 			lootI = grimorioI.getGrimorioItens().get(28);
 		}else{
-			lootI = grimorioI.getGrimorioItens().get(9);
+			lootI = grimorioI.getGrimorioItens().get(7);
 		}
 		loot2 = new Loot(lootD, lootI);
 		loot2.setInimigo(inimigo8);
