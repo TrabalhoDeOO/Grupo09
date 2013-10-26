@@ -34,4 +34,7 @@ public abstract class Inimigo {
         public abstract int getAtk();
         
         public abstract int getHp();
+        
+        
+        
 }

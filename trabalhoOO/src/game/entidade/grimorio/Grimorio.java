@@ -29,14 +29,7 @@ public class Grimorio {
 		
 		//inimigos lvl1  posicao na lista 0-4
 		InimigoEvento inimigo1 = new InimigoEvento("sid", 1, "preguiça pre-historica" );
-<<<<<<< HEAD
-		//lootI2 = new Vestimenta("pele de preguiça", 0001, 2);
-		
-		
-		//grimorioI.getGrimorioItens().get(25);
-	/*
-=======
->>>>>>> cdee08f284f38d87ce44d203e00fd0d48e96e495
+
 		lootD = new Dinheiro("pequena", 5);
 		batalha.criarDinheiro(senha1, senha1, "pequena", 5);
 		
@@ -261,7 +254,7 @@ public class Grimorio {
 		loot2.setInimigo(inimigo10);
 		inimigo10.criarLoot(loot2);
 		grimorioInimigos.add(inimigo10);
-		*/
+		
 	}
 	
 	public ArrayList<InimigoEvento> getGrimorioInimigos() {
@@ -270,9 +263,7 @@ public class Grimorio {
 
 	public void listarGrimorio(){
 		for(int i = 0; i < grimorioInimigos.size(); i++){
-			System.out.println(grimorioInimigos.get(i).nome + " " +  grimorioInimigos.get(i).tipo + " lvl " + grimorioInimigos.get(i).lvl + " hp: " 
-					+ grimorioInimigos.get(i).hp + " atk: " + grimorioInimigos.get(i).atk + " def: " + grimorioInimigos.get(i).def + " spe: " 
-					+ grimorioInimigos.get(i).spe);
+			System.out.println(grimorioInimigos.get(i));
 			
 		}
 	}
