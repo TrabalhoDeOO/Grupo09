@@ -52,6 +52,7 @@ public class BatalhaTurno /*implements SetandoBonus*/{
 		int dano;
 		int resultB = 1;
 		int speedP, speedI;
+		int novaxp;
 		Item item;
 		
 		 
@@ -267,6 +268,19 @@ public class BatalhaTurno /*implements SetandoBonus*/{
 					//listando loot
 					lootB.listarLoot();
 													
+					novaxp = player1.getXp() + inimigo1.getXp();
+					
+					if(player1.getXp() > player1.getXpMax()){
+						System.out.println("LVL UP!!!!!!!\n");
+						novaxp = novaxp - player1.getXpMax();
+						player1.setLvl((player1.getLvl()+1));
+						player1.setXp(novaxp);
+					}else{
+						player1.setXp(novaxp);
+					}
+					
+					
+					System.out.println( " xp:" +player1.getXp()+"/"+player1.getXpMax());
 					
 					break;
 				}
@@ -432,7 +446,7 @@ public class BatalhaTurno /*implements SetandoBonus*/{
 						
 				}
 				//verificacao do hp de player para avisar caso esteja abaixo da metade
-				if(hpP < player1.getHp()/2){
+				if(hpP < player1.getHp()/2& hpP != 0){
 					System.out.println("ATENÇÃO:  HP BAIXO" + "\n");
 				}
 				
@@ -656,7 +670,7 @@ public class BatalhaTurno /*implements SetandoBonus*/{
 					
 				}
 				//verificacao se o hp de player esta abaixo da metade
-				if(hpP < player1.getHp()/2){
+				if(hpP < player1.getHp()/2 & hpP != 0){
 					System.out.println("ATENÇÃO:  HP BAIXO" + "");
 				}
 				
@@ -816,8 +830,18 @@ public class BatalhaTurno /*implements SetandoBonus*/{
 					//listando loot
 					lootB.listarLoot();
 					
+					novaxp = player1.getXp() + inimigo1.getXp();
 					
+					if(player1.getXp() > player1.getXpMax()){
+						System.out.println("LVL UP!!!!!!!\n");
+						novaxp = novaxp - player1.getXpMax();
+						player1.setLvl((player1.getLvl()+1));
+						player1.setXp(novaxp);
+					}else{
+						player1.setXp(novaxp);
+					}
 					
+					System.out.println( " xp:" +player.getXp()+"/"+player.getXpMax());
 				}
 				
 				

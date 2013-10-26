@@ -438,7 +438,7 @@ public class Main {
 			player = jogador.criarPlayer(nomeP, sexoP, 1);
 			
 			System.out.println("\n\n"+player.getNome() + " lvl: " + player.getLvl() + "  hp: " + player.getHp() + " atk:  "
-			+ player.getAtk() + " def: " + player.getDef() + " speed:" + player.getSpeed());
+			+ player.getAtk() + " def: " + player.getDef() + " speed:" + player.getSpeed() + " xp:" +player.getXp()+"/"+player.getXpMax());
 
 
 			int verificaTutorial = 0;
@@ -489,7 +489,7 @@ public class Main {
 				
 				int hpMax = player.getHpMax();
 				
-				System.out.println(player.getHpMax() + " " +hpMax);
+				System.out.println( " xp:" +player.getXp()+"/"+player.getXpMax());
 				
 				
 				inimigo1 = grimorio.getGrimorioInimigos().get(numeroGerado3);
@@ -509,6 +509,7 @@ public class Main {
 				//isso sera substituido pelo consumivel em breve
 				System.out.println("\nDeseja comer algo(comer resulta em recuperar todo seu hp voce ainda tem " + contadorDescanco +" alimentos)? 1/sim 2/nao");
 				verificaDescanco = scanIn.nextInt();
+				
 				if (verificaDescanco == 1 & contadorDescanco >0){
 					contadorDescanco--;
 					player.setHp(hpMax);

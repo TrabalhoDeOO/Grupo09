@@ -6,6 +6,7 @@ import java.util.ArrayList;
 // Trabalhar a questão do ArrayList depois
 public class InimigoEvento extends Inimigo{
 	public int def;
+	public int xp;
 	ArrayList<InimigoEvento> monstro = new ArrayList <InimigoEvento>();	
 	
 	public InimigoEvento() {
@@ -17,6 +18,7 @@ public class InimigoEvento extends Inimigo{
 		this.lvl = 0;
 		this.def = 0;
 		this.hp = 0;
+		this.xp = 0;
 		
 		Loot loot = new Loot(this);
 		this.loot = loot;
@@ -29,7 +31,7 @@ public class InimigoEvento extends Inimigo{
 		this.def = (this.lvl*2);
 		this.hp = (this.atk/2+this.def*2);
 		this.nome = nomeInimigo;
-		
+		this.xp = (this.lvl*2);
 		this.tipo = tipoInimigo;
 		this.spe = ((this.lvl*3)-this.hp/4);
 		Loot loot = new Loot(this);
@@ -100,6 +102,10 @@ public class InimigoEvento extends Inimigo{
 		this.atk = atk;
 	}
 	
+	
+	public int getXp() {
+		return xp;
+	}
 	@Override
 	public String toString(){
 		return String.format("Batalha por Turno: %s %s lvl: %d hp: %d atk: %d def: %d spe: %d", nome, tipo, lvl, hp, atk, def, spe);
