@@ -472,6 +472,7 @@ public class Main {
 			}
 			
 			player = new Player(player.getNome(), player.getSexo(), 7);
+			int contadorDescanco = 5;
 			
 			for (int i = 1; i > 0; i++) {
 				
@@ -506,10 +507,11 @@ public class Main {
 				if (batalha1.isResultado() == false){
 					break;
 				}
-				
-				System.out.println("descancar(descansar resulta em recuperar todo hp)? 1/sim 2/nao");
+				//isso sera substituido pelo consumivel em breve
+				System.out.println("\nDeseja comer algo(comer resulta em recuperar todo seu hp voce ainda tem " + contadorDescanco +" alimentos)? 1/sim 2/nao");
 				verificaDescanco = scanIn.nextInt();
-				if (verificaDescanco == 1){
+				if (verificaDescanco == 1 & contadorDescanco >0){
+					contadorDescanco--;
 					player.setHp(hpMax);
 				}
 				
