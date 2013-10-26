@@ -438,7 +438,8 @@ public class Main {
 			//player = new Player(nomeP, sexoP, 1);
 			player = jogador.criarPlayer(nomeP, sexoP, 1);
 			
-			System.out.println("\n\n"+player.getNome() + " lvl: " + player.getLvl() + "  hp: " + player.getHp() + " atk:  " + player.getAtk() + " def: " + player.getDef() + " speed:" + player.getSpeed());
+			System.out.println("\n\n"+player.getNome() + " lvl: " + player.getLvl() + "  hp: " + player.getHp() + " atk:  "
+			+ player.getAtk() + " def: " + player.getDef() + " speed:" + player.getSpeed());
 
 
 			int verificaTutorial = 0;
@@ -470,6 +471,8 @@ public class Main {
 				}
 			}
 			
+			player = new Player(player.getNome(), player.getSexo(), 7);
+			
 			for (int i = 1; i > 0; i++) {
 				
 
@@ -482,6 +485,11 @@ public class Main {
 				
 				Arma lootI;
 				Dinheiro lootD;
+				int verificaDescanco;
+				
+				int hpMax = player.getHpMax();
+				
+				System.out.println(player.getHpMax() + " " +hpMax);
 				
 				
 				inimigo1 = grimorio.getGrimorioInimigos().get(numeroGerado3);
@@ -489,12 +497,22 @@ public class Main {
 				
 				
 				BatalhaTurno batalha1 = new BatalhaTurno();
-				batalha1.batalha(player, inimigo1);
+				player = batalha1.batalha(player, inimigo1);
+				
+				
+				
 				
 				
 				if (batalha1.isResultado() == false){
 					break;
 				}
+				
+				System.out.println("descancar(descansar resulta em recuperar todo hp)? 1/sim 2/nao");
+				verificaDescanco = scanIn.nextInt();
+				if (verificaDescanco == 1){
+					player.setHp(hpMax);
+				}
+				
 			}
 
 
