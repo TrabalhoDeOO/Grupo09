@@ -52,6 +52,7 @@ public class BatalhaTurno /*implements SetandoBonus*/{
 		int dano;
 		int resultB = 1;
 		int speedP, speedI;
+		int novaxp;
 		Item item;
 		
 		 
@@ -815,8 +816,13 @@ public class BatalhaTurno /*implements SetandoBonus*/{
 					}
 					//listando loot
 					lootB.listarLoot();
+					novaxp = player1.getXp() + inimigo1.getXp();
+					if(player1.getXp() > player1.getXpMax()){
+						novaxp = novaxp - player1.getXpMax();
+						player1.setLvl((player1.getLvl()+1));
+					}
 					
-					
+					player1.setXp(novaxp);
 					
 				}
 				

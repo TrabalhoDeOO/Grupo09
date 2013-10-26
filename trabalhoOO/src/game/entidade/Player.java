@@ -11,10 +11,11 @@ public class Player {
 	public int atk;
 	public int def;
 	public int hp;
-	public int hpMax;
+	private int hpMax;
 	public int speed;
 	public int jump;
 	public int xp;
+	private int xpMax;
 
 	public Player() {
 		// TODO Auto-generated constructor stub
@@ -28,6 +29,7 @@ public class Player {
 		this.speed = ((this.lvl*2)-this.hp/4);
 		this.jump = 0;
 		this.xp = 0;
+		this.xpMax = (this.lvl*5);
 		
 	}
 	
@@ -43,6 +45,7 @@ public class Player {
 		this.speed = ((this.lvl*2)-this.hp/4);
 		this.jump = 20;
 		this.xp = 0;
+		this.xpMax = (this.lvl*5);
 		
 	}
 
@@ -129,6 +132,10 @@ public class Player {
 
 	public int getHpMax() {
 		return hpMax;
+	}
+	
+	public int getXpMax() {
+		return xpMax;
 	}
 
 	public boolean validaPlayer(String sexo){
