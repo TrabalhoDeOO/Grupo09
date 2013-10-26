@@ -8,12 +8,13 @@ public class Player {
 	public String sexo;
 	public ArrayList<Item> mochila = new ArrayList<Item>();
 	public int lvl;
-	public int atk = (lvl*5);
-	public int def = (lvl*2);
-	public int hp = (atk/2+def*2);
-	public int speed = (lvl*2)-hp/2;
-	public int jump = 20;
-	public int xp = 0;
+	public int atk;
+	public int def;
+	public int hp;
+	public int hpMax;
+	public int speed;
+	public int jump;
+	public int xp;
 
 	public Player() {
 		// TODO Auto-generated constructor stub
@@ -23,7 +24,8 @@ public class Player {
 		this.atk =  (this.lvl*4);
 		this.def = (this.lvl*4);
 		this.hp = (this.atk/2+this.def*2);
-		this.speed = ((this.lvl*2)-hp/2);
+		this.hpMax = (this.atk/2+this.def*2);
+		this.speed = ((this.lvl*2)-this.hp/4);
 		this.jump = 0;
 		this.xp = 0;
 		
@@ -37,6 +39,7 @@ public class Player {
 		this.atk =  (this.lvl*4);
 		this.def = (this.lvl*2);
 		this.hp = (this.atk/2+this.def*2);
+		this.hpMax = (this.atk/2+this.def*2);
 		this.speed = ((this.lvl*2)-this.hp/4);
 		this.jump = 20;
 		this.xp = 0;
@@ -122,6 +125,10 @@ public class Player {
 
 	public void setMochila(ArrayList<Item> mochila) {
 		this.mochila = mochila;
+	}
+
+	public int getHpMax() {
+		return hpMax;
 	}
 
 	public boolean validaPlayer(String sexo){

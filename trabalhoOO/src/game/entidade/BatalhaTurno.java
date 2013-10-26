@@ -39,9 +39,10 @@ public class BatalhaTurno /*implements SetandoBonus*/{
 	}
 	
 	
-	public int batalha(Player player, InimigoEvento inimigo) throws NumberFormatException{
+	public Player batalha(Player player, InimigoEvento inimigo) throws NumberFormatException{
 		
-		Player player1 = new Player(player.getNome(), player.getSexo(), 7);
+		
+		Player player1 = player;
 		InimigoEvento inimigo1 = new InimigoEvento();
 		
 		
@@ -54,8 +55,8 @@ public class BatalhaTurno /*implements SetandoBonus*/{
 		Item item;
 		
 		 
-		int dadospeedI = randomica.nextInt(80) + 1;
-		int dadospeedP = randomica.nextInt(100) + 1;
+		int dadospeedI = randomica.nextInt(80);
+		int dadospeedP = randomica.nextInt(100);
 		
 		inimigo1 = inimigo;
 		
@@ -828,8 +829,11 @@ public class BatalhaTurno /*implements SetandoBonus*/{
 		}
 		
 		
+		player1.setHp(hpP);
+		
+		
 		//retornando resultado da batalha
-		return resultB;
+		return player1;
 	}
 	
 	
