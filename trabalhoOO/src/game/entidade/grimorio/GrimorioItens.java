@@ -25,7 +25,7 @@ public class GrimorioItens {
 		 */
 		
 		Arma[] itemA = new Arma[10];
-		Vestimenta[] itemV = new Vestimenta[10];
+		Vestimenta[] itemV = new Vestimenta[11];
 		Consumivel[] itemC = new Consumivel[10];
 		
 		itemC[0] = new Consumivel("Maçã", 1, 2);
@@ -58,17 +58,19 @@ public class GrimorioItens {
 			grimorioItens.add(itemA[i]);
 		}
 		//comeca na posicao 20 do array
-		itemV[1] = new Vestimenta("Cinto de Preguiça", 21, 1);
-		itemV[2] = new Vestimenta("Luva de javali", 22, 1);
-		itemV[3] = new Vestimenta("Bota de javali", 23, 1);
-		itemV[4] = new Vestimenta("Casaco de javali", 24, 1);
-		itemV[5] = new Vestimenta("Elmo de Velociraptor", 25, 2);
-		itemV[6] = new Vestimenta("Casaco de Mamute", 26, 3);
-		itemV[7] = new Vestimenta("Bota de Mamute", 27, 3);
-		itemV[8] = new Vestimenta("Manto de Mamute", 28, 3);
-		itemV[9] = new Vestimenta("Armadura de Javali Gigante", 29, 5);
+		itemV[0] = new Vestimenta("Tanga de Preguiça", 21, 1);
+		itemV[1] = new Vestimenta("Cinto de Preguiça", 22, 1);
+		itemV[2] = new Vestimenta("Luva de javali", 23, 1);
+		itemV[3] = new Vestimenta("Bota de javali", 24, 1);
+		itemV[4] = new Vestimenta("Casaco de javali", 25, 1);
+		itemV[5] = new Vestimenta("Elmo de Velociraptor", 26, 2);
+		itemV[6] = new Vestimenta("Casaco de Mamute", 27, 3);
+		itemV[7] = new Vestimenta("Bota de Mamute", 28, 3);
+		itemV[8] = new Vestimenta("Manto de Mamute", 29, 3);
+		itemV[9] = new Vestimenta("Armadura de Javali Gigante", 30, 5);
+		itemV[10] = new Vestimenta("Pele de Dentes-de-Sabre", 31, 2);
 		
-		for(int i=0;i<10;i++){
+		for(int i=0;i<11;i++){
 			grimorioItens.add(itemV[i]);
 		}
 	}
