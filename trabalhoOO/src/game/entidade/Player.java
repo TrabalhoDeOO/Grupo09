@@ -8,14 +8,14 @@ public class Player {
 	public String sexo;
 	public ArrayList<Item> mochila = new ArrayList<Item>();
 	public int lvl;
-	public int atk;
-	public int def;
-	public int hp;
-	private int hpMax;
-	public int speed;
+	public int atk = (this.lvl*4);
+	public int def =  (this.lvl*4);
+	public int hp = (this.atk/2+this.def*2);
+	private int hpMax = (this.atk/2+this.def*2);
+	public int speed = ((this.lvl*2)-this.hp/4);
 	public int jump;
 	public int xp;
-	private int xpMax;
+	private int xpMax = (this.lvl*5);
 
 	public Player() {
 		// TODO Auto-generated constructor stub
