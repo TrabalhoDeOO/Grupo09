@@ -1,11 +1,14 @@
 package game.entidade;
 
+import game.entidade.*;
 import java.util.ArrayList;
 
 public class Item {
 	public ArrayList<Item> item = new ArrayList<Item>();
 	public String nomeItem;
 	public int codItem;
+	public int bonus;
+	
 	
 
 	public Item() {
@@ -53,5 +56,8 @@ public class Item {
 		}			
 	}
 	
+	public void getBonus(){
+	  return;
+	}
 		
 }

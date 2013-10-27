@@ -34,7 +34,7 @@ public class Consumivel extends Item {
 	}
 
 	public int getBonusC() {
-		return bonusC;
+		return bonus= bonusC;
 	}
 
 	public void setBonusC(int bonusC) {

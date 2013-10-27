@@ -36,7 +36,7 @@ public class Arma extends Item {
 	}
 
 	public int getBonusA() {
-		return bonusA;
+		return bonus = bonusA;
 	}
 
 	public void setBonusA(int bonusA) {

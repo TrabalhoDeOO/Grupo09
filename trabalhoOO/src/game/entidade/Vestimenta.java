@@ -34,7 +34,7 @@ public class Vestimenta extends Item {
 	}
 
 	public int getBonusV() {
-		return bonusV;
+		return bonus= bonusV;
 	}
 
 	public void setBonusV(int bonusV) {
