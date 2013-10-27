@@ -195,11 +195,9 @@ public class Player implements SetandoBonus {
 	}
 	public void verificarItem (Item item){
 		if(item instanceof Arma){
-			int atk = item.getBonus()+this.atk;
-			addBonusAtk(atk);
+			addBonusAtk(item.getBonus());
 		}else if(item instanceof Vestimenta){
-			int def = item.getBonus()+this.def;
-			addBonusDef(def);
+			addBonusDef(item.getBonus());
 		}else{
 			//Consumivel não adiciona bonus
 		}
@@ -213,12 +211,12 @@ public class Player implements SetandoBonus {
 
 	@Override
 	public void addBonusAtk(int atk) {
-		setAtk(atk);
+		setAtk(atk+this.atk);
 	}
 
 	@Override
 	public void addBonusDef(int def) {
-		setDef(def);
+		setDef(def+this.def);
 	}
 }
 	 

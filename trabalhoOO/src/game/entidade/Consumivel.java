@@ -41,6 +41,11 @@ public class Consumivel extends Item {
 	public void setBonusC(int bonusC) {
 		this.bonusC = bonusC;
 	}
-
+	
+	@Override
+	public String descricao() {
+		 
+		return String.format("%s\t-\t%d\nDescrição: %s\nBônus: Recupera +%d Hp\n",this.nomeItem, this.codItem, this.desc, this.bonusC);
+	}
 	
 }

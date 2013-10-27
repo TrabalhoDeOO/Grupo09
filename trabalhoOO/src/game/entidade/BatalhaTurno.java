@@ -57,8 +57,8 @@ public class BatalhaTurno /*implements SetandoBonus*/{
 		int velholvl = player.lvl, novolvl;
 		
 		 
-		int dadospeedI = inimigo.getSpe();
-		int dadospeedP = player.getSpeed();
+		int dadospeedI = randomica.nextInt(10);
+		int dadospeedP = randomica.nextInt(10);
 		
 		inimigo1 = inimigo;
 		

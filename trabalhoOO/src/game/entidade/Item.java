@@ -1,14 +1,16 @@
 package game.entidade;
 
 import game.entidade.*;
+import game.interfaces.Descricao;
+
 import java.util.ArrayList;
 
-public class Item {
+public class Item implements Descricao {
 	public ArrayList<Item> item = new ArrayList<Item>();
 	public String nomeItem;
 	public int codItem;
 	public int bonus;
-	
+	protected String desc="vazio";
 	
 
 	public Item() {
@@ -58,6 +60,17 @@ public class Item {
 	
 	public int getBonus(){
 	  return 0;
+	}
+
+	@Override
+	public void criarDescricao(String desc) {
+		this.desc = desc;
+	}
+
+	@Override
+	public String descricao() {
+		 
+		return String.format("%s\t-\t%d\nDescrição: %s\n",this.nomeItem, this.codItem, this.desc);
 	}
 		
 }

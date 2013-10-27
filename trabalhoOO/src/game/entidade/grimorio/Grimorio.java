@@ -29,7 +29,10 @@ public class Grimorio {
 		
 		//inimigos lvl1  posicao na lista 0-4
 		InimigoEvento inimigo1 = new InimigoEvento("sid", 1, "preguiça pre-historica" );
-
+		inimigo1.criarDescricao("Uma criatura preguiçosa e lenta, que adora não fazer nada o dia inteiro " +
+				"todo dia.\nNormalmente encontrada no topo de árvores, cuidado para não " +
+				"acabar esmagado por uma Preguiça sonolenta.");
+		
 		lootD = new Dinheiro("pequena", 5);
 		batalha.criarDinheiro(senha1, senha1, "pequena", 5);
 		
@@ -50,6 +53,10 @@ public class Grimorio {
 		
 		//inimigos lvl2  posicao na lista 5-9
 		InimigoEvento inimigo2 = new InimigoEvento("jav baby", 2, "javali" );
+		inimigo2.criarDescricao("Um animal normalmente dócil, provavelmente por se tratar de\n" +
+				"uma criatura inocente, porém se facilmente assustado com a chegada de entranhos." +
+				"\nSeria uma atrocidade alguem bater nesse bixo.");
+		
 		novoValorAtributo = inimigo2.getDef() + 1;
 		inimigo2.setDef(novoValorAtributo);
 		lootD = new Dinheiro("pequena", 20);
@@ -229,6 +236,13 @@ public class Grimorio {
 		
 		//inimigos lvl10  posicao na lista 45-49
 		InimigoEvento inimigo10 = new InimigoEvento("javali gigante", 10, "javali/boss" );
+		inimigo10.criarDescricao("Por muito tempo acreditaram que sua existência era apenas uma lenda\n" +
+				"contada pra assustar as crianças e os mais covades. Sua lenda dizia que um Javali gigantesco\n" +
+				"uma vez usurpou o titulo do rei da montanha, o Pterodactil, desde então ele vive no topo,\n" +
+				"vigiando e guardando o seu trono de possíveis invasores." +
+				"\nSe algum dia o vir corra - corra e não olhe pra trás - poderá ser sua ultima visão");
+
+		
 		novoValorAtributo = inimigo10.getAtk()+10;
 		novoValorAtributo2 = inimigo10.getHp()+20;
 		inimigo10.setAtk(novoValorAtributo);
