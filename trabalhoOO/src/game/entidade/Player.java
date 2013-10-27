@@ -198,5 +198,11 @@ public class Player implements SetandoBonus {
 	public void verificarItem (Item item){
 		// e agora, o que colocar aqui...?
 	}
+
+	@Override
+	public void setAtk(int atk) {
+		// TODO Auto-generated method stub
+		
+	}
 }
 	 
