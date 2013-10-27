@@ -446,22 +446,24 @@ public class Main {
 			int verificaTutorial = 0;
 			
 			System.out.println("VERSAO DEMO: nessa versao demo voce tem a opcao de batalhar com 10 tipos diferentes\n" +
-					"de inimigos escolhidos aleatoriamente e o drop desses inimigos é meramente ilustrativo\n" +
-					"nao ira afetar em nada seu personagem (os bonus do item encontrado nao serao adicionados\n" +
-					"ao seus atributos) \nVoce tera seu lvl upado diretamente para o lvl 7 nesse demo para\n" +
-					"melhor experiencia de jogo aproveitem!!\n\n"); 
+					"de inimigos escolhidos aleatoriamente e o dinheiro do drop desses inimigos é meramente ilustrativo\n" +
+					"nao ira afetar em nada seu personagem\n" +
+					"Voce tera seu lvl upado diretamente para o lvl 7 nesse demo para melhor experiencia de jogo aproveitem!!\n\n"); 
 			System.out.println("deseja ver o tutorial? 1/sim 2/nao");
 			verificaTutorial = scanIn.nextInt();
 			if (verificaTutorial == 1){
 				
 				System.out.println("TUTORIAL: nesse demo sao apresentados 3 atributos na tela o seu HP que representa seus pontos de vida\n" +
 						"o ATAQUE que representa seu dano maximo e o ESCUDO que representa o dano maximo que voce consegue absolver\n" +
-						"voce vai ter 3 opcoes a primeira é atacar diretamente o adiversario se ele nao estiver defendendo seu dano \n" +
-						"sera igual ao seu ATK menos metade do ESCUDO do inimigo, mas se ele estiver defendendo sera seu ATK menos o ESCUDO\n" +
+						"voce vai ter 4 opcoes a primeira é atacar diretamente o adiversario se ele nao estiver defendendo seu dano \n" +
+						"sera igual ao seu ATK menos metade do ESCUDO do inimigo(ex: atk player = 20 escudo inimigo = 14 logo dano = 13), \n" +
+						"mas se ele estiver defendendo sera seu ATK menos o ESCUDO (ex: atk player = 20 escudo inimigo = 14 logo dano = 6 )\n" +
 						" voce pode atacar o escudo do adiversario, fazendo isso voce ira diminuir o escudo dele, se ele nao estiver defendendo\n" +
-						"seu dano no escudo sera igual a metade do seu ataque  mas se ele estiver defendendo sera um quarto do seu ataque\n" +
-						"e voce pode defender o proximo ataque do inimigo. E para decidir quem ira comecar atacando levamos em conta a speed\n" +
-						"dos 2 acrecida de um numero randomico\n" +
+						"seu dano no escudo sera igual a metade do seu ataque(ex: atk player = 20 escudo inimigo = 14 logo dano no escudo = 10)  \n" +
+						"mas se ele estiver defendendo sera um quarto do seu ataque(ex: atk player = 20 escudo inimigo = 14 logo dano no escudo = 5)\n" +
+						", voce pode defender o proximo ataque do inimigo o que ira diminuir o dano do mesmo modo que quando vc ataca um inimigo que esta defendendo\n" +
+						" e voce pode comer algo que ira  recuperar seu hp a quantidade de hp recuperado depende doitem consumido, em sua mochila cabem 10 comidas\n" +
+						". E para decidir quem ira comecar atacando levamos em conta a speed dos 2\n" +
 						"Bom Jogo!!!\n");
 				
 				try {
