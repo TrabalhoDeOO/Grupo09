@@ -10,6 +10,7 @@ package game.entidade;
 public class Vestimenta extends Item {
 
 	int bonusV;
+	int bonus;
 	/**
 	 * 
 	 */
@@ -33,11 +34,11 @@ public class Vestimenta extends Item {
 		return String.format("--------\nNome Item: %s\nCodigo: %d\nBonus: +%d Def\n--------\n", nomeItem, codItem, bonusV);
 	}
 
-	public int getBonusV() {
-		return bonus= bonusV;
+	public int getBonus() {
+		return this.bonusV;
 	}
 
-	public void setBonusV(int bonusV) {
+	public void setBonus( int bonusV) {
 		this.bonusV = bonusV;
 	}
 	

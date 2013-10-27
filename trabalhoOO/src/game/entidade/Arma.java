@@ -35,8 +35,8 @@ public class Arma extends Item {
 		return String.format("--------\nNome Item: %s\nCodigo: %d\nBonus: +%d Atk\n--------\n", nomeItem, codItem, bonusA);
 	}
 
-	public int getBonusA() {
-		return bonus = bonusA;
+	public int getBonus() {
+		return bonusA;
 	}
 
 	public void setBonusA(int bonusA) {

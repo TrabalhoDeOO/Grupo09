@@ -19,6 +19,9 @@ public class Player implements SetandoBonus {
 	public int jump;
 	public int xp;
 	private int xpMax = (this.lvl*5);
+	public int bonusDef;
+	public int bonusAtk;
+	public int bonusHp;
 		
 	public Player() {
 		this.nome = "sem nome";
@@ -101,19 +104,17 @@ public class Player implements SetandoBonus {
 		return atk;
 	}
 
-	public void setAkt(int atk){
+	public void setAtk(int atk){
+		bonusAtk = Arma.getBonus();
 		this.atk= atk+bonusAtk;
-	}
-	/*if (bonusA instanceof Arma){
-	public void setAtk(int atk) {
-		this.atk = atk+bonusA;
 		}
-	}*/
+	
 	public int getDef() {
 		return def;
 	}
 
 	public void setDef(int def) {
+		bonusDef = Vestimenta.getBonus();
 		this.def = def+bonusDef;
 	}
 
@@ -122,6 +123,7 @@ public class Player implements SetandoBonus {
 	}
 
 	public void setHp(int hp) {
+		bonusHp = Consumivel.getBonus();
 		this.hp = hp+bonusHp;
 	}
 
