@@ -22,11 +22,14 @@ public class GrimorioTest {
 	public void testGetGrimorioInimigos() {
 		Grimorio grimorio = new Grimorio();
 		grimorio.listarGrimorio();
+		int lvl;
 		Item loot = new Item();
 		loot = grimorio.getGrimorioInimigos().get(6).getLoot().getItem();
 		System.out.println(loot);
 		
-		assertTrue(true);
+		lvl = grimorio.getGrimorioInimigos().get(0).getLvl();
+		
+		assertEquals(lvl,1);
 	}
 
 }
