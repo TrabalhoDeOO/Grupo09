@@ -479,6 +479,8 @@ public class Main {
 			player.adicionaItem(grimorioI.getGrimorioItens().get(7));
 			player.adicionaItem(grimorioI.getGrimorioItens().get(8));
 			
+			//player.listarMochila();
+			
 			for (int i = 1; i > 0; i++) {
 				
 

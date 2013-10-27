@@ -103,21 +103,21 @@ public class BatalhaTurno /*implements SetandoBonus*/{
 				
 				//ação player
 				
-				System.out.println("voce : 1/ataca 2/ ataca escudo 3/defende:");
+				System.out.println("voce : 1/ataca 2/ ataca escudo 3/defende 4/come(recupera hp):");
 				x = scanIn.nextInt();
 				
 				
 				try{
 					
-					if (x>3|x<1){
+					if (x>4|x<1){
 						throw new java.lang.Exception();
 					}
 				}catch (Exception e){
 						do {
 							System.err.println("Entrada invalida!!!");
-							System.out.println("voce : 1/ataca 2/ ataca escudo 3/defende:");
+							System.out.println("voce : 1/ataca 2/ ataca escudo 3/defende 4/come(recupera hp):");
 							x = scanIn.nextInt();
-						}while(x>3|x<1);
+						}while(x>4|x<1);
 				}
 				
 				
@@ -243,6 +243,25 @@ public class BatalhaTurno /*implements SetandoBonus*/{
 					System.out.println(inimigo.getTipo() +" - hp: "+ hpI +" dano: " + atkI + " escudo: " + escudoI + "\n");
 					break;
 					
+				case 4:
+					int numeroDoAlimentoSelecionado = -1;
+					
+					
+					
+					if ( player.getMochila().size() >0){
+						
+						player.listarMochila();
+						System.out.println("voce deseja comer qual item?(insira apenas o numero que esta antes do nome do item)");
+						numeroDoAlimentoSelecionado = scanIn.nextInt();
+						player.setHp(hpP);
+						player.verificarItem(player.getMochila().get(numeroDoAlimentoSelecionado));
+						player.getMochila().remove(numeroDoAlimentoSelecionado);
+						hpP = player.getHp();
+					}else{
+						System.out.println("mochila vazia");
+					}
+					
+					break;
 				
 				}
 				
@@ -328,7 +347,7 @@ public class BatalhaTurno /*implements SetandoBonus*/{
 					
 					System.out.println("atk" + "\n");
 					//verificando se player esta defendendo
-					if(x==1 | x == 2){
+					if(x==1 | x == 2 | x == 4){
 						//calculando dano
 						dano = atkI - (escudoP/2);
 						//verificacao para evitar dano negativo(e causar dano minimo)
@@ -387,7 +406,7 @@ public class BatalhaTurno /*implements SetandoBonus*/{
 					//imprimindo acao de inimigo para player
 					System.out.println("ataca escudo\n");
 					//verificando se player esta dedendendo
-					if(x==1 | x == 2){
+					if(x==1 | x == 2 | x == 4){
 						//calculando dano em escudo player
 						escudoP = escudoP - (atkI/2);
 						//imprimindo dano no escudo player
@@ -533,7 +552,7 @@ public class BatalhaTurno /*implements SetandoBonus*/{
 					}
 					//imprimindo acao inimigo
 					System.out.println("atk" + "\n");
-					if (x==0 | x==1 | x==2){
+					if (x==0 | x==1 | x==2 | x==4){
 						//calculando dano
 						dano = atkI - (escudoP/2);
 						//verificacao para evitar dano negativo
@@ -594,7 +613,7 @@ public class BatalhaTurno /*implements SetandoBonus*/{
 					
 					System.out.println("ataca escudo" + "\n");
 					//verificando se player esta defendendo
-					if(x==0 | x==1 | x==2){
+					if(x==0 | x==1 | x==2 | x==4){
 						//calculando dano em escudo
 						escudoP = escudoP - (atkI/2);
 						//imprimindo dano causado a escudo player
@@ -681,19 +700,19 @@ public class BatalhaTurno /*implements SetandoBonus*/{
 				
 				// TODO ação player
 				
-				System.out.println("voce : 1/ataca 2/ ataca escudo 3/defende:" + "\n");
+				System.out.println("voce : 1/ataca 2/ ataca escudo 3/defende 4/come(recupera hp):" + "\n");
 				x = scanIn.nextInt();
 				
 				try{
-					if (x>3|x<1){
+					if (x>4|x<1){
 						throw new java.lang.Exception();
 					}
 				}catch (Exception e){
 						do {
 							System.err.println("Entrada invalida!!!");
-							System.out.println("voce : 1/ataca 2/ ataca escudo 3/defende:");
+							System.out.println("voce : 1/ataca 2/ ataca escudo 3/defende 4/come(recupera hp):");
 							x = scanIn.nextInt();
-						}while(x>3|x<1);
+						}while(x>4|x<1);
 				}
 				
 				switch(x){
@@ -803,6 +822,26 @@ public class BatalhaTurno /*implements SetandoBonus*/{
 					}
 					System.out.println(player.getNome() +" - hp: "+ hpP +" dano: " + atkP + " escudo: " + escudoP );
 					System.out.println(inimigo.getTipo() +" - hp: "+ hpI +" dano: " + atkI + " escudo: " + escudoI + "\n");
+					break;
+					
+				case 4:
+					int numeroDoAlimentoSelecionado = -1;
+					
+					
+					
+					if ( player.getMochila().size() >0){
+						
+						player.listarMochila();
+						System.out.println("voce deseja comer qual item?(insira apenas o numero que esta antes do nome do item)");
+						numeroDoAlimentoSelecionado = scanIn.nextInt();
+						player.setHp(hpP);
+						player.verificarItem(player.getMochila().get(numeroDoAlimentoSelecionado));
+						player.getMochila().remove(numeroDoAlimentoSelecionado);
+						hpP = player.getHp();
+					}else{
+						System.out.println("mochila vazia");
+					}
+					
 					break;
 					
 				default:
