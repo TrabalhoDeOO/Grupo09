@@ -1,8 +1,6 @@
 package game.entidade;
 import java.util.ArrayList;
 import game.interfaces.*;
-import game.entidade.*;
-import game.entidade.grimorio.*;
 
 
 public class Player implements SetandoBonus {
@@ -105,17 +103,15 @@ public class Player implements SetandoBonus {
 	}
 
 	public void setAtk(int atk){
-		bonusAtk = Arma.getBonus();
-		this.atk= atk+bonusAtk;
-		}
+		this.atk= atk;
+	}
 	
 	public int getDef() {
 		return def;
 	}
 
 	public void setDef(int def) {
-		bonusDef = Vestimenta.getBonus();
-		this.def = def+bonusDef;
+		this.def = def;
 	}
 
 	public int getHp() {
@@ -123,8 +119,9 @@ public class Player implements SetandoBonus {
 	}
 
 	public void setHp(int hp) {
-		bonusHp = Consumivel.getBonus();
-		this.hp = hp+bonusHp;
+		if(hp<=this.hpMax){
+			this.hp = hp;
+		}
 	}
 
 	public int getSpeed() {
@@ -191,17 +188,37 @@ public class Player implements SetandoBonus {
 		if (mochila.size()>3){
 			System.out.println("mochila cheia");
 		}else{
-			mochila.add(item);}
-			
+			mochila.add(item);
+			verificarItem(item);
 		}
+			
+	}
 	public void verificarItem (Item item){
-		// e agora, o que colocar aqui...?
+		if(item instanceof Arma){
+			int atk = item.getBonus()+this.atk;
+			addBonusAtk(atk);
+		}else if(item instanceof Vestimenta){
+			int def = item.getBonus()+this.def;
+			addBonusDef(def);
+		}else{
+			//Consumivel não adiciona bonus
+		}
+			
 	}
 
 	@Override
-	public void setAtk(int atk) {
-		// TODO Auto-generated method stub
+	public void addBonusHp(int hp) {		
 		
+	}
+
+	@Override
+	public void addBonusAtk(int atk) {
+		setAtk(atk);
+	}
+
+	@Override
+	public void addBonusDef(int def) {
+		setDef(def);
 	}
 }
 	 

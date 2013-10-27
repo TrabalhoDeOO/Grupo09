@@ -4,9 +4,9 @@ import game.entidade.*;
 
 public interface SetandoBonus {
 	
-	public void setHp (int hp);
-	public void setAtk (int atk);
-	public void setDef (int def);
+	public void addBonusHp (int hp);
+	public void addBonusAtk (int atk);
+	public void addBonusDef (int def);
 	public void verificarItem (Item item);
 
 }

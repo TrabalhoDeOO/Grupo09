@@ -1,7 +1,9 @@
 package game.teste;
 
 import static org.junit.Assert.*;
+import game.entidade.Item;
 import game.entidade.Player;
+import game.entidade.grimorio.GrimorioItens;
 
 import org.junit.After;
 import org.junit.Before;
@@ -25,10 +27,15 @@ public class TestarPlayer {
 		System.out.println(player.getStatus());
 		player.addXp(250);
 		
-		player.setLvl(10);	
+		GrimorioItens  grimorio = new GrimorioItens();
 		
-			
-	
+		Item vest = grimorio.getGrimorioItens().get(14);
+		
+		player.adicionaItem(vest);
+		
+		System.out.println(player.getStatus());
+		
+		player.setLvl(10);	
 		assertEquals(player.getAtk(), 40);
 	}
 }

@@ -56,7 +56,7 @@ public class Item {
 		}			
 	}
 	
-	public int getBonus(int bonus){
+	public int getBonus(){
 	  return 0;
 	}
 		

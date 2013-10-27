@@ -23,7 +23,7 @@ public class VestimentaTest {
 	@Test
 	public void testGetBonusV() {
 		Vestimenta asprika = new Vestimenta("Asprika", 1001, 20);
-		assertEquals(asprika.getBonusV(),20);
+		assertEquals(asprika.getBonus(),20);
 
 	}
 
