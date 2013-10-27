@@ -253,9 +253,10 @@ public class BatalhaTurno /*implements SetandoBonus*/{
 						player.listarMochila();
 						System.out.println("voce deseja comer qual item?(insira apenas o numero que esta antes do nome do item)");
 						numeroDoAlimentoSelecionado = scanIn.nextInt();
-						
+						player.setHp(hpP);
 						player.verificarItem(player.getMochila().get(numeroDoAlimentoSelecionado));
 						player.getMochila().remove(numeroDoAlimentoSelecionado);
+						hpP = player.getHp();
 					}else{
 						System.out.println("mochila vazia");
 					}
@@ -833,9 +834,10 @@ public class BatalhaTurno /*implements SetandoBonus*/{
 						player.listarMochila();
 						System.out.println("voce deseja comer qual item?(insira apenas o numero que esta antes do nome do item)");
 						numeroDoAlimentoSelecionado = scanIn.nextInt();
-						
+						player.setHp(hpP);
 						player.verificarItem(player.getMochila().get(numeroDoAlimentoSelecionado));
 						player.getMochila().remove(numeroDoAlimentoSelecionado);
+						hpP = player.getHp();
 					}else{
 						System.out.println("mochila vazia");
 					}
