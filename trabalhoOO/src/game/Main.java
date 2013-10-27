@@ -67,7 +67,7 @@ public class Main {
 		//variavel para validacao de ADM
 		int validaAdm = 0;
 		
-		//GrimorioItens grimorioI = new GrimorioItens();
+		GrimorioItens grimorioI = new GrimorioItens();
 		
 		//grimorioI.listarGrimorioItem();
 		Grimorio grimorio = new Grimorio();
@@ -475,7 +475,9 @@ public class Main {
 			player = new Player(player.getNome(), player.getSexo(), 7);
 			System.out.println(player.getStatus());
 			
-			int contadorDescanco = 5;
+			player.adicionaItem(grimorioI.getGrimorioItens().get(6));
+			player.adicionaItem(grimorioI.getGrimorioItens().get(7));
+			player.adicionaItem(grimorioI.getGrimorioItens().get(8));
 			
 			for (int i = 1; i > 0; i++) {
 				
@@ -511,12 +513,13 @@ public class Main {
 					break;
 				}
 				//isso sera substituido pelo consumivel em breve
-				System.out.println("\nDeseja comer algo(comer resulta em recuperar todo seu hp voce ainda tem " + contadorDescanco +" alimentos)? 1/sim 2/nao");
+				System.out.println("\nDeseja comer algo(comer resulta em recuperar todo seu hp voce ainda tem " + player.getMochila().size() +" alimentos)? 1/sim 2/nao");
 				verificaDescanco = scanIn.nextInt();
 				
-				if (verificaDescanco == 1 & contadorDescanco >0){
-					contadorDescanco--;
-					player.setHp(hpMax);
+				if (verificaDescanco == 1 & player.getMochila().size() >0){
+					int ultimoItem = (player.getMochila().size()-1);
+					player.verificarItem(player.getMochila().get(ultimoItem));
+					player.getMochila().remove(ultimoItem);
 				}
 				
 			}

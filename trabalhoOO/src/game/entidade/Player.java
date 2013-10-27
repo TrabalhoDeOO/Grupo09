@@ -20,6 +20,8 @@ public class Player implements SetandoBonus {
 	public int bonusDef;
 	public int bonusAtk;
 	public int bonusHp;
+	public Arma arma;
+	public Vestimenta roupa;
 		
 	public Player() {
 		this.nome = "sem nome";
@@ -184,31 +186,47 @@ public class Player implements SetandoBonus {
 	}
 	
 	public void adicionaItem(Item item){
-		
-		if (mochila.size()>3){
-			System.out.println("mochila cheia");
-		}else{
-			mochila.add(item);
+		if(item instanceof Arma){
+			this.arma = (Arma) item;
 			verificarItem(item);
+		}else if(item instanceof Vestimenta){
+			this.roupa = (Vestimenta) item;
+			verificarItem(item);
+		}else if(item instanceof Consumivel){
+			if (mochila.size()>5){
+				System.out.println("mochila cheia");
+			}else{
+				mochila.add(item);
+			}
 		}
-			
 	}
 	public void verificarItem (Item item){
 		if(item instanceof Arma){
+			 setAtk((this.lvl*4));
 			int atk = item.getBonus()+this.atk;
 			addBonusAtk(atk);
 		}else if(item instanceof Vestimenta){
+			setDef((this.lvl*2));
 			int def = item.getBonus()+this.def;
 			addBonusDef(def);
 		}else{
+			int hpRecuperada = item.getBonus()+this.hp;
+			addBonusHp(hpRecuperada);
 			//Consumivel não adiciona bonus
 		}
 			
 	}
 
 	@Override
-	public void addBonusHp(int hp) {		
+	public void addBonusHp(int hp) {
 		
+		if(hp>this.hpMax){
+			System.out.println("+ " +(this.hpMax-this.hp) + " hp");
+			setHp(this.hpMax);
+		}else if(hp<this.hpMax){
+			System.out.println("+ " +(hp-this.hp) + " hp");
+			setHp(hp);
+		}
 	}
 
 	@Override
