@@ -10,6 +10,7 @@ package game.entidade;
 public class Consumivel extends Item {
 
 	protected int bonusC;
+	public int bonus;
 	/**
 	 * 
 	 */
@@ -33,8 +34,8 @@ public class Consumivel extends Item {
 		return String.format("--------\nNome Item: %s\nCodigo: %d\nBonus: recupera %d de HP\n--------\n", nomeItem, codItem, bonusC);
 	}
 
-	public int getBonusC() {
-		return bonus= bonusC;
+	public int getBonus() {
+		return this.bonusC;
 	}
 
 	public void setBonusC(int bonusC) {
