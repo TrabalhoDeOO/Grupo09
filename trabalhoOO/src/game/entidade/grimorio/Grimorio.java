@@ -54,7 +54,7 @@ public class Grimorio {
 		//inimigos lvl2  posicao na lista 5-9
 		InimigoEvento inimigo2 = new InimigoEvento("jav baby", 2, "javali" );
 		inimigo2.criarDescricao("Um animal normalmente dócil, provavelmente por se tratar de\n" +
-				"uma criatura inocente, porém se facilmente assustado com a chegada de entranhos." +
+				"uma criatura inocente, porém facilmente se assusta com a chegada de entranhos." +
 				"\nSeria uma atrocidade alguem bater nesse bixo.");
 		
 		novoValorAtributo = inimigo2.getDef() + 1;
