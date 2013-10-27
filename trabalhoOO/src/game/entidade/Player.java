@@ -20,8 +20,8 @@ public class Player implements SetandoBonus {
 	public int bonusDef;
 	public int bonusAtk;
 	public int bonusHp;
-	public Arma arma;
-	public Vestimenta roupa;
+	public Arma arma = null;
+	public Vestimenta roupa = null;
 		
 	public Player() {
 		this.nome = "sem nome";
@@ -51,6 +51,13 @@ public class Player implements SetandoBonus {
 		this.jump = 20;
 		//this.xp = 0;
 		this.xpMax = (this.lvl*5);
+		if(arma!= null){
+			verificarItem(arma);
+		}
+		if(roupa!=null){
+			verificarItem(roupa);
+		}
+		
 	}
 	
 	public String getStatus(){
