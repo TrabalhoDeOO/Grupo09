@@ -64,10 +64,15 @@ public class GrimorioItens {
 		}
 		//comeca na posicao 20 do array
 		itemV[0] = new Vestimenta("Tanga de Preguiça", 21, 1);
-		itemV[0].criarDescricao("Uma vestimenta mal feita a partir de um pedaço\nde pele de Preguiça.");
+		itemV[0].criarDescricao("Uma vestimenta mal feita a partir de um pedaço de pele de Preguiça.");
 		itemV[1] = new Vestimenta("Cinto de Preguiça", 22, 1);
+		itemV[1].criarDescricao("Uma vestimenta mal feita a partir de um pedaço de pele de Preguiça.");
 		itemV[2] = new Vestimenta("Luva de javali", 23, 1);
+		itemV[2].criarDescricao("Um par de Luvas feito para trabalho pesadoPedaço de vestimenta\n" +
+				"normalmente feita a partir das sobras de pele do animal.");
 		itemV[3] = new Vestimenta("Bota de javali", 24, 1);
+		itemV[3].criarDescricao("Um par de Botas feito para longas caminhadas, são ótimas para enfrentar o frio.\n" +
+				"Pedaço de vestimenta normalmente feita a partir das sobras de pele do animal.");
 		itemV[4] = new Vestimenta("Casaco de javali", 25, 1);
 		itemV[5] = new Vestimenta("Elmo de Velociraptor", 26, 2);
 		itemV[6] = new Vestimenta("Casaco de Mamute", 27, 3);
