@@ -515,14 +515,30 @@ public class Main {
 					break;
 				}
 				//isso sera substituido pelo consumivel em breve
+				System.out.println(player.getNome() +" - hp: "+ player.getHp() +"/"+ player.getHpMax());
 				System.out.println("\nDeseja comer algo(comer resulta em recuperar todo seu hp voce ainda tem " + player.getMochila().size() +" alimentos)? 1/sim 2/nao");
 				verificaDescanco = scanIn.nextInt();
 				
-				if (verificaDescanco == 1 & player.getMochila().size() >0){
-					int ultimoItem = (player.getMochila().size()-1);
-					player.verificarItem(player.getMochila().get(ultimoItem));
-					player.getMochila().remove(ultimoItem);
-				}
+				
+					int numeroDoAlimentoSelecionado = -1;
+					
+					
+					if(verificaDescanco ==1){
+						if ( player.getMochila().size() >0){
+							
+							player.listarMochila();
+							System.out.println("voce deseja comer qual item?(insira apenas o numero que esta antes do nome do item)");
+							numeroDoAlimentoSelecionado = scanIn.nextInt();
+							
+							player.verificarItem(player.getMochila().get(numeroDoAlimentoSelecionado));
+							player.getMochila().remove(numeroDoAlimentoSelecionado);
+							
+							
+						}else{
+							System.out.println("mochila vazia");
+						}
+					}
+					
 				
 			}
 

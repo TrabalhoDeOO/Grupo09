@@ -194,9 +194,11 @@ public class Player implements SetandoBonus {
 	
 	public void adicionaItem(Item item){
 		if(item instanceof Arma){
+			this.atk = (this.lvl*4);
 			this.arma = (Arma) item;
 			verificarItem(item);
 		}else if(item instanceof Vestimenta){
+			this.def = (this.lvl*2);
 			this.roupa = (Vestimenta) item;
 			verificarItem(item);
 		}else if(item instanceof Consumivel){
@@ -208,10 +210,9 @@ public class Player implements SetandoBonus {
 		}
 	}
 	public void verificarItem (Item item){
+		
 		if(item instanceof Arma){
-			addBonusAtk(item.getBonus());
-		}else if(item instanceof Vestimenta){
-			addBonusDef(item.getBonus());
+			
 			 setAtk((this.lvl*4));
 			int atk = item.getBonus()+this.atk;
 			addBonusAtk(atk);
@@ -219,10 +220,10 @@ public class Player implements SetandoBonus {
 			setDef((this.lvl*2));
 			int def = item.getBonus()+this.def;
 			addBonusDef(def);
-		}else{
+		}else if(item instanceof Consumivel){
 			int hpRecuperada = item.getBonus()+this.hp;
 			addBonusHp(hpRecuperada);
-			//Consumivel não adiciona bonus
+			
 		}
 			
 	}
@@ -241,12 +242,12 @@ public class Player implements SetandoBonus {
 
 	@Override
 	public void addBonusAtk(int atk) {
-		setAtk(atk+this.atk);
+		setAtk(atk);
 	}
 
 	@Override
 	public void addBonusDef(int def) {
-		setDef(def+this.def);
+		setDef(def);
 	}
 	
 	public void listarMochila(){

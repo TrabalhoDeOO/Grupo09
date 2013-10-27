@@ -115,6 +115,8 @@ public class Loot {
 		System.out.println("o monstro " + inimigo.getNome() + " dropou:");
 		
 		System.out.println(this.item);
+		System.out.println(this.item.descricao());
+		
 		
 		System.out.println(this.conchaPq.getTipo() + " " + this.conchaPq.getQuantidade());
 		System.out.println(this.conchaMed.getTipo() + " " + this.conchaMed.getQuantidade());

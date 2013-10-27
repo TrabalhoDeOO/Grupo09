@@ -31,11 +31,14 @@ public class TestarPlayer {
 		
 		Item vest = grimorio.getGrimorioItens().get(14);
 		
+		
 		player.adicionaItem(vest);
+		
+		
 		
 		System.out.println(player.getStatus());
 		
 		player.setLvl(10);	
-		assertEquals(player.getAtk(), 40);
+		assertEquals(player.getAtk(), 43);
 	}
 }
