@@ -114,7 +114,7 @@ public class Loot {
 	public void listarLoot(){
 		System.out.println("o monstro " + inimigo.getNome() + " dropou:");
 		
-		System.out.println(this.item);
+		//System.out.println(this.item);
 		System.out.println(this.item.descricao());
 		
 		
