@@ -19,10 +19,7 @@ public class Player implements SetandoBonus {
 	public int jump;
 	public int xp;
 	private int xpMax = (this.lvl*5);
-	private int bonusAtk;
-	private int bonusDef;
-	private int bonusHp;
-
+		
 	public Player() {
 		this.nome = "sem nome";
 		this.sexo = "nao informado";
