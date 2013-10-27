@@ -865,7 +865,15 @@ public class BatalhaTurno /*implements SetandoBonus*/{
 		if(velholvl == novolvl){
 			player1.setHp(hpP);
 		}
+		int verificaPegarLoot;
 		
+		if(hpP > 0){
+			System.out.println("\nDeseja pegar Item? 1/sim 2/ nao");
+			verificaPegarLoot = scanIn.nextInt();
+			if(verificaPegarLoot == 1){
+				player.adicionaItem(lootB.getItem());
+			}
+		}
 		//retornando resultado da batalha
 		return player1;
 	}
