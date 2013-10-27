@@ -24,9 +24,9 @@ public class GrimorioTest {
 		grimorio.listarGrimorio();
 		int lvl;
 		Item loot = new Item();
-		loot = grimorio.getGrimorioInimigos().get(6).getLoot().getItem();
-		System.out.println(loot);
-		
+		loot = grimorio.getGrimorioInimigos().get(8).getLoot().getItem();
+		System.out.println(loot.descricao());
+		System.out.println(grimorio.getGrimorioInimigos().get(9).descricao());
 		lvl = grimorio.getGrimorioInimigos().get(0).getLvl();
 		
 		assertEquals(lvl,1);

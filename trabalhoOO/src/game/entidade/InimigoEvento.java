@@ -1,13 +1,16 @@
 package game.entidade;
 
+import game.interfaces.Descricao;
+
 import java.util.ArrayList;
 
 
 // Trabalhar a questão do ArrayList depois
-public class InimigoEvento extends Inimigo{
+public class InimigoEvento extends Inimigo implements Descricao{
 	public int def;
 	public int xp;
-	ArrayList<InimigoEvento> monstro = new ArrayList <InimigoEvento>();	
+	ArrayList<InimigoEvento> monstro = new ArrayList <InimigoEvento>();
+	private String desc = "vazio";	
 	
 	public InimigoEvento() {
 		super();
@@ -121,4 +124,15 @@ public class InimigoEvento extends Inimigo{
 		Loot loot1 = this.loot;
 		loot1.listarLoot();
 	}
+	@Override
+	public void criarDescricao(String desc) {
+		this.desc = desc;
+	}
+
+	@Override
+	public String descricao() {
+		 
+		return String.format("%s\t-\t%s\nDescrição: %s\n",this.nome, this.tipo, this.desc);
+	}
+	
 }

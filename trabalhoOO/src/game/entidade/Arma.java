@@ -43,6 +43,12 @@ public class Arma extends Item {
 		this.bonusA = bonusA;
 	}
 	
+	@Override
+	public String descricao() {
+		 
+		return String.format("%s\t-\t%d\nDescrição: %s\nBônus: +%d Atk\n",this.nomeItem, this.codItem, this.desc, this.bonusA);
+	}
+	
 	
 
 }

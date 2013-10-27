@@ -209,6 +209,9 @@ public class Player implements SetandoBonus {
 	}
 	public void verificarItem (Item item){
 		if(item instanceof Arma){
+			addBonusAtk(item.getBonus());
+		}else if(item instanceof Vestimenta){
+			addBonusDef(item.getBonus());
 			 setAtk((this.lvl*4));
 			int atk = item.getBonus()+this.atk;
 			addBonusAtk(atk);
@@ -238,12 +241,12 @@ public class Player implements SetandoBonus {
 
 	@Override
 	public void addBonusAtk(int atk) {
-		setAtk(atk);
+		setAtk(atk+this.atk);
 	}
 
 	@Override
 	public void addBonusDef(int def) {
-		setDef(def);
+		setDef(def+this.def);
 	}
 	
 	public void listarMochila(){

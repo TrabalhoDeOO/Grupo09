@@ -1,13 +1,15 @@
 package game.entidade;
 
+import game.interfaces.Descricao;
+
 import java.util.ArrayList;
 
-public class Loja {
+public class Loja implements Descricao{
 
 	public String nomeLoja;
 	public String tipoLoja;
 	ArrayList<Item> itens = new ArrayList<Item>();
-
+	private String desc="vazio";
 	
 	public Loja() {
 		
@@ -70,6 +72,17 @@ public class Loja {
 		for (int i=0;i<itens.size(); i++){
 			System.out.println(itens.get(i));
 		}
+	}
+
+	@Override
+	public void criarDescricao(String desc) {
+		this.desc = desc;
+	}
+
+	@Override
+	public String descricao() {
+		 
+		return String.format("%s\t-\t%d\nDescrição: %s\n",this.nomeLoja,this.tipoLoja,this.desc);
 	}
 	
 	

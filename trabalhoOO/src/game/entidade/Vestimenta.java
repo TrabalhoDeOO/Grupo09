@@ -41,7 +41,12 @@ public class Vestimenta extends Item {
 	public void setBonus( int bonusV) {
 		this.bonusV = bonusV;
 	}
-	
+
+	@Override
+	public String descricao() {
+		 
+		return String.format("%s\t-\t%d\nDescrição: %s\nBônus: +%d Def\n",this.nomeItem, this.codItem, this.desc, this.bonusV);
+	}
 	
 
 }

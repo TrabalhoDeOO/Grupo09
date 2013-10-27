@@ -21,7 +21,7 @@ public class ArmaTest {
 	@Test
 	public void testGetBonusA() {
 		Arma espada = new Arma("Excalibur",123,5);
-		assertEquals(espada.getBonusA(),5);
+		assertEquals(espada.getBonus(),5);
 	}
 
 }
