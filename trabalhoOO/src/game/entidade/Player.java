@@ -209,11 +209,9 @@ public class Player implements SetandoBonus {
 	}
 	public void verificarItem (Item item){
 		if(item instanceof Arma){
-<<<<<<< HEAD
 			addBonusAtk(item.getBonus());
 		}else if(item instanceof Vestimenta){
 			addBonusDef(item.getBonus());
-=======
 			 setAtk((this.lvl*4));
 			int atk = item.getBonus()+this.atk;
 			addBonusAtk(atk);
@@ -221,7 +219,6 @@ public class Player implements SetandoBonus {
 			setDef((this.lvl*2));
 			int def = item.getBonus()+this.def;
 			addBonusDef(def);
->>>>>>> db29318e50f06f394db3fd9451519a6e42baaf6d
 		}else{
 			int hpRecuperada = item.getBonus()+this.hp;
 			addBonusHp(hpRecuperada);
