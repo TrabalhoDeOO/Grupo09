@@ -1,8 +1,11 @@
 package game.entidade;
 import java.util.ArrayList;
+import game.interfaces.*;
+import game.entidade.*;
+import game.entidade.grimorio.*;
 
 
-public class Player {
+public class Player implements SetandoBonus {
 	
 	public String nome;
 	public String sexo;
@@ -16,6 +19,9 @@ public class Player {
 	public int jump;
 	public int xp;
 	private int xpMax = (this.lvl*5);
+	private int bonusAtk;
+	private int bonusDef;
+	private int bonusHp;
 
 	public Player() {
 		this.nome = "sem nome";
@@ -65,8 +71,8 @@ public class Player {
 			 int newlvl = this.lvl + 1;
 			 System.out.println("\tLVL UP!!!!!!!\n");
 			 setLvl(newlvl);
-			 System.out.println(getStatus()+"\n");			 
 		}
+		 System.out.println(getStatus()+"\n");
 	}
 
 	public String getNome() {
@@ -98,16 +104,20 @@ public class Player {
 		return atk;
 	}
 
-	public void setAtk(int atk) {
-		this.atk = atk;
+	public void setAkt(int atk){
+		this.atk= atk+bonusAtk;
 	}
-
+	/*if (bonusA instanceof Arma){
+	public void setAtk(int atk) {
+		this.atk = atk+bonusA;
+		}
+	}*/
 	public int getDef() {
 		return def;
 	}
 
 	public void setDef(int def) {
-		this.def = def;
+		this.def = def+bonusDef;
 	}
 
 	public int getHp() {
@@ -115,7 +125,7 @@ public class Player {
 	}
 
 	public void setHp(int hp) {
-		this.hp = hp;
+		this.hp = hp+bonusHp;
 	}
 
 	public int getSpeed() {
@@ -125,7 +135,8 @@ public class Player {
 	public void setSpeed(int speed) {
 		this.speed = speed;
 	}
-
+	
+	
 	public int getJump() {
 		return jump;
 	}
@@ -181,12 +192,11 @@ public class Player {
 		if (mochila.size()>3){
 			System.out.println("mochila cheia");
 		}else{
-			mochila.add(item);
+			mochila.add(item);}
 			
 		}
-		
+	public void verificarItem (Item item){
+		// e agora, o que colocar aqui...?
 	}
-	 
-
 }
-
+	 
