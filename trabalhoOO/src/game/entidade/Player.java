@@ -173,6 +173,15 @@ public class Player implements SetandoBonus {
 	public int getXpMax() {
 		return xpMax;
 	}
+	
+
+	public Arma getArma() {
+		return arma;
+	}
+
+	public Vestimenta getRoupa() {
+		return roupa;
+	}
 
 	public boolean validaPlayer(String sexo){
 		boolean validacao;
@@ -202,7 +211,7 @@ public class Player implements SetandoBonus {
 			this.roupa = (Vestimenta) item;
 			verificarItem(item);
 		}else if(item instanceof Consumivel){
-			if (mochila.size()>5){
+			if (mochila.size()>4){
 				System.out.println("mochila cheia");
 			}else{
 				mochila.add(item);

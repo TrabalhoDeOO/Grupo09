@@ -7,7 +7,7 @@ package game.entidade;
 
 import java.util.Scanner;
 import java.util.Random;
-import game.interfaces.*;
+//import game.interfaces.*;
 
 
 /**
@@ -52,8 +52,8 @@ public class BatalhaTurno /*implements SetandoBonus*/{
 		int dano;
 		int resultB = 1;
 		int speedP, speedI;
-		int novaxp;
-		Item item;
+		//int novaxp;
+		//Item item;
 		int velholvl = player.lvl, novolvl;
 		
 		 
@@ -949,10 +949,33 @@ public class BatalhaTurno /*implements SetandoBonus*/{
 		int verificaPegarLoot;
 		
 		if(hpP > 0){
+			
+			if(player.getArma() == null){
+				if(player.getRoupa() == null){
+					System.out.println("voce esta usando : nada como arma e vestindo nada(sim voce esta andando nu, peladao, desnudo, do jeito que veio ao mundo).");
+				}else{
+					System.out.println("voce esta usando : nada como arma e vestindo um(a)" + player.getRoupa().getNomeItem() + " (+" + player.getRoupa().getBonus() + " def)" );
+				}
+				
+			}else{
+				if(player.getRoupa() == null){
+					System.out.println("voce esta usando :" + player.getArma().getNomeItem() + " (+" +player.getArma().getBonus()  + " atk) como arma e " +
+							"vestindo nada(sim voce esta andando nu, peladao, desnudo, do jeito que veio ao mundo).");
+				}else{
+					System.out.println("voce esta usando : " + player.getArma().getNomeItem() + " (+" +player.getArma().getBonus()  + " atk)como arma e vestindo um(a)" + 
+				player.getRoupa().getNomeItem() + " (+" + player.getRoupa().getBonus() + " def)" );
+				}
+			}
+			
 			System.out.println("\nDeseja pegar Item? 1/sim 2/ nao");
 			verificaPegarLoot = scanIn.nextInt();
 			if(verificaPegarLoot == 1){
-				player.adicionaItem(lootB.getItem());
+				if(player.getMochila().size()==5 & lootB.getItem() instanceof Consumivel){
+					System.err.println("Mochila Cheia!!!");
+				}else{
+					player.adicionaItem(lootB.getItem());
+				}
+				
 			}
 		}
 		//retornando resultado da batalha

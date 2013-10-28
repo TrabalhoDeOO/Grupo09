@@ -2,7 +2,7 @@ package game.teste;
 
 import static org.junit.Assert.*;
 import game.entidade.Consumivel;
-import game.entidade.Item;
+//import game.entidade.Item;
 
 import org.junit.After;
 import org.junit.Before;

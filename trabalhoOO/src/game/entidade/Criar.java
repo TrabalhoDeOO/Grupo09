@@ -98,17 +98,15 @@ public class Criar {
 		this.npcs = npcs;
 	}
 	
-	public Item criarItem (int senhaAdm, int senha1,String tipo, String nome, int codigo, int bonus){
+	public Item criarItem (String tipo, String nome, int codigo, int bonus){
 		Item item = new Item();
 		Arma arma;
 		Vestimenta vestimenta;
 		Consumivel consumivel;
-		Adm adm = new Adm();
-		adm.setSenha(senhaAdm);
-		this.senha = senha1;
-		if (senha == adm.getSenha()){
-			if(itens.size()<1)
-				System.out.println("Autorizado!");
+		
+		
+		
+			
 				if (tipo.equalsIgnoreCase("arma")){
 					arma = new Arma(nome, codigo, bonus);
 					itens.add(arma);
@@ -128,31 +126,23 @@ public class Criar {
 				}
 				
 						
-		}
-		else{
-			System.out.println("Autorização Negada!");
-		}
+		
 		
 		return item;
 	}
 	
 	
 	
-	public Loja criarLoja (int senhaAdm, int senha1, String nome, String tipo){
+	public Loja criarLoja (String nome, String tipo){
 		Loja loja = new Loja();;
-		Adm adm = new Adm();
-		adm.setSenha(senhaAdm);
-		this.senha = senha1;
-		if (senha == adm.getSenha()){
-			if(lojas.size()<1)
-				System.out.println("Autorizado!");
+		
+		
+			
+				
 			loja = new Loja(nome, tipo);
 			lojas.add(loja);
 			
-		}
-		else{
-			System.out.println("Autorização Negada!");
-		}
+		
 		return loja;
 	}
 	
@@ -163,22 +153,9 @@ public class Criar {
 		}			
 	}
 	
-	public void criarDinheiro(int senhaAdm, int senha1,String tipo, int quantidade){
+	public void criarDinheiro(String tipo, int quantidade){
 		
 		int conchaP=conchaPq.getQuantidade(), conchaM=conchaMed.getQuantidade(), conchaG=conchaGr.getQuantidade();
-		
-		
-		
-		Adm adm = new Adm();
-		
-		adm.setSenha(senhaAdm);
-		this.senha = senha1;
-		
-		
-		
-		if(senha == adm.getSenha()){
-			
-			
 			
 			
 			if (tipo.equalsIgnoreCase(conchaGr.getTipo())){
@@ -225,11 +202,7 @@ public class Criar {
 			conchaMed.setQuantidade(conchaM);
 			conchaGr.setQuantidade(conchaG);
 			
-		}
-		else{
-			
-			System.out.println("Autorizacao Negada!");
-		}
+		
 		
 		}
 	
@@ -240,17 +213,16 @@ public class Criar {
 		
 	}
 	
-	public Inimigo CriarMonstro(int senhaAdm, int senha1 , String nome, String tipoInimigo, String tipoMonstro, int lvl, int jump){
+	public Inimigo CriarMonstro(String nome, String tipoInimigo, String tipoMonstro, int lvl, int jump){
 		
-		Adm adm = new Adm();
+		
 		Inimigo inimigo= null;
-		adm.setSenha(senhaAdm);
-		this.senha = senha1;
 		
 		
-		if(senha == adm.getSenha()){
-			if(monstro.size()<1)
-				System.out.println("Autorizado!");
+		
+		
+			
+				
 			if(tipoInimigo.equalsIgnoreCase("a")){
 				InimigoPlataforma inimigo1 = new InimigoPlataforma(jump, nome, lvl, tipoMonstro);
 				inimigo = inimigo1;
@@ -260,10 +232,7 @@ public class Criar {
 			}
 			monstro.add(inimigo);
 			
-		}
-		else{
-			System.out.println("Autorizacao Negada!");
-		}
+		
 			
 			return inimigo;
 		
@@ -297,46 +266,35 @@ public class Criar {
 			
 		}
 		
-	public void CriarLoot(int senhaAdm, int senhaT, Dinheiro dinheiro, Item item, Inimigo inimigo){
+	public void CriarLoot(Dinheiro dinheiro, Item item, Inimigo inimigo){
 			
-			Adm adm = new Adm();
-			adm.setSenha(senhaAdm);
 			
-			this.senha = senhaT;
 			
-			if(senha == adm.getSenha()){
-				System.out.println("Autorizado!");
+			
+				
 				
 				Loot loot1 = new Loot(dinheiro, item);
 				
 				loot1.setInimigo(inimigo);
 				
 				
-			}else{
-				
-				System.out.println("Autorizacao Negada!");
-			}
+			
 			
 	}
 		
-	public NPC criarNPC (int senhaAdm, int senha1, String nome, int funcao, int sexo){
+	public NPC criarNPC (String nome, int funcao, int sexo){
 		
 		//funcao  1/informante 2/auxiliar 3/negociante
 		//sexo 1/feminino 2/masculino
 		
 				NPC npc = new NPC();
-				Adm adm = new Adm();
-				adm.setSenha(senhaAdm);
-				this.senha = senha1;
-				if (senha == adm.getSenha()){
+				
+				
 					if(npcs.size()<1)
-						System.out.println("Autorizado!");
+						
 					npc = new NPC(nome, funcao, sexo);
 					npcs.add(npc);			
-				}
-				else{
-					System.out.println("Autorizacao Negada!");
-				}
+				
 				
 				return npc;
 			}

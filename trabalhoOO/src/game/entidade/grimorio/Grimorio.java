@@ -17,7 +17,7 @@ public class Grimorio {
 	public Grimorio() { 
 		
 		Criar batalha = new Criar();
-		int senha1 = 1234;
+		
 		Item lootI;
 		GrimorioItens grimorioI = new GrimorioItens();
 		
@@ -34,7 +34,7 @@ public class Grimorio {
 				"acabar esmagado por uma Preguiça sonolenta.");
 		
 		lootD = new Dinheiro("pequena", 5);
-		batalha.criarDinheiro(senha1, senha1, "pequena", 5);
+		batalha.criarDinheiro("pequena", 5);
 		
 		if(rand()==0){
 			lootI =  grimorioI.getGrimorioItens().get(11);
@@ -60,7 +60,7 @@ public class Grimorio {
 		novoValorAtributo = inimigo2.getDef() + 1;
 		inimigo2.setDef(novoValorAtributo);
 		lootD = new Dinheiro("pequena", 20);
-		batalha.criarDinheiro(senha1, senha1, "pequena", 20);	
+		batalha.criarDinheiro("pequena", 20);	
 
 		if(rand()==0){
 			lootI =  grimorioI.getGrimorioItens().get(12);
@@ -82,7 +82,7 @@ public class Grimorio {
 		novoValorAtributo = inimigo3.getDef() + 1;
 		inimigo3.setDef(novoValorAtributo);
 		lootD = new Dinheiro("pequena", 30);
-		batalha.criarDinheiro(senha1, senha1, "pequena", 30);
+		batalha.criarDinheiro("pequena", 30);
 		
 		if(rand()==0){
 			lootI = grimorioI.getGrimorioItens().get(12);
@@ -104,7 +104,7 @@ public class Grimorio {
 		novoValorAtributo = inimigo4.getDef() + 1;
 		inimigo4.setDef(novoValorAtributo);
 		lootD = new Dinheiro("pequena", 40);
-		batalha.criarDinheiro(senha1, senha1, "pequena", 40);
+		batalha.criarDinheiro("pequena", 40);
 		
 		if(rand()==0){
 	
@@ -128,7 +128,7 @@ public class Grimorio {
 		
 		//lootI = new Arma("garra de velocirraptor", 0004, 3);
 		lootD = new Dinheiro("pequena", 50);
-		batalha.criarDinheiro(senha1, senha1, "pequena", 50);	
+		batalha.criarDinheiro("pequena", 50);	
 
 		if(rand()==0){
 			lootI = grimorioI.getGrimorioItens().get(14);
@@ -150,7 +150,7 @@ public class Grimorio {
 		inimigo6.setDef(novoValorAtributo);
 		inimigo6.setSpe(novoValorAtributo2);
 		lootD = new Dinheiro("pequena", 60);
-		batalha.criarDinheiro(senha1, senha1, "pequena", 60);
+		batalha.criarDinheiro("pequena", 60);
 		
 		if(rand()==0){
 			lootI = grimorioI.getGrimorioItens().get(15);
@@ -172,7 +172,7 @@ public class Grimorio {
 		inimigo7.setDef(novoValorAtributo);
 		inimigo7.setSpe(novoValorAtributo2);
 		lootD = new Dinheiro("pequena", 60);
-		batalha.criarDinheiro(senha1, senha1, "pequena", 60);
+		batalha.criarDinheiro("pequena", 60);
 
 		if(rand()==0){
 	
@@ -196,7 +196,7 @@ public class Grimorio {
 		inimigo8.setDef(novoValorAtributo);
 		inimigo8.setSpe(novoValorAtributo2);
 		lootD = new Dinheiro("pequena", 60);
-		batalha.criarDinheiro(senha1, senha1, "pequena", 60);
+		batalha.criarDinheiro("pequena", 60);
 		
 		if(rand()==0){
 			lootI = grimorioI.getGrimorioItens().get(26);
@@ -219,7 +219,7 @@ public class Grimorio {
 		novoValorAtributo2 = inimigo9.getAtk()+5;
 		inimigo9.setAtk(novoValorAtributo2);
 		lootD = new Dinheiro("media", 6);
-		batalha.criarDinheiro(senha1, senha1, "media", 6);
+		batalha.criarDinheiro("media", 6);
 	
 		if(rand()<2){
 			lootI = grimorioI.getGrimorioItens().get(30);
@@ -252,7 +252,7 @@ public class Grimorio {
 		novoValorAtributo2 = inimigo10.getDef()+10;
 		inimigo10.setDef(novoValorAtributo2);		
 		lootD = new Dinheiro("grande", 5);
-		batalha.criarDinheiro(senha1, senha1, "grande", 5);
+		batalha.criarDinheiro("grande", 5);
 		
 		if(rand()==0){
 			lootI = grimorioI.getGrimorioItens().get(29);

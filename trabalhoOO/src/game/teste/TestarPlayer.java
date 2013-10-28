@@ -32,9 +32,9 @@ public class TestarPlayer {
 		Item vest = grimorio.getGrimorioItens().get(14);
 		
 		
+		
+		
 		player.adicionaItem(vest);
-		
-		
 		
 		System.out.println(player.getStatus());
 		

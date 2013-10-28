@@ -1,6 +1,6 @@
 package game.entidade;
 
-import game.entidade.*;
+//import game.entidade.*;
 import game.interfaces.Descricao;
 
 import java.util.ArrayList;

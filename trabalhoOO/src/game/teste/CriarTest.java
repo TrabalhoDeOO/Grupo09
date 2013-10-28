@@ -4,11 +4,11 @@ import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 
-import game.entidade.Arma;
+//import game.entidade.Arma;
 import game.entidade.Criar;
 import game.entidade.NPC;
 import game.entidade.Item;
-import game.entidade.Vestimenta;
+//import game.entidade.Vestimenta;
 
 import org.junit.After;
 import org.junit.Before;
@@ -34,9 +34,9 @@ public class CriarTest {
 		Item cajado;
 		Criar criar = new Criar(1234);
 		
-		espada = criar.criarItem(1234, 1234, "Arma", "Angra Mainyu",1113, 10);
-		escudo = criar.criarItem(1234, 1234, "Vestimenta", "Ahura Madza",1114, 10);
-		cajado = criar.criarItem(1234, 1234, "Arma", "Vareta",15, 25);
+		espada = criar.criarItem("Arma", "Angra Mainyu",1113, 10);
+		escudo = criar.criarItem("Vestimenta", "Ahura Madza",1114, 10);
+		cajado = criar.criarItem("Arma", "Vareta",15, 25);
 		
 		ArrayList<Item> itens = new ArrayList<Item>();
 		
@@ -56,9 +56,9 @@ public class CriarTest {
 		
 		Criar criar = new Criar(1234);
 		
-		guide = criar.criarNPC(1234, 1234, "Guia",1,1);
-		banco = criar.criarNPC(1234, 1234, "Banqueiro",2,2);
-		ladra = criar.criarNPC(1234, 1234, "Arruaceira",3,1);
+		guide = criar.criarNPC("Guia",1,1);
+		banco = criar.criarNPC("Banqueiro",2,2);
+		ladra = criar.criarNPC("Arruaceira",3,1);
 		
 		ArrayList<NPC> npc = new ArrayList<NPC>();
 		

@@ -23,7 +23,7 @@ public class InimigoTest {
 	@Test
 	public void testGetDef() {
 		Criar criar = new Criar();
-		InimigoEvento inimigo = (InimigoEvento) criar.CriarMonstro(1234, 1234, "Slime", "b", "Monstro Geleia", 15, 0);
+		InimigoEvento inimigo = (InimigoEvento) criar.CriarMonstro("Slime", "b", "Monstro Geleia", 15, 0);
 		
 		System.out.println(inimigo.getNome()+" Def "+inimigo.getDef()
 				+" Atk "+inimigo.getAtk()+" Spe "+inimigo.getSpe()
