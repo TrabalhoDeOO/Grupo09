@@ -31,14 +31,23 @@ public class GrimorioItens {
 		itemC[0] = new Consumivel("Maçã", 1, 2);
 		itemC[0].criarDescricao("Fruta muito encontrada nas planícies do Sul.");
 		itemC[1] = new Consumivel("Uvas", 2, 3);
+		itemC[1].criarDescricao("Alimento exótico, parece bom.");
 		itemC[2] = new Consumivel("Batata", 3, 7);
+		itemC[2].criarDescricao("Alimento que aparenta dar uma certa sustância. Um dia irao descobrir que pode ser frita");
 		itemC[3] = new Consumivel("Bife de preguiça", 4, 9);
+		itemC[3].criarDescricao("Bife pequeno, mas deve manter você por um tempo. Dica? Procure uma batata também.");
 		itemC[4] = new Consumivel("Coxa pequena de Javali", 5, 9);
+		itemC[4].criarDescricao("Uma recompensa razoável por um esforço razoável.");
 		itemC[5] = new Consumivel("Ensopado", 6, 13);
+		itemC[5].criarDescricao("Excelente para o tempo frio, adicione umas ervas e cogumelos e veja a 'mágica'");
 		itemC[6] = new Consumivel("Coxa grande de Javali", 7, 16);
+		itemC[6].criarDescricao("Você provavelmente gastou muita energia com esse desafio. Essa é a sua recompensa");
 		itemC[7] = new Consumivel("Guisado de Mamute", 8, 20);
+		itemC[7].criarDescricao("Esse sim, é um excelente reforço para sua jornada");
 		itemC[8] = new Consumivel("Ovo de Pterodactil", 9, 22);
+		itemC[8].criarDescricao("Alimento perigosamente delicioso. Inclusive, melhor vigiar as redondezas, pro seu bem");
 		itemC[9] = new Consumivel("Javali Assado", 10, 30);
+		itemC[9].criarDescricao("Dá um certo trabalho no preparo, mas é uma das opções que mais garante sustância e força durante a jornada.");
 		
 		for(int i=0;i<10;i++){
 			grimorioItens.add(itemC[i]);
@@ -48,16 +57,24 @@ public class GrimorioItens {
 		itemA[0].criarDescricao("Um pedaço, um tanto quanto avantajado, de madeira desgastada.\n" +
 				"Arma perfeita para um Neanderthal alfa.");
 		itemA[1] = new Arma("Garra de Preguiça", 12, 1);
+		itemA[1].criarDescricao("É pequena, mas deve servir para rasgar alguma coisa pequena. talvez outra preguiça?");
 		itemA[2] = new Arma("Dente Danificado de Javali", 13, 1);
+		itemA[2].criarDescricao("Devia ter tomado mais cuidado ao acertar a cara desse javali. Ainda serve para furar algo.");
 		itemA[3] = new Arma("Dente de Javali", 14, 2);
+		itemA[3].criarDescricao("Esse parece estar ok. Alguma coisa poderia ser feita dele. Uma faca, talvez?");
 		itemA[4] = new Arma("Garra de velocirraptor", 15, 3);
+		itemA[4].criarDescricao("Um pouco curva demais, mas deve servir para movimentos rápidos.");
 		itemA[5] = new Arma("Presa de Mamute", 16, 4);
+		itemA[5].criarDescricao("Esse sim dá uma excelente adaga. Que venham mais mamutes!");
 		itemA[6] = new Arma("Dente de Sabre", 17, 5);
 		itemA[6].criarDescricao(" Adaga arrancada do cadaver de um Tigre Dentes-de-Sabre. \n" +
 				"\"Acho que ele não vai mais precisar disso...\" Raridade: R");
 		itemA[7] = new Arma("Femur de Mamute", 18, 6);
-		itemA[8] = new Arma("Lança de Pterodactil", 19, 7);		
+		itemA[7].criarDescricao("O grito de dor do mamute lembra bastante o som da espada feita de seu fêmur.");
+		itemA[8] = new Arma("Lança de Pterodactil", 19, 7);
+		itemA[8].criarDescricao("Quando usar, lembre-se que você quase virou petisco dele.");
 		itemA[9] = new Arma("Presa de Javali-Gigante", 20, 10);
+		itemA[9].criarDescricao("Uma baita espada longa que evitará que você -quase- se torne uma panqueca de neandertal.");
 		
 		for(int i=0;i<10;i++){
 			grimorioItens.add(itemA[i]);
@@ -74,12 +91,19 @@ public class GrimorioItens {
 		itemV[3].criarDescricao("Um par de Botas feito para longas caminhadas, são ótimas para enfrentar o frio.\n" +
 				"Pedaço de vestimenta normalmente feita a partir das sobras de pele do animal.");
 		itemV[4] = new Vestimenta("Casaco de javali", 25, 1);
+		itemV[4].criarDescricao("Incrivelmente fedorento, mas de uma resistência impressionante.");
 		itemV[5] = new Vestimenta("Elmo de Velociraptor", 26, 2);
+		itemV[5].criarDescricao("É incrível como essa caveira se encaixa perfeitamente em sua cabeça!");
 		itemV[6] = new Vestimenta("Casaco de Mamute", 27, 3);
+		itemV[6].criarDescricao("Tem cheiro de guisado. É bem quente, o frio não lhe afetará");
 		itemV[7] = new Vestimenta("Bota de Mamute", 28, 3);
+		itemV[7].criarDescricao("Perfeita para andar no gelo. Péssima para andar em lama");
 		itemV[8] = new Vestimenta("Manto de Mamute", 29, 3);
+		itemV[8].criarDescricao("Você parece um mago com essa roupa, porém você não tem ideia do que eu estou falando.");
 		itemV[9] = new Vestimenta("Armadura de Javali Gigante", 30, 5);
+		itemV[9].criarDescricao("Bastante desengonçada, mas faz você sobreviver a um encontro com um mamute.");
 		itemV[10] = new Vestimenta("Pele de Dentes-de-Sabre", 31, 2);
+		itemV[10].criarDescricao("Não é tão pesada e resistente quanto as outras, mas dá um certo charme e bastante mobilidade");
 		
 		for(int i=0;i<11;i++){
 			grimorioItens.add(itemV[i]);
