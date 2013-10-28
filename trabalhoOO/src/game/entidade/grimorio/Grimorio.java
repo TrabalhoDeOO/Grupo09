@@ -123,7 +123,7 @@ public class Grimorio {
 		
 		//inimigos lvl5  posicao na lista 20-24
 		InimigoEvento inimigo5 = new InimigoEvento("veloc", 5, "velociraptor" );
-		novoValorAtributo = inimigo5.getSpe() + 5;
+		novoValorAtributo = inimigo5.getSpe() + 10;
 		inimigo5.setSpe(novoValorAtributo);
 		
 		//lootI = new Arma("garra de velocirraptor", 0004, 3);
@@ -214,7 +214,7 @@ public class Grimorio {
 		
 		//inimigos lvl9  posicao na lista 40-44
 		InimigoEvento inimigo9 = new InimigoEvento("diego", 9, "tigre-dente-de-sabre" );
-		novoValorAtributo = inimigo9.getSpe()+4;
+		novoValorAtributo = inimigo9.getSpe()+7;
 		inimigo9.setSpe(novoValorAtributo);
 		novoValorAtributo2 = inimigo9.getAtk()+5;
 		inimigo9.setAtk(novoValorAtributo2);

@@ -264,8 +264,16 @@ public class BatalhaTurno /*implements SetandoBonus*/{
 					if ( player.getMochila().size() >0){
 						
 						player.listarMochila();
-						System.out.println("voce deseja comer qual item?(insira apenas o numero que esta antes do nome do item)");
+						System.out.println("Voce deseja comer qual item?(insira apenas o numero que esta antes do nome do item)");
 						numeroDoAlimentoSelecionado = scanIn.nextInt();
+						if(numeroDoAlimentoSelecionado > player.getMochila().size()-1| numeroDoAlimentoSelecionado < 0){
+							do{
+								System.err.println("Entrada Invalida!!!!");
+								
+								System.out.println("Voce deseja comer qual item?(insira apenas o numero que esta antes do nome do item)");
+								numeroDoAlimentoSelecionado = scanIn.nextInt();
+							}while(numeroDoAlimentoSelecionado > player.getMochila().size()-1| numeroDoAlimentoSelecionado < 0);
+						}
 						player.setHp(hpP);
 						player.verificarItem(player.getMochila().get(numeroDoAlimentoSelecionado));
 						player.getMochila().remove(numeroDoAlimentoSelecionado);

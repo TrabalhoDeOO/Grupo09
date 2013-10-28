@@ -78,6 +78,9 @@ public class Main {
 		System.out.println("Voce e um player ou adm? 1/player 2/Adm");
 		z = scanIn.nextInt();
 		
+		
+			
+		
 		if(z == 2){
 			do{
 				System.out.println("Digite seu Login: ");
@@ -463,7 +466,7 @@ public class Main {
 						"mas se ele estiver defendendo sera um quarto do seu ataque(ex: atk player = 20 escudo inimigo = 14 logo dano no escudo = 5)\n" +
 						", voce pode defender o proximo ataque do inimigo o que ira diminuir o dano do mesmo modo que quando vc ataca um inimigo que esta defendendo\n" +
 						" e voce pode comer algo que ira  recuperar seu hp a quantidade de hp recuperado depende doitem consumido, em sua mochila cabem 10 comidas\n" +
-						". E para decidir quem ira comecar atacando levamos em conta a speed dos 2\n" +
+						". E para decidir quem ira comecar atacando levamos em conta a speed dos 2gi\n" +
 						"Bom Jogo!!!\n");
 				
 				try {
@@ -547,6 +550,8 @@ public class Main {
 
 			
 		}
+			
+			
 		
 		scanIn.close();
 		
