@@ -81,7 +81,8 @@ public class Main {
 			
 		
 		
-			
+			int vidas = 3;
+		
 			String nomeP;
 			String sexoP;
 			
@@ -146,76 +147,93 @@ public class Main {
 				}
 			}
 			
-			player = new Player(player.getNome(), player.getSexo(), 7);
-			System.out.println(player.getStatus());
-			
-			player.adicionaItem(grimorioI.getGrimorioItens().get(6));
-			player.adicionaItem(grimorioI.getGrimorioItens().get(7));
-			player.adicionaItem(grimorioI.getGrimorioItens().get(8));
-			
-			//player.listarMochila();
-			
-			for (int i = 1; i > 0; i++) {
+			do{
+				player = new Player(player.getNome(), player.getSexo(), 7);
+				System.out.println(player.getStatus());
 				
-
-				int numeroGerado3 = randomica.nextInt(10);
+				player.adicionaItem(grimorioI.getGrimorioItens().get(6));
+				player.adicionaItem(grimorioI.getGrimorioItens().get(7));
+				player.adicionaItem(grimorioI.getGrimorioItens().get(8));
 				
-
-				InimigoEvento inimigo1 = new InimigoEvento();
-/*
-				Criar batalha = new Criar();
+				//player.listarMochila();
 				
-				Arma lootI;
-				Dinheiro lootD;
-				
-				
-				int hpMax = player.getHpMax();
-	*/			
-				//System.out.println( " xp:" +player.getXp()+"/"+player.getXpMax());
-				int verificaDescanco;
-				
-				inimigo1 = grimorio.getGrimorioInimigos().get(numeroGerado3);
-				
-				
-				
-				BatalhaTurno batalha1 = new BatalhaTurno();
-				player = batalha1.batalha(player, inimigo1);
-				
-				
-				
-				
-				
-				if (batalha1.isResultado() == false){
-					break;
-				}
-				//isso sera substituido pelo consumivel em breve
-				System.out.println(player.getNome() +" - hp: "+ player.getHp() +"/"+ player.getHpMax());
-				System.out.println("\nDeseja comer algo(comer resulta em recuperar todo seu hp voce ainda tem " + player.getMochila().size() +" alimentos)? 1/sim 2/nao");
-				verificaDescanco = scanIn.nextInt();
-				
-				
-					int numeroDoAlimentoSelecionado = -1;
+				for (int i = 1; i > 0; i++) {
+					
+	
+					int numeroGerado3 = randomica.nextInt(10);
+					
+	
+					InimigoEvento inimigo1 = new InimigoEvento();
+	/*
+					Criar batalha = new Criar();
+					
+					Arma lootI;
+					Dinheiro lootD;
 					
 					
-					if(verificaDescanco ==1){
-						if ( player.getMochila().size() >0){
+					int hpMax = player.getHpMax();
+		*/			
+					//System.out.println( " xp:" +player.getXp()+"/"+player.getXpMax());
+					int verificaDescanco;
+					
+					inimigo1 = grimorio.getGrimorioInimigos().get(numeroGerado3);
+					
+					
+					
+					BatalhaTurno batalha1 = new BatalhaTurno();
+					player = batalha1.batalha(player, inimigo1);
+					
+					
+					
+					
+					
+					if (batalha1.isResultado() == false){
+						int verificacaoNovaTentativa = 0;
+						
+							System.out.println("deseja tentar novamente? " + vidas+ " vidas\n1/sim 2/nao");
+							verificacaoNovaTentativa = scanIn.nextInt();
+							if(verificacaoNovaTentativa == 1){
+								vidas--;
+							}else{
+								vidas = 0;
 							
-							player.listarMochila();
-							System.out.println("voce deseja comer qual item?(insira apenas o numero que esta antes do nome do item)");
-							numeroDoAlimentoSelecionado = scanIn.nextInt();
-							
-							player.verificarItem(player.getMochila().get(numeroDoAlimentoSelecionado));
-							player.getMochila().remove(numeroDoAlimentoSelecionado);
-							
-							
-						}else{
-							System.out.println("mochila vazia");
 						}
+						break;
 					}
+					//isso sera substituido pelo consumivel em breve
+					System.out.println(player.getNome() +" - hp: "+ player.getHp() +"/"+ player.getHpMax());
+					System.out.println("\nDeseja comer algo(comer resulta em recuperar todo seu hp voce ainda tem " + player.getMochila().size() +" alimentos)? 1/sim 2/nao");
+					verificaDescanco = scanIn.nextInt();
 					
+					
+						int numeroDoAlimentoSelecionado = -1;
+						
+						
+						if(verificaDescanco ==1){
+							if ( player.getMochila().size() >0){
+								
+								player.listarMochila();
+								System.out.println("voce deseja comer qual item?(insira apenas o numero que esta antes do nome do item)");
+								numeroDoAlimentoSelecionado = scanIn.nextInt();
+								
+								player.verificarItem(player.getMochila().get(numeroDoAlimentoSelecionado));
+								player.getMochila().remove(numeroDoAlimentoSelecionado);
+								
+								
+							}else{
+								System.out.println("mochila vazia");
+							}
+						}
+						
+					
+				}
 				
-			}
-
+				continue;
+				
+				
+				
+			}while(vidas >0);
+	
 
 			
 		
