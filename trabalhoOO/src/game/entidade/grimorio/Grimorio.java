@@ -123,7 +123,7 @@ public class Grimorio {
 		
 		//inimigos lvl5  posicao na lista 20-24
 		InimigoEvento inimigo5 = new InimigoEvento("veloc", 5, "velociraptor" );
-		novoValorAtributo = inimigo5.getSpe() + 10;
+		novoValorAtributo = inimigo5.getSpe() + 15;
 		inimigo5.setSpe(novoValorAtributo);
 		
 		//lootI = new Arma("garra de velocirraptor", 0004, 3);
@@ -146,7 +146,7 @@ public class Grimorio {
 		//inimigos lvl6  posicao na lista 25-29
 		InimigoEvento inimigo6 = new InimigoEvento("many baby", 6, "mamute" );
 		novoValorAtributo = inimigo6.getDef()+3;
-		novoValorAtributo2 = inimigo6.getSpe()-3;
+		novoValorAtributo2 = inimigo6.getSpe()-4;
 		inimigo6.setDef(novoValorAtributo);
 		inimigo6.setSpe(novoValorAtributo2);
 		lootD = new Dinheiro("pequena", 60);
@@ -168,7 +168,7 @@ public class Grimorio {
 		//inimigos lvl7  posicao na lista 30-34
 		InimigoEvento inimigo7 = new InimigoEvento("many teen", 7, "mamute" );
 		novoValorAtributo = inimigo7.getDef()+3;
-		novoValorAtributo2 = inimigo7.getSpe()-4;
+		novoValorAtributo2 = inimigo7.getSpe()-6;
 		inimigo7.setDef(novoValorAtributo);
 		inimigo7.setSpe(novoValorAtributo2);
 		lootD = new Dinheiro("pequena", 60);
@@ -192,7 +192,7 @@ public class Grimorio {
 		//inimigos lvl8  posicao na lista 35-39
 		InimigoEvento inimigo8 = new InimigoEvento("many", 8, "mamute" );
 		novoValorAtributo = inimigo8.getDef()+3;
-		novoValorAtributo2 = inimigo8.getSpe()-5;
+		novoValorAtributo2 = inimigo8.getSpe()-8;
 		inimigo8.setDef(novoValorAtributo);
 		inimigo8.setSpe(novoValorAtributo2);
 		lootD = new Dinheiro("pequena", 60);
@@ -214,7 +214,7 @@ public class Grimorio {
 		
 		//inimigos lvl9  posicao na lista 40-44
 		InimigoEvento inimigo9 = new InimigoEvento("diego", 9, "tigre-dente-de-sabre" );
-		novoValorAtributo = inimigo9.getSpe()+7;
+		novoValorAtributo = inimigo9.getSpe()+10;
 		inimigo9.setSpe(novoValorAtributo);
 		novoValorAtributo2 = inimigo9.getAtk()+5;
 		inimigo9.setAtk(novoValorAtributo2);
@@ -247,7 +247,7 @@ public class Grimorio {
 		novoValorAtributo2 = inimigo10.getHp()+20;
 		inimigo10.setAtk(novoValorAtributo);
 		inimigo10.setHp(novoValorAtributo2);
-		novoValorAtributo = inimigo10.getSpe()-5;
+		novoValorAtributo = inimigo10.getSpe()-20;
 		inimigo10.setSpe(novoValorAtributo);
 		novoValorAtributo2 = inimigo10.getDef()+10;
 		inimigo10.setDef(novoValorAtributo2);		

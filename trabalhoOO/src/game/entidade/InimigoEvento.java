@@ -16,7 +16,7 @@ public class InimigoEvento extends Inimigo implements Descricao{
 		super();
 		this.nome = "sem nome";
 		this.tipo = "sem tipo";
-		this.spe = ((this.lvl*2)-hp/2);
+		this.spe =  (int)((this.lvl*3)+(this.atk*0.65)-(this.def*0.4));
 		this.atk =0;
 		this.lvl = 0;
 		this.def = 0;
@@ -36,7 +36,7 @@ public class InimigoEvento extends Inimigo implements Descricao{
 		this.nome = nomeInimigo;
 		this.xp = (this.lvl*2);
 		this.tipo = tipoInimigo;
-		this.spe = ((this.lvl*3)-this.hp/4);
+		this.spe =  (int)((this.lvl*3)+(this.atk*0.65)-(this.def*0.4));
 		Loot loot = new Loot(this);
 		this.loot = loot;
 		}

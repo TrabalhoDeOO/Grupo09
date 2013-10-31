@@ -13,7 +13,7 @@ public class Player implements SetandoBonus {
 	public int def =  (this.lvl*4);
 	public int hp = (this.atk/2+this.def*2);
 	private int hpMax = (this.atk/2+this.def*2);
-	public int speed = ((this.lvl*2)-this.hp/4);
+	public int speed =  (int)((this.lvl*3)+(this.atk*0.65)-(this.def*0.4));
 	public int jump;
 	public int xp;
 	private int xpMax = (this.lvl*5);
@@ -22,6 +22,7 @@ public class Player implements SetandoBonus {
 	public int bonusHp;
 	public Arma arma = null;
 	public Vestimenta roupa = null;
+	
 		
 	public Player() {
 		this.nome = "sem nome";

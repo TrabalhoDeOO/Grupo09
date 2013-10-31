@@ -14,7 +14,7 @@ import java.util.Random;
  * @author Bruno
  *
  */
-public class BatalhaTurno /*implements SetandoBonus*/{
+public class BatalhaTurno{
 	
 	private Random randomica = new Random(System.currentTimeMillis());
 	Scanner scanIn = new Scanner(System.in);
@@ -57,8 +57,8 @@ public class BatalhaTurno /*implements SetandoBonus*/{
 		int velholvl = player.lvl, novolvl;
 		
 		 
-		int dadospeedI = randomica.nextInt(10);
-		int dadospeedP = randomica.nextInt(10);
+		int dadospeedI = randomica.nextInt(10)+1;
+		int dadospeedP = randomica.nextInt(10)+1;
 		
 		inimigo1 = inimigo;
 		
@@ -75,7 +75,7 @@ public class BatalhaTurno /*implements SetandoBonus*/{
 		escudoP = 2*defP;
 		escudoI = 2*defI;
 		
-		speedP = player1.getSpeed() +dadospeedP;
+		speedP = player1.getSpeed() + dadospeedP;
 		speedI = inimigo1.getSpe() + dadospeedI;
 		
 		
@@ -312,18 +312,7 @@ public class BatalhaTurno /*implements SetandoBonus*/{
 					
 					player1.addXp(inimigo1.getXp());
 					
-					/**								
-					novaxp = player1.getXp() + inimigo1.getXp();
 					
-					if(player1.getXp() > player1.getXpMax()){
-						System.out.println("LVL UP!!!!!!!\n");
-						novaxp = novaxp - player1.getXpMax();
-						player1.setLvl((player1.getLvl()+1));
-						player1.setXp(novaxp);
-					}else{
-						player1.setXp(novaxp);
-					}
-					*/
 					System.out.println("\nXp: " +player1.getXp()+"/"+player1.getXpMax());
 					
 					break;
