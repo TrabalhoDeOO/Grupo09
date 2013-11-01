@@ -939,28 +939,38 @@ public class BatalhaTurno{
 		
 		if(hpP > 0){
 			
-			if(player.getArma() == null){
-				if(player.getRoupa() == null){
-					System.out.println("voce esta usando : nada como arma e vestindo nada(sim voce esta andando nu, peladao, desnudo, do jeito que veio ao mundo).");
+			if(lootB.getItem() instanceof Consumivel){
+				if (player.getMochila().size()==5){
+					System.err.println("Mochila Cheia!!!");
+					
 				}else{
-					System.out.println("voce esta usando : nada como arma e vestindo um(a)" + player.getRoupa().getNomeItem() + " (+" + player.getRoupa().getBonus() + " def)" );
+					System.out.println("voce tem " + player.getMochila().size() + " itens na mochila");
 				}
 				
 			}else{
-				if(player.getRoupa() == null){
-					System.out.println("voce esta usando :" + player.getArma().getNomeItem() + " (+" +player.getArma().getBonus()  + " atk) como arma e " +
-							"vestindo nada(sim voce esta andando nu, peladao, desnudo, do jeito que veio ao mundo).");
+				if(player.getArma() == null){
+					if(player.getRoupa() == null){
+						System.out.println("voce esta usando : nada como arma e vestindo nada(sim voce esta andando nu, peladao, desnudo, do jeito que veio ao mundo).");
+					}else{
+						System.out.println("voce esta usando : nada como arma e vestindo um(a)" + player.getRoupa().getNomeItem() + " (+" + player.getRoupa().getBonus() + " def)" );
+					}
+					
 				}else{
-					System.out.println("voce esta usando : " + player.getArma().getNomeItem() + " (+" +player.getArma().getBonus()  + " atk)como arma e vestindo um(a)" + 
-				player.getRoupa().getNomeItem() + " (+" + player.getRoupa().getBonus() + " def)" );
+					if(player.getRoupa() == null){
+						System.out.println("voce esta usando :" + player.getArma().getNomeItem() + " (+" +player.getArma().getBonus()  + " atk) como arma e " +
+								"vestindo nada(sim voce esta andando nu, peladao, desnudo, do jeito que veio ao mundo).");
+					}else{
+						System.out.println("voce esta usando : " + player.getArma().getNomeItem() + " (+" +player.getArma().getBonus()  + " atk)como arma e vestindo um(a)" + 
+					player.getRoupa().getNomeItem() + " (+" + player.getRoupa().getBonus() + " def)" );
+					}
 				}
 			}
-			
+				
 			System.out.println("\nDeseja pegar Item? 1/sim 2/ nao");
 			verificaPegarLoot = scanIn.nextInt();
 			if(verificaPegarLoot == 1){
 				if(player.getMochila().size()==5 & lootB.getItem() instanceof Consumivel){
-					System.err.println("Mochila Cheia!!!");
+					System.err.println("EU DISSE QUE A MOCHILA ESTA CHEIA, MUCURONGO!!!");
 				}else{
 					player.adicionaItem(lootB.getItem());
 				}

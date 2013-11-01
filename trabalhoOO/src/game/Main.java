@@ -70,7 +70,7 @@ public class Main {
 		GrimorioItens grimorioI = new GrimorioItens();
 		
 		//grimorioI.listarGrimorioItem();
-		Grimorio grimorio = new Grimorio();
+		//Grimorio grimorio = new Grimorio();
 		//grimorio.listarGrimorio();
 		
 			int vidas = 3;
@@ -151,6 +151,8 @@ public class Main {
 				
 				for (int i = 1; i > 0; i++) {
 					
+					
+					Grimorio grimorio = new Grimorio();
 	
 					int numeroGerado3 = randomica.nextInt(10);
 					
