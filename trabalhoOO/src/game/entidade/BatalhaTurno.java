@@ -5,6 +5,7 @@ package game.entidade;
 
 
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.Random;
 //import game.interfaces.*;
@@ -104,25 +105,36 @@ public class BatalhaTurno{
 				
 				//ação player
 				
-				System.out.println("voce : 1/ataca 2/ ataca escudo 3/defende 4/come(recupera hp)" + player.getMochila().size() +" itens na mochila:");
-				x = scanIn.nextInt();
+				//System.out.println("voce : 1/ataca 2/ ataca escudo 3/defende 4/come(recupera hp)" + player.getMochila().size() +" itens na mochila:");
 				
 				
-				try{
-					
-					if (x>4|x<1){
-						throw new java.lang.Exception();
+				boolean teste1 = false;
+				while (!teste1) {
+					System.out.println("voce : 1/ataca 2/ ataca escudo 3/defende 4/come(recupera hp)" + player.getMochila().size() +" itens na mochila:");
+					try {				
+						scanIn = new Scanner(System.in);
+						x = scanIn.nextInt();
+						if (x>4|x<1){
+							throw new java.lang.Exception();
+						}
+						teste1 = true;
+						
+					} catch (InputMismatchException e) {
+						System.err.println("Entrada Invalida. Apenas numeros de 1 a 4");
+						teste1 = false;
+						
+					}catch (Exception e){
+						System.err.println("Entrada invalida!!!");
+						teste1 = false;
 					}
-				}catch (Exception e){
-						do {
-							System.err.println("Entrada invalida!!!");
-							System.out.println("voce : 1/ataca 2/ ataca escudo 3/defende 4/come(recupera hp)" + player.getMochila().size() +" itens na mochila:");
-							x = scanIn.nextInt();
-						}while(x>4|x<1);
-				}
-				
-				try{
 					
+					if (player.getMochila().size()==0 & x == 4){
+						System.err.println("Mochila Vazia!!!");
+						teste1 = false;
+					}
+				}
+				/**
+				try{					
 					if (player.getMochila().size()==0 & x == 4){
 						throw new java.lang.Exception();
 					}
@@ -133,7 +145,7 @@ public class BatalhaTurno{
 							x = scanIn.nextInt();
 						}while(x == 4);
 				}
-				
+				*/
 				
 				
 				switch(x){
@@ -265,15 +277,28 @@ public class BatalhaTurno{
 						
 						player.listarMochila();
 						System.out.println("Voce deseja comer qual item?(insira apenas o numero que esta antes do nome do item)");
-						numeroDoAlimentoSelecionado = scanIn.nextInt();
-						if(numeroDoAlimentoSelecionado > player.getMochila().size()-1| numeroDoAlimentoSelecionado < 0){
-							do{
-								System.err.println("Entrada Invalida!!!!");
-								
-								System.out.println("Voce deseja comer qual item?(insira apenas o numero que esta antes do nome do item)");
+						
+						teste1 = false;
+						while (!teste1) {
+							try {
+								scanIn = new Scanner(System.in);
 								numeroDoAlimentoSelecionado = scanIn.nextInt();
-							}while(numeroDoAlimentoSelecionado > player.getMochila().size()-1| numeroDoAlimentoSelecionado < 0);
+								while(numeroDoAlimentoSelecionado > player.getMochila().size()-1| numeroDoAlimentoSelecionado < 0){
+
+									System.err.println("Entrada Invalida!!!!");
+									player.listarMochila();												
+									System.out.println("Voce deseja comer qual item?");
+									numeroDoAlimentoSelecionado = scanIn.nextInt();
+
+								}
+								teste1 = true;
+								
+							} catch (InputMismatchException e) {
+								System.err.println("Entrada Invalida.\nInsira apenas o numero que esta antes do nome do item");
+								teste1 = false;
+							}
 						}
+						
 						player.setHp(hpP);
 						player.verificarItem(player.getMochila().get(numeroDoAlimentoSelecionado));
 						player.getMochila().remove(numeroDoAlimentoSelecionado);
@@ -710,9 +735,35 @@ public class BatalhaTurno{
 				
 				// TODO ação player
 				
-				System.out.println("voce : 1/ataca 2/ ataca escudo 3/defende 4/come(recupera hp):" + "\n");
-				x = scanIn.nextInt();
+				//System.out.println("voce : 1/ataca 2/ ataca escudo 3/defende 4/come(recupera hp):" + "\n");
+				//x = scanIn.nextInt();
 				
+				boolean teste1 = false;
+				while (!teste1) {
+					System.out.println("voce : 1/ataca 2/ ataca escudo 3/defende 4/come(recupera hp)" + player.getMochila().size() +" itens na mochila:");
+					try {				
+						scanIn = new Scanner(System.in);
+						x = scanIn.nextInt();
+						if (x>4|x<1){
+							throw new java.lang.Exception();
+						}
+						teste1 = true;
+						
+					} catch (InputMismatchException e) {
+						System.err.println("Entrada Invalida. Apenas numeros de 1 a 4");
+						teste1 = false;
+						
+					}catch (Exception e){
+						System.err.println("Entrada invalida!!!");
+						teste1 = false;
+					}
+					
+					if (player.getMochila().size()==0 & x == 4){
+						System.err.println("Mochila Vazia!!!");
+						teste1 = false;
+					}
+				}
+				/**
 				try{
 					if (x>4|x<1){
 						throw new java.lang.Exception();
@@ -737,7 +788,7 @@ public class BatalhaTurno{
 							x = scanIn.nextInt();
 						}while(x == 4);
 				}
-				
+				*/
 				switch(x){
 				case 1:
 					//atacando
@@ -856,6 +907,7 @@ public class BatalhaTurno{
 						
 						player.listarMochila();
 						System.out.println("voce deseja comer qual item?(insira apenas o numero que esta antes do nome do item)");
+						/**
 						numeroDoAlimentoSelecionado = scanIn.nextInt();
 						if(numeroDoAlimentoSelecionado > player.getMochila().size()-1| numeroDoAlimentoSelecionado < 0){
 							do{
@@ -864,6 +916,28 @@ public class BatalhaTurno{
 								System.out.println("Voce deseja comer qual item?(insira apenas o numero que esta antes do nome do item)");
 								numeroDoAlimentoSelecionado = scanIn.nextInt();
 							}while(numeroDoAlimentoSelecionado > player.getMochila().size()-1| numeroDoAlimentoSelecionado < 0);
+						}
+						*/
+
+						teste1 = false;
+						while (!teste1) {
+							try {
+								scanIn = new Scanner(System.in);
+								numeroDoAlimentoSelecionado = scanIn.nextInt();
+								while(numeroDoAlimentoSelecionado > player.getMochila().size()-1| numeroDoAlimentoSelecionado < 0){
+
+									System.err.println("Entrada Invalida!!!!");
+									player.listarMochila();												
+									System.out.println("Voce deseja comer qual item?");
+									numeroDoAlimentoSelecionado = scanIn.nextInt();
+
+								}
+								teste1 = true;
+								
+							} catch (InputMismatchException e) {
+								System.err.println("Entrada Invalida.\nInsira apenas o numero que esta antes do nome do item");
+								teste1 = false;
+							}
 						}
 						player.setHp(hpP);
 						player.verificarItem(player.getMochila().get(numeroDoAlimentoSelecionado));
@@ -957,10 +1031,80 @@ public class BatalhaTurno{
 			}
 			
 			System.out.println("\nDeseja pegar Item? 1/sim 2/ nao");
-			verificaPegarLoot = scanIn.nextInt();
+			verificaPegarLoot = 2;
+			
+			boolean teste1 = false;
+			while (!teste1) {
+				try {				
+					scanIn = new Scanner(System.in);
+					verificaPegarLoot = scanIn.nextInt();
+					teste1 = true;
+					
+				} catch (InputMismatchException e) {
+					System.err.println("Entrada Invalida. Apenas 1 ou 2");
+					teste1 = false;
+				}
+			}
+			
 			if(verificaPegarLoot == 1){
+				int delItem = 0;
 				if(player.getMochila().size()==5 & lootB.getItem() instanceof Consumivel){
 					System.err.println("Mochila Cheia!!!");
+					System.out.println("Deseja deletar abrir espaço para esse item: "+lootB.getItem().getNomeItem());
+					System.out.println("1/sim 2/nao");
+					
+					teste1 = false;
+					while (!teste1) {
+						try {				
+							scanIn = new Scanner(System.in);
+							delItem = scanIn.nextInt();
+							if(delItem<1 | delItem>2){
+								throw new java.lang.Exception();
+							}
+							teste1 = true;
+							
+						} catch (InputMismatchException e) {
+							System.err.println("Entrada Invalida. Apenas 1 ou 2");
+							teste1 = false;
+						}catch(Exception e){
+							System.err.println("Entrada Invalida. Apenas 1 ou 2");
+							teste1 = false;
+						}
+					}
+					
+					if(delItem == 1){
+						
+						player.listarMochila();
+						System.out.println("Voce deseja deletar qual item?(insira apenas o numero que esta antes do nome do item)");
+						int numeroDoAlimentoSelecionado = 0;
+
+						teste1 = false;
+						while (!teste1) {
+							try {
+								scanIn = new Scanner(System.in);
+								numeroDoAlimentoSelecionado = scanIn.nextInt();
+								while(numeroDoAlimentoSelecionado > player.getMochila().size()-1| numeroDoAlimentoSelecionado < 0){
+
+									System.err.println("Entrada Invalida!!!!");												
+									player.listarMochila();
+									System.out.println("Voce deseja comer qual item?");
+									numeroDoAlimentoSelecionado = scanIn.nextInt();
+
+								}
+								teste1 = true;
+
+							} catch (InputMismatchException e) {
+								System.err.println("Entrada Invalida.\nInsira apenas o numero que esta antes do nome do item");
+								teste1 = false;
+							}
+						}
+						System.out.println(player.getMochila().get(numeroDoAlimentoSelecionado).getNomeItem()+
+								" Deletado");
+						player.getMochila().remove(numeroDoAlimentoSelecionado);
+						System.out.println(lootB.getItem().getNomeItem()+
+								" Adicionado a Mochila");
+						player.adicionaItem(lootB.getItem());
+					}
 				}else{
 					player.adicionaItem(lootB.getItem());
 				}
