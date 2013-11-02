@@ -120,7 +120,7 @@ public class Loot {
 		
 		System.out.println(this.conchaPq.getTipo() + " " + this.conchaPq.getQuantidade());
 		System.out.println(this.conchaMed.getTipo() + " " + this.conchaMed.getQuantidade());
-		System.out.println(this.conchaGr.getTipo() + " " + this.conchaGr.getQuantidade());
+		System.out.println(this.conchaGr.getTipo() + " " + this.conchaGr.getQuantidade()+"\n");
 		
 		
 	}

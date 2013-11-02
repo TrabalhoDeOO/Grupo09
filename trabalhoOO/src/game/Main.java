@@ -24,6 +24,7 @@ import game.entidade.Player;
 import game.entidade.grimorio.Grimorio;
 import game.entidade.grimorio.GrimorioItens;
 
+import java.util.InputMismatchException;
 //import java.util.ArrayList;
 import java.util.Random;
 
@@ -86,7 +87,6 @@ public class Main {
 			
 				System.out.println("Voce e homem ou mulher?");
 				sexoP = scanIn.next();
-				player.validaPlayer(sexoP);
 				
 			}while(player.validaPlayer(sexoP) == false);
 			
@@ -96,7 +96,20 @@ public class Main {
 				nomeP = scanIn.next();
 				
 				System.out.println("Seu nome e: " + nomeP + "\n1/Sim 2/Nao");
-				verificaNome = scanIn.nextInt();
+				
+				
+				boolean teste1 = false;
+				while (!teste1) {
+					try {				
+						scanIn = new Scanner(System.in);
+						verificaNome = scanIn.nextInt();
+						teste1 = true;
+						
+					} catch (InputMismatchException e) {
+						System.err.println("Entrada Invalida. Apenas 1 ou 2");
+						teste1 = false;
+					}
+				}
 			
 			}while(verificaNome == 2);
 			
@@ -115,7 +128,19 @@ public class Main {
 					"nao ira afetar em nada seu personagem\n" +
 					"Voce tera seu lvl upado diretamente para o lvl 7 nesse demo para melhor experiencia de jogo aproveitem!!\n\n"); 
 			System.out.println("deseja ver o tutorial? 1/sim 2/nao");
-			verificaTutorial = scanIn.nextInt();
+			
+			boolean teste1 = false;
+			while (!teste1) {
+				try {				
+					scanIn = new Scanner(System.in);
+					verificaTutorial = scanIn.nextInt();
+					teste1 = true;
+					
+				} catch (InputMismatchException e) {
+					System.err.println("Entrada Invalida. Entre apenas 1 ou 2");
+					teste1 = false;
+				}
+			}
 			if (verificaTutorial == 1){
 				
 				System.out.println("TUTORIAL: nesse demo sao apresentados 3 atributos na tela o seu HP que representa seus pontos de vida\n" +
@@ -155,7 +180,7 @@ public class Main {
 					Grimorio grimorio = new Grimorio();
 	
 					int numeroGerado3 = randomica.nextInt(10);
-					
+					grimorio = new Grimorio();
 	
 					InimigoEvento inimigo1 = new InimigoEvento();
 			
@@ -177,7 +202,19 @@ public class Main {
 						int verificacaoNovaTentativa = 0;
 						if(vidas>0){
 							System.out.println("deseja tentar novamente? " + vidas+ " vidas\n1/sim 2/nao");
-							verificacaoNovaTentativa = scanIn.nextInt();
+							
+							teste1 = false;
+							while (!teste1) {
+								try {				
+									scanIn = new Scanner(System.in);
+									verificacaoNovaTentativa = scanIn.nextInt();
+									teste1 = true;
+									
+								} catch (InputMismatchException e) {
+									System.err.println("Entrada Invalida. Entre apenas 1 ou 2");
+									teste1 = false;
+								}
+							}
 							if(verificacaoNovaTentativa == 1){
 								vidas--;
 							}else{
@@ -191,7 +228,19 @@ public class Main {
 					//isso sera substituido pelo consumivel em breve
 					System.out.println(player.getNome() +" - hp: "+ player.getHp() +"/"+ player.getHpMax());
 					System.out.println("\nDeseja comer algo(comer resulta em recuperar seu hp voce ainda tem " + player.getMochila().size() +" alimentos)? 1/sim 2/nao");
-					verificaDescanco = scanIn.nextInt();
+					verificaDescanco = 0;
+					teste1 = false;
+					while (!teste1) {
+						try {				
+							scanIn = new Scanner(System.in);
+							verificaDescanco = scanIn.nextInt();
+							teste1 = true;
+							
+						} catch (InputMismatchException e) {
+							System.err.println("Entrada Invalida. Entre apenas 1 ou 2");
+							teste1 = false;
+						}
+					}
 					
 					
 						int numeroDoAlimentoSelecionado = -1;
@@ -202,15 +251,28 @@ public class Main {
 								
 								player.listarMochila();
 								System.out.println("voce deseja comer qual item?(insira apenas o numero que esta antes do nome do item)");
-								numeroDoAlimentoSelecionado = scanIn.nextInt();
-								if(numeroDoAlimentoSelecionado > player.getMochila().size()-1| numeroDoAlimentoSelecionado < 0){
-									do{
-										System.err.println("Entrada Invalida!!!!");
-										
-										System.out.println("Voce deseja comer qual item?(insira apenas o numero que esta antes do nome do item)");
+								
+								teste1 = false;
+								while (!teste1) {
+									try {
+										scanIn = new Scanner(System.in);
 										numeroDoAlimentoSelecionado = scanIn.nextInt();
-									}while(numeroDoAlimentoSelecionado > player.getMochila().size()-1| numeroDoAlimentoSelecionado < 0);
+										while(numeroDoAlimentoSelecionado > player.getMochila().size()-1| numeroDoAlimentoSelecionado < 0){
+
+											System.err.println("Entrada Invalida!!!!");												
+											System.out.println("Voce deseja comer qual item?");
+											player.listarMochila();
+											numeroDoAlimentoSelecionado = scanIn.nextInt();
+
+										}
+										teste1 = true;
+										
+									} catch (InputMismatchException e) {
+										System.err.println("Entrada Invalida.\nInsira apenas o numero que esta antes do nome do item");
+										teste1 = false;
+									}
 								}
+								
 								player.verificarItem(player.getMochila().get(numeroDoAlimentoSelecionado));
 								player.getMochila().remove(numeroDoAlimentoSelecionado);
 								
