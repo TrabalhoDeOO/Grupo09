@@ -24,6 +24,7 @@ import game.entidade.Player;
 import game.entidade.grimorio.Grimorio;
 import game.entidade.grimorio.GrimorioItens;
 
+import java.awt.image.BufferedImage;
 import java.util.InputMismatchException;
 //import java.util.ArrayList;
 import java.util.Random;
@@ -299,6 +300,11 @@ public class Main {
 		
 		scanIn.close();
 		
+	}
+
+	public BufferedImage getSpriteSheet() {
+		// Editar isso logo mais
+		return null;
 	}
 
 }
