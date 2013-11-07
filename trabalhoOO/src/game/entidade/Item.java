@@ -11,6 +11,7 @@ public class Item implements Descricao {
 	public int codItem;
 	public int bonus;
 	protected String desc="vazio";
+	protected Dinheiro conchas = new Dinheiro();
 	
 
 	public Item() {

@@ -23,11 +23,6 @@ public class Criar {
 	ArrayList<Item> itens = new ArrayList<Item>();
 	ArrayList<Loja> lojas = new ArrayList<Loja>();
 	ArrayList<NPC> npcs = new ArrayList<NPC>();
-	Dinheiro conchaPq = new Dinheiro("pequena", 0);
-	Dinheiro conchaGr = new Dinheiro("grande", 0);
-	Dinheiro conchaMed = new Dinheiro("media", 0);
-	
-	private final static int MAX_CONCHA = 100;
 	
 	
 	Player player;
@@ -153,6 +148,9 @@ public class Criar {
 		}			
 	}
 	
+	/**
+	//TODO Conversão de Dinheiro
+	
 	public void criarDinheiro(String tipo, int quantidade){
 		
 		int conchaP=conchaPq.getQuantidade(), conchaM=conchaMed.getQuantidade(), conchaG=conchaGr.getQuantidade();
@@ -212,6 +210,8 @@ public class Criar {
 		System.out.println(conchaGr.getTipo() + " " + conchaGr.getQuantidade());
 		
 	}
+	
+	*/
 	
 	public Inimigo CriarMonstro(String nome, String tipoInimigo, String tipoMonstro, int lvl, int jump){
 		
