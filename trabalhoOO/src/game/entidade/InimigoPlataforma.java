@@ -35,6 +35,10 @@ public InimigoPlataforma(int jump, String nomeInimigo, int lvlInimigo,	String ti
 	this.loot = loot;
 	this.jump= jump;
 	}
+
+public void tick(){
+	
+}
 public int getJump() {
 	return jump;
 }

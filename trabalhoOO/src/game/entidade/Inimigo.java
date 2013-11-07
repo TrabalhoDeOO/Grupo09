@@ -36,5 +36,5 @@ public abstract class Inimigo {
         public abstract int getHp();
         
         
-        
+        public abstract void tick();
 }

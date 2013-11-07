@@ -82,6 +82,10 @@ public class Player implements SetandoBonus {
 		}
 		 System.out.println(getStatus()+"\n");
 	}
+	
+	public void tick(){
+		
+	}
 
 	public String getNome() {
 		return nome;
