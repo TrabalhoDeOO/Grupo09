@@ -34,7 +34,7 @@ public class InimigoEvento extends Inimigo implements Descricao{
 		this.def = (this.lvl*2);
 		this.hp = (this.atk/2+this.def*2);
 		this.nome = nomeInimigo;
-		this.xp = (this.lvl*2);
+		this.xp = (this.lvl*3);
 		this.tipo = tipoInimigo;
 		this.spe =  (int)((this.lvl*3)+(this.atk*0.65)-(this.def*0.4));
 		Loot loot = new Loot(this);
