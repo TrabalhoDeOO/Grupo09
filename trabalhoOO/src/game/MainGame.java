@@ -7,6 +7,8 @@ import java.awt.image.BufferedImage;
 import javax.swing.JFrame;
 
 public class MainGame extends Canvas implements Runnable {
+	
+	//Dados estáticos
 	public static final int WIDTH = 320;
 	public static final int HEIGTH = WIDTH / 12 * 9;
 	public static final int SCALE = 2;
