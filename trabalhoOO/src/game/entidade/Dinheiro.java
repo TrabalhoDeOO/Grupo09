@@ -10,8 +10,6 @@ package game.entidade;
  */
 public class Dinheiro {
 	
-	
-	public String tipo;
 	public int quantidade;
 	
 
@@ -19,27 +17,14 @@ public class Dinheiro {
 	 * 
 	 */
 	public Dinheiro() {
-		// TODO Auto-generated constructor stub
-		
-		this.tipo = "...";
 		this.quantidade = 0;
 	}
 	
-	public Dinheiro(String tipoD, int quantidadeD){
-		
-		this.tipo = tipoD;
-		this.quantidade = quantidadeD;
-		
-	}
+	public Dinheiro(int quantidadeD){
 
-	public String getTipo() {
-		return tipo;
+		this.quantidade = quantidadeD;		
 	}
-
-	public void setTipo(String tipo) {
-		this.tipo = tipo;
-	}
-
+	
 	public int getQuantidade() {
 		return quantidade;
 	}

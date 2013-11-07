@@ -20,6 +20,7 @@ public class BatalhaTurno{
 	private Random randomica = new Random(System.currentTimeMillis());
 	Scanner scanIn = new Scanner(System.in);
 	public boolean resultado;
+	public int resultB = 1;
 	
 	
 
@@ -39,7 +40,16 @@ public class BatalhaTurno{
 		this.resultado = resultado;
 	}
 	
-	
+	public int getResultB() {
+		return resultB;
+	}
+
+
+	public void setResultB(int resultB) {
+		this.resultB = resultB;
+	}
+
+
 	public Player batalha(Player player, InimigoEvento inimigo) throws NumberFormatException{
 		
 		
@@ -51,8 +61,9 @@ public class BatalhaTurno{
 		int atkP, defP, hpP, escudoP;
 		int atkI, defI, hpI, escudoI;
 		int dano;
-		int resultB = 1;
+		
 		int speedP, speedI;
+		boolean fuga = false;
 		//int novaxp;
 		//Item item;
 		int velholvl = player.lvl, novolvl;
@@ -92,7 +103,11 @@ public class BatalhaTurno{
 			System.out.println(player.getNome() + "- lvl:"+ player1.getLvl() + " hp: "+ hpP +"/"+ player.getHpMax() +" dano: " + atkP + " escudo: " + escudoP );
 			System.out.println(inimigo.getTipo() + "- lvl:"+ inimigo1.getLvl() + " hp: "+ hpI +" dano: " + atkI + " escudo: " + escudoI );
 			
+			
 			do{
+				if(fuga == true){
+					break;
+				}
 				int numeroGerado;
 				
 				// TODO verificao para evitar que inimigo fique atacando o escudo do player depois que chegar a 0
@@ -110,17 +125,18 @@ public class BatalhaTurno{
 				
 				boolean teste1 = false;
 				while (!teste1) {
-					System.out.println("voce : 1/ataca 2/ ataca escudo 3/defende 4/come(recupera hp)" + player.getMochila().size() +" itens na mochila:");
+					System.out.println("voce : 1/ataca 2/ ataca escudo 3/defende 4/come(recupera hp)" + player.getMochila().size() +" itens na mochila" +
+							"5/fugir:");
 					try {				
 						scanIn = new Scanner(System.in);
 						x = scanIn.nextInt();
-						if (x>4|x<1){
+						if (x>5|x<1){
 							throw new java.lang.Exception();
 						}
 						teste1 = true;
 						
 					} catch (InputMismatchException e) {
-						System.err.println("Entrada Invalida. Apenas numeros de 1 a 4");
+						System.err.println("Entrada Invalida. Apenas numeros de 1 a 5");
 						teste1 = false;
 						
 					}catch (Exception e){
@@ -133,6 +149,7 @@ public class BatalhaTurno{
 						teste1 = false;
 					}
 				}
+				
 				/**
 				try{					
 					if (player.getMochila().size()==0 & x == 4){
@@ -146,7 +163,9 @@ public class BatalhaTurno{
 						}while(x == 4);
 				}
 				*/
-				
+				if(fuga == true){
+					break;
+				}
 				
 				switch(x){
 				case 1:
@@ -308,7 +327,27 @@ public class BatalhaTurno{
 					}
 					
 					break;
+					
+					
+				case 5:
+					dadospeedI = randomica.nextInt(10)+1;
+					dadospeedP = randomica.nextInt(10)+1;
+					int fugir = player.getSpeed() + dadospeedP + hpP;
+					int perseguir = inimigo.getSpe() + dadospeedI + hpI;
+					
+					if(fugir > perseguir){
+						System.out.println("Voce fugiu em seguranca\n");
+						resultB = 15;
+						fuga = true;
+					}else
+						System.out.println("inimigo te alcancou\n");
+						fuga = false;
+					break;
 				
+				}
+				
+				if(fuga == true){
+					break;
 				}
 				
 				// TODO verificando se inimigo ainda tem hp
@@ -343,7 +382,9 @@ public class BatalhaTurno{
 					break;
 				}
 				
-				
+				if(fuga == true){
+					break;
+				}
 				// TODO ação inimigo.
 				
 				switch(numeroGerado){
@@ -367,8 +408,12 @@ public class BatalhaTurno{
 					break;
 						
 				}
+				if(fuga == true){
+					break;
+				}
 				
 				switch(y){
+				
 				case 1:
 					//atacando
 					
@@ -508,6 +553,10 @@ public class BatalhaTurno{
 					System.out.println("ATENÇÃO:  HP BAIXO" + "\n");
 				}
 				
+				if(fuga == true){
+					break;
+				}
+				
 				// TODO verificando se player continua vivo
 				if (hpP <= 0){
 					//delay
@@ -524,6 +573,9 @@ public class BatalhaTurno{
 					System.out.println("GAME OVER!" + "\n");
 					
 				}
+				if(fuga == true){
+					break;
+				}
 				
 			}while(resultB == 1);
 			
@@ -538,6 +590,9 @@ public class BatalhaTurno{
 		// TODO Inimigo Ataca primeiro
 		}else{
 			do{
+				if(fuga == true){
+					break;
+				}
 				int numeroGerado;
 				
 				//verificacao para evitar que inimigo ataque escudo  do player caso esteja em 0
@@ -547,6 +602,9 @@ public class BatalhaTurno{
 					numeroGerado = randomica.nextInt(9) + 1;
 				}
 				
+				if(fuga == true){
+					break;
+				}
 				
 				
 				//ação inimigo.
@@ -573,6 +631,9 @@ public class BatalhaTurno{
 						
 				}
 				
+				if(fuga == true){
+					break;
+				}
 				switch(y){
 				case 1:
 					//atacando
@@ -711,6 +772,10 @@ public class BatalhaTurno{
 					
 				}
 				
+				if(fuga == true){
+					break;
+				}
+				
 				
 				// TODO verificacao se player continua vivo
 				if (hpP <= 0){
@@ -732,6 +797,9 @@ public class BatalhaTurno{
 					System.out.println("ATENÇÃO:  HP BAIXO" + "");
 				}
 				
+				if(fuga == true){
+					break;
+				}
 				
 				// TODO ação player
 				
@@ -744,13 +812,13 @@ public class BatalhaTurno{
 					try {				
 						scanIn = new Scanner(System.in);
 						x = scanIn.nextInt();
-						if (x>4|x<1){
+						if (x>5|x<1){
 							throw new java.lang.Exception();
 						}
 						teste1 = true;
 						
 					} catch (InputMismatchException e) {
-						System.err.println("Entrada Invalida. Apenas numeros de 1 a 4");
+						System.err.println("Entrada Invalida. Apenas numeros de 1 a 5");
 						teste1 = false;
 						
 					}catch (Exception e){
@@ -789,6 +857,10 @@ public class BatalhaTurno{
 						}while(x == 4);
 				}
 				*/
+				
+				if(fuga == true){
+					break;
+				}
 				switch(x){
 				case 1:
 					//atacando
@@ -919,6 +991,10 @@ public class BatalhaTurno{
 						}
 						*/
 
+						if(fuga == true){
+							break;
+						}
+						
 						teste1 = false;
 						while (!teste1) {
 							try {
@@ -949,8 +1025,27 @@ public class BatalhaTurno{
 					
 					break;
 					
+				case 5:
+					dadospeedI = randomica.nextInt(10)+1;
+					dadospeedP = randomica.nextInt(10)+1;
+					int fugir = player.getSpeed() + dadospeedP + hpP;
+					int perseguir = inimigo.getSpe() + dadospeedI + hpI;
+					
+					if(fugir > perseguir){
+						System.out.println("Voce fugiu em seguranca\n");
+						resultB = 15;
+						fuga = true;
+					}else
+						System.out.println("inimigo te alcancou\n");
+						fuga = false;
+					break;
+					
 				default:
 					System.out.println("entrada invalida" + "\n");
+					
+					if(fuga == true){
+						break;
+					}
 			
 				
 				}
@@ -981,6 +1076,10 @@ public class BatalhaTurno{
 
 					player1.addXp(inimigo1.getXp());
 					
+					if(fuga == true){
+						break;
+					}
+					
 					/**								
 					novaxp = player1.getXp() + inimigo1.getXp();
 					
@@ -997,8 +1096,12 @@ public class BatalhaTurno{
 				}
 				
 				
+				if(fuga == true){
+					break;
+				}
 				
-				continue;
+				//continue;
+				
 				
 				
 			}while(resultB == 1);
@@ -1039,7 +1142,10 @@ public class BatalhaTurno{
 					}
 				}
 			}
+			
+			if(resultB != 15){
 				
+			
 			System.out.println("\nDeseja pegar Item? 1/sim 2/ nao");
 			verificaPegarLoot = 2;
 			
@@ -1124,6 +1230,7 @@ public class BatalhaTurno{
 				}
 				
 			}
+		}
 		}
 		//retornando resultado da batalha
 		return player1;
