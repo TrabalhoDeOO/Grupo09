@@ -126,7 +126,7 @@ public class BatalhaTurno{
 				boolean teste1 = false;
 				while (!teste1) {
 					System.out.println("voce : 1/ataca 2/ ataca escudo 3/defende 4/come(recupera hp)" + player.getMochila().size() +" itens na mochila" +
-							"5/fugir:");
+							" 5/fugir:");
 					try {				
 						scanIn = new Scanner(System.in);
 						x = scanIn.nextInt();
@@ -339,16 +339,17 @@ public class BatalhaTurno{
 						System.out.println("Voce fugiu em seguranca\n");
 						resultB = 15;
 						fuga = true;
-					}else
+						
+					}else{
 						System.out.println("inimigo te alcancou\n");
 						fuga = false;
+						
+					}
 					break;
 				
 				}
 				
-				if(fuga == true){
-					break;
-				}
+				
 				
 				// TODO verificando se inimigo ainda tem hp
 				if (hpI <= 0){
@@ -382,9 +383,7 @@ public class BatalhaTurno{
 					break;
 				}
 				
-				if(fuga == true){
-					break;
-				}
+				
 				// TODO ação inimigo.
 				
 				switch(numeroGerado){
@@ -409,7 +408,9 @@ public class BatalhaTurno{
 						
 				}
 				if(fuga == true){
-					break;
+					y=5;
+					
+					
 				}
 				
 				switch(y){
@@ -427,7 +428,7 @@ public class BatalhaTurno{
 					
 					System.out.println("atk" + "\n");
 					//verificando se player esta defendendo
-					if(x==1 | x == 2 | x == 4){
+					if(x==1 | x == 2 | x == 4 | x == 5){
 						//calculando dano
 						dano = atkI - (escudoP/2);
 						//verificacao para evitar dano negativo(e causar dano minimo)
@@ -545,7 +546,7 @@ public class BatalhaTurno{
 					break;
 			
 					default:
-						System.out.println("entrada invalida" + "\n");
+						
 						
 				}
 				//verificacao do hp de player para avisar caso esteja abaixo da metade
@@ -553,9 +554,7 @@ public class BatalhaTurno{
 					System.out.println("ATENÇÃO:  HP BAIXO" + "\n");
 				}
 				
-				if(fuga == true){
-					break;
-				}
+				
 				
 				// TODO verificando se player continua vivo
 				if (hpP <= 0){
@@ -573,9 +572,7 @@ public class BatalhaTurno{
 					System.out.println("GAME OVER!" + "\n");
 					
 				}
-				if(fuga == true){
-					break;
-				}
+				
 				
 			}while(resultB == 1);
 			
@@ -648,7 +645,7 @@ public class BatalhaTurno{
 					}
 					//imprimindo acao inimigo
 					System.out.println("atk" + "\n");
-					if (x==0 | x==1 | x==2 | x==4){
+					if (x==0 | x==1 | x==2 | x==4 | x == 5){
 						//calculando dano
 						dano = atkI - (escudoP/2);
 						//verificacao para evitar dano negativo
@@ -709,7 +706,7 @@ public class BatalhaTurno{
 					
 					System.out.println("ataca escudo" + "\n");
 					//verificando se player esta defendendo
-					if(x==0 | x==1 | x==2 | x==4){
+					if(x==0 | x==1 | x==2 | x==4 | x == 5){
 						//calculando dano em escudo
 						escudoP = escudoP - (atkI/2);
 						//imprimindo dano causado a escudo player
@@ -772,9 +769,7 @@ public class BatalhaTurno{
 					
 				}
 				
-				if(fuga == true){
-					break;
-				}
+				
 				
 				
 				// TODO verificacao se player continua vivo
@@ -797,9 +792,7 @@ public class BatalhaTurno{
 					System.out.println("ATENÇÃO:  HP BAIXO" + "");
 				}
 				
-				if(fuga == true){
-					break;
-				}
+				
 				
 				// TODO ação player
 				
@@ -808,7 +801,8 @@ public class BatalhaTurno{
 				
 				boolean teste1 = false;
 				while (!teste1) {
-					System.out.println("voce : 1/ataca 2/ ataca escudo 3/defende 4/come(recupera hp)" + player.getMochila().size() +" itens na mochila:");
+					System.out.println("voce : 1/ataca 2/ ataca escudo 3/defende 4/come(recupera hp) " + player.getMochila().size() +" itens na mochila" +
+							" 5/fugir:");
 					try {				
 						scanIn = new Scanner(System.in);
 						x = scanIn.nextInt();
@@ -1114,7 +1108,7 @@ public class BatalhaTurno{
 		}
 		int verificaPegarLoot;
 		
-		if(hpP > 0){
+		if(hpP > 0 & resultB != 15){
 			
 			if(lootB.getItem() instanceof Consumivel){
 				if (player.getMochila().size()==5){
