@@ -3,6 +3,7 @@ package game.Graphics;
 import java.awt.image.BufferedImage;
 import game.*;
 
+// Classe que dita as texturas
 public class Textures {
 	
 	public BufferedImage player, enemy, boss, ground, plant, rock;
