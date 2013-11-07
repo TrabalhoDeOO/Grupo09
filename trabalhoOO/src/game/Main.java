@@ -7,6 +7,7 @@ package game;
  */
 
 import game.entidade.Adm;
+import game.entidade.Inimigo;
 //import game.entidade.Arma;
 import game.entidade.BatalhaTurno;
 //import game.entidade.Consumivel;
@@ -24,8 +25,9 @@ import game.entidade.Player;
 import game.entidade.grimorio.Grimorio;
 import game.entidade.grimorio.GrimorioItens;
 
+import java.awt.image.BufferedImage;
 import java.util.InputMismatchException;
-//import java.util.ArrayList;
+import java.util.ArrayList;
 import java.util.Random;
 
 
@@ -78,7 +80,7 @@ public class Main {
 		
 			String nomeP;
 			String sexoP;
-			
+			ArrayList<Inimigo> listaInimigos = new ArrayList<Inimigo>();
 			Criar jogador = new Criar();
 			Player player = new Player();
 			
@@ -165,29 +167,58 @@ public class Main {
 			}
 			
 			do{
-				player = new Player(player.getNome(), player.getSexo(), 7);
+				player = new Player(player.getNome(), player.getSexo(), 1);
 				System.out.println(player.getStatus());
 				
-				player.adicionaItem(grimorioI.getGrimorioItens().get(6));
-				player.adicionaItem(grimorioI.getGrimorioItens().get(7));
-				player.adicionaItem(grimorioI.getGrimorioItens().get(8));
+				//player.adicionaItem(grimorioI.getGrimorioItens().get(6));
+				//player.adicionaItem(grimorioI.getGrimorioItens().get(7));
+				//player.adicionaItem(grimorioI.getGrimorioItens().get(8));
+				
+				
 				
 			
 				
-				for (int i = 1; i > 0; i++) {
+				for (int i = 0; i <17; i++) {
+					
+					for (int x = 0; x < 32; x++){
+						Grimorio grimorio = new Grimorio();
+						if(x<3){
+							int numeroGerado3 = randomica.nextInt(1);
+							listaInimigos.add(grimorio.getGrimorioInimigos().get(numeroGerado3));
+						}else if(x<9){
+							int numeroGerado3 = randomica.nextInt(3);
+							listaInimigos.add(grimorio.getGrimorioInimigos().get(numeroGerado3));
+						}else if(x<16){
+							int numeroGerado3 = randomica.nextInt(3)+3;
+							listaInimigos.add(grimorio.getGrimorioInimigos().get(numeroGerado3));
+						}else if(x<23){
+							int numeroGerado3 = randomica.nextInt(4)+4;
+							listaInimigos.add(grimorio.getGrimorioInimigos().get(numeroGerado3));
+						}else if(x<30){
+							int numeroGerado3 = randomica.nextInt(5)+4;
+							listaInimigos.add(grimorio.getGrimorioInimigos().get(numeroGerado3));
+						}else if(x==31){
+							listaInimigos.add(grimorio.getGrimorioInimigos().get(9));
+						}
+						
+					}
+					
+					for(int x = 0; x<31 ; x++){
+						InimigoEvento inimigo12 = (InimigoEvento) listaInimigos.get(x);
+						
+						System.out.println(inimigo12.getNome());
+					}
+				
 					
 					
-					Grimorio grimorio = new Grimorio();
-	
-					int numeroGerado3 = randomica.nextInt(10);
-					grimorio = new Grimorio();
+					
 	
 					InimigoEvento inimigo1 = new InimigoEvento();
 			
 					
 					int verificaDescanco;
 					
-					inimigo1 = grimorio.getGrimorioInimigos().get(numeroGerado3);
+					inimigo1 = (InimigoEvento) listaInimigos.get(i);
 					
 					
 					
@@ -289,7 +320,7 @@ public class Main {
 				
 				
 				
-			}while(vidas >(-1));
+			}while(vidas >0);
 	
 
 			
@@ -299,6 +330,11 @@ public class Main {
 		
 		scanIn.close();
 		
+	}
+
+	public BufferedImage getSpriteSheet() {
+		// Editar isso logo mais
+		return null;
 	}
 
 }
