@@ -41,6 +41,9 @@ public class InimigoEvento extends Inimigo implements Descricao{
 		this.loot = loot;
 		}
 	
+	public void tick(){
+		
+	}
 	public int getDef() {
 		return def;
 	}

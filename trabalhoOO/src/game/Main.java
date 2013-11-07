@@ -25,6 +25,7 @@ import game.entidade.Player;
 import game.entidade.grimorio.Grimorio;
 import game.entidade.grimorio.GrimorioItens;
 
+import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.util.InputMismatchException;
 import java.util.ArrayList;
@@ -335,6 +336,16 @@ public class Main {
 	public BufferedImage getSpriteSheet() {
 		// Editar isso logo mais
 		return null;
+	}
+
+	public void keyPressed(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void keyReleased(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

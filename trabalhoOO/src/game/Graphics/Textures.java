@@ -10,9 +10,9 @@ public class Textures {
 	
 	private SpriteSheet ss;
 	
-	public Textures(Main main) {
+	public Textures(Main game) {
 		// Acrescentar dados nas demais classes!!!!
-		ss = new SpriteSheet(main.getSpriteSheet());
+		ss = new SpriteSheet(game.getSpriteSheet());
 		
 		getTextures();
 	}
