@@ -34,7 +34,7 @@ public class Loja implements Descricao{
 	// gets and setters dos atributos da classe
 	public String getNomeLoja() {
 		return nomeLoja;
-		}
+	}
 	public void setNomeLoja(String nomeLoja){
 		this.nomeLoja = nomeLoja;
 	}
@@ -69,6 +69,7 @@ public class Loja implements Descricao{
 	}
 	
 	public void listarItens(){
+		System.out.println(this.descricao());
 		for (int i=0;i<itens.size(); i++){
 			System.out.println(itens.get(i));
 		}
@@ -82,7 +83,7 @@ public class Loja implements Descricao{
 	@Override
 	public String descricao() {
 		 
-		return String.format("%s\t-\t%d\nDescrição: %s\n",this.nomeLoja,this.tipoLoja,this.desc);
+		return String.format("%s\t-\t%s\nDescrição: %s\n",this.nomeLoja,this.tipoLoja,this.desc);
 	}
 	
 	
