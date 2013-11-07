@@ -6,7 +6,6 @@ package game;
  * 
  */
 
-import game.Graphics.BufferedImageLoader;
 import game.entidade.Adm;
 import game.entidade.BatalhaTurno;
 import game.entidade.Criar;
@@ -16,10 +15,8 @@ import game.entidade.Player;
 import game.entidade.grimorio.Grimorio;
 import game.entidade.grimorio.GrimorioItens;
 
-import java.awt.Canvas;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Random;
@@ -40,31 +37,8 @@ import java.util.Scanner;
  *
  */
 
-public class Main extends Canvas implements Runnable {
+public class Main{
 
-	private static final long serialVersionUID = 1L;
-	public static final int WIDTH = 512;
-	public static final int HEIGHT = 384;
-	public static final int SCALE =2;
-	public final String TITLE = "Are you a neanderthal?";
-		
-	private boolean running = false;
-	private Thread thread;
-	
-	private BufferedImage image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
-	private BufferedImage background = null;
-	
-	private boolean is_shooting = false;
-			
-	public void init(){
-		//BufferedImageLoader loader = new BufferedImageLoader();
-	//	try{			
-		//	background = loader.loadImage("/background.png");
-	//	}catch(IOException e){
-		//	e.printStackTrace();
-			}
-		
-		
 	public Main() {
 		// TODO Auto-generated constructor stub
 	}
