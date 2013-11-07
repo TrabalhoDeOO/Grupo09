@@ -229,7 +229,7 @@ public class Main {
 					
 					
 					
-					if (batalha1.isResultado() == false){
+					if (batalha1.isResultado() == false ){
 						int verificacaoNovaTentativa = 0;
 						if(vidas>0){
 							System.out.println("deseja tentar novamente? " + vidas+ " vidas\n1/sim 2/nao");
