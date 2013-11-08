@@ -1,17 +1,15 @@
 package game.entidade;
 
-//import game.entidade.*;
 import game.interfaces.Descricao;
 
-import java.util.ArrayList;
 
 public class Item implements Descricao {
-	public ArrayList<Item> item = new ArrayList<Item>();
+
 	public String nomeItem;
 	public int codItem;
 	public int bonus;
 	protected String desc="vazio";
-	protected Dinheiro conchas = new Dinheiro();
+	protected int valor = 0;
 	
 
 	public Item() {
@@ -26,9 +24,16 @@ public class Item implements Descricao {
 		
 	}
 	
+	public Item(String nomeItem, int codItem, int valor){
+		this.nomeItem= nomeItem;
+		this.codItem= codItem;
+		this.valor=valor;
+	}
+	
 	@Override
 	public String toString(){
-		return String.format("--------\nNome Item: %s\nCodigo: %d\n--------\n", nomeItem, codItem);
+		return String.format("--------\nNome Item: %s\nCodigo: %d\n--------\n" +
+				"Valor: %d Conchas\n--------\n", nomeItem, codItem, valor);
 	}
 
 	public String getNomeItem() {
@@ -46,19 +51,15 @@ public class Item implements Descricao {
 	public void setCodItem(int codItem) {
 		this.codItem = codItem;
 	}
-	
-	
-	public void adicionaItem(Item item1){
-		item.add(item1);
-		
+
+	public int getValor() {
+		return valor;
 	}
 
-	public void listarItens(){
-		for (int i=0;i<item.size(); i++){
-			System.out.println(item.get(i));
-		}			
+	public void setValor(int valor) {
+		this.valor = valor;
 	}
-	
+
 	public int getBonus(){
 	  return 0;
 	}
@@ -71,7 +72,8 @@ public class Item implements Descricao {
 	@Override
 	public String descricao() {
 		 
-		return String.format("%s\t-\t%d\nDescrição: %s\n",this.nomeItem, this.codItem, this.desc);
+		return String.format("%s\t-\t%d\nDescrição: %s\n" +
+				"Valor: %d Conchas\n",this.nomeItem, this.codItem, this.desc, this.valor);
 	}
 		
 }

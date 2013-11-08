@@ -93,7 +93,7 @@ public class Criar {
 		this.npcs = npcs;
 	}
 	
-	public Item criarItem (String tipo, String nome, int codigo, int bonus){
+	public Item criarItem (String tipo, String nome, int codigo, int bonus, int valor){
 		Item item = new Item();
 		Arma arma;
 		Vestimenta vestimenta;
@@ -103,15 +103,15 @@ public class Criar {
 		
 			
 				if (tipo.equalsIgnoreCase("arma")){
-					arma = new Arma(nome, codigo, bonus);
+					arma = new Arma(nome, codigo, bonus, valor);
 					itens.add(arma);
 					return arma;
 				}else if (tipo.equalsIgnoreCase("vestimenta")){
-					vestimenta = new Vestimenta(nome, codigo, bonus);
+					vestimenta = new Vestimenta(nome, codigo, bonus, valor);
 					itens.add(vestimenta);
 					return vestimenta;
 				}else if (tipo.equalsIgnoreCase("consumivel")){
-					consumivel = new Consumivel(nome, codigo, bonus);
+					consumivel = new Consumivel(nome, codigo, bonus, valor);
 					itens.add(consumivel);
 					return consumivel;
 				}else {
@@ -266,20 +266,12 @@ public class Criar {
 			
 		}
 		
-	public void CriarLoot(Dinheiro dinheiro, Item item, Inimigo inimigo){
-			
-			
-			
-			
-				
-				
+	public void CriarLoot(int dinheiro, Item item, Inimigo inimigo){
+
 				Loot loot1 = new Loot(dinheiro, item);
 				
 				loot1.setInimigo(inimigo);
-				
-				
-			
-			
+		
 	}
 		
 	public NPC criarNPC (String nome, int funcao, int sexo){

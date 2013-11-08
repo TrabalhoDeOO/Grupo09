@@ -1,6 +1,6 @@
 package game.entidade.grimorio;
 
-import game.entidade.Criar;
+//import game.entidade.Criar;
 import game.entidade.Dinheiro;
 import game.entidade.InimigoEvento;
 import game.entidade.Item;
@@ -17,12 +17,12 @@ public class Grimorio {
 	
 	public Grimorio() { 
 		
-		Criar batalha = new Criar();
+		//Criar batalha = new Criar();
 		
 		Item lootI;
 		GrimorioItens grimorioI = new GrimorioItens();
 		
-		Dinheiro lootD;
+		int lootD;
 		Loot loot2;
 		int novoValorAtributo;
 		int novoValorAtributo2;
@@ -34,7 +34,7 @@ public class Grimorio {
 				"todo dia.\nNormalmente encontrada no topo de árvores, cuidado para não " +
 				"acabar esmagado por uma Preguiça sonolenta.");
 		
-		lootD = new Dinheiro(rand.Random(0, 2));
+		lootD = (rand.Random(0, 2));
 		
 		if(rand()==0){
 			lootI =  grimorioI.getGrimorioItens().get(11);
@@ -46,8 +46,7 @@ public class Grimorio {
 			lootI =  grimorioI.getGrimorioItens().get(3);
 		}
 				
-		loot2 = new Loot(lootD,lootI);
-		loot2.setInimigo(inimigo1);
+		loot2 = new Loot(lootD, lootI, inimigo1);
 		inimigo1.criarLoot(loot2);
 		grimorioInimigos.add(inimigo1);
 		
@@ -59,7 +58,7 @@ public class Grimorio {
 		
 		novoValorAtributo = inimigo2.getDef() + 1;
 		inimigo2.setDef(novoValorAtributo);
-		lootD = new Dinheiro(rand.Random(0, 3));	
+		lootD = (rand.Random(0, 3));	
 
 		if(rand()==0){
 			lootI =  grimorioI.getGrimorioItens().get(12);
@@ -71,8 +70,7 @@ public class Grimorio {
 			lootI =  grimorioI.getGrimorioItens().get(2);
 		}
 		
-		loot2 = new Loot(lootD,lootI);
-		loot2.setInimigo(inimigo2);
+		loot2 = new Loot(lootD,lootI, inimigo2);
 		inimigo2.criarLoot(loot2);
 		grimorioInimigos.add(inimigo2);
 		
@@ -80,7 +78,7 @@ public class Grimorio {
 		InimigoEvento inimigo3 = new InimigoEvento("Jav Teen", 3, "Javali" );
 		novoValorAtributo = inimigo3.getDef() + 1;
 		inimigo3.setDef(novoValorAtributo);
-		lootD = new Dinheiro(rand.Random(1, 3));
+		lootD = (rand.Random(1, 3));
 		
 		if(rand()==0){
 			lootI = grimorioI.getGrimorioItens().get(12);
@@ -92,8 +90,7 @@ public class Grimorio {
 			lootI = grimorioI.getGrimorioItens().get(5);
 		}
 		
-		loot2 = new Loot(lootD, lootI);
-		loot2.setInimigo(inimigo3);
+		loot2 = new Loot(lootD, lootI, inimigo3);
 		inimigo3.criarLoot(loot2);
 		grimorioInimigos.add(inimigo3);
 		
@@ -101,7 +98,7 @@ public class Grimorio {
 		InimigoEvento inimigo4 = new InimigoEvento("Jav Adult", 4, "Javali" );
 		novoValorAtributo = inimigo4.getDef() + 1;
 		inimigo4.setDef(novoValorAtributo);
-		lootD = new Dinheiro(rand.Random(1, 5));
+		lootD = (rand.Random(1, 5));
 		
 		if(rand()==0){
 	
@@ -113,8 +110,7 @@ public class Grimorio {
 			lootI = grimorioI.getGrimorioItens().get(6);
 		}
 		
-		loot2 = new Loot(lootD, lootI);
-		loot2.setInimigo(inimigo4);
+		loot2 = new Loot(lootD, lootI, inimigo4);
 		inimigo4.criarLoot(loot2);
 		grimorioInimigos.add(inimigo4);
 		
@@ -124,7 +120,7 @@ public class Grimorio {
 		inimigo5.setSpe(novoValorAtributo);
 		
 		//lootI = new Arma("garra de velocirraptor", 0004, 3);
-		lootD = new Dinheiro(rand.Random(2, 6));	
+		lootD = (rand.Random(2, 6));	
 
 		if(rand()==0){
 			lootI = grimorioI.getGrimorioItens().get(14);
@@ -134,8 +130,7 @@ public class Grimorio {
 			lootI = grimorioI.getGrimorioItens().get(6);
 		}
 		
-		loot2 = new Loot(lootD, lootI);
-		loot2.setInimigo(inimigo5);
+		loot2 = new Loot(lootD, lootI, inimigo5);
 		inimigo5.criarLoot(loot2);
 		grimorioInimigos.add(inimigo5);
 		
@@ -145,7 +140,7 @@ public class Grimorio {
 		novoValorAtributo2 = inimigo6.getSpe()-4;
 		inimigo6.setDef(novoValorAtributo);
 		inimigo6.setSpe(novoValorAtributo2);
-		lootD = new Dinheiro(rand.Random(1, 5));
+		lootD = (rand.Random(1, 5));
 		
 		if(rand()==0){
 			lootI = grimorioI.getGrimorioItens().get(15);
@@ -155,18 +150,17 @@ public class Grimorio {
 			lootI = grimorioI.getGrimorioItens().get(5);
 		}
 		
-		loot2 = new Loot(lootD, lootI);
-		loot2.setInimigo(inimigo6);
+		loot2 = new Loot(lootD, lootI, inimigo6);
 		inimigo6.criarLoot(loot2);
 		grimorioInimigos.add(inimigo6);
 		
 		//inimigos lvl7  posicao na lista 30-34
-		InimigoEvento inimigo7 = new InimigoEvento("many teen", 7, "mamute" );
+		InimigoEvento inimigo7 = new InimigoEvento("Many Teen", 7, "Mamute" );
 		novoValorAtributo = inimigo7.getDef()+3;
 		novoValorAtributo2 = inimigo7.getSpe()-6;
 		inimigo7.setDef(novoValorAtributo);
 		inimigo7.setSpe(novoValorAtributo2);
-		lootD = new Dinheiro(rand.Random(1, 6));
+		lootD = (rand.Random(1, 6));
 		
 		if(rand()==0){
 	
@@ -178,18 +172,17 @@ public class Grimorio {
 			
 		}
 		
-		loot2 = new Loot(lootD, lootI);
-		loot2.setInimigo(inimigo7);
+		loot2 = new Loot(lootD, lootI, inimigo7);
 		inimigo7.criarLoot(loot2);
 		grimorioInimigos.add(inimigo7);
 		
 		//inimigos lvl8  posicao na lista 35-39
-		InimigoEvento inimigo8 = new InimigoEvento("many", 8, "mamute" );
+		InimigoEvento inimigo8 = new InimigoEvento("Many", 8, "Mamute" );
 		novoValorAtributo = inimigo8.getDef()+3;
 		novoValorAtributo2 = inimigo8.getSpe()-8;
 		inimigo8.setDef(novoValorAtributo);
 		inimigo8.setSpe(novoValorAtributo2);
-		lootD = new Dinheiro(rand.Random(2, 7));
+		lootD = (rand.Random(2, 7));
 		
 		if(rand()==0){
 			lootI = grimorioI.getGrimorioItens().get(26);
@@ -200,18 +193,17 @@ public class Grimorio {
 		}else{
 			lootI = grimorioI.getGrimorioItens().get(7);
 		}
-		loot2 = new Loot(lootD, lootI);
-		loot2.setInimigo(inimigo8);
+		loot2 = new Loot(lootD, lootI, inimigo8);
 		inimigo8.criarLoot(loot2);
 		grimorioInimigos.add(inimigo8);
 		
 		//inimigos lvl9  posicao na lista 40-44
-		InimigoEvento inimigo9 = new InimigoEvento("diego", 9, "tigre-dente-de-sabre" );
+		InimigoEvento inimigo9 = new InimigoEvento("Diego", 9, "Tigre Dentes-de-Sabre" );
 		novoValorAtributo = inimigo9.getSpe()+10;
 		inimigo9.setSpe(novoValorAtributo);
 		novoValorAtributo2 = inimigo9.getAtk()+5;
 		inimigo9.setAtk(novoValorAtributo2);
-		lootD = new Dinheiro(rand.Random(4, 8));
+		lootD = (rand.Random(4, 8));
 
 		if(rand()<2){
 			lootI = grimorioI.getGrimorioItens().get(30);
@@ -221,8 +213,7 @@ public class Grimorio {
 			lootI = grimorioI.getGrimorioItens().get(0);
 		}
 		
-		loot2 = new Loot(lootD, lootI);
-		loot2.setInimigo(inimigo9);
+		loot2 = new Loot(lootD, lootI, inimigo9);
 		inimigo9.criarLoot(loot2);
 		grimorioInimigos.add(inimigo9);		
 		
@@ -243,7 +234,7 @@ public class Grimorio {
 		inimigo10.setSpe(novoValorAtributo);
 		novoValorAtributo2 = inimigo10.getDef()+10;
 		inimigo10.setDef(novoValorAtributo2);		
-		lootD = new Dinheiro(5);
+		lootD = rand.Random(5, 10);
 		
 		if(rand()==0){
 			lootI = grimorioI.getGrimorioItens().get(29);
@@ -255,8 +246,7 @@ public class Grimorio {
 			lootI = grimorioI.getGrimorioItens().get(9);
 		}
 		
-		loot2 = new Loot(lootD, lootI);
-		loot2.setInimigo(inimigo10);
+		loot2 = new Loot(lootD, lootI, inimigo10);
 		inimigo10.criarLoot(loot2);
 		grimorioInimigos.add(inimigo10);
 		

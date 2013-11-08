@@ -23,12 +23,14 @@ public class Player implements SetandoBonus {
 	public Arma arma = null;
 	public Vestimenta roupa = null;
 	
+	private int concha;
 		
 	public Player() {
 		this.nome = "sem nome";
 		this.sexo = "nao informado";
 		this.lvl = 0;
 		this.xp = 0;
+		concha=0;
 		setStatus();
 		
 	}
@@ -39,6 +41,7 @@ public class Player implements SetandoBonus {
 		this.sexo = sexoP;
 		this.lvl = lvlP;
 		this.xp = 0;
+		concha = 0;
 		setStatus();
 		
 	}
@@ -68,6 +71,32 @@ public class Player implements SetandoBonus {
 				this.speed,this.jump,this.xp,this.xpMax);
 	}
 	
+	public void addDinheiro(int conchas){
+		int antConcha = this.concha;
+		if(this.concha<999){
+			this.concha+=conchas;
+			
+			while(this.concha>999){
+				this.concha--;
+			}
+			System.out.println("Você se tornou "+(this.concha-antConcha)+" Conchas" +
+					" mais rico\n");
+		}else{
+			System.out.println("Limite de Conchas alcançado\n");
+		}
+		
+	}
+	
+	public void removeDinheiro(int conchas){
+		if((this.concha-conchas)>=0){
+			this.concha-=conchas;
+			System.out.println("Você se tornou "+conchas+" Conchas" +
+					" mais pobre\n");
+		}else{
+			System.out.println("Você não possui Conchas o suficiente\n");
+		}
+	}
+		
 	public void addXp(int xp){
 		this.xp += xp;
 		verificarXp();
@@ -162,7 +191,15 @@ public class Player implements SetandoBonus {
 	public void setXp(int xp) {
 		this.xp = xp;
 	}
-	
+
+	public int getConcha() {
+		return concha;
+	}
+
+	public void setConcha(int concha) {
+		this.concha = concha;
+	}
+
 	public ArrayList<Item> getMochila() {
 		return mochila;
 	}

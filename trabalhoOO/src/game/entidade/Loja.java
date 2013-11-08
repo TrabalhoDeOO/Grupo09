@@ -74,6 +74,16 @@ public class Loja implements Descricao{
 			System.out.println(itens.get(i));
 		}
 	}
+	
+	//TODO A fazer '-'
+	
+	public void comprarItem(){
+		
+	}
+	
+	public void venderItem(){
+		
+	}
 
 	@Override
 	public void criarDescricao(String desc) {

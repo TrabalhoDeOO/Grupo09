@@ -16,7 +16,7 @@ import game.entidade.Item;
 public class Loot {
 	
 	private Inimigo inimigo;
-	private Dinheiro conchas = new Dinheiro();
+	private int conchas =0;
 	private Item item;	
 	
 	public Loot(Inimigo inimigo){
@@ -24,17 +24,22 @@ public class Loot {
 	
 	}
 	
-	public Loot(Dinheiro concha, Item item){
+	public Loot(int concha, Item item){
 		this.item = item;
 		this.conchas = concha;		
 	}
-	
 
-	public Dinheiro getConchas() {
+	public Loot(int conchas, Item item, Inimigo inimigo) {
+		this.inimigo = inimigo;
+		this.conchas = conchas;
+		this.item = item;
+	}
+
+	public int getConchas() {
 		return conchas;
 	}
 
-	public void setConchas(Dinheiro conchas) {
+	public void setConchas(int conchas) {
 		this.conchas = conchas;
 	}
 
@@ -55,12 +60,13 @@ public class Loot {
 	}
 	
 	public void listarLoot(){
-		System.out.println("o monstro " + inimigo.getNome() + " dropou:");
+		System.out.println("O Inimigo " + inimigo.getNome() + " deixou cair:");
 		
-		//System.out.println(this.item);
+		System.out.println(this.conchas+" Conchas\n\t+");
+		
 		System.out.println(this.item.descricao());
 				
-		System.out.println(this.conchas.getQuantidade()+" Conchas");
+		
 
 	}
 	

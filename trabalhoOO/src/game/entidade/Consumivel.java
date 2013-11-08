@@ -11,27 +11,21 @@ public class Consumivel extends Item {
 
 	protected int bonusC;
 	public int bonus;
-	/**
-	 * 
-	 */
+
 	public Consumivel() {
 		super();
 		this.bonusC = 0;
-		// TODO Auto-generated constructor stub
 	}
 
-	/**
-	 * @param nomeItem
-	 * @param codItem
-	 */
-	public Consumivel(String nomeItem, int codItem, int bonus) {
-		super(nomeItem, codItem);
+	public Consumivel(String nomeItem, int codItem, int bonus, int valor) {
+		super(nomeItem, codItem, valor);
 		this.bonusC = bonus;
-		// TODO Auto-generated constructor stub
 	}
 	
 	public String toString(){
-		return String.format("--------\nNome Item: %s\nCodigo: %d\nBonus: recupera %d de HP\n--------\n", nomeItem, codItem, bonusC);
+		return String.format("--------\nNome Item: %s\nCodigo: %d\n" +
+				"Bonus: recupera %d de HP\nValor: %d Conchas\n--------\n", this.nomeItem,
+				this.codItem, this.bonusC, this.valor);
 	}
 
 	public int getBonus() {
@@ -45,7 +39,9 @@ public class Consumivel extends Item {
 	@Override
 	public String descricao() {
 		 
-		return String.format("%s\t-\t%d\nDescrição: %s\nBônus: Recupera +%d Hp\n",this.nomeItem, this.codItem, this.desc, this.bonusC);
+		return String.format("%s\t-\t%d\nDescrição: %s\n" +
+				"Bônus: Recupera +%d Hp\nValor: %d Conchas\n",this.nomeItem, this.codItem,
+				this.desc, this.bonusC, this.valor);
 	}
 	
 }

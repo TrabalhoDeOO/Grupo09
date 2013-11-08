@@ -10,29 +10,21 @@ package game.entidade;
 public class Arma extends Item {
 
 	protected int bonusA;
-	/**
-	 * 
-	 */
+
 	public Arma() {
 		super ();
 		this.bonusA = 0;
-		// TODO Auto-generated constructor stub
 	}
 
-	/**
-	 * @param nomeItem
-	 * @param codItem
-	 * @param bonus
-	 */
-	public Arma(String nomeItem, int codItem, int bonus) {
-		super(nomeItem, codItem);
+	public Arma(String nomeItem, int codItem, int bonus, int valor) {
+		super(nomeItem, codItem, valor);
 		this.bonusA = bonus;
-		// TODO Auto-generated constructor stub
 	}
 	
 	@Override
 	public String toString(){
-		return String.format("--------\nNome Item: %s\nCodigo: %d\nBonus: +%d Atk\n--------\n", nomeItem, codItem, bonusA);
+		return String.format("--------\nNome Item: %s\nCodigo: %d\n" +
+				"Bonus: +%d Atk\nValor: %d Conchas\n--------\n", nomeItem, codItem, bonusA, valor);
 	}
 
 	public int getBonus() {
@@ -46,7 +38,8 @@ public class Arma extends Item {
 	@Override
 	public String descricao() {
 		 
-		return String.format("%s\t-\t%d\nDescrição: %s\nBônus: +%d Atk\n",this.nomeItem, this.codItem, this.desc, this.bonusA);
+		return String.format("%s\t-\t%d\nDescrição: %s\nBônus: +%d Atk\nValor: %d Conchas" +
+				"\n",this.nomeItem, this.codItem, this.desc, this.bonusA, this.valor);
 	}
 	
 	

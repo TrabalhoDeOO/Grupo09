@@ -3,6 +3,7 @@ package game.teste;
 import static org.junit.Assert.*;
 import game.entidade.Item;
 import game.entidade.Player;
+import game.entidade.grimorio.Grimorio;
 import game.entidade.grimorio.GrimorioItens;
 
 import org.junit.After;
@@ -13,12 +14,12 @@ public class TestarPlayer {
 
 	@Before
 	public void setUp() throws Exception {
-		System.out.println("Finalizado...");
+		System.out.println("Testando...\n");
 	}
 
 	@After
 	public void tearDown() throws Exception {
-		System.out.println("Testando...");
+		System.out.println("Finalizado...\n");
 	}
 
 	@Test
@@ -40,5 +41,33 @@ public class TestarPlayer {
 		
 		player.setLvl(10);	
 		assertEquals(player.getAtk(), 43);
+	}
+
+	@Test
+	public void testGetConcha() {
+		boolean ver=false;
+		Player bob = new Player("Bob","homem",15);
+		bob.setConcha(998);
+		
+		System.out.println(bob.getStatus());
+		System.out.println("Conchas Bob "+bob.getConcha());
+		Grimorio gri = new Grimorio();
+		
+		int concha = gri.getGrimorioInimigos().get(5).getLoot().getConchas();
+		gri.getGrimorioInimigos().get(5).getLoot().listarLoot();
+		bob.addDinheiro(concha);
+
+		concha = gri.getGrimorioInimigos().get(5).getLoot().getItem().getValor();
+		System.out.println("Você vai comprar 1:\n"+gri.getGrimorioInimigos().get(5).getLoot().getItem());
+		
+		bob.setConcha(1);
+		bob.removeDinheiro(concha);
+		System.out.println("Conchas Bob "+bob.getConcha());
+		
+		if(bob.getConcha()!=0){
+			ver=true;
+		}
+		
+		assertTrue(ver);
 	}
 }

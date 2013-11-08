@@ -34,9 +34,9 @@ public class CriarTest {
 		Item cajado;
 		Criar criar = new Criar(1234);
 		
-		espada = criar.criarItem("Arma", "Angra Mainyu",1113, 10);
-		escudo = criar.criarItem("Vestimenta", "Ahura Madza",1114, 10);
-		cajado = criar.criarItem("Arma", "Vareta",15, 25);
+		espada = criar.criarItem("Arma", "Angra Mainyu",1113, 10,10000);
+		escudo = criar.criarItem("Vestimenta", "Ahura Madza",1114, 10,10000);
+		cajado = criar.criarItem("Arma", "Vareta",15, 25,10000);
 		
 		ArrayList<Item> itens = new ArrayList<Item>();
 		

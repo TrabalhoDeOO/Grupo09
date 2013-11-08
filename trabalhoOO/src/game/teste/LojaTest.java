@@ -25,11 +25,11 @@ public class LojaTest {
 	@Test
 	public void testGetItens() {
 		Loja lojinha = new Loja("Chef", "Comidas");
-		Consumivel comida = new Consumivel("Bolo", 100, 5);
-		Consumivel comida2 = new Consumivel("Pao", 101, 2);
-		Consumivel comida3 = new Consumivel("Torta", 102, 6);
-		Consumivel comida4 = new Consumivel("Rocambole", 103, 6);
-		Consumivel comida5 = new Consumivel("Pastel", 104, 7);
+		Consumivel comida = new Consumivel("Bolo", 100, 5, 1);
+		Consumivel comida2 = new Consumivel("Pao", 101, 2, 1);
+		Consumivel comida3 = new Consumivel("Torta", 102, 6, 1);
+		Consumivel comida4 = new Consumivel("Rocambole", 103, 6, 1);
+		Consumivel comida5 = new Consumivel("Pastel", 104, 7, 1);
 		ArrayList<Item> itens = new ArrayList<Item>();
 		itens.add(comida);
 		itens.add(comida2);

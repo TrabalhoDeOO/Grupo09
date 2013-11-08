@@ -21,14 +21,14 @@ public class TestarItem {
 
 	@Test
 	public void testGetNomeItem() {
-		Consumivel potion = new Consumivel("Poção", 001, 20);
+		Consumivel potion = new Consumivel("Poção", 001, 20, 1);
 		assertEquals(potion.getNomeItem(), "Poção");
 		
 	}
 
 	@Test
 	public void testGetCodItem() {
-		Consumivel potion = new Consumivel("Poção", 001, 20);
+		Consumivel potion = new Consumivel("Poção", 001, 20, 1);
 		assertEquals(potion.getCodItem(), 001);
 
 	}

@@ -10,28 +10,21 @@ package game.entidade;
 public class Vestimenta extends Item {
 
 	int bonusV;
-	int bonus;
-	/**
-	 * 
-	 */
+
 	public Vestimenta() {
 		super();
 		this.bonusV = 0;
-		// TODO Auto-generated constructor stub
 	}
 
-	/**
-	 * @param nomeItem
-	 * @param codItem
-	 */
-	public Vestimenta(String nomeItem, int codItem, int bonus) {
-		super(nomeItem, codItem);
+	public Vestimenta(String nomeItem, int codItem, int bonus, int valor) {
+		super(nomeItem, codItem, valor);
 		this.bonusV = bonus;
-		// TODO Auto-generated constructor stub
 	}
 	
 	public String toString(){
-		return String.format("--------\nNome Item: %s\nCodigo: %d\nBonus: +%d Def\n--------\n", nomeItem, codItem, bonusV);
+		return String.format("--------\nNome Item: %s\nCodigo: %d\n" +
+				"Bonus: +%d Def\nValor: %d Conchas\n--------\n", this.nomeItem,
+				this.codItem, this.bonusV, this.valor);
 	}
 
 	public int getBonus() {
@@ -45,7 +38,9 @@ public class Vestimenta extends Item {
 	@Override
 	public String descricao() {
 		 
-		return String.format("%s\t-\t%d\nDescrição: %s\nBônus: +%d Def\n",this.nomeItem, this.codItem, this.desc, this.bonusV);
+		return String.format("%s\t-\t%d\nDescrição: %s\n" +
+				"Bônus: +%d Def\nValor: %d Conchas\n",this.nomeItem, this.codItem,
+				this.desc, this.bonusV, this.valor);
 	}
 	
 

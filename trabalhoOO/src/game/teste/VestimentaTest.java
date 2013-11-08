@@ -22,14 +22,14 @@ public class VestimentaTest {
 
 	@Test
 	public void testGetBonusV() {
-		Vestimenta asprika = new Vestimenta("Asprika", 1001, 20);
+		Vestimenta asprika = new Vestimenta("Asprika", 1001, 20, 1);
 		assertEquals(asprika.getBonus(),20);
 
 	}
 
 	@Test
 	public void testGetCodItem() {
-		Item asprika = new Vestimenta("Asprika", 1001, 20);
+		Item asprika = new Vestimenta("Asprika", 1001, 20, 1);
 		assertEquals(asprika.getCodItem(),1001);
 	}
 

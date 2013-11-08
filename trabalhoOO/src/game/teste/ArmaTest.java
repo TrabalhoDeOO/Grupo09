@@ -20,7 +20,7 @@ public class ArmaTest {
 	}
 	@Test
 	public void testGetBonusA() {
-		Arma espada = new Arma("Excalibur",123,5);
+		Arma espada = new Arma("Excalibur",123,5,10000);
 		assertEquals(espada.getBonus(),5);
 	}
 

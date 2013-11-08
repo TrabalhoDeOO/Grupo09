@@ -16,15 +16,15 @@ public class Dinheiro {
 	/**
 	 * 
 	 */
-	public Dinheiro() {
+	public Dinheiro(float i) {
 		this.quantidade = 0;
 	}
 	
-	public Dinheiro(int quantidadeD){
+	public Dinheiro(double quantidadeD){
 
-		this.quantidade = quantidadeD;		
+		this.quantidade = 0;		
 	}
-	
+	/*
 	public int getQuantidade() {
 		return quantidade;
 	}
@@ -32,9 +32,6 @@ public class Dinheiro {
 	public void setQuantidade(int quantidade) {
 		this.quantidade = quantidade;
 	}
-	
-	
-	
-
+	*/
 }
 
