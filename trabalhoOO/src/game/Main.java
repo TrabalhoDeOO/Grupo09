@@ -8,6 +8,7 @@ package game;
 
 import game.entidade.Adm;
 import game.entidade.BatalhaTurno;
+import game.entidade.Consumivel;
 import game.entidade.Criar;
 import game.entidade.Inimigo;
 import game.entidade.InimigoEvento;
@@ -22,7 +23,7 @@ import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 
-//import game.entidade.Arma;
+import game.entidade.Arma;
 //import game.entidade.Consumivel;
 //import game.entidade.Dinheiro;
 //import game.entidade.Inimigo;
@@ -30,7 +31,7 @@ import java.util.Scanner;
 //import game.entidade.Loot;
 //import game.entidade.Item;
 //import game.entidade.NPC;
-//import game.entidade.Loja;
+import game.entidade.Loja;
 //import game.entidade.Vestimenta;
 /**
  * @author Bruno
@@ -178,36 +179,51 @@ public class Main{
 				//player.adicionaItem(grimorioI.getGrimorioItens().get(7));
 				//player.adicionaItem(grimorioI.getGrimorioItens().get(8));
 				
+				Loja loja = new Loja("Chef", "Armas");
+				Arma comida = new Arma("porrete", 0, 1, 1);
+				Arma comida2 = new Arma("faca de pedra lascada", 1, 1, 1);
+				Arma comida3 = new Arma("porrete grande", 2, 2, 2);
+				Arma comida4 = new Arma("arma super robado de adm", 3, 100, 1000);
 				
+				loja.adicionaItem(comida);
+				loja.adicionaItem(comida2);
+				loja.adicionaItem(comida3);
+				loja.adicionaItem(comida4);
+				
+				loja.criarDescricao("lojinha da hora");
+				int numeroGerado1 = randomica.nextInt(2)+1;
+				player.addDinheiro(numeroGerado1);
+				
+				loja.venderItem(player);
+				
+				player.listarMochila();
 				
 			
 				
-				for (int i = 0; i <17; i++) {
+				for (int i = 0; i <27; i++) {
 					
-					for (int x = 0; x < 32; x++){
+					for (int x = 0; x < 27; x++){
 						Grimorio grimorio = new Grimorio();
-						if(x<3){
+						if(x<2){
 							int numeroGerado3 = randomica.nextInt(2);
 							listaInimigos.add(grimorio.getGrimorioInimigos().get(numeroGerado3));
-						}else if(x<9){
+						}else if(x<10){
 							int numeroGerado3 = randomica.nextInt(3);
 							listaInimigos.add(grimorio.getGrimorioInimigos().get(numeroGerado3));
-						}else if(x<16){
+						}else if(x<18){
 							int numeroGerado3 = randomica.nextInt(3)+3;
 							listaInimigos.add(grimorio.getGrimorioInimigos().get(numeroGerado3));
-						}else if(x<23){
-							int numeroGerado3 = randomica.nextInt(4)+4;
+						}else if(x<26){
+							int numeroGerado3 = randomica.nextInt(3)+6;
 							listaInimigos.add(grimorio.getGrimorioInimigos().get(numeroGerado3));
-						}else if(x<30){
-							int numeroGerado3 = randomica.nextInt(5)+4;
-							listaInimigos.add(grimorio.getGrimorioInimigos().get(numeroGerado3));
-						}else if(x==31){
+						}else if(x==26){
+							
 							listaInimigos.add(grimorio.getGrimorioInimigos().get(9));
 						}
 						
 					}
 					
-					for(int x = 0; x<31 ; x++){
+					for(int x = 0; x<27 ; x++){
 						InimigoEvento inimigo12 = (InimigoEvento) listaInimigos.get(x);
 						
 						System.out.println(inimigo12.getNome());
@@ -236,7 +252,7 @@ public class Main{
 					if (batalha1.isResultado() == false & batalha1.getResultB() !=15 ){
 						int verificacaoNovaTentativa = 0;
 						if(vidas>0){
-							System.out.println("deseja tentar novamente? " + vidas+ " vidas\n1/sim 2/nao");
+							System.out.println("deseja tentar novamente? " + (vidas -1) + " vidas\n1/sim 2/nao");
 							
 							teste1 = false;
 							while (!teste1) {

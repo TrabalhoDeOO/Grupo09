@@ -84,9 +84,10 @@ public class Loja implements Descricao{
 		int numeroDoItemSelecionado = 0;
 		boolean teste1;
 		
-		if(this.tipoLoja.equalsIgnoreCase("Comida")){
+		if(this.tipoLoja.equalsIgnoreCase("Comidas")){
 				if(player.getMochila().size()>1){
 				System.out.println("Qual item voce deseja vender?\n");
+				player.listarMochila();
 				
 				teste1 = false;
 				while (!teste1) {
@@ -115,7 +116,7 @@ public class Loja implements Descricao{
 				System.out.println("Mochila vazia!!!");
 			}
 			
-		}else if(this.tipoLoja.equalsIgnoreCase("Arma")){
+		}else if(this.tipoLoja.equalsIgnoreCase("Armas")){
 			System.out.println("Voce deseja vender sua roupa por"+ player.getRoupa().getValor() + " conchas?\n");
 			System.out.println(player.getRoupa()+"\n");
 			System.out.println("1/sim 2/nao\n");
@@ -150,42 +151,84 @@ public class Loja implements Descricao{
 				
 			
 			
-		}else if(this.tipoLoja.equalsIgnoreCase("Roupas"))
+		}else if(this.tipoLoja.equalsIgnoreCase("Roupas")){
 			System.out.println("Voce deseja vender sua arma por"+ player.getArma().getValor() + " conchas?\n");
-		System.out.println(player.getRoupa()+"\n");
-		System.out.println("1/sim 2/nao\n");
-		
-		teste1 = false;
-		while (!teste1) {
-			try {
-				scanIn = new Scanner(System.in);
-				numeroDoItemSelecionado = scanIn.nextInt();
-				while(numeroDoItemSelecionado > 2| numeroDoItemSelecionado < 0){
-
-					System.err.println("Entrada Invalida!!!!");
-																
-					System.out.println("1/sim 2/nao");
+			System.out.println(player.getRoupa()+"\n");
+			System.out.println("1/sim 2/nao\n");
+			
+			teste1 = false;
+			while (!teste1) {
+				try {
+					scanIn = new Scanner(System.in);
 					numeroDoItemSelecionado = scanIn.nextInt();
+					while(numeroDoItemSelecionado > 2| numeroDoItemSelecionado < 0){
 
+						System.err.println("Entrada Invalida!!!!");
+																	
+						System.out.println("1/sim 2/nao");
+						numeroDoItemSelecionado = scanIn.nextInt();
+
+					}
+					teste1 = true;
+					
+				} catch (InputMismatchException e) {
+					System.err.println("Entrada Invalida.\nInsira apenas o numero valido");
+					teste1 = false;
 				}
-				teste1 = true;
-				
-			} catch (InputMismatchException e) {
-				System.err.println("Entrada Invalida.\nInsira apenas o numero valido");
-				teste1 = false;
 			}
-		}
-		if(numeroDoItemSelecionado == 1){
-			player.addDinheiro(player.getRoupa().getValor());
-			Vestimenta roupa = new Vestimenta();
-			player.adicionaItem(roupa);
-		}
+			if(numeroDoItemSelecionado == 1){
+				player.addDinheiro(player.getRoupa().getValor());
+				Vestimenta roupa = new Vestimenta();
+				player.adicionaItem(roupa);
+			}
 
+		}
+			
 
 		
 	}
 	
 	public void venderItem(Player player){
+		int numeroDoItemSelecionado = 0;
+		boolean teste1;
+		
+		
+		
+			listarItens();
+			System.out.println("qual item voce deseja comprar? voce tem " + player.getConcha() + " conchas");
+			
+			teste1 = false;
+			while (!teste1) {
+				try {
+					scanIn = new Scanner(System.in);
+					numeroDoItemSelecionado = scanIn.nextInt();
+					while(numeroDoItemSelecionado > itens.size()-1| numeroDoItemSelecionado < 0){
+
+						System.err.println("Entrada Invalida!!!!");
+						listarItens();												
+						System.out.println("Qual item voce deseja comprar?");
+						numeroDoItemSelecionado = scanIn.nextInt();
+
+					}
+					teste1 = true;
+					
+				} catch (InputMismatchException e) {
+					System.err.println("Entrada Invalida.\nInsira apenas o numero que esta antes do nome do item");
+					teste1 = false;
+				}
+				
+			}
+			
+			if(player.getConcha()>= itens.get(numeroDoItemSelecionado).getValor()){
+				
+				player.removeDinheiro(itens.get(numeroDoItemSelecionado).getValor());
+				player.adicionaItem(itens.get(numeroDoItemSelecionado));
+			}else{
+				System.out.println("Voce nao tem dinheiro para comprar esse item");
+			}
+			
+			
+		
 		
 	}
 

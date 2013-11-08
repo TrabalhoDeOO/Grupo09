@@ -303,7 +303,8 @@ public class Player implements SetandoBonus {
 	
 	public void listarMochila(){
 		for(int i = 0;i< this.mochila.size(); i++){
-			System.out.println(i + " - Nome Item: "+ this.mochila.get(i).getNomeItem()+ "\n    Bonus: recupera  "+ this.mochila.get(i).getBonus() +" de HP\n");
+			System.out.println(i + " - Nome Item: "+ this.mochila.get(i).getNomeItem()+ "\n    Bonus: recupera  "+
+		this.mochila.get(i).getBonus() +" de HP\n" + " Valor: " + this.mochila.get(i).getValor() + " conchas\n");
 		}
 	}
 }

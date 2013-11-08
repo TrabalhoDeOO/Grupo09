@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import game.entidade.Consumivel;
 import game.entidade.Item;
 import game.entidade.Loja;
+import game.entidade.Player;
 
 import org.junit.After;
 import org.junit.Before;
@@ -45,6 +46,8 @@ public class LojaTest {
 		lojinha.listarItens();
 		itens.remove(4);
 		assertEquals(lojinha.getItens(),itens);
+		
+		
 	}
 	
 	
