@@ -5,6 +5,9 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
+
+import game.Graphics.BufferedImageLoader;
 
 public class Game extends Canvas implements Runnable {
 
@@ -15,9 +18,19 @@ public class Game extends Canvas implements Runnable {
 	public static final String TITLE = "Are you a neanderthal?";
 	
 	private BufferedImage spriteSheet = null;
+	private BufferedImage background = null;
 	private boolean running = false;
 	private Thread thread;
 	
+	public void init(){
+		requestFocus();
+		BufferedImageLoader loader = new BufferedImageLoader();
+		try{
+			background = loader.loadImage("/background.png");
+		} catch (IOException e){
+			e.printStackTrace();
+		}
+	}
 	public synchronized void start(){
 		if (running)
 			return;
@@ -27,6 +40,7 @@ public class Game extends Canvas implements Runnable {
 			thread.start();
 }
 	public void run(){
+		init();
 		long lastTime = System.nanoTime();
 		double amountOfTicks = 60.0;
 		double ns = 1000000000 / amountOfTicks;
@@ -67,6 +81,8 @@ public class Game extends Canvas implements Runnable {
 		//////////////////////////////////
 		g.setColor(Color.black);
 		g.fillRect(0, 0, getWidth(), getHeight());
+		
+		g.drawImage(background, 0, 0, null);
 		
 		/////////////////////////////////
 		g.dispose();
