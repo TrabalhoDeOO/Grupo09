@@ -33,6 +33,7 @@ public class Grimorio {
 		inimigo1.criarDescricao("Uma criatura preguiçosa e lenta, que adora não fazer nada o dia inteiro " +
 				"todo dia.\nNormalmente encontrada no topo de árvores, cuidado para não " +
 				"acabar esmagado por uma Preguiça sonolenta.");
+		inimigo1.setSpe(1);
 		
 		lootD = (rand.Random(0, 2));
 		

@@ -187,7 +187,7 @@ public class Main{
 					for (int x = 0; x < 32; x++){
 						Grimorio grimorio = new Grimorio();
 						if(x<3){
-							int numeroGerado3 = randomica.nextInt(1);
+							int numeroGerado3 = randomica.nextInt(2);
 							listaInimigos.add(grimorio.getGrimorioInimigos().get(numeroGerado3));
 						}else if(x<9){
 							int numeroGerado3 = randomica.nextInt(3);
@@ -233,7 +233,7 @@ public class Main{
 					
 					
 					
-					if (batalha1.isResultado() == false ){
+					if (batalha1.isResultado() == false & batalha1.getResultB() !=15 ){
 						int verificacaoNovaTentativa = 0;
 						if(vidas>0){
 							System.out.println("deseja tentar novamente? " + vidas+ " vidas\n1/sim 2/nao");
@@ -262,8 +262,10 @@ public class Main{
 					}
 					//isso sera substituido pelo consumivel em breve
 					System.out.println(player.getNome() +" - hp: "+ player.getHp() +"/"+ player.getHpMax());
-					System.out.println("\nDeseja comer algo(comer resulta em recuperar seu hp voce ainda tem " + player.getMochila().size() +" alimentos)? 1/sim 2/nao");
-					verificaDescanco = 0;
+					if( player.getMochila().size() >0){
+						System.out.println("\nDeseja comer algo(comer resulta em recuperar seu hp voce ainda tem " + player.getMochila().size() +" alimentos)? 1/sim 2/nao");
+						verificaDescanco = 0;
+						
 					teste1 = false;
 					while (!teste1) {
 						try {				
@@ -316,6 +318,7 @@ public class Main{
 								System.out.println("mochila vazia");
 							}
 						}
+					}
 						
 					
 				}
