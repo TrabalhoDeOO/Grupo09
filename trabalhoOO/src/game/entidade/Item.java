@@ -13,7 +13,7 @@ public class Item implements Descricao {
 	
 
 	public Item() {
-		this.nomeItem = "...";
+		this.nomeItem = "nada";
 		this.codItem= 0;
 		
 	}

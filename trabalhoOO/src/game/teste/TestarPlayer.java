@@ -1,6 +1,7 @@
 package game.teste;
 
 import static org.junit.Assert.*;
+import game.entidade.Arma;
 import game.entidade.Item;
 import game.entidade.Player;
 import game.entidade.grimorio.Grimorio;
@@ -37,7 +38,9 @@ public class TestarPlayer {
 		
 		player.adicionaItem(vest);
 		
-		System.out.println(player.getStatus());
+		
+		
+		System.out.println(player.getStatus() + " \n"+ player.getArma());
 		
 		player.setLvl(10);	
 		assertEquals(player.getAtk(), 43);

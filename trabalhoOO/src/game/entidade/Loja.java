@@ -3,6 +3,8 @@ package game.entidade;
 import game.interfaces.Descricao;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 public class Loja implements Descricao{
 
@@ -10,6 +12,7 @@ public class Loja implements Descricao{
 	public String tipoLoja;
 	ArrayList<Item> itens = new ArrayList<Item>();
 	private String desc="vazio";
+	Scanner scanIn = new Scanner(System.in);
 	
 	public Loja() {
 		
@@ -77,11 +80,112 @@ public class Loja implements Descricao{
 	
 	//TODO A fazer '-'
 	
-	public void comprarItem(){
+	public void comprarItem(Player player){
+		int numeroDoItemSelecionado = 0;
+		boolean teste1;
+		
+		if(this.tipoLoja.equalsIgnoreCase("Comida")){
+				if(player.getMochila().size()>1){
+				System.out.println("Qual item voce deseja vender?\n");
+				
+				teste1 = false;
+				while (!teste1) {
+					try {
+						scanIn = new Scanner(System.in);
+						numeroDoItemSelecionado = scanIn.nextInt();
+						while(numeroDoItemSelecionado > player.getMochila().size()-1| numeroDoItemSelecionado < 0){
+	
+							System.err.println("Entrada Invalida!!!!");
+							player.listarMochila();												
+							System.out.println("Qual item voce deseja veder?");
+							numeroDoItemSelecionado = scanIn.nextInt();
+	
+						}
+						teste1 = true;
+						
+					} catch (InputMismatchException e) {
+						System.err.println("Entrada Invalida.\nInsira apenas o numero que esta antes do nome do item");
+						teste1 = false;
+					}
+				}
+				player.addDinheiro(player.getMochila().get(numeroDoItemSelecionado).getValor());
+				player.getMochila().remove(numeroDoItemSelecionado);
+				
+			}else{
+				System.out.println("Mochila vazia!!!");
+			}
+			
+		}else if(this.tipoLoja.equalsIgnoreCase("Arma")){
+			System.out.println("Voce deseja vender sua roupa por"+ player.getRoupa().getValor() + " conchas?\n");
+			System.out.println(player.getRoupa()+"\n");
+			System.out.println("1/sim 2/nao\n");
+			
+			teste1 = false;
+			while (!teste1) {
+				try {
+					scanIn = new Scanner(System.in);
+					numeroDoItemSelecionado = scanIn.nextInt();
+					while(numeroDoItemSelecionado > 2| numeroDoItemSelecionado < 0){
+
+						System.err.println("Entrada Invalida!!!!");
+																	
+						System.out.println("1/sim 2/nao");
+						numeroDoItemSelecionado = scanIn.nextInt();
+
+					}
+					teste1 = true;
+					
+				} catch (InputMismatchException e) {
+					System.err.println("Entrada Invalida.\nInsira apenas o numero valido");
+					teste1 = false;
+				}
+			}
+			if(numeroDoItemSelecionado == 1){
+				player.addDinheiro(player.getArma().getValor());
+				Arma arma = new Arma();
+				player.adicionaItem(arma);
+				//a pensar como retirar arma de player
+			}
+			
+				
+			
+			
+		}else if(this.tipoLoja.equalsIgnoreCase("Roupas"))
+			System.out.println("Voce deseja vender sua arma por"+ player.getArma().getValor() + " conchas?\n");
+		System.out.println(player.getRoupa()+"\n");
+		System.out.println("1/sim 2/nao\n");
+		
+		teste1 = false;
+		while (!teste1) {
+			try {
+				scanIn = new Scanner(System.in);
+				numeroDoItemSelecionado = scanIn.nextInt();
+				while(numeroDoItemSelecionado > 2| numeroDoItemSelecionado < 0){
+
+					System.err.println("Entrada Invalida!!!!");
+																
+					System.out.println("1/sim 2/nao");
+					numeroDoItemSelecionado = scanIn.nextInt();
+
+				}
+				teste1 = true;
+				
+			} catch (InputMismatchException e) {
+				System.err.println("Entrada Invalida.\nInsira apenas o numero valido");
+				teste1 = false;
+			}
+		}
+		if(numeroDoItemSelecionado == 1){
+			player.addDinheiro(player.getRoupa().getValor());
+			Vestimenta roupa = new Vestimenta();
+			player.adicionaItem(roupa);
+		}
+
+
 		
 	}
 	
-	public void venderItem(){
+	public void venderItem(Player player){
 		
 	}
 
