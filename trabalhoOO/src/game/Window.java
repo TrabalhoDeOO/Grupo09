@@ -105,8 +105,7 @@ public class Window extends Canvas implements Runnable {
 		bs.show();	
 	}*/
 	
-	public static void main(String args[]){
-		Window game = new Window();
+	public Window (int WIDTH, int HEIGTH, String TITLE, Game game){
 		
 		game.setPreferredSize(new Dimension (Game.WIDTH * Game.SCALE, Game.HEIGTH * Game.SCALE));
 		game.setMaximumSize(new Dimension (WIDTH * Game.SCALE, Game.HEIGTH * Game.SCALE));
@@ -119,9 +118,8 @@ public class Window extends Canvas implements Runnable {
 		frame.setResizable(false);
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
-	
-					
-		//game.start();
+						
+		game.start();
 	}
 
 }
