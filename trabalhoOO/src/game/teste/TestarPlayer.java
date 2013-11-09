@@ -6,6 +6,7 @@ import game.entidade.Item;
 import game.entidade.Player;
 import game.entidade.grimorio.Grimorio;
 import game.entidade.grimorio.GrimorioItens;
+import game.framework.ObjectId;
 
 import org.junit.After;
 import org.junit.Before;
@@ -25,7 +26,7 @@ public class TestarPlayer {
 
 	@Test
 	public void testGetAtk() {
-		Player player= new Player("Jõao", "homem", 1);
+		Player player= new Player("Jõao", "homem", 1, 60 ,60, ObjectId.Player);
 		System.out.println(player.getStatus());
 		player.addXp(250);
 		
@@ -49,7 +50,7 @@ public class TestarPlayer {
 	@Test
 	public void testGetConcha() {
 		boolean ver=false;
-		Player bob = new Player("Bob","homem",15);
+		Player bob = new Player("Bob","homem",15, 60 ,60, ObjectId.Player);
 		bob.setConcha(998);
 		
 		System.out.println(bob.getStatus());

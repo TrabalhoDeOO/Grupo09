@@ -91,7 +91,7 @@ public class Main{
 			ObjectId id;
 			ArrayList<Inimigo> listaInimigos = new ArrayList<Inimigo>();
 			Criar jogador = new Criar();
-			Player player = new Player(sexoP, vidas,null,x, y,id);
+			Player player = null;
 			
 			
 			do{
@@ -176,7 +176,7 @@ public class Main{
 			}
 			
 			do{
-				player = new Player(1, player.getX(), player.getId());
+				 player = new Player(player.getNome(), player.getSexo(), 1, 60, 60, ObjectId.Player);
 				System.out.println(player.getStatus());
 				
 				//player.adicionaItem(grimorioI.getGrimorioItens().get(6));
@@ -206,29 +206,29 @@ public class Main{
 				
 				for (int i = 0; i <27; i++) {
 					
-					for (int x = 0; x < 27; x++){
+					for (int cont = 0; cont < 27; cont++){
 						Grimorio grimorio = new Grimorio();
-						if(x<2){
+						if(cont<2){
 							int numeroGerado3 = randomica.nextInt(2);
 							listaInimigos.add(grimorio.getGrimorioInimigos().get(numeroGerado3));
-						}else if(x<10){
+						}else if(cont<10){
 							int numeroGerado3 = randomica.nextInt(3);
 							listaInimigos.add(grimorio.getGrimorioInimigos().get(numeroGerado3));
-						}else if(x<18){
+						}else if(cont<18){
 							int numeroGerado3 = randomica.nextInt(3)+3;
 							listaInimigos.add(grimorio.getGrimorioInimigos().get(numeroGerado3));
-						}else if(x<26){
+						}else if(cont<26){
 							int numeroGerado3 = randomica.nextInt(3)+6;
 							listaInimigos.add(grimorio.getGrimorioInimigos().get(numeroGerado3));
-						}else if(x==26){
+						}else if(cont==26){
 							
 							listaInimigos.add(grimorio.getGrimorioInimigos().get(9));
 						}
 						
 					}
 					
-					for(int x = 0; x<27 ; x++){
-						InimigoEvento inimigo12 = (InimigoEvento) listaInimigos.get(x);
+					for(int cont = 0; cont<27 ; cont++){
+						InimigoEvento inimigo12 = (InimigoEvento) listaInimigos.get(cont);
 						
 						System.out.println(inimigo12.getNome());
 					}

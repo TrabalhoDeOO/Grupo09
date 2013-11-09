@@ -9,6 +9,7 @@ import game.entidade.Consumivel;
 import game.entidade.Item;
 import game.entidade.Loja;
 import game.entidade.Player;
+import game.framework.ObjectId;
 
 import org.junit.After;
 import org.junit.Before;
@@ -27,7 +28,8 @@ public class LojaTest {
 	@Test
 	public void testGetItens() {
 		Loja lojinha = new Loja("Chef", "Armas");
-		Player player = new Player("Bob", "homem", 15);
+		ObjectId id;
+		Player player = new Player("Bob", "homem", 15, 60, 60 , ObjectId.Player);
 		player.addDinheiro(10);
 		Arma arma = new Arma("Angra",1015,200,15);
 		player.adicionaItem(arma);
