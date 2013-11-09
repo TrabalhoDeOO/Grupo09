@@ -49,6 +49,9 @@ public class Player extends GameObject implements SetandoBonus {
 		this.lvl = lvlP;
 		this.xp = 0;
 		concha = 0;
+		this.x = x;
+		this.y=y;
+		this.id = id;
 		setStatus();
 		
 	}
@@ -322,7 +325,7 @@ public class Player extends GameObject implements SetandoBonus {
 
 	public void render(Graphics g) {
 		g.setColor(Color.blue);
-		g.fillRect((int) x, (int)y, 60, 60);
+		g.fillRect((int) x, (int)y, 30, 60);
 	}
 	
 	public float getX() {
@@ -341,20 +344,20 @@ public class Player extends GameObject implements SetandoBonus {
 		this.y = y;
 	}
 
-	public float getvelX() {
+	public float getVelX() {
 		return velX;
 
 	}
 
-	public float getvelY() {
+	public float getVelY() {
 		return velY;
 	}
 
-	public void setvelX(float velX) {
+	public void setVelX(float velX) {
 		this.velX = velX;
 	}
 
-	public void setvelY(float velY) {
+	public void setVelY(float velY) {
 		this.velY = velY;
 	}
 
