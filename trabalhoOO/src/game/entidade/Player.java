@@ -1,9 +1,15 @@
 package game.entidade;
+import game.framework.GameObject;
+import game.framework.ObjectId;
+import game.interfaces.SetandoBonus;
+
+import java.awt.Color;
+import java.awt.Graphics;
 import java.util.ArrayList;
-import game.interfaces.*;
+import java.util.LinkedList;
 
 
-public class Player implements SetandoBonus {
+public class Player extends GameObject implements SetandoBonus {
 	
 	public String nome;
 	public String sexo;
@@ -25,7 +31,8 @@ public class Player implements SetandoBonus {
 	
 	private int concha;
 		
-	public Player() {
+/*	public Player(String nome, String sexo, int lvlP, float x, float y, ObjectId id) {
+		super(x,y, id);
 		this.nome = "sem nome";
 		this.sexo = "nao informado";
 		this.lvl = 0;
@@ -33,10 +40,10 @@ public class Player implements SetandoBonus {
 		concha=0;
 		setStatus();
 		
-	}
+	}*/
 	
-	public Player(String nomeP, String sexoP, int lvlP){
-		
+	public Player(String nomeP, String sexoP, int lvlP, float x, float y, ObjectId id){
+		super(x,y, id);	
 		this.nome = nomeP;
 		this.sexo = sexoP;
 		this.lvl = lvlP;
@@ -306,6 +313,57 @@ public class Player implements SetandoBonus {
 			System.out.println(i + " - Nome Item: "+ this.mochila.get(i).getNomeItem()+ "\n    Bonus: recupera  "+
 		this.mochila.get(i).getBonus() +" de HP\n" + " Valor: " + this.mochila.get(i).getValor() + " conchas\n");
 		}
+	}
+	// A partir daqui, os dados são herdados da classe abstrata GameObject
+	
+	public void tick(LinkedList<GameObject> object) {
+		
+	}
+
+	public void render(Graphics g) {
+		g.setColor(Color.blue);
+		g.fillRect((int) x, (int)y, 60, 60);
+	}
+	
+	public float getX() {
+		return x;
+	}
+
+	public float getY() {
+		return y;
+	}
+
+	public void setX(float x) {
+		this.x = x;
+	}
+
+	public void setY(float y) {
+		this.y = y;
+	}
+
+	public float getvelX() {
+		return velX;
+
+	}
+
+	public float getvelY() {
+		return velY;
+	}
+
+	public void setvelX(float velX) {
+		this.velX = velX;
+	}
+
+	public void setvelY(float velY) {
+		this.velY = velY;
+	}
+
+	public ObjectId getId() {
+		return id;
+	}
+
+	public void setId(ObjectId id) {
+		this.id = id;
 	}
 }
 	 

@@ -15,6 +15,7 @@ import game.entidade.InimigoEvento;
 import game.entidade.Player;
 import game.entidade.grimorio.Grimorio;
 import game.entidade.grimorio.GrimorioItens;
+import game.framework.*;
 
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
@@ -85,9 +86,12 @@ public class Main{
 		
 			String nomeP;
 			String sexoP;
+			float x;
+			float y;
+			ObjectId id;
 			ArrayList<Inimigo> listaInimigos = new ArrayList<Inimigo>();
 			Criar jogador = new Criar();
-			Player player = new Player();
+			Player player = new Player(sexoP, vidas,null,x, y,id);
 			
 			
 			do{
@@ -121,7 +125,7 @@ public class Main{
 			}while(verificaNome == 2);
 			
 			//player = new Player(nomeP, sexoP, 1);
-			player = jogador.criarPlayer(nomeP, sexoP, 1);
+			player = jogador.criarPlayer(nomeP, sexoP, 1, 60, 60, ObjectId.Player);
 			
 			/**
 			System.out.println("\n\n"+player.getNome() + " lvl: " + player.getLvl() + "  hp: " + player.getHp() + " atk:  "
@@ -172,7 +176,7 @@ public class Main{
 			}
 			
 			do{
-				player = new Player(player.getNome(), player.getSexo(), 1);
+				player = new Player(1, player.getX(), player.getId());
 				System.out.println(player.getStatus());
 				
 				//player.adicionaItem(grimorioI.getGrimorioItens().get(6));

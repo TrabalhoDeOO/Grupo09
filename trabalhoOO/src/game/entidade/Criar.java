@@ -1,15 +1,9 @@
 package game.entidade;
 
 
-import game.entidade.Adm;
-import game.entidade.Dinheiro;
-import game.entidade.Inimigo;
-import game.entidade.Player;
-import game.entidade.Item;
-import game.entidade.Loja;
-import game.entidade.NPC;
-
 import java.util.ArrayList;
+import game.framework.*;
+import game.Graphics.*;
 
 
 
@@ -248,18 +242,18 @@ public class Criar {
 		
 	}
 		
-		public Player criarPlayer(String nome, String sexo, int lvl){
+		public Player criarPlayer(String nome, String sexo, int lvl, float x, float y, ObjectId id){
 			
-			Player player1 = new Player(nome, sexo, lvl);
+			Player player1 = new Player(nome, sexo, lvl, x, y, id);
 			
 			
 			boolean resultValid = player1.validaPlayer(sexo);
 			
 			if (resultValid == true){
-				player1 = new Player(nome, sexo, lvl);
+				player1 = new Player(nome, sexo, lvl, x, y, id);
 			}else{
 				System.out.println("sexo invalido!");
-				player1 = new Player();
+				player1 = new Player(sexo, sexo, lvl, y, y, id);
 			}
 			
 			return player1;
