@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 
+import game.entidade.Arma;
 import game.entidade.Consumivel;
 import game.entidade.Item;
 import game.entidade.Loja;
@@ -25,7 +26,14 @@ public class LojaTest {
 
 	@Test
 	public void testGetItens() {
-		Loja lojinha = new Loja("Chef", "Comidas");
+		Loja lojinha = new Loja("Chef", "Armas");
+		Player player = new Player("Bob", "homem", 15);
+		player.addDinheiro(10);
+		Arma arma = new Arma("Angra",1015,200,15);
+		player.adicionaItem(arma);
+		System.out.println(player.getArma());
+		System.out.println(player.getStatus());
+		
 		Consumivel comida = new Consumivel("Bolo", 100, 5, 1);
 		Consumivel comida2 = new Consumivel("Pao", 101, 2, 1);
 		Consumivel comida3 = new Consumivel("Torta", 102, 6, 1);
@@ -45,6 +53,16 @@ public class LojaTest {
 		lojinha.criarDescricao("lojinha da hora");
 		lojinha.listarItens();
 		itens.remove(4);
+		
+		lojinha.venderItem(player);
+		
+		System.out.println("Player Conchas "+player.getConcha());
+		player.listarMochila();
+		
+		lojinha.comprarItem(player);
+		System.out.println((player.getArma()==null)?"null":player.getArma());
+		System.out.println(player.getStatus());
+		
 		assertEquals(lojinha.getItens(),itens);
 		
 		

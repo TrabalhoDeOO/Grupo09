@@ -74,7 +74,7 @@ public class Loja implements Descricao{
 	public void listarItens(){
 		System.out.println(this.descricao());
 		for (int i=0;i<itens.size(); i++){
-			System.out.println(itens.get(i));
+			System.out.println(i+" "+itens.get(i));
 		}
 	}
 	
@@ -117,8 +117,8 @@ public class Loja implements Descricao{
 			}
 			
 		}else if(this.tipoLoja.equalsIgnoreCase("Armas")){
-			System.out.println("Voce deseja vender sua roupa por"+ player.getRoupa().getValor() + " conchas?\n");
-			System.out.println(player.getRoupa()+"\n");
+			System.out.println("Voce deseja vender sua arma por "+ player.getArma().getValor() + " conchas?\n");
+			System.out.println(player.getArma()+"\n");
 			System.out.println("1/sim 2/nao\n");
 			
 			teste1 = false;
@@ -143,16 +143,23 @@ public class Loja implements Descricao{
 			}
 			if(numeroDoItemSelecionado == 1){
 				player.addDinheiro(player.getArma().getValor());
-				Arma arma = new Arma();
-				player.adicionaItem(arma);
+				player.arma = null;
+				player.setAtk((player.lvl*4));
 				//a pensar como retirar arma de player
+				//isso ou:
+				/* Arma arma = new Arma("Punhos", 0, 0, 0);
+				 * player.adicionaItem(arma);
+				 * -----------------------------------------
+				 * player.arma = null;
+				 * player.setAtk((this.lvl*4));
+				 */
 			}
 			
 				
 			
 			
 		}else if(this.tipoLoja.equalsIgnoreCase("Roupas")){
-			System.out.println("Voce deseja vender sua arma por"+ player.getArma().getValor() + " conchas?\n");
+			System.out.println("Voce deseja vender sua roupa por "+ player.getRoupa().getValor() + " conchas?\n");
 			System.out.println(player.getRoupa()+"\n");
 			System.out.println("1/sim 2/nao\n");
 			
@@ -178,8 +185,9 @@ public class Loja implements Descricao{
 			}
 			if(numeroDoItemSelecionado == 1){
 				player.addDinheiro(player.getRoupa().getValor());
-				Vestimenta roupa = new Vestimenta();
-				player.adicionaItem(roupa);
+				//Vestimenta roupa = new Vestimenta();
+				//player.adicionaItem(roupa);
+				player.roupa = null;
 			}
 
 		}
