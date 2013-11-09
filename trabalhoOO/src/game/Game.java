@@ -1,13 +1,16 @@
 package game;
 
+import game.Graphics.BufferedImageLoader;
+import game.entidade.Player;
+import game.framework.Handler;
+import game.framework.ObjectId;
+
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-
-import game.Graphics.BufferedImageLoader;
 
 public class Game extends Canvas implements Runnable {
 
@@ -22,8 +25,14 @@ public class Game extends Canvas implements Runnable {
 	private boolean running = false;
 	private Thread thread;
 	
+	//Object
+	Handler handler;
+	Player player;
+	
 	public void init(){
 		requestFocus();
+		handler = new Handler();
+		handler.addObject(new Player(player.nome, player.sexo, 1, 100, 100, ObjectId.Player));
 		BufferedImageLoader loader = new BufferedImageLoader();
 		try{
 			background = loader.loadImage("/background.png");
@@ -31,6 +40,7 @@ public class Game extends Canvas implements Runnable {
 			e.printStackTrace();
 		}
 	}
+	
 	public synchronized void start(){
 		if (running)
 			return;
@@ -41,6 +51,7 @@ public class Game extends Canvas implements Runnable {
 }
 	public void run(){
 		init();
+		this.requestFocus();
 		long lastTime = System.nanoTime();
 		double amountOfTicks = 60.0;
 		double ns = 1000000000 / amountOfTicks;
@@ -70,6 +81,9 @@ public class Game extends Canvas implements Runnable {
 		stop();
 		}
 	
+		private void tick() {
+		handler.tick();
+	}
 	
 	private void render() {
 		BufferStrategy bs = this.getBufferStrategy();
@@ -82,16 +96,12 @@ public class Game extends Canvas implements Runnable {
 		g.setColor(Color.black);
 		g.fillRect(0, 0, getWidth(), getHeight());
 		
+		handler.render(g);
 		g.drawImage(background, 0, 0, null);
 		
 		/////////////////////////////////
 		g.dispose();
 		bs.show();
-	}
-	
-	
-	private void tick() {
-		
 	}
 	
 	public synchronized void stop(){

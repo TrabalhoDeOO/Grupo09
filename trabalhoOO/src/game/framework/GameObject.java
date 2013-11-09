@@ -29,6 +29,6 @@ public abstract class GameObject {
 	public abstract void setvelY( float velY);
 	
 	public abstract ObjectId getId();
-	public abstract void setId(ObjectId id);
+	public abstract void setId(ObjectId id);	
 
 }
