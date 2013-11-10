@@ -32,10 +32,7 @@ public class Game extends Canvas implements Runnable {
 		BufferedImageLoader loader = new BufferedImageLoader();
 		handler = new Handler();
 		handler.createLevel();
-		try{
-			
-			handler.addObject(new Block(50, 660, ObjectId.Block));
-			//handler.addObject(new Player(player.getNome(), player.getSexo(), 1, 200, 660, ObjectId.Player));
+		try{			
 			background = loader.loadImage("/background.png");
 		} catch (IOException e){
 			e.printStackTrace();

@@ -5,11 +5,12 @@ import game.Game;
 import java.awt.Graphics;
 import java.util.LinkedList;
 
-public class Handler {
+public class Handler extends Game{
 	
 	public LinkedList<GameObject> object = new LinkedList<GameObject>();
 	
 	private GameObject tempObject;
+	private static float cte = (float) 1.92;
 	
 	public void tick(){
 		for (int i=0; i<object.size(); i++){
@@ -37,8 +38,8 @@ public class Handler {
 		this.object.remove(object);
 	}
 	public void createLevel(){
-		for (int xx=0; xx<Game.WIDTH+32; xx+=32)
-			addObject(new Block(xx, Game.HEIGTH-32, ObjectId.Block));
+		for (int xx=0; xx<Game.WIDTH*SCALE; xx+=40)
+			addObject(new Block(xx, Game.HEIGTH*cte , ObjectId.Block));
 	}
 }
 
