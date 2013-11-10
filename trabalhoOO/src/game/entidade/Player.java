@@ -9,6 +9,8 @@ import java.awt.Rectangle;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
+import org.omg.PortableInterceptor.ObjectIdHelper;
+
 
 public class Player extends GameObject implements SetandoBonus {
 	
@@ -29,7 +31,7 @@ public class Player extends GameObject implements SetandoBonus {
 	public int bonusHp;
 	public Arma arma = null;
 	public Vestimenta roupa = null;
-	
+
 	private int concha;
 		
 /*	public Player(String nome, String sexo, int lvlP, float x, float y, ObjectId id) {
@@ -51,12 +53,21 @@ public class Player extends GameObject implements SetandoBonus {
 		this.xp = 0;
 		concha = 0;
 		this.x = x;
-		this.y=y;
-		this.id = id;
+		this.y = y;
 		setStatus();
 		
 	}
 	
+	public Player(ObjectId id) {
+		super(0,0,id);
+		this.nome = "sem nome";
+		this.sexo = "nao informado";
+		this.lvl = 0;
+		this.xp = 0;
+		concha=0;
+		setStatus();
+	}
+
 	private void setStatus(){
 		this.atk =  (this.lvl*4);
 		this.def = (this.lvl*2);
