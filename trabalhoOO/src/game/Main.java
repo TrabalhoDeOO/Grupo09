@@ -91,7 +91,7 @@ public class Main{
 			ObjectId id;
 			ArrayList<Inimigo> listaInimigos = new ArrayList<Inimigo>();
 			Criar jogador = new Criar();
-			Player player = null;
+			Player player = new Player("vazio","vazio",0,0,0,ObjectId.Player);
 			
 			
 			do{
