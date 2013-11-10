@@ -5,6 +5,7 @@ import game.interfaces.SetandoBonus;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Rectangle;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
@@ -328,45 +329,8 @@ public class Player extends GameObject implements SetandoBonus {
 		g.fillRect((int) x, (int)y, 30, 60);
 	}
 	
-	public float getX() {
-		return x;
-	}
-
-	public float getY() {
-		return y;
-	}
-
-	public void setX(float x) {
-		this.x = x;
-	}
-
-	public void setY(float y) {
-		this.y = y;
-	}
-
-	public float getVelX() {
-		return velX;
-
-	}
-
-	public float getVelY() {
-		return velY;
-	}
-
-	public void setVelX(float velX) {
-		this.velX = velX;
-	}
-
-	public void setVelY(float velY) {
-		this.velY = velY;
-	}
-
-	public ObjectId getId() {
-		return id;
-	}
-
-	public void setId(ObjectId id) {
-		this.id = id;
+	public Rectangle getBounds() {
+		return null;
 	}
 }
 	 

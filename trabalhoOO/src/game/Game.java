@@ -1,13 +1,11 @@
 package game;
 
 import game.Graphics.BufferedImageLoader;
-import game.entidade.Player;
+import game.framework.Block;
 import game.framework.Handler;
 import game.framework.ObjectId;
-import game.framework.Test;
 
 import java.awt.Canvas;
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
@@ -28,16 +26,15 @@ public class Game extends Canvas implements Runnable {
 	
 	//Object
 	Handler handler;
-	//Player player;
 	
 	public void init(){
 		requestFocus();
 		BufferedImageLoader loader = new BufferedImageLoader();
 		handler = new Handler();
-		
+		handler.createLevel();
 		try{
 			
-			handler.addObject(new Test(50, 660, ObjectId.Test));
+			handler.addObject(new Block(50, 660, ObjectId.Block));
 			//handler.addObject(new Player(player.getNome(), player.getSexo(), 1, 200, 660, ObjectId.Player));
 			background = loader.loadImage("/background.png");
 		} catch (IOException e){

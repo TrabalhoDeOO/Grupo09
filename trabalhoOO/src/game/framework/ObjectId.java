@@ -3,6 +3,7 @@ package game.framework;
 public enum ObjectId {
 
 	Player(),
-	Test();
+	Test(), 
+	Block();
 	
 }

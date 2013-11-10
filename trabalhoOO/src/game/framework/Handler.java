@@ -1,5 +1,7 @@
 package game.framework;
 
+import game.Game;
+
 import java.awt.Graphics;
 import java.util.LinkedList;
 
@@ -33,6 +35,10 @@ public class Handler {
 	
 	public void removeObject (GameObject object){
 		this.object.remove(object);
+	}
+	public void createLevel(){
+		for (int xx=0; xx<Game.WIDTH+32; xx+=32)
+			addObject(new Block(xx, Game.HEIGTH-32, ObjectId.Block));
 	}
 }
 
