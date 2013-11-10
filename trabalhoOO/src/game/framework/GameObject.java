@@ -23,10 +23,10 @@ public abstract class GameObject {
 	public abstract void  setX(float x);
 	public abstract void setY( float y);
 
-	public abstract float getvelX();
-	public abstract float getvelY();
-	public abstract void  setvelX(float velX);
-	public abstract void setvelY( float velY);
+	public abstract float getVelX();
+	public abstract float getVelY();
+	public abstract void  setVelX(float velX);
+	public abstract void setVelY( float velY);
 	
 	public abstract ObjectId getId();
 	public abstract void setId(ObjectId id);	
