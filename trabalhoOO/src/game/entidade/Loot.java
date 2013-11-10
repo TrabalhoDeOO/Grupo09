@@ -3,7 +3,7 @@
  */
 package game.entidade;
 
-import game.entidade.Dinheiro;
+//import game.entidade.Dinheiro;
 import game.entidade.Inimigo;
 import game.entidade.Item;
 

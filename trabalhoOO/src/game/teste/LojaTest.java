@@ -56,13 +56,13 @@ public class LojaTest {
 		lojinha.listarItens();
 		itens.remove(4);
 		
-		lojinha.venderItem(player);
+		//lojinha.venderItem(player);
 		
 		System.out.println("Player Conchas "+player.getConcha());
 		player.listarMochila();
 		
 		lojinha.comprarItem(player);
-		System.out.println((player.getArma()==null)?"null":player.getArma());
+		System.out.println((player.getArma()==null)?"null\n":player.getArma());
 		System.out.println(player.getStatus());
 		
 		assertEquals(lojinha.getItens(),itens);

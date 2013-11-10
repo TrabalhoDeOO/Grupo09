@@ -1,7 +1,7 @@
 package game.entidade.grimorio;
 
 //import game.entidade.Criar;
-import game.entidade.Dinheiro;
+//import game.entidade.Dinheiro;
 import game.entidade.InimigoEvento;
 import game.entidade.Item;
 import game.entidade.Loot;

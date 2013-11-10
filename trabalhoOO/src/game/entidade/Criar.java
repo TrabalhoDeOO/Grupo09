@@ -12,7 +12,7 @@ public class Criar {
 	
 	
 	public int senha;
-	ArrayList<Dinheiro> conchas = new ArrayList <Dinheiro>();
+	//ArrayList<Dinheiro> conchas = new ArrayList <Dinheiro>();
 	ArrayList<Inimigo> monstro = new ArrayList <Inimigo>();
 	ArrayList<Item> itens = new ArrayList<Item>();
 	ArrayList<Loja> lojas = new ArrayList<Loja>();
@@ -39,7 +39,7 @@ public class Criar {
 		Adm adm = new Adm();
 		this.senha = adm.getSenha();
 	}
-
+/*
 	public ArrayList<Dinheiro> getConchas() {
 		return conchas;
 	}
@@ -47,7 +47,7 @@ public class Criar {
 	public void setConchas(ArrayList<Dinheiro> conchas) {
 		this.conchas = conchas;
 	}
-	
+*/
 	public ArrayList<Inimigo> getMonstro(){
 		return monstro;
 	}
