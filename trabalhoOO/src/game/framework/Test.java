@@ -2,6 +2,7 @@ package game.framework;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Rectangle;
 import java.util.LinkedList;
 
 public class Test extends GameObject{
@@ -59,6 +60,12 @@ public void tick(LinkedList<GameObject> object) {
 
 	public void setId(ObjectId id) {
 		this.id = id;
+	}
+
+	@Override
+	public Rectangle getBounds() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

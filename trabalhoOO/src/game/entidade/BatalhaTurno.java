@@ -353,6 +353,7 @@ public class BatalhaTurno{
 				
 				// TODO verificando se inimigo ainda tem hp
 				if (hpI <= 0){
+					player.addDinheiro(lootB.getConchas());
 					//delay
 					try {
 						Thread.sleep(1000);
@@ -1046,6 +1047,7 @@ public class BatalhaTurno{
 				
 				// TODO verificando se inimigo foi abatido
 				if (hpI <= 0){
+					player.addDinheiro(lootB.getConchas());
 					//delay
 					try {
 						Thread.sleep(1000);
