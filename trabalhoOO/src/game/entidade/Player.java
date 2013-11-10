@@ -318,19 +318,27 @@ public class Player extends GameObject implements SetandoBonus {
 		this.mochila.get(i).getBonus() +" de HP\n" + " Valor: " + this.mochila.get(i).getValor() + " conchas\n");
 		}
 	}
-	// A partir daqui, os dados são herdados da classe abstrata GameObject
+	// A partir daqui, os dados sao referentes á implementação gráfica do player
+	private float widthP = 32, heigthP = 64;
+	private float gravity = 0.1f;
 	
 	public void tick(LinkedList<GameObject> object) {
+		x += velX;
+		y += velY;
 		
+		//Gravidade atuando
+		if(falling || jumping){
+		velY +=gravity;	
+		}
 	}
 
 	public void render(Graphics g) {
 		g.setColor(Color.blue);
-		g.fillRect((int) x, (int)y, 30, 60);
+		g.fillRect((int)x, (int)y, (int)widthP, (int) heigthP);
 	}
 	
 	public Rectangle getBounds() {
-		return null;
+		return new Rectangle ((int)x, (int)y, (int)widthP, (int) heigthP);
 	}
 }
 	 

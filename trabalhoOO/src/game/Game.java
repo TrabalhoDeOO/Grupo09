@@ -1,7 +1,7 @@
 package game;
 
 import game.Graphics.BufferedImageLoader;
-import game.framework.Block;
+import game.entidade.Player;
 import game.framework.Handler;
 import game.framework.ObjectId;
 
@@ -23,7 +23,7 @@ public class Game extends Canvas implements Runnable {
 	private BufferedImage background = null;
 	private boolean running = false;
 	private Thread thread;
-	
+		
 	//Object
 	Handler handler;
 	
@@ -31,6 +31,7 @@ public class Game extends Canvas implements Runnable {
 		requestFocus();
 		BufferedImageLoader loader = new BufferedImageLoader();
 		handler = new Handler();
+		handler.addObject(new Player( null, null, 1, 50,560, ObjectId.Player));
 		handler.createLevel();
 		try{			
 			background = loader.loadImage("/background.png");
@@ -114,5 +115,5 @@ public class Game extends Canvas implements Runnable {
 	public void setThread(Thread thread) {
 		this.thread = thread;
 	}
-
+	
 }
