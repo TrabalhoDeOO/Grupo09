@@ -24,7 +24,7 @@ public class Arma extends Item {
 	@Override
 	public String toString(){
 		return String.format("--------\nNome Item: %s\nCodigo: %d\n" +
-				"Bonus: +%d Atk\nValor: %d Conchas\n--------\n", nomeItem, codItem, bonusA, valor);
+				"Bonus: +%d Atk\nValor: %d Concha(s)\n--------\n", nomeItem, codItem, bonusA, valor);
 	}
 
 	public int getBonus() {
@@ -38,7 +38,7 @@ public class Arma extends Item {
 	@Override
 	public String descricao() {
 		 
-		return String.format("%s\t-\t%d\nDescrição: %s\nBônus: +%d Atk\nValor: %d Conchas" +
+		return String.format("%s\t-\t%d\nDescrição: %s\nBônus: +%d Atk\nValor: %d Concha(s)" +
 				"\n",this.nomeItem, this.codItem, this.desc, this.bonusA, this.valor);
 	}
 	

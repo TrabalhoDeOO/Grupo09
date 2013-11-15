@@ -5,11 +5,10 @@ import game.interfaces.SetandoBonus;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.util.ArrayList;
 import java.util.LinkedList;
-
-import org.omg.PortableInterceptor.ObjectIdHelper;
 
 
 public class Player extends GameObject implements SetandoBonus {
@@ -331,7 +330,8 @@ public class Player extends GameObject implements SetandoBonus {
 	}
 	// A partir daqui, os dados sao referentes á implementação gráfica do player
 	private float widthP = 32, heigthP = 64;
-	private float gravity = 0.1f;
+//	private float gravity = 0.5f;
+	private final float MAX_SPEED = 10;
 	
 	public void tick(LinkedList<GameObject> object) {
 		x += velX;
@@ -339,17 +339,39 @@ public class Player extends GameObject implements SetandoBonus {
 		
 		//Gravidade atuando
 		if(falling || jumping){
-		velY +=gravity;	
+//		velY +=gravity;
+		
+		if (velY > MAX_SPEED)
+			velY = MAX_SPEED;
 		}
 	}
 
 	public void render(Graphics g) {
 		g.setColor(Color.blue);
 		g.fillRect((int)x, (int)y, (int)widthP, (int) heigthP);
+		
+		Graphics2D g2d = (Graphics2D) g;
+		g.setColor(Color.red);
+		g2d.draw(getBounds());
+		g2d.draw(getBoundsRigth());
+		g2d.draw(getBoundsLeft());
+		g2d.draw(getBoundsTop());
 	}
 	
 	public Rectangle getBounds() {
-		return new Rectangle ((int)x, (int)y, (int)widthP, (int) heigthP);
+		return new Rectangle ( (int) ((int)x+((widthP/2)-((widthP/2)/2))), (int) ((int)y+(heigthP/2)), (int)widthP/2, (int) heigthP/2);
 	}
+	
+	public Rectangle getBoundsTop() {
+		return new Rectangle ( (int) ((int)x+((widthP/2)-((widthP/2)/2))), (int) y, (int)widthP/2, (int) heigthP/2);
+	}
+	
+	public Rectangle getBoundsRigth() {
+		return new Rectangle ((int) ((int)x+widthP-5), (int)y+5, (int)5, (int) heigthP-10);
+	}
+	
+	public Rectangle getBoundsLeft() {
+		return new Rectangle ((int)x, (int)y+5, (int)5, (int) heigthP-10);
+	}	
 }
 	 

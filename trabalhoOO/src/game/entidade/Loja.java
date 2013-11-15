@@ -117,7 +117,7 @@ public class Loja implements Descricao{
 			}
 			
 		}else if(this.tipoLoja.equalsIgnoreCase("Armas")){
-			System.out.println("Voce deseja vender sua arma por "+ player.getArma().getValor() + " conchas?\n");
+			System.out.println("Voce deseja vender sua arma por "+ player.getArma().getValor() + " concha(s)?\n");
 			System.out.println(player.getArma()+"\n");
 			System.out.println("1/sim 2/nao\n");
 			
@@ -159,7 +159,7 @@ public class Loja implements Descricao{
 			
 			
 		}else if(this.tipoLoja.equalsIgnoreCase("Roupas")){
-			System.out.println("Voce deseja vender sua roupa por "+ player.getRoupa().getValor() + " conchas?\n");
+			System.out.println("Voce deseja vender sua roupa por "+ player.getRoupa().getValor() + " concha(s)?\n");
 			System.out.println(player.getRoupa()+"\n");
 			System.out.println("1/sim 2/nao\n");
 			

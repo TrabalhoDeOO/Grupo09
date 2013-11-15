@@ -33,7 +33,7 @@ public class Item implements Descricao {
 	@Override
 	public String toString(){
 		return String.format("--------\nNome Item: %s\nCodigo: %d\n--------\n" +
-				"Valor: %d Conchas\n--------\n", nomeItem, codItem, valor);
+				"Valor: %d Concha(s)\n--------\n", nomeItem, codItem, valor);
 	}
 
 	public String getNomeItem() {
@@ -73,7 +73,7 @@ public class Item implements Descricao {
 	public String descricao() {
 		 
 		return String.format("%s\t-\t%d\nDescrição: %s\n" +
-				"Valor: %d Conchas\n",this.nomeItem, this.codItem, this.desc, this.valor);
+				"Valor: %d Concha(s)\n",this.nomeItem, this.codItem, this.desc, this.valor);
 	}
 		
 }

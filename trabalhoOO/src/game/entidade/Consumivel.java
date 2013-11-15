@@ -24,7 +24,7 @@ public class Consumivel extends Item {
 	
 	public String toString(){
 		return String.format("--------\nNome Item: %s\nCodigo: %d\n" +
-				"Bonus: recupera %d de HP\nValor: %d Conchas\n--------\n", this.nomeItem,
+				"Bonus: recupera %d de HP\nValor: %d Concha(s)\n--------\n", this.nomeItem,
 				this.codItem, this.bonusC, this.valor);
 	}
 
@@ -40,7 +40,7 @@ public class Consumivel extends Item {
 	public String descricao() {
 		 
 		return String.format("%s\t-\t%d\nDescrição: %s\n" +
-				"Bônus: Recupera +%d Hp\nValor: %d Conchas\n",this.nomeItem, this.codItem,
+				"Bônus: Recupera +%d Hp\nValor: %d Concha(s)\n",this.nomeItem, this.codItem,
 				this.desc, this.bonusC, this.valor);
 	}
 	
