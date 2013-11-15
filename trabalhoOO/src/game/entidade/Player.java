@@ -1,5 +1,6 @@
 package game.entidade;
 import game.framework.GameObject;
+import game.framework.Handler;
 import game.framework.ObjectId;
 import game.interfaces.SetandoBonus;
 
@@ -330,8 +331,10 @@ public class Player extends GameObject implements SetandoBonus {
 	}
 	// A partir daqui, os dados sao referentes á implementação gráfica do player
 	private float widthP = 32, heigthP = 64;
-//	private float gravity = 0.5f;
+	//private float gravity = 0.5f;
 	private final float MAX_SPEED = 10;
+	
+	private Handler handler;
 	
 	public void tick(LinkedList<GameObject> object) {
 		x += velX;
@@ -339,13 +342,29 @@ public class Player extends GameObject implements SetandoBonus {
 		
 		//Gravidade atuando
 		if(falling || jumping){
-//		velY +=gravity;
+	//	velY +=gravity;
 		
 		if (velY > MAX_SPEED)
 			velY = MAX_SPEED;
 		}
+		
+		//Collision(object);
 	}
 
+/*	private void Collision(LinkedList<GameObject> object){
+		for (int i=0; i<handler.object.size(); i++){
+			GameObject tempObject = handler.object.get(i);
+			
+			if(tempObject.getId()== ObjectId.Block){
+			if (getBounds().intersects(tempObject.getBounds())){
+				velY = 0;
+				falling = false;
+				jumping = false;
+			}
+			}
+		}
+	}*/
+	//Renderizador dos gráficos, imagens e o que mais utilizar
 	public void render(Graphics g) {
 		g.setColor(Color.blue);
 		g.fillRect((int)x, (int)y, (int)widthP, (int) heigthP);
@@ -374,4 +393,4 @@ public class Player extends GameObject implements SetandoBonus {
 		return new Rectangle ((int)x, (int)y+5, (int)5, (int) heigthP-10);
 	}	
 }
-	 
+

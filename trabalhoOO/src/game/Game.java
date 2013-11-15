@@ -3,6 +3,7 @@ package game;
 import game.Graphics.BufferedImageLoader;
 import game.entidade.Player;
 import game.framework.Handler;
+import game.framework.KeyInput;
 import game.framework.ObjectId;
 
 import java.awt.Canvas;
@@ -33,6 +34,8 @@ public class Game extends Canvas implements Runnable {
 		handler = new Handler();
 		handler.addObject(new Player( null, null, 1, 50,460, ObjectId.Player));
 		handler.createLevel();
+		
+		this.addKeyListener(new KeyInput(handler));
 		try{			
 			background = loader.loadImage("/background.png");
 		} catch (IOException e){
