@@ -2,11 +2,11 @@ package game.framework;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import game.*;
 
 //Classe Responsável por adicionar os comandos de teclado
 public class KeyInput extends KeyAdapter {
 
+	
 	Handler handler;
 	
 	public KeyInput (Handler handler){
@@ -22,7 +22,7 @@ public class KeyInput extends KeyAdapter {
 			
 			if (tempObject.getId() ==ObjectId.Player){
 				if(key == KeyEvent.VK_LEFT) tempObject.setVelX(-5);
-				if(key == KeyEvent.VK_UP) tempObject.setVelY(-5);
+				if(key == KeyEvent.VK_UP) tempObject.setVelY(-10);
 				if(key == KeyEvent.VK_RIGHT) tempObject.setVelX(5);
 				if(key == KeyEvent.VK_DOWN) tempObject.setVelY(5);
 			}

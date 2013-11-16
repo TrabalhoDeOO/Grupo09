@@ -26,7 +26,7 @@ public class TestarPlayer {
 
 	@Test
 	public void testGetAtk() {
-		Player player= new Player("Jõao", "homem", 1, 60 ,60, ObjectId.Player);
+		Player player= new Player("Jõao", "homem", 1, 60 ,60, null, ObjectId.Player);
 		System.out.println(player.getStatus());
 		player.addXp(250);
 		
@@ -50,7 +50,7 @@ public class TestarPlayer {
 	@Test
 	public void testGetConcha() {
 		boolean ver=false;
-		Player bob = new Player("Bob","homem",15, 60 ,60, ObjectId.Player);
+		Player bob = new Player("Bob","homem",15, 60 ,60, null, ObjectId.Player);
 		bob.setConcha(998);
 		
 		System.out.println(bob.getStatus());

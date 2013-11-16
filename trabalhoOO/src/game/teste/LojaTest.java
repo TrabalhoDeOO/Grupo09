@@ -29,7 +29,7 @@ public class LojaTest {
 	public void testGetItens() {
 		Loja lojinha = new Loja("Chef", "Armas");
 		ObjectId id;
-		Player player = new Player("Bob", "homem", 15, 60, 60 , ObjectId.Player);
+		Player player = new Player("Bob", "homem", 15, 60, 60 , null, ObjectId.Player);
 		player.addDinheiro(10);
 		Arma arma = new Arma("Angra",1015,200,15);
 		player.adicionaItem(arma);

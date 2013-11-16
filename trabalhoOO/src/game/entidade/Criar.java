@@ -244,16 +244,16 @@ public class Criar {
 		
 		public Player criarPlayer(String nome, String sexo, int lvl, float x, float y, ObjectId id){
 			
-			Player player1 = new Player(nome, sexo, lvl, x, y, id);
+			Player player1 = new Player(nome, sexo, lvl, x, y, null, id);
 			
 			
 			boolean resultValid = player1.validaPlayer(sexo);
 			
 			if (resultValid == true){
-				player1 = new Player(nome, sexo, lvl, x, y, id);
+				player1 = new Player(nome, sexo, lvl, x, y, null, id);
 			}else{
 				System.out.println("sexo invalido!");
-				player1 = new Player(sexo, sexo, lvl, y, y, id);
+				player1 = new Player(sexo, sexo, lvl, y, y, null, id);
 			}
 			
 			return player1;

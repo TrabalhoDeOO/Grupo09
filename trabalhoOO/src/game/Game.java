@@ -15,9 +15,8 @@ import java.io.IOException;
 public class Game extends Canvas implements Runnable {
 
 	private static final long serialVersionUID = 1;
-	public static final int WIDTH = 512;
-	public static final int HEIGTH = WIDTH / 12 * 9;
-	public static final int SCALE = 2;
+	public static final int WIDTH = 1024;
+	public static final int HEIGTH = 768;
 	public static final String TITLE = "Are you a neanderthal?";
 	
 	//private BufferedImage spriteSheet = null;
@@ -32,7 +31,7 @@ public class Game extends Canvas implements Runnable {
 		requestFocus();
 		BufferedImageLoader loader = new BufferedImageLoader();
 		handler = new Handler();
-		handler.addObject(new Player( null, null, 1, 50,460, ObjectId.Player));
+		handler.addObject(new Player( null, null, 1, 50,460, handler, ObjectId.Player));
 		handler.createLevel();
 		
 		this.addKeyListener(new KeyInput(handler));

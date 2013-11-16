@@ -45,7 +45,7 @@ public class Player extends GameObject implements SetandoBonus {
 		
 	}*/
 	
-	public Player(String nomeP, String sexoP, int lvlP, float x, float y, ObjectId id){
+	public Player(String nomeP, String sexoP, int lvlP, float x, float y, Handler handler, ObjectId id){
 		super(x,y, id);	
 		this.nome = nomeP;
 		this.sexo = sexoP;
@@ -55,6 +55,7 @@ public class Player extends GameObject implements SetandoBonus {
 		this.x = x;
 		this.y = y;
 		setStatus();
+		this.handler = handler;
 		
 	}
 	
@@ -66,6 +67,7 @@ public class Player extends GameObject implements SetandoBonus {
 		this.xp = 0;
 		concha=0;
 		setStatus();
+		handler = null;
 	}
 
 	private void setStatus(){
@@ -329,9 +331,11 @@ public class Player extends GameObject implements SetandoBonus {
 		this.mochila.get(i).getBonus() +" de HP\n" + " Valor: " + this.mochila.get(i).getValor() + " conchas\n");
 		}
 	}
+		
 	// A partir daqui, os dados sao referentes á implementação gráfica do player
+	
 	private float widthP = 32, heigthP = 64;
-	//private float gravity = 0.5f;
+	private float gravity = 0.5f;
 	private final float MAX_SPEED = 10;
 	
 	private Handler handler;
@@ -342,28 +346,29 @@ public class Player extends GameObject implements SetandoBonus {
 		
 		//Gravidade atuando
 		if(falling || jumping){
-	//	velY +=gravity;
+		velY +=gravity;
 		
 		if (velY > MAX_SPEED)
 			velY = MAX_SPEED;
 		}
 		
-		//Collision(object);
+		Collision(object);
 	}
 
-/*	private void Collision(LinkedList<GameObject> object){
+	private void Collision(LinkedList<GameObject> object){
 		for (int i=0; i<handler.object.size(); i++){
 			GameObject tempObject = handler.object.get(i);
 			
 			if(tempObject.getId()== ObjectId.Block){
 			if (getBounds().intersects(tempObject.getBounds())){
+				y = tempObject.getY() - heigthP;
 				velY = 0;
 				falling = false;
 				jumping = false;
 			}
 			}
 		}
-	}*/
+	}
 	//Renderizador dos gráficos, imagens e o que mais utilizar
 	public void render(Graphics g) {
 		g.setColor(Color.blue);

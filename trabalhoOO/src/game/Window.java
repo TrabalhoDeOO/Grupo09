@@ -8,9 +8,9 @@ public class Window{
 	
 	public Window (int WIDTH, int HEIGTH, String TITLE, Game game){
 		
-		game.setPreferredSize(new Dimension (Game.WIDTH * Game.SCALE, Game.HEIGTH * Game.SCALE));
-		game.setMaximumSize(new Dimension (WIDTH * Game.SCALE, Game.HEIGTH * Game.SCALE));
-		game.setMinimumSize(new Dimension (WIDTH * Game.SCALE, Game.HEIGTH * Game.SCALE));
+		game.setPreferredSize(new Dimension (Game.WIDTH, Game.HEIGTH));
+		game.setMaximumSize(new Dimension (Game.WIDTH, Game.HEIGTH));
+		game.setMinimumSize(new Dimension (Game.WIDTH, Game.HEIGTH));
 		
 		JFrame frame = new JFrame(Game.TITLE);
 		frame.add(game);

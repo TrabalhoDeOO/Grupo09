@@ -7,15 +7,16 @@ package game;
  */
 
 import game.entidade.Adm;
+import game.entidade.Arma;
 import game.entidade.BatalhaTurno;
-import game.entidade.Consumivel;
 import game.entidade.Criar;
 import game.entidade.Inimigo;
 import game.entidade.InimigoEvento;
+import game.entidade.Loja;
 import game.entidade.Player;
 import game.entidade.grimorio.Grimorio;
 import game.entidade.grimorio.GrimorioItens;
-import game.framework.*;
+import game.framework.ObjectId;
 
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
@@ -23,8 +24,6 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
-
-import game.entidade.Arma;
 //import game.entidade.Consumivel;
 //import game.entidade.Dinheiro;
 //import game.entidade.Inimigo;
@@ -32,7 +31,6 @@ import game.entidade.Arma;
 //import game.entidade.Loot;
 //import game.entidade.Item;
 //import game.entidade.NPC;
-import game.entidade.Loja;
 //import game.entidade.Vestimenta;
 /**
  * @author Bruno
@@ -176,7 +174,7 @@ public class Main{
 			}
 			
 			do{
-				 player = new Player(player.getNome(), player.getSexo(), 1, 60, 60, ObjectId.Player);
+				 player = new Player(player.getNome(), player.getSexo(), 1, 60, 60, null, ObjectId.Player);
 				System.out.println(player.getStatus());
 				
 				//player.adicionaItem(grimorioI.getGrimorioItens().get(6));
