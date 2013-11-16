@@ -38,16 +38,17 @@ public class Handler extends Game{
 		this.object.remove(object);
 	}
 	public void createLevel(){
-		//Lateral da fase
+		//Lateral esquerda da fase
 		for (int yy=0; yy <HEIGTH; yy+=40)
 			addObject(new Block(0, yy, ObjectId.Block));
-
+		
+		// Lateral direita da fase
 		for (int yy=0; yy <HEIGTH; yy+=40)
 			addObject(new Block(Game.WIDTH-32, yy, ObjectId.Block));
 
 		//Plataforma
 		for (int xx=200; xx<600; xx+=40)
-			addObject(new Block(xx, 400, ObjectId.Block));
+			addObject(new Block(xx, 580, ObjectId.Block));
 		
 		//Çhão da fase
 		for (int xx=0; xx<Game.WIDTH; xx+=40)

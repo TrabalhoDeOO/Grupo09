@@ -334,7 +334,7 @@ public class Player extends GameObject implements SetandoBonus {
 		
 	// A partir daqui, os dados sao referentes á implementação gráfica do player
 	
-	private float widthP = 32, heigthP = 64;
+	private float widthP = 32, heightP = 64;
 	private float gravity = 0.5f;
 	private final float MAX_SPEED = 10;
 	
@@ -359,20 +359,39 @@ public class Player extends GameObject implements SetandoBonus {
 		for (int i=0; i<handler.object.size(); i++){
 			GameObject tempObject = handler.object.get(i);
 			
-			if(tempObject.getId()== ObjectId.Block){
-			if (getBounds().intersects(tempObject.getBounds())){
-				y = tempObject.getY() - heigthP;
-				velY = 0;
-				falling = false;
-				jumping = false;
-			}
-			}
+			// Colisão na base
+						if(tempObject.getId()== ObjectId.Block){
+						if (getBounds().intersects(tempObject.getBounds())){
+							y = tempObject.getY() - heightP;
+							velY = 0;
+							falling = false;
+							jumping = false;
+						} else
+							falling = true;
+						}						
+			
+			//Colisão no topo
+				if (getBoundsTop().intersects(tempObject.getBounds())){
+					y = tempObject.getY() +40;
+					velY = 0;		
+				}				
+			
+			//Colisão na direita
+			if (getBoundsRigth().intersects(tempObject.getBounds())){
+				x = tempObject.getX() - widthP;			
+				}
+			
+			//Colisão na esquerda
+			if (getBoundsLeft().intersects(tempObject.getBounds())){
+					x = tempObject.getX() +42;				
+				}
 		}
 	}
+			
 	//Renderizador dos gráficos, imagens e o que mais utilizar
 	public void render(Graphics g) {
 		g.setColor(Color.blue);
-		g.fillRect((int)x, (int)y, (int)widthP, (int) heigthP);
+		g.fillRect((int)x, (int)y, (int)widthP, (int) heightP);
 		
 		Graphics2D g2d = (Graphics2D) g;
 		g.setColor(Color.red);
@@ -383,19 +402,19 @@ public class Player extends GameObject implements SetandoBonus {
 	}
 	
 	public Rectangle getBounds() {
-		return new Rectangle ( (int) ((int)x+((widthP/2)-((widthP/2)/2))), (int) ((int)y+(heigthP/2)), (int)widthP/2, (int) heigthP/2);
+		return new Rectangle ( (int) ((int)x+((widthP/2)-((widthP/2)/2))), (int) ((int)y+(heightP/2)), (int)widthP/2, (int) heightP/2);
 	}
 	
 	public Rectangle getBoundsTop() {
-		return new Rectangle ( (int) ((int)x+((widthP/2)-((widthP/2)/2))), (int) y, (int)widthP/2, (int) heigthP/2);
+		return new Rectangle ( (int) ((int)x+((widthP/2)-((widthP/2)/2))), (int) y, (int)widthP/2, (int) heightP/2);
 	}
 	
 	public Rectangle getBoundsRigth() {
-		return new Rectangle ((int) ((int)x+widthP-5), (int)y+5, (int)5, (int) heigthP-10);
+		return new Rectangle ((int) ((int)x+widthP-5), (int)y+5, (int)5, (int) heightP-10);
 	}
 	
 	public Rectangle getBoundsLeft() {
-		return new Rectangle ((int)x, (int)y+5, (int)5, (int) heigthP-10);
+		return new Rectangle ((int)x, (int)y+5, (int)5, (int) heightP-10);
 	}	
 }
 
