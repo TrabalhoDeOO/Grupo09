@@ -386,28 +386,54 @@ public class BatalhaTurno{
 				
 				
 				// TODO ação inimigo.
-				
-				switch(numeroGerado){
-				case 1:
-				case 2:
-				case 3:
-					//atacando
-					y=1;
-					break;
-				case 4:
-				case 5:
-				case 6:
-					//defendendo
-					y=3;
-					break;
-				case 7:
-				case 8:
-				case 9:
-					//atacando escudo
-					y=2;
-					break;
-						
+				/*if(inimigo1.getTipo().equalsIgnoreCase("Boss")){
+					switch(numeroGerado){
+					case 1:
+					case 2:
+					case 3:
+						//atacando
+						y=1;
+						break;
+					case 4:
+					case 5:
+					case 6:
+						//defendendo
+						y=3;
+						break;
+					case 7:
+					case 8:
+						y=2;
+						break;
+					case 9:
+						//atacando escudo
+						y=3;
+						break;
+					}
+				*/
+				//}else{
+					switch(numeroGerado){
+					case 1:
+					case 2:
+					case 3:
+						//atacando
+						y=1;
+						break;
+					case 4:
+					case 5:
+					case 6:
+						//defendendo
+						y=3;
+						break;
+					case 7:
+					case 8:
+					case 9:
+						//atacando escudo
+						y=2;
+						break;
 				}
+				
+						
+				//}
 				if(fuga == true){
 					y=5;
 					

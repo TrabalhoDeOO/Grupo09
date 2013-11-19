@@ -2,6 +2,8 @@ package game.entidade.grimorio;
 
 public interface Skills {
 	
-	public int calculaSkill();
+	public int calculaSkillB1(int hp);
+
+	
 
 }

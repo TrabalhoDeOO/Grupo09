@@ -16,6 +16,7 @@ import game.entidade.Loja;
 import game.entidade.Player;
 import game.entidade.grimorio.Grimorio;
 import game.entidade.grimorio.GrimorioItens;
+import game.entidade.grimorio.JavaliBoss;
 import game.framework.ObjectId;
 
 import java.awt.event.KeyEvent;
@@ -204,6 +205,8 @@ public class Main{
 				
 				for (int i = 0; i <27; i++) {
 					
+					JavaliBoss javaliBoss = new JavaliBoss();
+					
 					for (int cont = 0; cont < 27; cont++){
 						Grimorio grimorio = new Grimorio();
 						if(cont<2){
@@ -220,7 +223,7 @@ public class Main{
 							listaInimigos.add(grimorio.getGrimorioInimigos().get(numeroGerado3));
 						}else if(cont==26){
 							
-							listaInimigos.add(grimorio.getGrimorioInimigos().get(9));
+							listaInimigos.add(javaliBoss);
 						}
 						
 					}
