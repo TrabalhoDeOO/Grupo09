@@ -1,12 +1,12 @@
 package game.entidade.grimorio;
 
-import game.entidade.InimigoEvento;
+
 import game.entidade.Item;
 import game.entidade.Loot;
 import game.entidade.Rand;
 import java.util.Random;
 
-public class JavaliBoss extends InimigoEvento implements Skills {
+public class JavaliBoss extends Boss {
 
 	public JavaliBoss() {
 		super("Javali Gigante", 10 , "Boss");
@@ -57,7 +57,7 @@ public class JavaliBoss extends InimigoEvento implements Skills {
 	
 
 	@Override
-	public int calculaSkillB1(int hp) {
+	public int calculaSkill(int hp) {
 		int dano;
 		dano = hp/2;
 		

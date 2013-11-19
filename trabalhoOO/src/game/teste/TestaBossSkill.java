@@ -27,14 +27,14 @@ public class TestaBossSkill {
 				+" Atk "+jav1.getAtk()+" Spe "+jav1.getSpe()
 				+" Hp "+jav1.getHp()+" Lvl "+jav1.getLvl());
 		
-		int hpTeste = 1;
+		int hpTeste = 100;
 		int hpRestante;
 		
-		hpRestante = hpTeste - jav1.calculaSkillB1(hpTeste);
+		hpRestante = hpTeste - jav1.calculaSkill(hpTeste);
 		
 		System.out.println(hpRestante);
 		
-		assertEquals(hpRestante, 1);
+		assertEquals(hpRestante, 50);
 		
 	}
 

@@ -3,7 +3,7 @@ package game.entidade;
 
 import java.util.ArrayList;
 import game.framework.*;
-import game.Graphics.*;
+//import game.Graphics.*;
 
 
 

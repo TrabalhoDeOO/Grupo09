@@ -5,6 +5,8 @@ package game.entidade;
 
 
 
+import game.entidade.grimorio.JavaliBoss;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.Random;
@@ -55,6 +57,9 @@ public class BatalhaTurno{
 		
 		Player player1 = player;
 		InimigoEvento inimigo1 = new InimigoEvento();
+		JavaliBoss inimigo2 = new JavaliBoss();
+		
+		
 		
 		
 		int x = 0, y=0;
@@ -181,7 +186,7 @@ public class BatalhaTurno{
 						e.printStackTrace();
 					}
 					//verificacao se inimigo esta defendendo
-					if(y == 1 | y == 2 | y == 0){
+					if(y == 1 | y == 2 | y == 0  | y == 3){
 						//calculando dano
 						dano = atkP - (escudoI/2);
 						//verificando se o dano eh minimo (evitando dano negativo)
@@ -239,7 +244,7 @@ public class BatalhaTurno{
 						e.printStackTrace();
 					}
 					//verificando se inimigo esta defendendo
-					if(y==0 | y ==1 | y ==2){
+					if(y == 0 | y == 1 | y == 2 | y == 4){
 						//calculando e subtraindo dano no escudo
 						escudoI = escudoI - (atkP/2);
 						//imprimindo dano no escudo
@@ -386,7 +391,7 @@ public class BatalhaTurno{
 				
 				
 				// TODO ação inimigo.
-				/*if(inimigo1.getTipo().equalsIgnoreCase("Boss")){
+				if(inimigo1.getTipo().equalsIgnoreCase("Boss")){
 					switch(numeroGerado){
 					case 1:
 					case 2:
@@ -402,15 +407,16 @@ public class BatalhaTurno{
 						break;
 					case 7:
 					case 8:
+						//atacando skill
 						y=2;
 						break;
 					case 9:
-						//atacando escudo
-						y=3;
+						//usando skill
+						y=4;
 						break;
 					}
-				*/
-				//}else{
+				
+				}else{
 					switch(numeroGerado){
 					case 1:
 					case 2:
@@ -433,7 +439,7 @@ public class BatalhaTurno{
 				}
 				
 						
-				//}
+				}
 				if(fuga == true){
 					y=5;
 					
@@ -571,7 +577,52 @@ public class BatalhaTurno{
 					System.out.println(player.getNome() +" - hp: "+ hpP +"/"+ player.getHpMax() +" dano: " + atkP + " escudo: " + escudoP );
 					System.out.println(inimigo.getTipo() +" - hp: "+ hpI +" dano: " + atkI + " escudo: " + escudoI + "\n");
 					break;
-			
+				case 4:
+					
+					try {
+						Thread.sleep(1000);
+					} catch (InterruptedException e) {
+						
+						e.printStackTrace();
+					}
+					
+					System.out.println("Inimigo usou Charge");
+					
+					try {
+						Thread.sleep(1000);
+					} catch (InterruptedException e) {
+						
+						e.printStackTrace();
+					}
+					
+					dano = inimigo2.calculaSkill(hpP);
+					
+					if(dano == 1 & hpP == 1){
+						dano = 0;
+					}
+					
+					//subtraindo dano do hp do player
+					hpP -= dano;
+					//verificacao para evitar que hp seja negativo
+					if(hpP<0){
+						hpP=0;
+					}
+					//imprimindo dano
+					System.out.println("hp PLAYER : -" + dano + "\n");
+					
+					//delay
+					try {
+						Thread.sleep(1000);
+					} catch (InterruptedException e) {
+						
+						e.printStackTrace();
+					}
+					
+					System.out.println(player.getNome() +" - hp: "+ hpP +"/"+ player.getHpMax() +" dano: " + atkP + " escudo: " + escudoP + "\n");
+					System.out.println(inimigo.getTipo() +" - hp: "+ hpI +" dano: " + atkI + " escudo: " + escudoI + "\n");
+					
+					break;
+					
 					default:
 						
 						
@@ -633,6 +684,33 @@ public class BatalhaTurno{
 				
 				//ação inimigo.
 				
+				if(inimigo1.getTipo().equalsIgnoreCase("Boss")){
+					switch(numeroGerado){
+					case 1:
+					case 2:
+					case 3:
+						//atacando
+						y=1;
+						break;
+					case 4:
+					case 5:
+					case 6:
+						//defendendo
+						y=3;
+						break;
+					case 7:
+					case 8:
+						//atacando skill
+						y=2;
+						break;
+					case 9:
+						//usando skill
+						y=4;
+						break;
+					}
+				
+				}else{
+				
 				switch(numeroGerado){
 				case 1:
 				case 2:
@@ -653,6 +731,8 @@ public class BatalhaTurno{
 					y=2;
 					break;
 						
+				}
+				
 				}
 				
 				if(fuga == true){
@@ -787,6 +867,52 @@ public class BatalhaTurno{
 					
 					System.out.println(player.getNome() +" - hp: "+ hpP +"/"+ player.getHpMax() +" dano: " + atkP + " escudo: " + escudoP );
 					System.out.println(inimigo.getTipo() +" - hp: "+ hpI +" dano: " + atkI + " escudo: " + escudoI + "\n");
+					break;
+					
+				case 4:
+					
+					try {
+						Thread.sleep(1000);
+					} catch (InterruptedException e) {
+						
+						e.printStackTrace();
+					}
+					
+					System.out.println("Inimigo usou Charge");
+					
+					try {
+						Thread.sleep(1000);
+					} catch (InterruptedException e) {
+						
+						e.printStackTrace();
+					}
+					
+					dano = inimigo2.calculaSkill(hpP);
+					
+					if(dano == 1 & hpP == 1){
+						dano = 0;
+					}
+					
+					//subtraindo dano do hp do player
+					hpP -= dano;
+					//verificacao para evitar que hp seja negativo
+					if(hpP<0){
+						hpP=0;
+					}
+					//imprimindo dano
+					System.out.println("hp PLAYER : -" + dano + "\n");
+					
+					//delay
+					try {
+						Thread.sleep(1000);
+					} catch (InterruptedException e) {
+						
+						e.printStackTrace();
+					}
+					
+					System.out.println(player.getNome() +" - hp: "+ hpP +"/"+ player.getHpMax() +" dano: " + atkP + " escudo: " + escudoP + "\n");
+					System.out.println(inimigo.getTipo() +" - hp: "+ hpI +" dano: " + atkI + " escudo: " + escudoI + "\n");
+					
 					break;
 					
 				default:

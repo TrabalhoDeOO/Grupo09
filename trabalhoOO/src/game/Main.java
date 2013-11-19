@@ -186,7 +186,7 @@ public class Main{
 				Arma comida = new Arma("porrete", 0, 1, 1);
 				Arma comida2 = new Arma("faca de pedra lascada", 1, 1, 1);
 				Arma comida3 = new Arma("porrete grande", 2, 2, 2);
-				Arma comida4 = new Arma("arma super robado de adm", 3, 100, 1000);
+				Arma comida4 = new Arma("arma super robado de adm", 3, 100, 50);
 				
 				loja.adicionaItem(comida);
 				loja.adicionaItem(comida2);
@@ -196,7 +196,7 @@ public class Main{
 				loja.criarDescricao("lojinha da hora");
 				int numeroGerado1 = randomica.nextInt(2)+1;
 				player.addDinheiro(numeroGerado1);
-				
+				player.addDinheiro(1000);
 				loja.venderItem(player);
 				
 				player.listarMochila();
@@ -228,7 +228,7 @@ public class Main{
 						
 					}
 					
-					for(int cont = 0; cont<27 ; cont++){
+					for(int cont = i; cont<27 ; cont++){
 						InimigoEvento inimigo12 = (InimigoEvento) listaInimigos.get(cont);
 						
 						System.out.println(inimigo12.getNome());

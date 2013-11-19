@@ -1,7 +1,7 @@
 package game.teste;
 
 import static org.junit.Assert.*;
-import game.entidade.Arma;
+//import game.entidade.Arma;
 import game.entidade.Item;
 import game.entidade.Player;
 import game.entidade.grimorio.Grimorio;

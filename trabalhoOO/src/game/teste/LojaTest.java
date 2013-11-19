@@ -28,7 +28,7 @@ public class LojaTest {
 	@Test
 	public void testGetItens() {
 		Loja lojinha = new Loja("Chef", "Armas");
-		ObjectId id;
+		//ObjectId id;
 		Player player = new Player("Bob", "homem", 15, 60, 60 , null, ObjectId.Player);
 		player.addDinheiro(10);
 		Arma arma = new Arma("Angra",1015,200,15);
