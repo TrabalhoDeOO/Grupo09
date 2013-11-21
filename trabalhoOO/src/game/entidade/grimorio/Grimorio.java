@@ -66,7 +66,7 @@ public class Grimorio {
 			//Gosma
 			lootI =  grimorioI.getGrimorioItens().get(15);
 			
-			loot2 = new Loot(lootD, lootI, inimigo[0]);
+			loot2 = new Loot(lootD, lootI, inimigo[1]);
 			inimigo[1].criarLoot(loot2);
 		//--------------------------------------------------------------------------
 			inimigo[2] = new InimigoEvento("Besouro Chifrudo",2,"Inseto Grande");
@@ -83,7 +83,7 @@ public class Grimorio {
 				lootI =  grimorioI.getGrimorioItens().get(0);
 			}
 			
-			loot2 = new Loot(lootD, lootI, inimigo[0]);
+			loot2 = new Loot(lootD, lootI, inimigo[2]);
 			inimigo[2].criarLoot(loot2);
 		//--------------------------------------------------------------------------
 			inimigo[3] = new InimigoEvento("Lagarto de Caninos",2,"Reptil Hibrido");
@@ -103,7 +103,7 @@ public class Grimorio {
 				lootI =  grimorioI.getGrimorioItens().get(10);
 			}
 			
-			loot2 = new Loot(lootD, lootI, inimigo[0]);
+			loot2 = new Loot(lootD, lootI, inimigo[3]);
 			inimigo[3].criarLoot(loot2);
 		//--------------------------------------------------------------------------
 			inimigo[4] = new InimigoEvento("Rinoceronte Dente-de-Flecha",2,"Mamifero Grande");
@@ -123,7 +123,7 @@ public class Grimorio {
 				lootI =  grimorioI.getGrimorioItens().get(12);
 			}
 			
-			loot2 = new Loot(lootD, lootI, inimigo[0]);
+			loot2 = new Loot(lootD, lootI, inimigo[4]);
 			inimigo[4].criarLoot(loot2);
 		//--------------------------------------------------------------------------
 			inimigo[5] = new InimigoEvento("Hiena de Escudo",3,"Mamifero Grande");
@@ -141,7 +141,7 @@ public class Grimorio {
 				lootI =  grimorioI.getGrimorioItens().get(2);
 			}
 			
-			loot2 = new Loot(lootD, lootI, inimigo[0]);
+			loot2 = new Loot(lootD, lootI, inimigo[5]);
 			inimigo[5].criarLoot(loot2);
 		//--------------------------------------------------------------------------
 			inimigo[6] = new InimigoEvento("Tatu Carapaça",3,"Mamifero Gigante");
@@ -164,7 +164,7 @@ public class Grimorio {
 				lootI =  grimorioI.getGrimorioItens().get(44);
 			}
 			
-			loot2 = new Loot(lootD, lootI, inimigo[0]);
+			loot2 = new Loot(lootD, lootI, inimigo[6]);
 			inimigo[6].criarLoot(loot2);
 		//--------------------------------------------------------------------------
 			inimigo[7] = new InimigoEvento("Leão Listrado",4,"Felino Grande");
@@ -186,7 +186,7 @@ public class Grimorio {
 				lootI =  grimorioI.getGrimorioItens().get(0);
 			}
 			
-			loot2 = new Loot(lootD, lootI, inimigo[0]);
+			loot2 = new Loot(lootD, lootI, inimigo[7]);
 			inimigo[7].criarLoot(loot2);
 		//--------------------------------------------------------------------------
 			inimigo[8] = new InimigoEvento("Lince Prateado",5,"Felino Grande");
@@ -202,7 +202,7 @@ public class Grimorio {
 				lootI =  grimorioI.getGrimorioItens().get(30);
 			}
 			
-			loot2 = new Loot(lootD, lootI, inimigo[0]);
+			loot2 = new Loot(lootD, lootI, inimigo[8]);
 			inimigo[8].criarLoot(loot2);
 		//--------------------------------------------------------------------------
 			inimigo[9] = new InimigoEvento("Libelula Sanguinaria",7,"Inseto Gigante");
@@ -221,7 +221,7 @@ public class Grimorio {
 				lootI =  grimorioI.getGrimorioItens().get(14);
 			}
 			
-			loot2 = new Loot(lootD, lootI, inimigo[0]);
+			loot2 = new Loot(lootD, lootI, inimigo[9]);
 			inimigo[9].criarLoot(loot2);
 			
 		//--------------------------------------------------------------------------
