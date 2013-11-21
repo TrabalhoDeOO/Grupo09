@@ -9,6 +9,7 @@ import game.entidade.Consumivel;
 import game.entidade.Item;
 import game.entidade.Loja;
 import game.entidade.Player;
+import game.entidade.Vestimenta;
 import game.framework.ObjectId;
 
 import org.junit.After;
@@ -27,12 +28,16 @@ public class LojaTest {
 
 	@Test
 	public void testGetItens() {
-		Loja lojinha = new Loja("Chef", "Armas");
+		Loja lojinha = new Loja();
+		lojinha = new Loja("Chef", "Armas");
+		System.out.println(lojinha);
 		//ObjectId id;
 		Player player = new Player("Bob", "homem", 15, 60, 60 , null, ObjectId.Player);
 		player.addDinheiro(10);
 		Arma arma = new Arma("Angra",1015,200,15);
+		Vestimenta vest = new Vestimenta("Brihildyr",1016,200,15);
 		player.adicionaItem(arma);
+		player.adicionaItem(vest);
 		System.out.println(player.getArma());
 		System.out.println(player.getStatus());
 		
@@ -52,11 +57,16 @@ public class LojaTest {
 		lojinha.adicionaItem(comida3);
 		lojinha.adicionaItem(comida4);
 		lojinha.adicionaItem(comida5);
-		lojinha.criarDescricao("lojinha da hora");
-		lojinha.listarItens();
+		lojinha.setItens(itens);
 		itens.remove(4);
+		lojinha.setItens(itens);
+		lojinha.criarDescricao("lojinha da hora");
 		
-		//lojinha.venderItem(player);
+		lojinha.listarItens();
+		
+		player.setMochila(itens);
+		
+		lojinha.venderItem(player);
 		
 		System.out.println("Player Conchas "+player.getConcha());
 		player.listarMochila();
@@ -65,6 +75,14 @@ public class LojaTest {
 		System.out.println((player.getArma()==null)?"null\n":player.getArma());
 		System.out.println(player.getStatus());
 		
+		lojinha = new Loja("Chef", "Comidas");
+		lojinha.comprarItem(player);
+		
+		lojinha = new Loja("Chef", "Roupas");
+		lojinha.comprarItem(player);
+		System.out.println((player.getRoupa()==null)?"null\n":player.getRoupa());
+		System.out.println(player.getStatus());
+		itens = lojinha.getItens();
 		assertEquals(lojinha.getItens(),itens);
 		
 		

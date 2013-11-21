@@ -37,13 +37,13 @@ public class JavaliBoss extends Boss {
 		
 		lootD = rand.Random(5, 10);
 		
-		if(rand()==0){
-			lootI = grimorioI.getGrimorioItens().get(29);
-		}else if(rand()==1){
-			lootI = grimorioI.getGrimorioItens().get(19);
-		}else if(rand()==2){
-			lootI = grimorioI.getGrimorioItens().get(29);
-		}else{
+		if(rand()==0){//Armadura de Javali Gigante
+			lootI = grimorioI.getGrimorioItens().get(40);
+		}else if(rand()==1){//Presa de Javali Gigante
+			lootI = grimorioI.getGrimorioItens().get(27);
+		}else if(rand()==2){//Armadura de Javali Gigante
+			lootI = grimorioI.getGrimorioItens().get(40);
+		}else{//Javali Assado
 			lootI = grimorioI.getGrimorioItens().get(9);
 		}
 		

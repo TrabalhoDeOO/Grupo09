@@ -22,6 +22,12 @@ public class GrimorioTest {
 	@Test
 	public void testGetGrimorioInimigos() {
 		Grimorio grimorio = new Grimorio();
+		
+		for(int i=0;i<50;i++)
+			grimorio = new Grimorio();
+		
+		grimorio.listarGrimorio();
+		
 		grimorio.listarTudo();
 		
 		grimorio.getGrimorioInimigos().get(5).listarLoot();
@@ -37,6 +43,7 @@ public class GrimorioTest {
 		
 		assertEquals(lvl,1);
 	}
+	
 	@Test
 	public void testGetGrimorioItens() {
 		GrimorioItens grimorio = new GrimorioItens();

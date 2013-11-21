@@ -209,7 +209,8 @@ public class Grimorio {
 			inimigo[9].criarDescricao("Criatura de aparência inofensiva, mas de hábitos\n" +
 					"asquerosos. Após investir sobre sua presa esse inseto\n" +
 					"costuma sugar o sangue de suas vítimas, ainda com vida,\n" +
-					"através de suas feridas adquiridas em batalha.");
+					"através de suas feridas adquiridas em batalha. - Talvez\n" +
+					"tenha surgido de algum casulo por ai...");
 			inimigo[9].setAtk(rand.Random(25, 28));
 			inimigo[9].setHp(rand.Random(42,46));
 			inimigo[9].setSpe(36);

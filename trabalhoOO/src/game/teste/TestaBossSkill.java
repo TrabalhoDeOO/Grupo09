@@ -1,6 +1,7 @@
 package game.teste;
 
 import static org.junit.Assert.*;
+import game.entidade.grimorio.Boss;
 import game.entidade.grimorio.JavaliBoss;
 
 import org.junit.After;
@@ -21,6 +22,13 @@ public class TestaBossSkill {
 
 	@Test
 	public void testCalculaSkillB1() {
+		Boss boss = new Boss("Boss",20,"Boss");
+		
+		int test;
+		test = boss.calculaSkill(1);
+		test = boss.calculaSkill1(2);
+		test = boss.calculaSkill2(3);
+		
 		JavaliBoss jav1 = new JavaliBoss();
 		
 		System.out.println(jav1.getNome()+" Def "+jav1.getDef()
@@ -34,6 +42,10 @@ public class TestaBossSkill {
 		
 		System.out.println(hpRestante);
 		
+		//Teste de Coverage para o loot
+		for(int i=0;i<20;i++)
+			jav1 = new JavaliBoss();
+
 		assertEquals(hpRestante, 50);
 		
 	}

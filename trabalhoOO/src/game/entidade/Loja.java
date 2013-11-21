@@ -188,6 +188,7 @@ public class Loja implements Descricao{
 				//Vestimenta roupa = new Vestimenta();
 				//player.adicionaItem(roupa);
 				player.roupa = null;
+				player.setDef((player.lvl*2));
 			}
 
 		}

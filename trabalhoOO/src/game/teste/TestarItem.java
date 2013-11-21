@@ -2,6 +2,7 @@ package game.teste;
 
 import static org.junit.Assert.*;
 import game.entidade.Consumivel;
+import game.entidade.Item;
 //import game.entidade.Item;
 
 import org.junit.After;
@@ -21,7 +22,21 @@ public class TestarItem {
 
 	@Test
 	public void testGetNomeItem() {
-		Consumivel potion = new Consumivel("Poção", 001, 20, 1);
+		Item item = new Item();
+		item = new Item("item", 1);
+		item = new Item("Item",1,1);
+		
+		item.setNomeItem("Item2");
+		item.setCodItem(2);
+		item.setValor(2);
+		
+		item.criarDescricao("oioi");
+		int bon = item.getBonus();
+		System.out.println(item+"\nBonus: "+bon+"\nValor: "+item.getValor()+item.descricao());
+		
+		
+		Consumivel potion = new Consumivel();
+		potion = new Consumivel("Poção", 001, 20, 1);
 		assertEquals(potion.getNomeItem(), "Poção");
 		
 	}
