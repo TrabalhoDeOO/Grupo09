@@ -1,6 +1,6 @@
 package game.entidade;
 
-import game.entidade.Loot;
+import game.framework.GameObject;
 //import java.util.ArrayList;
 
 
@@ -8,7 +8,7 @@ import game.entidade.Loot;
  * @author Bruno
  *
  */
-public abstract class Inimigo {
+public abstract class Inimigo extends GameObject {
 
         /**
          * 
@@ -23,6 +23,7 @@ public abstract class Inimigo {
         public int def;
         
         public Inimigo() {
+        super(0, 0, id);
         }
         
         public abstract int getDef();

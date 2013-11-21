@@ -3,6 +3,7 @@ package game.framework;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
+import java.awt.Transparency;
 import java.util.LinkedList;
 
 public class Block extends GameObject{
@@ -17,7 +18,8 @@ public void tick(LinkedList<GameObject> object) {
 	}
 
 	public void render(Graphics g) {
-		g.setColor(Color.white);
+		g.setColor(Color.LIGHT_GRAY);
+		//g.setClip(Transparency.TRANSLUCENT, 0, 0, 0);
 		g.drawRect((int) x, (int)y, 40, 40);
 	}
 

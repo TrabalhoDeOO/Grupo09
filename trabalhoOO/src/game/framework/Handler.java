@@ -47,12 +47,32 @@ public class Handler extends Game{
 			addObject(new Block(Game.WIDTH-32, yy, ObjectId.Block));
 
 		//Plataforma
-		for (int xx=200; xx<600; xx+=40)
+		for (int xx=200; xx<320; xx+=40)
 			addObject(new Block(xx, 580, ObjectId.Block));
 		
+		for (int xx=360; xx<600; xx+=40)
+			addObject(new Block (xx, 580, ObjectId.Block));
 		//Çhão da fase
-		for (int xx=0; xx<Game.WIDTH; xx+=40)
+		for (int xx=0; xx<320; xx+=40)
 			addObject(new Block(xx, Game.HEIGTH-32, ObjectId.Block));
+		
+		for (int xx=400; xx<600; xx+=40)
+			addObject(new Block (xx, Game.HEIGTH-32, ObjectId.Block));
+		
+		for (int xx=680; xx<720; xx+=40)
+			addObject(new Block (xx, Game.HEIGTH-32, ObjectId.Block));
+		
+
+		for (int xx=720; xx<760; xx+=40)
+			addObject(new Block (xx, Game.HEIGTH-72, ObjectId.Block));
+		
+		for (int xx=760; xx<800; xx+=40)
+			addObject(new Block (xx, Game.HEIGTH-112, ObjectId.Block));
+		
+		for (int xx=800; xx<880; xx+=40)
+			addObject(new Block (xx, Game.HEIGTH-152, ObjectId.Block));
+		//for (int xx=0; xx<Game.WIDTH; xx+=40)
+			//addObject(new Block(xx, Game.HEIGTH-32, ObjectId.Block));
 		
 		
 	}

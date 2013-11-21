@@ -38,7 +38,7 @@ public class Game extends Canvas implements Runnable {
 		try{			
 			background = loader.loadImage("/background.png");
 		} catch (IOException e){
-			e.printStackTrace();
+		e.printStackTrace();
 		}
 	}
 	

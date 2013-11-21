@@ -348,8 +348,8 @@ public class Player extends GameObject implements SetandoBonus {
 		if(falling || jumping){
 		velY +=gravity;
 		
-		if (velY > MAX_SPEED)
-			velY = MAX_SPEED;
+		//if (velY > MAX_SPEED)
+	//		velY = MAX_SPEED;
 		}
 		
 		Collision(object);
@@ -394,7 +394,7 @@ public class Player extends GameObject implements SetandoBonus {
 		g.fillRect((int)x, (int)y, (int)widthP, (int) heightP);
 		
 		Graphics2D g2d = (Graphics2D) g;
-		g.setColor(Color.red);
+		g.setColor(Color.green);
 		g2d.draw(getBounds());
 		g2d.draw(getBoundsRigth());
 		g2d.draw(getBoundsLeft());
