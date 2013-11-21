@@ -3,6 +3,7 @@ package game.teste;
 import static org.junit.Assert.*;
 import game.entidade.Item;
 import game.entidade.grimorio.Grimorio;
+import game.entidade.grimorio.GrimorioItens;
 
 import org.junit.After;
 import org.junit.Before;
@@ -21,7 +22,10 @@ public class GrimorioTest {
 	@Test
 	public void testGetGrimorioInimigos() {
 		Grimorio grimorio = new Grimorio();
-		grimorio.listarGrimorio();
+		grimorio.listarTudo();
+		
+		grimorio.getGrimorioInimigos().get(5).listarLoot();
+		
 		int lvl;
 		Item loot = new Item();
 		loot = grimorio.getGrimorioInimigos().get(8).getLoot().getItem();
@@ -29,7 +33,18 @@ public class GrimorioTest {
 		System.out.println(grimorio.getGrimorioInimigos().get(9).descricao());
 		lvl = grimorio.getGrimorioInimigos().get(0).getLvl();
 		
+		grimorio.getGrimorioInimigos().get(5).listarLoot();
+		
 		assertEquals(lvl,1);
+	}
+	@Test
+	public void testGetGrimorioItens() {
+		GrimorioItens grimorio = new GrimorioItens();
+		grimorio.listarGrimorioItem();
+		
+		System.out.println(grimorio.getGrimorioItens().size());
+		
+		assertEquals(1,1);
 	}
 
 }
