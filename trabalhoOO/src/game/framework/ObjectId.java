@@ -5,6 +5,7 @@ public enum ObjectId {
 	Player(),
 	InimigoPlataforma(),
 	Test(), 
-	Block();
+	Block(),
+	Item();
 	
 }
