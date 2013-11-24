@@ -1,12 +1,14 @@
 package game.entidade.grimorio;
 
 import game.entidade.InimigoEvento;
+import game.framework.Handler;
+import game.framework.ObjectId;
 
 public class Boss extends InimigoEvento {
 
 
-	public Boss(String nomeInimigo, int lvlInimigo, String tipoInimigo) {
-		super(nomeInimigo, lvlInimigo, tipoInimigo);
+	public Boss(String nomeInimigo, int lvlInimigo, String tipoInimigo, float x, float y, Handler handler, ObjectId id) {
+		super(nomeInimigo, lvlInimigo, tipoInimigo, 0, 0, null, null);
 		// TODO Auto-generated constructor stub
 	}
 	

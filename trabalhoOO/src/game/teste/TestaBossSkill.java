@@ -22,7 +22,7 @@ public class TestaBossSkill {
 
 	@Test
 	public void testCalculaSkillB1() {
-		Boss boss = new Boss("Boss",20,"Boss");
+		Boss boss = new Boss("Boss",20,"Boss", 0, 0, null, null);
 		
 		int test;
 		test = boss.calculaSkill(1);
