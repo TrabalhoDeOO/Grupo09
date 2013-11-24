@@ -236,7 +236,8 @@ public class Criar {
 
 		public void listarInimigo(){
 			for(int i = 0; i < monstro.size(); i++){
-				System.out.println(monstro.get(i).nome + " " +  monstro.get(i).tipo + " lvl " + monstro.get(i).lvl + " hp: " + monstro.get(i).hp + " atk: " + monstro.get(i).atk
+				System.out.println(monstro.get(i).nome + " " +  monstro.get(i).tipo + " lvl " + monstro.get(i).lvl +
+						" hp: " + monstro.get(i).hp + " atk: " + monstro.get(i).atk
 						+ " def: " + monstro.get(i).def + " spe: " + monstro.get(i).spe);
 				
 			}
