@@ -1,6 +1,7 @@
 package game;
 
 import game.Graphics.BufferedImageLoader;
+import game.entidade.InimigoPlataforma;
 import game.entidade.Player;
 import game.framework.Handler;
 import game.framework.KeyInput;
@@ -36,7 +37,7 @@ public class Game extends Canvas implements Runnable {
 		nivel1 = new Level1();
 		handler.addObject(new Player( null, null, 1, 50,460, handler, ObjectId.Player));
 //		handler.addObject(new InimigoPlataforma (null,(Integer) 1, null, 100, 460, handler, ObjectId.InimigoP));
-		//nivel1.createLevel1();
+//		nivel1.createLevel1();
 		handler.createLevel1();
 		
 		this.addKeyListener(new KeyInput(handler));
@@ -89,6 +90,7 @@ public class Game extends Canvas implements Runnable {
 	
 		private void tick() {
 		handler.tick();
+		
 	}
 	
 	private void render() {
@@ -103,6 +105,7 @@ public class Game extends Canvas implements Runnable {
 		
 		g.drawImage(background, 0, 0, null);
 		handler.render(g);
+//		nivel1.render(g);
 		/////////////////////////////////
 		g.dispose();
 		bs.show();
