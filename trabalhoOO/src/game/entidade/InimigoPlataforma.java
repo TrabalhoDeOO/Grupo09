@@ -29,7 +29,7 @@ public InimigoPlataforma(ObjectId id){
 	this.loot = loot;
 	}
 
-public InimigoPlataforma(String nomeInimigo, int lvlInimigo,	String tipoInimigo, float x, float y, Handler handler, ObjectId id){
+public InimigoPlataforma(String nomeInimigo, int lvlInimigo, String tipoInimigo, float x, float y, Handler handler, ObjectId id){
 	super(x, y, id);
 	this.lvl = lvlInimigo;
 	this.atk =   (this.lvl*4);
@@ -43,6 +43,7 @@ public InimigoPlataforma(String nomeInimigo, int lvlInimigo,	String tipoInimigo,
 	this.x = x;
 	this.y = y;
 	this.id = id;
+	this.handler = handler;
 	}
 
 public void tick(){
@@ -124,12 +125,6 @@ private Handler handler;
 private GameObject tempObject;
 
 public void tick(LinkedList<GameObject> object) {
-	for (int i=0; i<object.size(); i++){
-		
-		tempObject = object.get(i);
-		
-		tempObject.tick(object);
-	}
 	x += velX;
 	y += velY;
 	

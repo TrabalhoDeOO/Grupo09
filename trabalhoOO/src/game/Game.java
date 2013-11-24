@@ -36,7 +36,7 @@ public class Game extends Canvas implements Runnable {
 		handler = new Handler();
 		nivel1 = new Level1();
 		handler.addObject(new Player( null, null, 1, 50,460, handler, ObjectId.Player));
-//		handler.addObject(new InimigoPlataforma (null,(Integer) 1, null, 100, 460, handler, ObjectId.InimigoP));
+		handler.addObject(new InimigoPlataforma (null,(Integer) 1, null, 160,HEIGHT-55, handler, ObjectId.InimigoP));
 //		nivel1.createLevel1();
 		handler.createLevel1();
 		
