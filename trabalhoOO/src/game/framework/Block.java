@@ -20,11 +20,11 @@ public void tick(LinkedList<GameObject> object) {
 	public void render(Graphics g) {
 		g.setColor(Color.LIGHT_GRAY);
 		//g.setClip(Transparency.TRANSLUCENT, 0, 0, 0);
-		g.drawRect((int) x, (int)y, 40, 40);
+		g.drawRect((int) x, (int)y, 32, 32);
 	}
 
 	public Rectangle getBounds() {
-		return new Rectangle((int)x, (int)y, 40, 40);
+		return new Rectangle((int)x, (int)y, 32, 32);
 	}
 	
 

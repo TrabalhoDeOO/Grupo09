@@ -1,46 +1,15 @@
 package game.framework;
 
-import game.Game;
-
-import java.awt.Graphics;
 import java.util.LinkedList;
 
-public class Handler extends Game{
-	
-	public LinkedList<GameObject> object = new LinkedList<GameObject>();
-	
-	protected GameObject tempObject;
-	private static float cte = (float) 1.92;
-	
-	public void tick(){
-		for (int i=0; i<object.size(); i++){
-			
-			tempObject = object.get(i);
-			
-			tempObject.tick(object);
-		}
-	}
-	
-	public void render (Graphics g){
-	for (int i=0; i<object.size(); i++){
-			
-			tempObject = object.get(i);
-			
-			tempObject.render(g);
-		}
-	}
-	
-	public void addObject(GameObject object){
-		this.object.add(object);
-	}
-	
-	public void removeObject (GameObject object){
-		this.object.remove(object);
-	}
-	
-	// Cenário da primeira fase - Acho q eu preciso modularizar isso.... =\
-	
-	public void createLevel1(){
+import game.Game;
+
+
+public class Level1 extends Handler{
+
+	private static final long serialVersionUID = 1L;
+		
+		public void createLevel1(){
 		//Lateral esquerda da fase
 		for (int yy=0; yy <HEIGHT; yy+=32)
 			addObject(new Block(0, yy, ObjectId.Block));
@@ -95,8 +64,7 @@ public class Handler extends Game{
 		for (int xx= 1280; xx<1344; xx+=32)
 			addObject( new Block(xx, Game.HEIGHT-87, ObjectId.Block));
 		for (int xx= 1344; xx<Game.WIDTH; xx+=32)
-			addObject( new Block(xx, Game.HEIGHT-119, ObjectId.Block));
-								
+			addObject( new Block(xx, Game.HEIGHT-119, ObjectId.Block));	
+	
+		}
 	}
-}
-

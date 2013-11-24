@@ -362,7 +362,7 @@ public class Player extends GameObject implements SetandoBonus {
 			
 			//Colisão no topo
 				if (getBoundsTop().intersects(tempObject.getBounds())){
-					y = tempObject.getY() +40;
+					y = tempObject.getY() +32;
 					velY = 0;		
 				}				
 			
@@ -373,7 +373,7 @@ public class Player extends GameObject implements SetandoBonus {
 			
 			//Colisão na esquerda
 			if (getBoundsLeft().intersects(tempObject.getBounds())){
-					x = tempObject.getX() +42;				
+					x = tempObject.getX() +32;				
 				}
 		}
 	}
