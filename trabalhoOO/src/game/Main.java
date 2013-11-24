@@ -238,7 +238,7 @@ public class Main{
 					
 					
 	
-					InimigoEvento inimigo1 = new InimigoEvento();
+					InimigoEvento inimigo1 = new InimigoEvento(null);
 			
 					
 					int verificaDescanco;

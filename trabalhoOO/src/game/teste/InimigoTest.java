@@ -36,7 +36,7 @@ public class InimigoTest {
 	@Test
 	public void testGetHp() {
 		for(int i=1;i<11;i++){
-		InimigoEvento many = new InimigoEvento("Many", i, "mamute");
+		InimigoEvento many = new InimigoEvento("Many", i, "mamute", i, i, null, null);
 		System.out.println(" Lvl "+many.getLvl()+" Def "+many.getDef()
 				+" Atk "+many.getAtk()+" Spe "+many.getSpe()
 				+" Hp "+many.getHp());

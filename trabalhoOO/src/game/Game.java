@@ -1,9 +1,11 @@
 package game;
 
 import game.Graphics.BufferedImageLoader;
+import game.entidade.InimigoPlataforma;
 import game.entidade.Player;
 import game.framework.Handler;
 import game.framework.KeyInput;
+import game.framework.Level1;
 import game.framework.ObjectId;
 
 import java.awt.Canvas;
@@ -15,8 +17,8 @@ import java.io.IOException;
 public class Game extends Canvas implements Runnable {
 
 	private static final long serialVersionUID = 1;
-	public static final int WIDTH = 1024;
-	public static final int HEIGTH = 768;
+	public static final int WIDTH = 1399;
+	public static final int HEIGHT = 758;
 	public static final String TITLE = "Are you a neanderthal?";
 	
 	//private BufferedImage spriteSheet = null;
@@ -26,13 +28,17 @@ public class Game extends Canvas implements Runnable {
 		
 	//Object
 	Handler handler;
+	Level1 nivel1;
 	
 	public void init(){
 		requestFocus();
 		BufferedImageLoader loader = new BufferedImageLoader();
 		handler = new Handler();
+		nivel1 = new Level1();
 		handler.addObject(new Player( null, null, 1, 50,460, handler, ObjectId.Player));
-		handler.createLevel();
+		handler.addObject(new InimigoPlataforma (null,(Integer) 1, null, 160,HEIGHT-55, handler, ObjectId.InimigoP));
+//		nivel1.createLevel1();
+		handler.createLevel1();
 		
 		this.addKeyListener(new KeyInput(handler));
 		try{			
@@ -84,6 +90,7 @@ public class Game extends Canvas implements Runnable {
 	
 		private void tick() {
 		handler.tick();
+		
 	}
 	
 	private void render() {
@@ -98,6 +105,7 @@ public class Game extends Canvas implements Runnable {
 		
 		g.drawImage(background, 0, 0, null);
 		handler.render(g);
+//		nivel1.render(g);
 		/////////////////////////////////
 		g.dispose();
 		bs.show();
@@ -107,7 +115,7 @@ public class Game extends Canvas implements Runnable {
 	}
 	
 	public static void main(String args[]) {
-		new Window (WIDTH, HEIGTH, TITLE, new Game());
+		new Window (WIDTH, HEIGHT, TITLE, new Game());
 			
 	}
 	

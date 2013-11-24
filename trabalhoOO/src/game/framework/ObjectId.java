@@ -3,7 +3,8 @@ package game.framework;
 public enum ObjectId {
 
 	Player(),
-	InimigoPlataforma(),
+	InimigoP(),
+	InimigoT(),
 	Test(), 
 	Block(),
 	Item();

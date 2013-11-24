@@ -7,8 +7,8 @@ import game.entidade.Item;
 import game.entidade.Loot;
 import game.entidade.Rand;
 
-import java.util.Random;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Grimorio {
 	
@@ -34,7 +34,7 @@ public class Grimorio {
 		 /** Inimigos Danilo \o/ */
 		/** 	  Savana	    */
 		
-			inimigo[0] = new InimigoEvento("Miaci",1,"Guaxinim Vermelho");
+			inimigo[0] = new InimigoEvento("Miaci",1,"Guaxinim Vermelho", 0, 0, null, null);
 			inimigo[0].criarDescricao("Um animal pequeno e de aparencia adorável, porem não deixe as aparencias\n" +
 					"te enganarem. Normalmente encontra-se no topo de árvores procurando novas presas.\n" +
 					"\"Miacis\"");
@@ -55,7 +55,7 @@ public class Grimorio {
 			loot2 = new Loot(lootD, lootI, inimigo[0]);
 			inimigo[0].criarLoot(loot2);
 		//--------------------------------------------------------------------------
-			inimigo[1] = new InimigoEvento("Casulo",1,"Desconhecido");
+			inimigo[1] = new InimigoEvento("Casulo",1,"Desconhecido", 0, 0, null, null);
 			inimigo[1].criarDescricao("Desconhecida sua origem e o conteúdo desse casulo.\n" +
 					"A única coisa certa sobre ele é que não pode se mover.\n");
 			inimigo[1].setSpe(0);
@@ -69,7 +69,7 @@ public class Grimorio {
 			loot2 = new Loot(lootD, lootI, inimigo[1]);
 			inimigo[1].criarLoot(loot2);
 		//--------------------------------------------------------------------------
-			inimigo[2] = new InimigoEvento("Besouro Chifrudo",2,"Inseto Grande");
+			inimigo[2] = new InimigoEvento("Besouro Chifrudo",2,"Inseto Grande", 0, 0, null, null);
 			inimigo[2].criarDescricao("Herbivoro de natureza dócil, porém muito territorialista.\n" +
 					"Tome cuidado para não adentrar seu territorio sem um convite, pois\n" +
 					"seu chifre pontudo deve perfurar qualquer coisa em seu caminho.");
@@ -86,7 +86,7 @@ public class Grimorio {
 			loot2 = new Loot(lootD, lootI, inimigo[2]);
 			inimigo[2].criarLoot(loot2);
 		//--------------------------------------------------------------------------
-			inimigo[3] = new InimigoEvento("Lagarto de Caninos",2,"Reptil Hibrido");
+			inimigo[3] = new InimigoEvento("Lagarto de Caninos",2,"Reptil Hibrido", 0, 0, null, null );
 			inimigo[3].criarDescricao("Uma criatura que se encontra no meio da cadeia evolutiva\n" +
 					"entre um Reptil e um Mamifero. Então é bom tomar cuidado\n" +
 					"com suas presas venenosas e sua perspicácia. \"Dimetrodon\"");
@@ -106,7 +106,7 @@ public class Grimorio {
 			loot2 = new Loot(lootD, lootI, inimigo[3]);
 			inimigo[3].criarLoot(loot2);
 		//--------------------------------------------------------------------------
-			inimigo[4] = new InimigoEvento("Rinoceronte Dente-de-Flecha",2,"Mamifero Grande");
+			inimigo[4] = new InimigoEvento("Rinoceronte Dente-de-Flecha",2,"Mamifero Grande", 0, 0, null, null);
 			inimigo[4].criarDescricao("Mamifero de grande porte natural de pastos.\n" +
 					"Seu grande porte e dentes, tanto pequenos quanto afiados,\n" +
 					"o tornam um perigo para qualquer um. \"Toxodonte\"");
@@ -126,7 +126,7 @@ public class Grimorio {
 			loot2 = new Loot(lootD, lootI, inimigo[4]);
 			inimigo[4].criarLoot(loot2);
 		//--------------------------------------------------------------------------
-			inimigo[5] = new InimigoEvento("Hiena de Escudo",3,"Mamifero Grande");
+			inimigo[5] = new InimigoEvento("Hiena de Escudo",3,"Mamifero Grande", 0, 0, null, null);
 			inimigo[5].criarDescricao("Predador tipíco da Savana. Graças a sua pele grossa como\n" +
 					"um escudo e dentes afiados, esse bixo se torna um canditado\n" +
 					"ideal para te deixar em pedaços. \"Pachyaena\"");
@@ -144,7 +144,7 @@ public class Grimorio {
 			loot2 = new Loot(lootD, lootI, inimigo[5]);
 			inimigo[5].criarLoot(loot2);
 		//--------------------------------------------------------------------------
-			inimigo[6] = new InimigoEvento("Tatu Carapaça",3,"Mamifero Gigante");
+			inimigo[6] = new InimigoEvento("Tatu Carapaça",3,"Mamifero Gigante", 0, 0, null, null);
 			inimigo[6].criarDescricao("Criatura herbivora e pacata com uma gigantesca carapaça em suas costas.\n" +
 					"Apesar de não ser muito ágil, sua defesa é formidável. - Pensando bem,\n" +
 					"sua carapaça daria um bom teto para uma familia de 4 Neardentais.\n" +
@@ -167,7 +167,7 @@ public class Grimorio {
 			loot2 = new Loot(lootD, lootI, inimigo[6]);
 			inimigo[6].criarLoot(loot2);
 		//--------------------------------------------------------------------------
-			inimigo[7] = new InimigoEvento("Leão Listrado",4,"Felino Grande");
+			inimigo[7] = new InimigoEvento("Leão Listrado",4,"Felino Grande", 0, 0, null, null);
 			inimigo[7].criarDescricao("Felino de pelagem listrada e presas gigantes.\n" +
 					"Como a maioria dos felinos, essa criatura adora caçar\n" +
 					"e brincar com suas presas antes de devora-las.\n" +
@@ -189,7 +189,7 @@ public class Grimorio {
 			loot2 = new Loot(lootD, lootI, inimigo[7]);
 			inimigo[7].criarLoot(loot2);
 		//--------------------------------------------------------------------------
-			inimigo[8] = new InimigoEvento("Lince Prateado",5,"Felino Grande");
+			inimigo[8] = new InimigoEvento("Lince Prateado",5,"Felino Grande", 0, 0, null, null);
 			inimigo[8].criarDescricao("Felino ágil de pelagem prateada. Predador de\n" +
 					"pequenos animais. \"Sivapanthera\"");
 			inimigo[8].setAtk(18);
@@ -205,7 +205,7 @@ public class Grimorio {
 			loot2 = new Loot(lootD, lootI, inimigo[8]);
 			inimigo[8].criarLoot(loot2);
 		//--------------------------------------------------------------------------
-			inimigo[9] = new InimigoEvento("Libelula Sanguinaria",7,"Inseto Gigante");
+			inimigo[9] = new InimigoEvento("Libelula Sanguinaria",7,"Inseto Gigante", 0, 0, null, null);
 			inimigo[9].criarDescricao("Criatura de aparência inofensiva, mas de hábitos\n" +
 					"asquerosos. Após investir sobre sua presa esse inseto\n" +
 					"costuma sugar o sangue de suas vítimas, ainda com vida,\n" +
@@ -232,7 +232,7 @@ public class Grimorio {
 		/** Fim Inimigos Danilo */
 		
 		
-		InimigoEvento inimigo1 = new InimigoEvento("Sid", 1, "Preguiça Pré-Historica" );
+		InimigoEvento inimigo1 = new InimigoEvento("Sid", 1, "Preguiça Pré-Historica", 0, 0, null, null);
 		inimigo1.criarDescricao("Uma criatura preguiçosa e lenta, que adora não fazer nada o dia inteiro " +
 				"todo dia.\nNormalmente encontrada no topo de árvores, cuidado para não " +
 				"acabar esmagado por uma Preguiça sonolenta.");
@@ -255,7 +255,7 @@ public class Grimorio {
 		grimorioInimigos.add(inimigo1);
 		
 		//inimigos lvl2  posicao na lista 5-9
-		InimigoEvento inimigo2 = new InimigoEvento("Jav Baby", 2, "Javali" );
+		InimigoEvento inimigo2 = new InimigoEvento("Jav Baby", 2, "Javali", 0, 0, null, null);
 		inimigo2.criarDescricao("Um animal normalmente dócil, provavelmente por se tratar de\n" +
 				"uma criatura inocente, porém facilmente se assusta com a chegada de entranhos." +
 				"\nSeria uma atrocidade alguem bater nesse bixo.");
@@ -279,7 +279,7 @@ public class Grimorio {
 		grimorioInimigos.add(inimigo2);
 		
 		//inimigos lvl3  posicao na lista 10-14
-		InimigoEvento inimigo3 = new InimigoEvento("Jav Teen", 3, "Javali" );
+		InimigoEvento inimigo3 = new InimigoEvento("Jav Teen", 3, "Javali", 0, 0, null, null );
 		novoValorAtributo = inimigo3.getDef() + 1;
 		inimigo3.setDef(novoValorAtributo);
 		lootD = (rand.Random(1, 3));
@@ -299,7 +299,7 @@ public class Grimorio {
 		grimorioInimigos.add(inimigo3);
 		
 		//inimigos lvl4  posicao na lista 15-19
-		InimigoEvento inimigo4 = new InimigoEvento("Jav Adult", 4, "Javali" );
+		InimigoEvento inimigo4 = new InimigoEvento("Jav Adult", 4, "Javali", 0, 0, null, null);
 		novoValorAtributo = inimigo4.getDef() + 1;
 		inimigo4.setDef(novoValorAtributo);
 		lootD = (rand.Random(1, 5));
@@ -319,7 +319,7 @@ public class Grimorio {
 		grimorioInimigos.add(inimigo4);
 		
 		//inimigos lvl5  posicao na lista 20-24
-		InimigoEvento inimigo5 = new InimigoEvento("Velociraptor", 5, "Dinossauro" );
+		InimigoEvento inimigo5 = new InimigoEvento("Velociraptor", 5, "Dinossauro", 0, 0, null, null);
 		novoValorAtributo = inimigo5.getSpe() + 15;
 		inimigo5.setSpe(novoValorAtributo);
 		
@@ -339,7 +339,7 @@ public class Grimorio {
 		grimorioInimigos.add(inimigo5);
 		
 		//inimigos lvl6  posicao na lista 25-29
-		InimigoEvento inimigo6 = new InimigoEvento("Many Baby", 6, "Mamute" );
+		InimigoEvento inimigo6 = new InimigoEvento("Many Baby", 6, "Mamute", 0, 0, null, null);
 		novoValorAtributo = inimigo6.getDef()+3;
 		novoValorAtributo2 = inimigo6.getSpe()-4;
 		inimigo6.setDef(novoValorAtributo);
@@ -359,7 +359,7 @@ public class Grimorio {
 		grimorioInimigos.add(inimigo6);
 		
 		//inimigos lvl7  posicao na lista 30-34
-		InimigoEvento inimigo7 = new InimigoEvento("Many Teen", 7, "Mamute" );
+		InimigoEvento inimigo7 = new InimigoEvento("Many Teen", 7, "Mamute", 0, 0, null, null);
 		novoValorAtributo = inimigo7.getDef()+3;
 		novoValorAtributo2 = inimigo7.getSpe()-6;
 		inimigo7.setDef(novoValorAtributo);
@@ -377,7 +377,7 @@ public class Grimorio {
 		grimorioInimigos.add(inimigo7);
 		
 		//inimigos lvl8  posicao na lista 35-39
-		InimigoEvento inimigo8 = new InimigoEvento("Many", 8, "Mamute" );
+		InimigoEvento inimigo8 = new InimigoEvento("Many", 8, "Mamute", 0, 0, null, null);
 		novoValorAtributo = inimigo8.getDef()+3;
 		novoValorAtributo2 = inimigo8.getSpe()-8;
 		inimigo8.setDef(novoValorAtributo);
@@ -398,7 +398,7 @@ public class Grimorio {
 		grimorioInimigos.add(inimigo8);
 		
 		//inimigos lvl9  posicao na lista 40-44
-		InimigoEvento inimigo9 = new InimigoEvento("Diego", 9, "Tigre Dentes-de-Sabre" );
+		InimigoEvento inimigo9 = new InimigoEvento("Diego", 9, "Tigre Dentes-de-Sabre", 0, 0, null, null);
 		novoValorAtributo = inimigo9.getSpe()+10;
 		inimigo9.setSpe(novoValorAtributo);
 		novoValorAtributo2 = inimigo9.getAtk()+5;
@@ -418,7 +418,7 @@ public class Grimorio {
 		grimorioInimigos.add(inimigo9);		
 		
 		//inimigos lvl10  posicao na lista 45-49
-		InimigoEvento inimigo10 = new InimigoEvento("javali gigante", 10, "javali/boss" );
+		InimigoEvento inimigo10 = new InimigoEvento("javali gigante", 10, "javali/boss", 0, 0, null, null);
 		inimigo10.criarDescricao("Por muito tempo acreditaram que sua existência era apenas uma lenda\n" +
 				"contada pra assustar as crianças e os mais covades. Sua lenda dizia que um Javali gigantesco\n" +
 				"uma vez usurpou o titulo do rei da montanha, o Pterodactil, desde então ele vive no topo,\n" +

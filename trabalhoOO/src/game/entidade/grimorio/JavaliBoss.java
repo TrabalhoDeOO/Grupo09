@@ -9,7 +9,7 @@ import java.util.Random;
 public class JavaliBoss extends Boss {
 
 	public JavaliBoss() {
-		super("Javali Gigante", 10 , "Boss");
+		super("Javali Gigante", 10 , "Boss", 0, 0, null, null);
 		// TODO Auto-generated constructor stub
 		Rand rand = new Rand();
 		Item lootI;

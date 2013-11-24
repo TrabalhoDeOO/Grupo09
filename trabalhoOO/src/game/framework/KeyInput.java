@@ -27,8 +27,8 @@ public class KeyInput extends KeyAdapter {
 					tempObject.jumping =true;
 					tempObject.setVelY(-7);
 				}
-				if(key == KeyEvent.VK_RIGHT) tempObject.setVelX(5);
-				if(key == KeyEvent.VK_LEFT) tempObject.setVelX(-5);
+				if(key == KeyEvent.VK_RIGHT) tempObject.setVelX(3);
+				if(key == KeyEvent.VK_LEFT) tempObject.setVelX(-3);
 
 			}
 		}
