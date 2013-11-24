@@ -9,7 +9,6 @@ public class Level1 extends Game{
 
 	private static final long serialVersionUID = 1L;
 	protected GameObject tempObject;
-	public LinkedList<GameObject> object = new LinkedList<GameObject>();
 
 	Handler obj;
 		
@@ -72,25 +71,4 @@ public class Level1 extends Game{
 			obj.addObject( new Block(xx, Game.HEIGHT-119, ObjectId.Block));	
 	
 		}
-
-		public void tick(){
-			for (int i=0; i<object.size(); i++){
-				
-				tempObject = object.get(i);
-				
-				tempObject.tick(object);
-			}
-		}
-		public void render(Graphics g) {
-			for (int i=0; i<object.size(); i++){
-				
-				tempObject = object.get(i);
-				
-				tempObject.render(g);
-			}			
-		}
-		public void addObject(GameObject object){
-			this.object.add(object);
-		}
-		
 	}
