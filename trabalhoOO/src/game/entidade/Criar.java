@@ -219,7 +219,7 @@ public class Criar {
 			
 				
 			if(tipoInimigo.equalsIgnoreCase("a")){
-				InimigoPlataforma inimigo1 = new InimigoPlataforma(jump, nome, lvl, tipoMonstro, 0, 0, null);
+				InimigoPlataforma inimigo1 = new InimigoPlataforma(nome, lvl, tipoMonstro, 0, 0, null, null);
 				inimigo = inimigo1;
 			}else if(tipoInimigo.equalsIgnoreCase("b")){
 				InimigoEvento inimigo1 = new InimigoEvento(nome, lvl, tipoMonstro, 0, 0, null, null);

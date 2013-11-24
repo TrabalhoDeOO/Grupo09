@@ -56,7 +56,7 @@ public class Handler extends Game{
 		for (int xx=0; xx<320; xx+=40)
 			addObject(new Block(xx, Game.HEIGTH-32, ObjectId.Block));
 		
-		for (int xx=400; xx<600; xx+=40)
+		for (int xx=440; xx<600; xx+=40)
 			addObject(new Block (xx, Game.HEIGTH-32, ObjectId.Block));
 		
 		for (int xx=680; xx<720; xx+=40)

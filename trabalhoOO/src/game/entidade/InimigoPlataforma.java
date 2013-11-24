@@ -2,15 +2,17 @@
 package game.entidade;
 
 import game.framework.GameObject;
+import game.framework.Handler;
 import game.framework.ObjectId;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class InimigoPlataforma extends Inimigo{
-	public int jump;
+	
 	ArrayList<InimigoPlataforma> monstro = new ArrayList <InimigoPlataforma>();
 
 public InimigoPlataforma(ObjectId id){
@@ -25,10 +27,9 @@ public InimigoPlataforma(ObjectId id){
 	
 	Loot loot = new Loot(this);
 	this.loot = loot;
-	this.jump = 0;
 	}
 
-public InimigoPlataforma(int jump, String nomeInimigo, int lvlInimigo,	String tipoInimigo, float x, float y, ObjectId id){
+public InimigoPlataforma(String nomeInimigo, int lvlInimigo,	String tipoInimigo, float x, float y, Handler handler, ObjectId id){
 	super(x, y, id);
 	this.lvl = lvlInimigo;
 	this.atk =   (this.lvl*4);
@@ -39,7 +40,6 @@ public InimigoPlataforma(int jump, String nomeInimigo, int lvlInimigo,	String ti
 	this.spe = ((this.lvl*3)-this.hp/4);
 	Loot loot = new Loot(this);
 	this.loot = loot;
-	this.jump= jump;
 	this.x = x;
 	this.y = y;
 	this.id = id;
@@ -48,13 +48,7 @@ public InimigoPlataforma(int jump, String nomeInimigo, int lvlInimigo,	String ti
 public void tick(){
 	
 }
-public int getJump() {
-	return jump;
-}
 
-public void setJump(int jump) {
-	this.jump = jump;
-	}
 public int getAtk() {
 	return this.atk;
 }
@@ -113,7 +107,7 @@ public void criarLoot(){
 
 @Override
 public String toString(){
-	return String.format("plataforma: %s %s lvl: %d hp: %d atk: %d def: %d spe: %d jump: %d", nome, tipo, lvl, hp, atk, def, spe, jump);
+	return String.format("plataforma: %s %s lvl: %d hp: %d atk: %d def: %d spe: %d jump: %d", nome, tipo, lvl, hp, atk, def, spe);
 }
 
 @Override
@@ -123,21 +117,79 @@ public int getHp() {
 }
 
 			//// ----> Implementação gráfica <----- \\\\
+public static int widthIP = 64;
+public static int heightIP = 64;
+
+private Handler handler;
+private GameObject tempObject;
+
 public void tick(LinkedList<GameObject> object) {
-	// TODO Auto-generated method stub
+	for (int i=0; i<object.size(); i++){
+		
+		tempObject = object.get(i);
+		
+		tempObject.tick(object);
+	}
+	x += velX;
+	y += velY;
 	
+	Collision(object);
 }
 
-@Override
+private void Collision(LinkedList<GameObject> object){
+	for (int i=0; i<handler.object.size(); i++){
+		GameObject tempObject = handler.object.get(i);
+		
+		// Colisão na base
+					if(tempObject.getId()== ObjectId.Block){
+					if (getBounds().intersects(tempObject.getBounds())){
+						y = tempObject.getY() - heightIP;
+						velY = 0;
+						falling = false;
+						jumping = false;
+					} else
+						falling = true;
+					}						
+		
+		//Colisão no topo
+			if (getBoundsTop().intersects(tempObject.getBounds())){
+				y = tempObject.getY() +40;
+				velY = 0;		
+			}				
+		
+		//Colisão na direita
+		if (getBoundsRigth().intersects(tempObject.getBounds())){
+			x = tempObject.getX() - widthIP;			
+			}
+		
+		//Colisão na esquerda
+		if (getBoundsLeft().intersects(tempObject.getBounds())){
+				x = tempObject.getX() +42;				
+			}
+	}
+}
+
 public void render(Graphics g) {
-	// TODO Auto-generated method stub
+	g.setColor(Color.black);
+	g.fillRect((int) x, (int) y, widthIP, heightIP);
+	
 	
 }
 
-@Override
 public Rectangle getBounds() {
-	// TODO Auto-generated method stub
-	return null;
+	return new Rectangle ( (int) ((int)x+((widthIP/2)-((widthIP/2)/2))), (int) ((int)y+(heightIP/2)), (int)widthIP/2, (int) heightIP/2);
 }
+
+public Rectangle getBoundsTop() {
+	return new Rectangle ( (int) ((int)x+((widthIP/2)-((widthIP/2)/2))), (int) y, (int)widthIP/2, (int) heightIP/2);
+}
+
+public Rectangle getBoundsRigth() {
+	return new Rectangle ((int) ((int)x+widthIP-5), (int)y+5, (int)5, (int) heightIP-10);
+}
+
+public Rectangle getBoundsLeft() {
+	return new Rectangle ((int)x, (int)y+5, (int)5, (int) heightIP-10);
+}	
 
 }
