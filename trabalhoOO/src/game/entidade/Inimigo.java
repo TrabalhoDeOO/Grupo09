@@ -1,6 +1,7 @@
 package game.entidade;
 
 import game.framework.GameObject;
+import game.framework.ObjectId;
 //import java.util.ArrayList;
 
 
@@ -22,7 +23,7 @@ public abstract class Inimigo extends GameObject {
         public int atk;        
         public int def;
         
-        public Inimigo() {
+        public Inimigo(float x, float y, ObjectId id) {
         super(0, 0, id);
         }
         

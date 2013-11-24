@@ -1,13 +1,20 @@
+
 package game.entidade;
 
+import game.framework.GameObject;
+import game.framework.ObjectId;
+
+import java.awt.Graphics;
+import java.awt.Rectangle;
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class InimigoPlataforma extends Inimigo{
 	public int jump;
 	ArrayList<InimigoPlataforma> monstro = new ArrayList <InimigoPlataforma>();
 
-public InimigoPlataforma(){
-	super();
+public InimigoPlataforma(ObjectId id){
+	super(0,0,id);
 	this.nome = "sem nome";
 	this.tipo = "sem tipo";
 	this.spe = ((this.lvl*2)-hp/2);
@@ -21,19 +28,21 @@ public InimigoPlataforma(){
 	this.jump = 0;
 	}
 
-public InimigoPlataforma(int jump, String nomeInimigo, int lvlInimigo,	String tipoInimigo){
-	super();
+public InimigoPlataforma(int jump, String nomeInimigo, int lvlInimigo,	String tipoInimigo, float x, float y, ObjectId id){
+	super(x, y, id);
 	this.lvl = lvlInimigo;
 	this.atk =   (this.lvl*4);
 	this.def = (this.lvl*2);
 	this.hp = (this.atk/2+this.def*2);
 	this.nome = nomeInimigo;
-	
 	this.tipo = tipoInimigo;
 	this.spe = ((this.lvl*3)-this.hp/4);
 	Loot loot = new Loot(this);
 	this.loot = loot;
 	this.jump= jump;
+	this.x = x;
+	this.y = y;
+	this.id = id;
 	}
 
 public void tick(){
@@ -109,8 +118,26 @@ public String toString(){
 
 @Override
 public int getHp() {
-	// TODO Auto-generated method stub
+	// o q fazer aqui?
 	return 0;
+}
+
+			//// ----> Implementação gráfica <----- \\\\
+public void tick(LinkedList<GameObject> object) {
+	// TODO Auto-generated method stub
+	
+}
+
+@Override
+public void render(Graphics g) {
+	// TODO Auto-generated method stub
+	
+}
+
+@Override
+public Rectangle getBounds() {
+	// TODO Auto-generated method stub
+	return null;
 }
 
 }

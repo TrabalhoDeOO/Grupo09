@@ -33,17 +33,6 @@ public class Player extends GameObject implements SetandoBonus {
 	public Vestimenta roupa = null;
 
 	private int concha;
-		
-/*	public Player(String nome, String sexo, int lvlP, float x, float y, ObjectId id) {
-		super(x,y, id);
-		this.nome = "sem nome";
-		this.sexo = "nao informado";
-		this.lvl = 0;
-		this.xp = 0;
-		concha=0;
-		setStatus();
-		
-	}*/
 	
 	public Player(String nomeP, String sexoP, int lvlP, float x, float y, Handler handler, ObjectId id){
 		super(x,y, id);	
@@ -55,6 +44,7 @@ public class Player extends GameObject implements SetandoBonus {
 		this.x = x;
 		this.y = y;
 		setStatus();
+		this.id = id;
 		this.handler = handler;
 		
 	}

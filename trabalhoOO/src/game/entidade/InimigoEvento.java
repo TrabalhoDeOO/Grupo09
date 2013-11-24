@@ -1,8 +1,14 @@
 package game.entidade;
 
+import game.framework.GameObject;
+import game.framework.Handler;
+import game.framework.ObjectId;
 import game.interfaces.Descricao;
 
+import java.awt.Graphics;
+import java.awt.Rectangle;
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 
 // Trabalhar a questão do ArrayList depois
@@ -12,8 +18,8 @@ public class InimigoEvento extends Inimigo implements Descricao{
 	ArrayList<InimigoEvento> monstro = new ArrayList <InimigoEvento>();
 	private String desc = "vazio";	
 	
-	public InimigoEvento() {
-		super();
+	public InimigoEvento(ObjectId id) {
+		super(0, 0, id);
 		this.nome = "sem nome";
 		this.tipo = "sem tipo";
 		this.spe =  (int)((this.lvl*3)+(this.atk*0.65)-(this.def*0.4));
@@ -28,7 +34,8 @@ public class InimigoEvento extends Inimigo implements Descricao{
 				
 		}
 	//, int atkI, int defI, int hpI
-	public InimigoEvento(String nomeInimigo, int lvlInimigo, String tipoInimigo){
+	public InimigoEvento(String nomeInimigo, int lvlInimigo, String tipoInimigo, float x, float y, Handler handler, ObjectId id){
+		super(x, y, id);
 		this.lvl = lvlInimigo;
 		this.atk =   (this.lvl*4);
 		this.def = (this.lvl*2);
@@ -39,6 +46,9 @@ public class InimigoEvento extends Inimigo implements Descricao{
 		this.spe =  (int)((this.lvl*3)+(this.atk*0.65)-(this.def*0.4));
 		Loot loot = new Loot(this);
 		this.loot = loot;
+		this.x= x;
+		this.y = y;
+		this.id= id;
 		}
 	
 	public void tick(){
@@ -136,6 +146,23 @@ public class InimigoEvento extends Inimigo implements Descricao{
 	public String descricao() {
 		 
 		return String.format("%s\t-\t%s\nDescrição: %s\n",this.nome, this.tipo, this.desc);
+	}
+
+		/////////////---> Deste ponto em diante, os dados são sobre a implementação gráfica <---- \\\\\\\\\\\\\\
+	
+	public void tick(LinkedList<GameObject> object) {
+		// Colocar a colisao
+		
+	}
+	
+	public void render(Graphics g) {
+		// propriedades graficas dos inimigos
+		
+	}
+	
+	public Rectangle getBounds() {
+		// aplicação da colisao
+		return null;
 	}
 	
 }
