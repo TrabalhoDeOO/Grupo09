@@ -21,8 +21,13 @@ public class AdmTeste {
 	
 	@Test
 	public void testGetSenha() {
-		Adm adm= new Adm(1234, "admteste");
-		assertEquals(adm.getSenha(), 1234);
+		Adm adm= new Adm();
+		adm= new Adm(1234, "admteste");
+		adm.setSenha(123);
+		adm.setLogin("admin");
+		adm.criarAdm(1235, "Adm");
+		
+		assertEquals(adm.getSenha(), 1235);
 	}
 
 	@Test

@@ -20,7 +20,15 @@ public class ArmaTest {
 	}
 	@Test
 	public void testGetBonusA() {
-		Arma espada = new Arma("Excalibur",123,5,10000);
+		Arma espada = new Arma();
+		espada = new Arma("Excalibur",123,3,10000);
+		espada.setBonusA(5);
+		espada.setCodItem(321);
+		espada.setNomeItem("Excaliburr");
+		espada.setValor(1000);
+		espada.criarDescricao("Espada Mistica");
+		System.out.println(espada.descricao()+"\n"+espada.getNomeItem()+espada.getCodItem()+
+				espada.getBonus()+espada.getValor()+"\n"+espada);
 		assertEquals(espada.getBonus(),5);
 	}
 

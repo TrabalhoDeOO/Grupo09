@@ -22,15 +22,20 @@ public class VestimentaTest {
 
 	@Test
 	public void testGetBonusV() {
-		Vestimenta asprika = new Vestimenta("Asprika", 1001, 20, 1);
+		Vestimenta asprika = new Vestimenta();
+		asprika = new Vestimenta("asprika", 1001, 18, 1);
+		asprika.setBonus(20);
+		asprika.setCodItem(1002);
+		asprika.setNomeItem("Asprika");
+		asprika.setValor(1001);
+		asprika.criarDescricao("Manto Divino");
+		
+		System.out.println(asprika+"\n"+asprika.descricao());
+		
 		assertEquals(asprika.getBonus(),20);
-
-	}
-
-	@Test
-	public void testGetCodItem() {
-		Item asprika = new Vestimenta("Asprika", 1001, 20, 1);
-		assertEquals(asprika.getCodItem(),1001);
+		assertEquals(asprika.getNomeItem(),"Asprika");
+		assertEquals(asprika.getValor(),1001);
+		assertEquals(asprika.getCodItem(),1002);
 	}
 
 }

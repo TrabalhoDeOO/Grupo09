@@ -13,11 +13,12 @@ public class TestarItem {
 
 	@Before
 	public void setUp() throws Exception {
+		System.out.println("Testando Item");
 	}
 
 	@After
 	public void tearDown() throws Exception {
-		System.out.println("Testando a classe Consumivel");
+		System.out.println("Finalizando Item");
 	}
 
 	@Test
@@ -34,11 +35,7 @@ public class TestarItem {
 		int bon = item.getBonus();
 		System.out.println(item+"\nBonus: "+bon+"\nValor: "+item.getValor()+item.descricao());
 		
-		
-		Consumivel potion = new Consumivel();
-		potion = new Consumivel("Poção", 001, 20, 1);
-		assertEquals(potion.getNomeItem(), "Poção");
-		
+		assertEquals(item.getNomeItem(), "Item2");
 	}
 
 	@Test

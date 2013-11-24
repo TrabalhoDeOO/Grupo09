@@ -33,7 +33,7 @@ public class LojaTest {
 		System.out.println(lojinha);
 		//ObjectId id;
 		Player player = new Player("Bob", "homem", 15, 60, 60 , null, ObjectId.Player);
-		player.addDinheiro(10);
+		
 		Arma arma = new Arma("Angra",1015,200,15);
 		Vestimenta vest = new Vestimenta("Brihildyr",1016,200,15);
 		player.adicionaItem(arma);
@@ -58,13 +58,22 @@ public class LojaTest {
 		lojinha.adicionaItem(comida4);
 		lojinha.adicionaItem(comida5);
 		lojinha.setItens(itens);
-		itens.remove(4);
+		itens.remove(0);
+		itens.remove(0);
 		lojinha.setItens(itens);
 		lojinha.criarDescricao("lojinha da hora");
 		
 		lojinha.listarItens();
 		
+		lojinha.setTipoLoja("Comidas");
+		lojinha.comprarItem(player);
+		
+		lojinha.setTipoLoja("Armas");
 		player.setMochila(itens);
+		
+		lojinha.venderItem(player);
+		
+		player.addDinheiro(10);
 		
 		lojinha.venderItem(player);
 		
@@ -76,13 +85,18 @@ public class LojaTest {
 		System.out.println(player.getStatus());
 		
 		lojinha = new Loja("Chef", "Comidas");
+		lojinha.setNomeLoja("Ferreiro");
 		lojinha.comprarItem(player);
 		
-		lojinha = new Loja("Chef", "Roupas");
+		lojinha = new Loja("Costureiro", "Roupas");
 		lojinha.comprarItem(player);
 		System.out.println((player.getRoupa()==null)?"null\n":player.getRoupa());
 		System.out.println(player.getStatus());
 		itens = lojinha.getItens();
+		
+		System.out.println(lojinha.getNomeLoja()+" "+lojinha.getTipoLoja()+"\n"+lojinha+"\n"+
+				lojinha.descricao());
+		
 		assertEquals(lojinha.getItens(),itens);
 		
 		
