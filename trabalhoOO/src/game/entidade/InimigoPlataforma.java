@@ -7,6 +7,7 @@ import game.framework.ObjectId;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -41,7 +42,7 @@ public InimigoPlataforma(String nomeInimigo, int lvlInimigo, String tipoInimigo,
 	Loot loot = new Loot(this);
 	this.loot = loot;
 	this.x = x;
-	this.y = y;
+	this.y =y;
 	this.id = id;
 	this.handler = handler;
 	}
@@ -124,10 +125,7 @@ public static int heightIP = 64;
 private Handler handler;
 private GameObject tempObject;
 
-public void tick(LinkedList<GameObject> object) {
-	x += velX;
-	y += velY;
-	
+public void tick(LinkedList<GameObject> object) {	
 	Collision(object);
 }
 
@@ -138,45 +136,45 @@ private void Collision(LinkedList<GameObject> object){
 		// Colisão na base
 					if(tempObject.getId()== ObjectId.Block){
 					if (getBounds().intersects(tempObject.getBounds())){
-						y = tempObject.getY() - heightIP;
-						velY = 0;
-						falling = false;
-						jumping = false;
-					} else
-						falling = true;
+					//	y = tempObject.getY() - heightIP;
 					}						
+		}
 		
 		//Colisão no topo
 			if (getBoundsTop().intersects(tempObject.getBounds())){
-				y = tempObject.getY() +40;
-				velY = 0;		
-			}				
+				System.out.println ("Collision detected!");
+		}				
 		
 		//Colisão na direita
 		if (getBoundsRigth().intersects(tempObject.getBounds())){
-			x = tempObject.getX() - widthIP;			
+			System.out.println ("Collision detected!");
 			}
 		
 		//Colisão na esquerda
 		if (getBoundsLeft().intersects(tempObject.getBounds())){
-				x = tempObject.getX() +42;				
+			System.out.println ("Collision detected!");				
 			}
-	}
-}
-
+		}
+	}	
 public void render(Graphics g) {
 	g.setColor(Color.black);
 	g.fillRect((int) x, (int) y, widthIP, heightIP);
 	
+	Graphics2D g2d = (Graphics2D) g;
+	g.setColor(Color.green);
+	g2d.draw(getBounds());
+	g2d.draw(getBoundsRigth());
+	g2d.draw(getBoundsLeft());
+	g2d.draw(getBoundsTop());
 	
 }
 
 public Rectangle getBounds() {
-	return new Rectangle ( (int) ((int)x+((widthIP/2)-((widthIP/2)/2))), (int) ((int)y+(heightIP/2)), (int)widthIP/2, (int) heightIP/2);
+	return new Rectangle ( (int) ((int)x+(widthIP/2-((widthIP/2)))), (int) ((int)y+(heightIP/2)), (int)widthIP, (int) heightIP/2);
 }
 
 public Rectangle getBoundsTop() {
-	return new Rectangle ( (int) ((int)x+((widthIP/2)-((widthIP/2)/2))), (int) y, (int)widthIP/2, (int) heightIP/2);
+	return new Rectangle ( (int) ((int)x+((widthIP/2)-((widthIP/2)))), (int) y, (int)widthIP, (int) heightIP/2);
 }
 
 public Rectangle getBoundsRigth() {
