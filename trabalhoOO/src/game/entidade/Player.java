@@ -350,21 +350,28 @@ public class Player extends GameObject implements SetandoBonus {
 			GameObject tempObject = handler.object.get(i);
 			
 			// Colisão na base
-						if(tempObject.getId()== ObjectId.Block || tempObject.getId()== ObjectId.InimigoP){
+						if(tempObject.getId()== ObjectId.Block){
 						if (getBounds().intersects(tempObject.getBounds())){
 							y = tempObject.getY() - heightP;
 							velY = 0;
 							falling = false;
 							jumping = false;
-						} else
+						} else 
 							falling = true;
-						}						
+						}	
 			
+			// Colisão na base com o inimigo
+				if(tempObject.getId()==ObjectId.InimigoP){
+					if(getBounds().intersects(tempObject.getBoundsTop())){
+						y = tempObject.getY() - heightP;
+
+					}
+				}
 			//Colisão no topo
 				if (getBoundsTop().intersects(tempObject.getBounds())){
 					y = tempObject.getY() +32;
-					velY = 0;		
-				}				
+					velY = 0;	
+					}				
 			
 			//Colisão na direita
 			if (getBoundsRigth().intersects(tempObject.getBounds())){

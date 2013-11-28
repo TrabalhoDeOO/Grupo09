@@ -71,4 +71,9 @@ public abstract class GameObject {
 		this.jumping = jumping;
 	}
 
+	public Rectangle getBoundsTop() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

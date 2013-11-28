@@ -121,41 +121,14 @@ public int getHp() {
 			//// ----> Implementação gráfica <----- \\\\
 public static int widthIP = 64;
 public static int heightIP = 64;
-
 private Handler handler;
 private GameObject tempObject;
 
 public void tick(LinkedList<GameObject> object) {	
-	Collision(object);
+
 }
 
-private void Collision(LinkedList<GameObject> object){
-	for (int i=0; i<handler.object.size(); i++){
-		GameObject tempObject = handler.object.get(i);
-		
-		// Colisão na base
-					if(tempObject.getId()== ObjectId.Block){
-					if (getBounds().intersects(tempObject.getBounds())){
-					//	y = tempObject.getY() - heightIP;
-					}						
-		}
-		
-		//Colisão no topo
-			if (getBoundsTop().intersects(tempObject.getBounds())){
-				System.out.println ("Collision detected!");
-		}				
-		
-		//Colisão na direita
-		if (getBoundsRigth().intersects(tempObject.getBounds())){
-			System.out.println ("Collision detected!");
-			}
-		
-		//Colisão na esquerda
-		if (getBoundsLeft().intersects(tempObject.getBounds())){
-			System.out.println ("Collision detected!");				
-			}
-		}
-	}	
+
 public void render(Graphics g) {
 	g.setColor(Color.black);
 	g.fillRect((int) x, (int) y, widthIP, heightIP);
@@ -163,26 +136,18 @@ public void render(Graphics g) {
 	Graphics2D g2d = (Graphics2D) g;
 	g.setColor(Color.green);
 	g2d.draw(getBounds());
-	g2d.draw(getBoundsRigth());
-	g2d.draw(getBoundsLeft());
+	//g2d.draw(getBoundsRigth());
+	//g2d.draw(getBoundsLeft());
 	g2d.draw(getBoundsTop());
 	
-}
+	}
 
 public Rectangle getBounds() {
 	return new Rectangle ( (int) ((int)x+(widthIP/2-((widthIP/2)))), (int) ((int)y+(heightIP/2)), (int)widthIP, (int) heightIP/2);
-}
+	}
 
 public Rectangle getBoundsTop() {
 	return new Rectangle ( (int) ((int)x+((widthIP/2)-((widthIP/2)))), (int) y, (int)widthIP, (int) heightIP/2);
-}
-
-public Rectangle getBoundsRigth() {
-	return new Rectangle ((int) ((int)x+widthIP-5), (int)y+5, (int)5, (int) heightIP-10);
-}
-
-public Rectangle getBoundsLeft() {
-	return new Rectangle ((int)x, (int)y+5, (int)5, (int) heightIP-10);
-}	
+	}
 
 }
