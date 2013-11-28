@@ -344,7 +344,9 @@ public class Player extends GameObject implements SetandoBonus {
 		
 		Collision(object);
 	}
-
+	BatalhaTurno battle = new BatalhaTurno();
+	InimigoEvento ie = new InimigoEvento(id);
+	
 	private void Collision(LinkedList<GameObject> object){
 		for (int i=0; i<handler.object.size(); i++){
 			GameObject tempObject = handler.object.get(i);
@@ -378,7 +380,7 @@ public class Player extends GameObject implements SetandoBonus {
 				// Colisão no topo com o inimigo
 				if(tempObject.getId()==ObjectId.InimigoP){
 					if(getBoundsTop().intersects(tempObject.getBounds())){
-						y = tempObject.getY() + heightP;						
+						y = tempObject.getY() + heightP;	
 					}
 				}
 			//Colisão na direita
@@ -401,7 +403,8 @@ public class Player extends GameObject implements SetandoBonus {
 					//Colisão na direita com o inimigo
 					if (tempObject.getId() == ObjectId.InimigoP){
 						if (getBoundsLeft().intersects(tempObject.getBounds())){
-							x = tempObject.getX() + 64;
+							x = tempObject.getX() + 64;							
+							battle.batalha(this, ie);
 						}
 					}
 				}				
