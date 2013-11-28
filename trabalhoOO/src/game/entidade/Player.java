@@ -364,7 +364,9 @@ public class Player extends GameObject implements SetandoBonus {
 				if(tempObject.getId()==ObjectId.InimigoP){
 					if(getBounds().intersects(tempObject.getBoundsTop())){
 						y = tempObject.getY() - heightP;
-
+						velY = 0;
+						falling = false;
+						jumping = false;
 					}
 				}
 			//Colisão no topo
@@ -373,15 +375,36 @@ public class Player extends GameObject implements SetandoBonus {
 					velY = 0;	
 					}				
 			
+				// Colisão no topo com o inimigo
+				if(tempObject.getId()==ObjectId.InimigoP){
+					if(getBoundsTop().intersects(tempObject.getBounds())){
+						y = tempObject.getY() + heightP;						
+					}
+				}
 			//Colisão na direita
 			if (getBoundsRigth().intersects(tempObject.getBounds())){
-				x = tempObject.getX() - widthP;			
+				x = tempObject.getX() - widthP;	
+				
+				//Colisão na direita com o inimigo
+				if (tempObject.getId() == ObjectId.InimigoP){
+					if (getBoundsRigth().intersects(tempObject.getBounds())){
+						x = tempObject.getX() - widthP;
+						}
+					}
 				}
+			
+			
 			
 			//Colisão na esquerda
 			if (getBoundsLeft().intersects(tempObject.getBounds())){
-					x = tempObject.getX() +32;				
-				}
+					x = tempObject.getX() +32;
+					//Colisão na direita com o inimigo
+					if (tempObject.getId() == ObjectId.InimigoP){
+						if (getBoundsLeft().intersects(tempObject.getBounds())){
+							x = tempObject.getX() + 64;
+						}
+					}
+				}				
 		}
 	}
 			
