@@ -14,6 +14,8 @@ import java.util.LinkedList;
 
 public class Player extends GameObject implements SetandoBonus {
 	
+	public static int SKILLS = 0;
+	
 	public String nome;
 	public String sexo;
 	public ArrayList<Item> mochila = new ArrayList<Item>();
@@ -122,8 +124,26 @@ public class Player extends GameObject implements SetandoBonus {
 			 int newlvl = this.lvl + 1;
 			 System.out.println("\tLVL UP!!!!!!!\n");
 			 setLvl(newlvl);
+			 if(newlvl%5==0){
+				 if(this.SKILLS<=3){
+					 this.SKILLS +=1; 
+					 listarSkills();
+				 }
+			 }
 		}
 		 System.out.println(getStatus()+"\n");
+	}
+	
+	public InimigoEvento Skill(InimigoEvento inimigo, int opcao){
+		switch(opcao){
+			case 1://Berserk
+				break;
+			case 2:
+				break;
+			case 0:System.out.println("Nenhuma ski");
+				break;
+		}
+		return inimigo;
 	}
 	
 	public void tick(){
@@ -319,6 +339,25 @@ public class Player extends GameObject implements SetandoBonus {
 		for(int i = 0;i< this.mochila.size(); i++){
 			System.out.println(i + " - Nome Item: "+ this.mochila.get(i).getNomeItem()+ "\n    Bonus: recupera  "+
 		this.mochila.get(i).getBonus() +" de HP\n" + " Valor: " + this.mochila.get(i).getValor() + " conchas\n");
+		}
+	}
+	
+	public void listarSkills(){
+		ArrayList<String> skills = new ArrayList<String>();
+		skills.add("1: -\tBerserk:\n" +
+				"Você entra em um estado de histeria e acaba atacando tudo e todos\n" +
+				"em seu caminho. O lado bom da loucura é que não exite mais senso de\n" +
+				"misericórdia.");
+		skills.add("2: -\tSkill 2:\n" +
+				"Descrição Descrição Descrição Descrição Descrição Descrição Descrição\n" +
+				"Descrição Descrição Descrição Descrição Descrição Descrição Descrição\n");
+		
+		if(this.SKILLS>0){
+			for(int i=0;i<this.SKILLS;i++){
+				System.out.println(skills.get(i));
+			}
+		}else{
+			System.out.println("Nenhuma habilidade disponível.");
 		}
 	}
 		
