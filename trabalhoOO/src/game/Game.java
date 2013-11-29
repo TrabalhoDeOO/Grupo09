@@ -1,8 +1,8 @@
 package game;
 
-import game.Graphics.BufferedImageLoader;
 import game.entidade.InimigoPlataforma;
 import game.entidade.Player;
+import game.framework.BufferedImageLoader;
 import game.framework.Handler;
 import game.framework.KeyInput;
 import game.framework.Level1;
@@ -14,22 +14,28 @@ import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
+import game.Menu;
+import game.STATE;
+
 public class Game extends Canvas implements Runnable {
 
 	private static final long serialVersionUID = 1;
 	public static final int WIDTH = 1399;
 	public static final int HEIGHT = 758;
-	public static final String TITLE = "Are you a neanderthal?";
+	public static final String TITLE = "Rock the Story!";
 	
 	//private BufferedImage spriteSheet = null;
 	private BufferedImage background = null;
 	private boolean running = false;
 	private Thread thread;
-		
+	private Menu menu;
+	
 	//Object
 	Handler handler;
 	Level1 nivel1;
 	
+	public static STATE State = STATE.MENU;
+
 	public void init(){
 		requestFocus();
 		BufferedImageLoader loader = new BufferedImageLoader();
@@ -44,6 +50,8 @@ public class Game extends Canvas implements Runnable {
 		handler.createLevel1();
 		
 		this.addKeyListener(new KeyInput(handler));
+		menu = new Menu();
+		
 		try{			
 			background = loader.loadImage("/background.png");
 		} catch (IOException e){
@@ -58,7 +66,8 @@ public class Game extends Canvas implements Runnable {
 			running = true;
 			thread = new Thread(this);
 			thread.start();
-}
+				}
+	
 	public void run(){
 		init();
 		this.requestFocus();
@@ -92,7 +101,9 @@ public class Game extends Canvas implements Runnable {
 		}
 	
 		private void tick() {
-		handler.tick();
+			if (State== STATE.GAME){
+				handler.tick();	
+			}
 		
 	}
 	
@@ -107,9 +118,13 @@ public class Game extends Canvas implements Runnable {
 			
 		
 		g.drawImage(background, 0, 0, null);
+		if(State == STATE.GAME){
 		handler.render(g);
-//		nivel1.render(g);
-		/////////////////////////////////
+		//nivel1.render(g);
+			} 
+		else if (State== STATE.MENU){
+			menu.render(g);
+		}
 		g.dispose();
 		bs.show();
 	}

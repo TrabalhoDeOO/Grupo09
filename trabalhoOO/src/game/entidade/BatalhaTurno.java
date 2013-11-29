@@ -5,11 +5,13 @@ package game.entidade;
 
 
 
+import game.Game;
+import game.Window;
 import game.entidade.grimorio.JavaliBoss;
 
 import java.util.InputMismatchException;
-import java.util.Scanner;
 import java.util.Random;
+import java.util.Scanner;
 //import game.interfaces.*;
 
 
@@ -17,7 +19,7 @@ import java.util.Random;
  * @author Bruno
  *
  */
-public class BatalhaTurno{
+public class BatalhaTurno extends Game{
 	
 	private Random randomica = new Random(System.currentTimeMillis());
 	Scanner scanIn = new Scanner(System.in);
@@ -53,7 +55,6 @@ public class BatalhaTurno{
 
 
 	public Player batalha(Player player, InimigoEvento inimigo) throws NumberFormatException{
-		
 		
 		Player player1 = player;
 		InimigoEvento inimigo1 = new InimigoEvento(null);

@@ -1,7 +1,8 @@
 package game.framework;
 
-import java.awt.Font;
-import java.awt.Graphics;
+import game.Game;
+import game.STATE;
+
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
@@ -19,6 +20,7 @@ public class KeyInput extends KeyAdapter {
 	public void keyPressed (KeyEvent e){
 		int key = e.getKeyCode();
 		
+		if(Game.State == STATE.GAME){
 		for (int i=0; i< handler.object.size(); i++){
 			GameObject tempObject = handler.object.get(i);
 			
@@ -34,6 +36,7 @@ public class KeyInput extends KeyAdapter {
 		}
 		if (key == KeyEvent.VK_ESCAPE){
 			System.exit(1);
+			}
 		}
 	}
 
