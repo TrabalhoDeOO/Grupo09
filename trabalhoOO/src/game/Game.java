@@ -6,6 +6,7 @@ import game.framework.BufferedImageLoader;
 import game.framework.Handler;
 import game.framework.KeyInput;
 import game.framework.Level1;
+import game.framework.MouseInput;
 import game.framework.ObjectId;
 
 import java.awt.Canvas;
@@ -13,9 +14,6 @@ import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-
-import game.Menu;
-import game.STATE;
 
 public class Game extends Canvas implements Runnable {
 
@@ -50,6 +48,7 @@ public class Game extends Canvas implements Runnable {
 		handler.createLevel1();
 		
 		this.addKeyListener(new KeyInput(handler));
+		this.addMouseListener(new MouseInput());
 		menu = new Menu();
 		
 		try{			
