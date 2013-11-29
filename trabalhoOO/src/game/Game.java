@@ -113,6 +113,7 @@ public class Game extends Canvas implements Runnable {
 			return;
 		}
 		Graphics g = bs.getDrawGraphics();
+		Graphics h = bs.getDrawGraphics();
 		//////////////////////////////////
 			
 		
@@ -123,6 +124,8 @@ public class Game extends Canvas implements Runnable {
 			} 
 		else if (State== STATE.MENU){
 			menu.render(g);
+		} else if (State ==STATE.HELP){
+			menu.renderHelp(h);
 		}
 		g.dispose();
 		bs.show();
