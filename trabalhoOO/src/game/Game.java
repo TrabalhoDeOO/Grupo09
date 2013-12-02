@@ -20,7 +20,7 @@ public class Game extends Canvas implements Runnable {
 	private static final long serialVersionUID = 1;
 	public static final int WIDTH = 1399;
 	public static final int HEIGHT = 758;
-	public static final String TITLE = "Rock the Story!";
+	public static final String TITLE = "Rock the History!";
 	
 	//private BufferedImage spriteSheet = null;
 	private BufferedImage background = null;
