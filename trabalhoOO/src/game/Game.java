@@ -26,19 +26,20 @@ public class Game extends Canvas implements Runnable {
 	private BufferedImage background = null;
 	private boolean running = false;
 	private Thread thread;
+	private Thread bgm;
 	private Menu menu;
 	
 	//Object
 	Handler handler;
-	Level1 nivel1;
+//	Level1 nivel1;
 	
 	public static STATE State = STATE.MENU;
 
-	public void init(){
+	public void init(){		
 		requestFocus();
 		BufferedImageLoader loader = new BufferedImageLoader();
 		handler = new Handler();
-		nivel1 = new Level1();
+//		nivel1 = new Level1();
 		handler.addObject(new Player( null, null, 1, 50,460, handler, ObjectId.Player));
 		handler.addObject(new InimigoPlataforma (null,(Integer) 1, null, 160,HEIGHT-87, handler, ObjectId.InimigoP));
 		handler.addObject(new InimigoPlataforma (null,(Integer) 1, null, 544,HEIGHT-247, handler, ObjectId.InimigoP));
@@ -114,8 +115,8 @@ public class Game extends Canvas implements Runnable {
 		}
 		Graphics g = bs.getDrawGraphics();
 		Graphics h = bs.getDrawGraphics();
-		//////////////////////////////////
-			
+		Graphics j = bs.getDrawGraphics();
+		Graphics k = bs.getDrawGraphics();
 		
 		g.drawImage(background, 0, 0, null);
 		if(State == STATE.GAME){
@@ -126,7 +127,11 @@ public class Game extends Canvas implements Runnable {
 			menu.render(g);
 		} else if (State ==STATE.HELP){
 			menu.renderHelp(h);
-		}
+		} else if (State==STATE.ABOUT){
+			menu.renderAbout(j);
+		} else if (State==STATE.CREDIT){
+			menu.renderCredit(k);
+		} 
 		g.dispose();
 		bs.show();
 	}

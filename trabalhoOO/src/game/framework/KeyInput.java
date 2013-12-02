@@ -20,6 +20,10 @@ public class KeyInput extends KeyAdapter {
 	public void keyPressed (KeyEvent e){
 		int key = e.getKeyCode();
 		
+		if (key == KeyEvent.VK_ESCAPE){			
+			System.exit(1);
+			}
+		
 		if(Game.State == STATE.GAME){
 		for (int i=0; i< handler.object.size(); i++){
 			GameObject tempObject = handler.object.get(i);
@@ -31,12 +35,8 @@ public class KeyInput extends KeyAdapter {
 				}
 				if(key == KeyEvent.VK_RIGHT) tempObject.setVelX(3);
 				if(key == KeyEvent.VK_LEFT) tempObject.setVelX(-3);
-
-			}
-		}
-		if (key == KeyEvent.VK_ESCAPE){
-			System.exit(1);
-			}
+				}
+			}		
 		}
 	}
 

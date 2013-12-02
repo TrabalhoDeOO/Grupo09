@@ -14,6 +14,8 @@ public class Menu {
 	public Rectangle creditButton = new Rectangle(Game.WIDTH/3 + 120, 450, 200, 50);
 	public Rectangle quitButton = new Rectangle(Game.WIDTH/3 + 120, 550, 200, 50);
 	public Rectangle backButton = new Rectangle(Game.WIDTH/3 + 120, 600, 200, 50);
+	
+	Font font2 = new Font ("arial", Font.BOLD, 30);
 
 	public void render(Graphics g){
 		Graphics2D g2d = (Graphics2D) g;
@@ -39,16 +41,47 @@ public class Menu {
 	public void renderHelp (Graphics h){
 		Graphics2D h2d = (Graphics2D) h;
 		
-		Font font2 = new Font ("arial", Font.BOLD, 30);
 		h.setFont(font2);
 		h.setColor(Color.white);
 		h.drawString("Os controles se resumem a:", Game.WIDTH/3, Game.HEIGHT/3);
 		h.drawString("Setas para se mover e pular;", Game.WIDTH/3, Game.HEIGHT/3+100);
 		h.drawString("Espaço para confirmar",Game.WIDTH/3, Game.HEIGHT/3 +150);
 		h.drawString("Esc para tentar sair", Game.WIDTH/3, Game.HEIGHT/3+ 200);
-		h.drawString("Back", backButton.x+ 60, backButton.y +35);
+		h.drawString("Voltar", backButton.x+ 60, backButton.y +35);
 		h2d.draw(backButton);
 	}
 
-}
+	public void renderBattle (Graphics i){
+		Graphics2D i2d = (Graphics2D) i;
 
+		}
+	public void renderAbout (Graphics j){
+		Graphics2D j2d = (Graphics2D) j;
+		
+		j.setFont(font2);
+		j.setColor(Color.white);
+		j.drawString("O jogo se passa em uma pré historia fantasiosa, onde é",  Game.WIDTH/6, Game.HEIGHT/3);
+		j.drawString("possível ter um Homo Neanderthal enfretando seres como Dinossauros,", Game.WIDTH/6, Game.HEIGHT/3+50);
+		j.drawString("Bichos-preguiça gigantes e coisas do genero.",  Game.WIDTH/6, Game.HEIGHT/3+100);
+		
+		j.drawString("Voltar", backButton.x+ 60, backButton.y +35);
+		j2d.draw(backButton);
+	}
+	
+	public void renderCredit (Graphics k){
+		Graphics2D k2d = (Graphics2D) k;
+		
+		k.setFont(font2);
+		k.setColor(Color.white);
+		k.drawString("Agradecimentos",  Game.WIDTH/6, Game.HEIGHT/3);
+		k.drawString("[ Galera q receberá os agradecimentos]", Game.WIDTH/6, Game.HEIGHT/3+50);
+		k.drawString("Equipe Técnica: ",  Game.WIDTH/6, Game.HEIGHT/3+100);
+		k.drawString("Bruno Torrontteguy - Desesperado com + de 5 mil linhas de código ",  Game.WIDTH/6+ 100, Game.HEIGHT/3+150);
+		k.drawString("Danilo Barros - Nerd Escroto ",  Game.WIDTH/6+ 100, Game.HEIGHT/3+200);
+		k.drawString("Paulo Markes - Implementador Gráfico - apenas (e olhe lá)",  Game.WIDTH/6+ 100, Game.HEIGHT/3+250);
+		k.drawString("Legenda by: Macunaima ",  Game.WIDTH/6+ 100, Game.HEIGHT/3+300);
+
+		k.drawString("Voltar", backButton.x+ 60, backButton.y +35);
+		k2d.draw(backButton);
+	}
+}

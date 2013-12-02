@@ -1,4 +1,6 @@
 package game.entidade;
+import game.Game;
+import game.Menu;
 import game.framework.GameObject;
 import game.framework.Handler;
 import game.framework.ObjectId;
@@ -33,7 +35,8 @@ public class Player extends GameObject implements SetandoBonus {
 	public int bonusHp;
 	public Arma arma = null;
 	public Vestimenta roupa = null;
-
+	Game game = new Game();
+	
 	private int concha;
 	
 	public Player(String nomeP, String sexoP, int lvlP, float x, float y, Handler handler, ObjectId id){
@@ -140,7 +143,7 @@ public class Player extends GameObject implements SetandoBonus {
 				break;
 			case 2:
 				break;
-			case 0:System.out.println("Nenhuma ski");
+			case 0:System.out.println("Nenhuma skill");
 				break;
 		}
 		return inimigo;
@@ -442,7 +445,8 @@ public class Player extends GameObject implements SetandoBonus {
 					//Colisão na direita com o inimigo
 					if (tempObject.getId() == ObjectId.InimigoP){
 						if (getBoundsLeft().intersects(tempObject.getBounds())){
-							x = tempObject.getX() + 64;							
+							x = tempObject.getX() + 64;	
+							Game.State = Game.State.BATTLE;
 							battle.batalha(this, ie);
 						}
 					}

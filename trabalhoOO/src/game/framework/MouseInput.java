@@ -1,6 +1,7 @@
 package game.framework;
 
 import game.Game;
+import game.STATE;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -54,6 +55,20 @@ public class MouseInput implements MouseListener {
 						Game.State = Game.State.MENU;
 					}
 				}
+			
+		//About Button
+		if(mx>= Game.WIDTH/3 + 120 && mx <= Game.WIDTH /3 +320){
+			if(my>=350 && my<=400){
+				Game.State = Game.State.ABOUT;
+			}
+		}
+		
+		//Credit Button
+		if(mx>= Game.WIDTH/3 + 120 && mx <= Game.WIDTH /3 +320){
+			if(my>=450 && my<=500){
+				Game.State = Game.State.CREDIT;
+			}
+		}
 	}
 
 	public void mouseReleased(MouseEvent arg0) {

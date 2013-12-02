@@ -5,13 +5,13 @@ import java.util.LinkedList;
 
 import game.Game;
 
-public class Level1 extends Game{
+public class Level1 extends Handler{
 
 	private static final long serialVersionUID = 1L;
 	protected GameObject tempObject;
 
-	Handler obj;
-		
+		Handler obj = new Handler();
+			
 		public void createLevel1(){
 			//obj = new GameObject();	
 		//Lateral esquerda da fase
