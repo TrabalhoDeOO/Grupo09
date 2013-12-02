@@ -117,6 +117,7 @@ public class Game extends Canvas implements Runnable {
 		Graphics h = bs.getDrawGraphics();
 		Graphics j = bs.getDrawGraphics();
 		Graphics k = bs.getDrawGraphics();
+		Graphics l = bs.getDrawGraphics();
 		
 		g.drawImage(background, 0, 0, null);
 		if(State == STATE.GAME){
@@ -131,7 +132,9 @@ public class Game extends Canvas implements Runnable {
 			menu.renderAbout(j);
 		} else if (State==STATE.CREDIT){
 			menu.renderCredit(k);
-		} 
+		} else if (State== STATE.SUBMENU){
+			menu.renderSubmenu(l);
+		}
 		g.dispose();
 		bs.show();
 	}
@@ -140,8 +143,7 @@ public class Game extends Canvas implements Runnable {
 	}
 	
 	public static void main(String args[]) {
-		new Window (WIDTH, HEIGHT, TITLE, new Game());
-			
+		new Window (WIDTH, HEIGHT, TITLE, new Game());			
 	}
 	
 	public Thread getThread() {
