@@ -91,9 +91,9 @@ public class Menu {
 		l.setFont(font2);
 		l.setColor(Color.white);
 		l.drawString("O que você quer aqui, humano?",  Game.WIDTH/6, Game.HEIGHT/3);
-		l.drawString("ESC: Nos abandonar", Game.WIDTH/6, Game.HEIGHT/3+50);
+		l.drawString("Q: Nos abandonar", Game.WIDTH/6, Game.HEIGHT/3+50);
 		l.drawString("Espaço: voltar para onde você não deveria ter saído",  Game.WIDTH/6, Game.HEIGHT/3+100);
-		l.drawString("Enter: Reiniciar o jogo",  Game.WIDTH/6, Game.HEIGHT/3+150);
+	//	l.drawString("Enter: Reiniciar o jogo",  Game.WIDTH/6, Game.HEIGHT/3+150);
 		
 		//l.drawString("Voltar", backButton.x+ 60, backButton.y +35);
 		//l2d.draw(backButton);

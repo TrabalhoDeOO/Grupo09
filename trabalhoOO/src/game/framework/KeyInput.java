@@ -21,22 +21,20 @@ public class KeyInput extends KeyAdapter {
 	public void keyPressed (KeyEvent e){
 		int key = e.getKeyCode();
 		
-		if (key == KeyEvent.VK_ESCAPE){	
+		if (Game.State==Game.State.GAME && key == KeyEvent.VK_ESCAPE){	
 			Game.State = Game.State.SUBMENU;
 		}
-		//	if (Game.State == Game.State.SUBMENU){
+			if (Game.State == Game.State.SUBMENU){				
 				// Estudar melhor
-				if (key == KeyEvent.VK_ENTER)
-					game.run();
+			//	if (key == KeyEvent.VK_ENTER)
+				//	game.start();
 							
 				if (key ==KeyEvent.VK_SPACE)
 					Game.State = Game.State.GAME;
 				
-				if (key == KeyEvent.VK_ESCAPE){
-				//	System.exit(1);
-				}
-		//	}		
-	//	}
+				if (key == KeyEvent.VK_Q)
+					System.exit(1);				
+			}		
 		
 		if(Game.State == STATE.GAME){
 		for (int i=0; i< handler.object.size(); i++){
