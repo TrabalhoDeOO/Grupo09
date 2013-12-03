@@ -151,7 +151,7 @@ public class Game extends Canvas implements Runnable {
 		//nivel1.render(g);
 			} 
 		else if (State== STATE.MENU){
-			menu.render(g);
+			menu.renderMenu(g);
 		} else if (State ==STATE.HELP){
 			menu.renderHelp(h);
 		} else if (State==STATE.ABOUT){

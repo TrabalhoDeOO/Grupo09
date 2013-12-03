@@ -18,7 +18,7 @@ public class Menu {
 	Font font2 = new Font ("arial", Font.BOLD, 30);
 	public boolean inicial = true;
 	
-	public void render(Graphics g){
+	public void renderMenu(Graphics g){
 //		if (inicial==true){
 		Graphics2D g2d = (Graphics2D) g;
 		
