@@ -16,29 +16,34 @@ public class Menu {
 	public Rectangle backButton = new Rectangle(Game.WIDTH/3 + 120, 600, 200, 50);
 	
 	Font font2 = new Font ("arial", Font.BOLD, 30);
+	public boolean inicial = true;
 
 	public void render(Graphics g){
+//		if (inicial==true){
 		Graphics2D g2d = (Graphics2D) g;
-		
+			
 		Font fnt0 = new Font("arial", Font.BOLD, 50);
 		g.setFont(fnt0);
 		g.setColor(Color.white);
 		g.drawString("Rock the History!!!", Game.WIDTH/3 + 40, 100);
-		
+					
 		Font fnt1 = new Font("arial", Font.BOLD, 30);
-		g.setFont(fnt1);
+			g.setFont(fnt1);
 		g.drawString("Jogar!", playButton.x+ 60, playButton.y + 35);
-		g2d.draw(playButton);
+			g2d.draw(playButton);
 		g.drawString("Ajude-me!", helpButton.x+ 30, helpButton.y+35);
-		g2d.draw(helpButton);
+			g2d.draw(helpButton);
 		g.drawString("Sobre", aboutButton.x+ 40, aboutButton.y + 35);
-		g2d.draw(aboutButton);
+			g2d.draw(aboutButton);
 		g.drawString("Créditos", creditButton.x+ 40, creditButton.y + 35);
-		g2d.draw(creditButton);
+			g2d.draw(creditButton);
 		g.drawString("Sair", quitButton.x+ 60, quitButton.y +35);
-		g2d.draw(quitButton);
-}
+			g2d.draw(quitButton);
+	//		}
+		}
+					
 	public void renderHelp (Graphics h){
+		inicial=false;
 		Graphics2D h2d = (Graphics2D) h;
 		
 		h.setFont(font2);
@@ -52,10 +57,12 @@ public class Menu {
 	}
 
 	public void renderBattle (Graphics i){
+	//	inicial=false;
 		Graphics2D i2d = (Graphics2D) i;
-
 		}
+	
 	public void renderAbout (Graphics j){
+	//	inicial=false;
 		Graphics2D j2d = (Graphics2D) j;
 		
 		j.setFont(font2);
@@ -69,6 +76,7 @@ public class Menu {
 	}
 	
 	public void renderCredit (Graphics k){
+	//	inicial=false;
 		Graphics2D k2d = (Graphics2D) k;
 		
 		k.setFont(font2);
@@ -86,6 +94,7 @@ public class Menu {
 	}
 	
 	public void renderSubmenu (Graphics l){
+	//	inicial=false;
 		Graphics2D l2d = (Graphics2D) l;
 		
 		l.setFont(font2);

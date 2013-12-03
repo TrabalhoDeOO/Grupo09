@@ -1,11 +1,12 @@
 package game;
 
+import game.entidade.InimigoEvento;
 import game.entidade.InimigoPlataforma;
 import game.entidade.Player;
 import game.framework.BufferedImageLoader;
 import game.framework.Handler;
 import game.framework.KeyInput;
-import game.framework.Level1;
+//import game.framework.Level1;
 import game.framework.MouseInput;
 import game.framework.ObjectId;
 
@@ -26,7 +27,7 @@ public class Game extends Canvas implements Runnable {
 	private BufferedImage background = null;
 	private boolean running = false;
 	private Thread thread;
-	private Thread bgm;
+//	private Thread bgm;
 	private Menu menu;
 	
 	//Object
@@ -41,10 +42,10 @@ public class Game extends Canvas implements Runnable {
 		handler = new Handler();
 //		nivel1 = new Level1();
 		handler.addObject(new Player( null, null, 1, 50,460, handler, ObjectId.Player));
-		handler.addObject(new InimigoPlataforma (null,(Integer) 1, null, 160,HEIGHT-87, handler, ObjectId.InimigoP));
-		handler.addObject(new InimigoPlataforma (null,(Integer) 1, null, 544,HEIGHT-247, handler, ObjectId.InimigoP));
-		handler.addObject(new InimigoPlataforma (null,(Integer) 1, null, 928,HEIGHT-87, handler, ObjectId.InimigoP));
-		handler.addObject(new InimigoPlataforma (null,(Integer) 1, null, 1280,HEIGHT-151, handler, ObjectId.InimigoP));
+		handler.addObject(new InimigoEvento (null,(Integer) 1, null, 160,HEIGHT-87, handler, ObjectId.InimigoT));
+		handler.addObject(new InimigoEvento (null,(Integer) 1, null, 544,HEIGHT-247, handler, ObjectId.InimigoT));
+		handler.addObject(new InimigoEvento (null,(Integer) 1, null, 928,HEIGHT-87, handler, ObjectId.InimigoT));
+		handler.addObject(new InimigoEvento (null,(Integer) 1, null, 1280,HEIGHT-151, handler, ObjectId.InimigoT));
 //		nivel1.createLevel1();
 		handler.createLevel1();
 		
@@ -115,6 +116,7 @@ public class Game extends Canvas implements Runnable {
 		}
 		Graphics g = bs.getDrawGraphics();
 		Graphics h = bs.getDrawGraphics();
+		Graphics i = bs.getDrawGraphics();
 		Graphics j = bs.getDrawGraphics();
 		Graphics k = bs.getDrawGraphics();
 		Graphics l = bs.getDrawGraphics();
@@ -134,6 +136,8 @@ public class Game extends Canvas implements Runnable {
 			menu.renderCredit(k);
 		} else if (State== STATE.SUBMENU){
 			menu.renderSubmenu(l);
+		} else if (State==STATE.BATTLE){
+			menu.renderBattle(i);
 		}
 		g.dispose();
 		bs.show();

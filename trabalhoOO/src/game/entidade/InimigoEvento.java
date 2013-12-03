@@ -1,11 +1,14 @@
 package game.entidade;
 
+import game.Game;
 import game.framework.GameObject;
 import game.framework.Handler;
 import game.framework.ObjectId;
 import game.interfaces.Descricao;
 
+import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -49,6 +52,7 @@ public class InimigoEvento extends Inimigo implements Descricao{
 		this.x= x;
 		this.y = y;
 		this.id= id;
+		this.handler= handler;
 		}
 	
 	public void tick(){
@@ -149,20 +153,44 @@ public class InimigoEvento extends Inimigo implements Descricao{
 	}
 
 		/////////////---> Deste ponto em diante, os dados são sobre a implementação gráfica <---- \\\\\\\\\\\\\\
+	public static int widthIP = 64;
+	public static int heightIP = 64;
+	public static int widthIT = 128;
+	public static int heightIT = 128;
+	private Handler handler;
+	private GameObject tempObject;
 	
 	public void tick(LinkedList<GameObject> object) {
-		// Colocar a colisao
-		
+		// O que farei aqui..? Pesquisar... - Costuma ser usada para settar o movimento -
 	}
 	
 	public void render(Graphics g) {
-		// propriedades graficas dos inimigos
-		
+		if (Game.State==Game.State.GAME){
+			g.setColor(Color.black);
+			g.fillRect((int) x, (int) y, widthIP, heightIP);
+			
+			Graphics2D g2d = (Graphics2D) g;
+			g.setColor(Color.green);
+			g2d.draw(getBounds());
+			g2d.draw(getBoundsTop());
+			
+		} else if (Game.State==Game.State.BATTLE){
+			g.setColor(Color.red);
+			g.fillRect((int) x, (int) y, widthIT, heightIT);
+		}
 	}
 	
 	public Rectangle getBounds() {
-		// aplicação da colisao
-		return null;
+		if (Game.State==Game.State.GAME)
+			return new Rectangle ( (int) ((int)x+(widthIP/2-((widthIP/2)))), (int) ((int)y+(heightIP/2)), (int)widthIP, (int) heightIP/2);
+		else
+			return new Rectangle ( (int) ((int)x+(widthIT/2-((widthIT/2)))), (int) ((int)y+(heightIT/2)), (int)widthIT, (int) heightIT/2);
 	}
 	
+	public Rectangle getBoundsTop() {
+		if (Game.State==Game.State.GAME)
+		return new Rectangle ( (int) ((int)x+((widthIP/2)-((widthIP/2)))), (int) y, (int)widthIP, (int) heightIP/2);
+		else
+		return new Rectangle ( (int) ((int)x+((widthIT/2)-((widthIT/2)))), (int) y, (int)widthIT, (int) heightIT/2);	
+		}
 }
