@@ -44,7 +44,6 @@ public InimigoPlataforma(String nomeInimigo, int lvlInimigo, String tipoInimigo,
 	this.x = x;
 	this.y =y;
 	this.id = id;
-	this.handler = handler;
 	}
 
 public void tick(){
@@ -118,34 +117,20 @@ public int getHp() {
 	return 0;
 }
 
-			//// ----> Implementação gráfica <----- \\\\
-public static int widthIP = 64;
-public static int heightIP = 64;
-private Handler handler;
-private GameObject tempObject;
-
+			//// ----> Implementação gráfica, removida por motivos de: nao esta sendo utilizada <----- \\\\
 public void tick(LinkedList<GameObject> object) {	
 
-}
-
+	}
 
 public void render(Graphics g) {
-	g.setColor(Color.black);
-	g.fillRect((int) x, (int) y, widthIP, heightIP);
-	
-	Graphics2D g2d = (Graphics2D) g;
-	g.setColor(Color.green);
-	g2d.draw(getBounds());
-	g2d.draw(getBoundsTop());
-	
 	}
 
 public Rectangle getBounds() {
-	return new Rectangle ( (int) ((int)x+(widthIP/2-((widthIP/2)))), (int) ((int)y+(heightIP/2)), (int)widthIP, (int) heightIP/2);
+	return null;
 	}
 
 public Rectangle getBoundsTop() {
-	return new Rectangle ( (int) ((int)x+((widthIP/2)-((widthIP/2)))), (int) y, (int)widthIP, (int) heightIP/2);
+	return null;
 	}
 
 }

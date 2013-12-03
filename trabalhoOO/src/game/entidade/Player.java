@@ -436,9 +436,7 @@ public class Player extends GameObject implements SetandoBonus {
 						}
 					}
 				}
-			
-			
-			
+						
 			//Colisão na esquerda
 			if (getBoundsLeft().intersects(tempObject.getBounds())){
 					x = tempObject.getX() +32;
@@ -447,6 +445,7 @@ public class Player extends GameObject implements SetandoBonus {
 						if (getBoundsLeft().intersects(tempObject.getBounds())){
 							x = tempObject.getX() + 64;	
 							Game.State = Game.State.BATTLE;
+							ie = (InimigoEvento) tempObject;
 							battle.batalha(this, ie);
 						}
 					}

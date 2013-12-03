@@ -193,4 +193,44 @@ public class InimigoEvento extends Inimigo implements Descricao{
 		else
 		return new Rectangle ( (int) ((int)x+((widthIT/2)-((widthIT/2)))), (int) y, (int)widthIT, (int) heightIT/2);	
 		}
+	public static int getWidthIP() {
+		return widthIP;
+	}
+	public static void setWidthIP(int widthIP) {
+		InimigoEvento.widthIP = widthIP;
+	}
+	public static int getHeightIP() {
+		return heightIP;
+	}
+	public static void setHeightIP(int heightIP) {
+		InimigoEvento.heightIP = heightIP;
+	}
+	public static int getWidthIT() {
+		return widthIT;
+	}
+	public static void setWidthIT(int widthIT) {
+		InimigoEvento.widthIT = widthIT;
+	}
+	public static int getHeightIT() {
+		return heightIT;
+	}
+	public static void setHeightIT(int heightIT) {
+		InimigoEvento.heightIT = heightIT;
+	}
+	public Handler getHandler() {
+		return handler;
+	}
+	public void setHandler(Handler handler) {
+		this.handler = handler;
+	}
+	public GameObject getTempObject() {
+		return tempObject;
+	}
+	public void setTempObject(GameObject tempObject) {
+		this.tempObject = tempObject;
+	}
+	public void setObjectId(ObjectId id) {
+		this.id= ObjectId.InimigoT;
+	}
+	
 }
