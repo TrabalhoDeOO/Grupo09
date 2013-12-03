@@ -9,6 +9,7 @@ import game.Game;
 import game.Window;
 import game.entidade.grimorio.JavaliBoss;
 
+import java.awt.Font;
 import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
@@ -25,17 +26,12 @@ public class BatalhaTurno extends Game{
 	Scanner scanIn = new Scanner(System.in);
 	public boolean resultado;
 	public int resultB = 1;
+	Font font = new Font ("Lucida Console", Font.BOLD, 15);
 	
-	
-
-	/**
-	 * 
-	 */
 	public BatalhaTurno() {
 		this.resultado = false;
 	}
-	
-	
+		
 	public boolean isResultado() {
 		return resultado;
 	}
@@ -48,11 +44,9 @@ public class BatalhaTurno extends Game{
 		return resultB;
 	}
 
-
 	public void setResultB(int resultB) {
 		this.resultB = resultB;
 	}
-
 
 	public Player batalha(Player player, InimigoEvento inimigo) throws NumberFormatException{
 		
@@ -1382,7 +1376,8 @@ public class BatalhaTurno extends Game{
 		}
 		}
 		//retornando resultado da batalha
-		return player1;
+		Game.State= Game.State.GAME;
+		return player1;		
 	}
 	
 	

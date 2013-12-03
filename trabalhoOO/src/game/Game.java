@@ -1,11 +1,11 @@
 package game;
 
-import game.entidade.InimigoPlataforma;
+import game.entidade.InimigoEvento;
 import game.entidade.Player;
+import game.entidade.grimorio.Grimorio;
 import game.framework.BufferedImageLoader;
 import game.framework.Handler;
 import game.framework.KeyInput;
-import game.framework.Level1;
 import game.framework.MouseInput;
 import game.framework.ObjectId;
 
@@ -14,6 +14,7 @@ import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+//import game.framework.Level1;
 
 public class Game extends Canvas implements Runnable {
 
@@ -26,9 +27,9 @@ public class Game extends Canvas implements Runnable {
 	private BufferedImage background = null;
 	private boolean running = false;
 	private Thread thread;
-	private Thread bgm;
+//	private Thread bgm;
 	private Menu menu;
-	
+	Grimorio grim = new Grimorio();
 	//Object
 	Handler handler;
 //	Level1 nivel1;
@@ -36,22 +37,46 @@ public class Game extends Canvas implements Runnable {
 	public static STATE State = STATE.MENU;
 
 	public void init(){		
-		requestFocus();
 		BufferedImageLoader loader = new BufferedImageLoader();
+		requestFocus();
 		handler = new Handler();
 //		nivel1 = new Level1();
-		handler.addObject(new Player( null, null, 1, 50,460, handler, ObjectId.Player));
-		handler.addObject(new InimigoPlataforma (null,(Integer) 1, null, 160,HEIGHT-87, handler, ObjectId.InimigoP));
-		handler.addObject(new InimigoPlataforma (null,(Integer) 1, null, 544,HEIGHT-247, handler, ObjectId.InimigoP));
-		handler.addObject(new InimigoPlataforma (null,(Integer) 1, null, 928,HEIGHT-87, handler, ObjectId.InimigoP));
-		handler.addObject(new InimigoPlataforma (null,(Integer) 1, null, 1280,HEIGHT-151, handler, ObjectId.InimigoP));
-//		nivel1.createLevel1();
+		handler.addObject(new Player( "HUURGH", "homem", 1, 50,460, handler, ObjectId.Player));
+		//Inimigo 1
+		InimigoEvento ie = grim.getGrimorioInimigos().get(0);
+		ie.setX(160);
+		ie.setY(HEIGHT-87);
+		ie.setHandler(handler);
+		ie.setObjectId(ObjectId.InimigoT);
+		handler.addObject(ie);
+		//Inimigo 2
+		ie = grim.getGrimorioInimigos().get(1);
+		ie.setX(544);
+		ie.setY(HEIGHT-247);
+		ie.setHandler(handler);
+		ie.setObjectId(ObjectId.InimigoT);
+		handler.addObject(ie);
+		//Inimigo 3
+		ie = grim.getGrimorioInimigos().get(10);
+		ie.setX(928);
+		ie.setY(HEIGHT-87);
+		ie.setHandler(handler);
+		ie.setObjectId(ObjectId.InimigoT);
+		handler.addObject(ie);
+		//Inimigo 4
+		ie = grim.getGrimorioInimigos().get(2);
+		ie.setX(1280);
+		ie.setY(HEIGHT-151);
+		ie.setHandler(handler);
+		ie.setObjectId(ObjectId.InimigoT);
+		handler.addObject(ie);
+	//	nivel1.createLevel1();
 		handler.createLevel1();
 		
 		this.addKeyListener(new KeyInput(handler));
 		this.addMouseListener(new MouseInput());
 		menu = new Menu();
-		
+		//Setando o background
 		try{			
 			background = loader.loadImage("/background.png");
 		} catch (IOException e){
@@ -92,7 +117,7 @@ public class Game extends Canvas implements Runnable {
 					
 			if(System.currentTimeMillis() - timer > 1000){
 				timer += 1000;
-				System.out.println("FPS: " + frames + " TICKS: " + updates);
+		//		System.out.println("FPS: " + frames + " TICKS: " + updates);
 				frames = 0;
 				updates = 0;
 			}
@@ -115,13 +140,14 @@ public class Game extends Canvas implements Runnable {
 		}
 		Graphics g = bs.getDrawGraphics();
 		Graphics h = bs.getDrawGraphics();
+		Graphics i = bs.getDrawGraphics();
 		Graphics j = bs.getDrawGraphics();
 		Graphics k = bs.getDrawGraphics();
 		Graphics l = bs.getDrawGraphics();
 		
 		g.drawImage(background, 0, 0, null);
 		if(State == STATE.GAME){
-		handler.render(g);
+			handler.render(g);
 		//nivel1.render(g);
 			} 
 		else if (State== STATE.MENU){
@@ -134,6 +160,8 @@ public class Game extends Canvas implements Runnable {
 			menu.renderCredit(k);
 		} else if (State== STATE.SUBMENU){
 			menu.renderSubmenu(l);
+		} else if (State==STATE.BATTLE){
+			menu.renderBattle(i);
 		}
 		g.dispose();
 		bs.show();
