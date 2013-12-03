@@ -141,7 +141,7 @@ public class Player extends GameObject implements SetandoBonus {
 		switch(opcao){
 			case 1://Berserk
 				break;
-			case 2:
+			case 2://Taunt
 				break;
 			case 0:System.out.println("Nenhuma skill");
 				break;
@@ -351,9 +351,9 @@ public class Player extends GameObject implements SetandoBonus {
 				"Você entra em um estado de histeria e acaba atacando tudo e todos\n" +
 				"em seu caminho. O lado bom da loucura é que não exite mais senso de\n" +
 				"misericórdia.");
-		skills.add("2: -\tSkill 2:\n" +
-				"Descrição Descrição Descrição Descrição Descrição Descrição Descrição\n" +
-				"Descrição Descrição Descrição Descrição Descrição Descrição Descrição\n");
+		skills.add("2: -\tTaunt 2:\n" +
+				"Provoca o inimigo obrigando ele a atacalo, os proximos 2 ataques serao\n" +
+				"considerados como se voce estivesse bloqueando mas voce podera atacar livremente\n");
 		
 		if(this.SKILLS>0){
 			for(int i=0;i<this.SKILLS;i++){
