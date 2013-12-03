@@ -27,49 +27,38 @@ public class MouseInput implements MouseListener {
 		int mx = e.getX();
 		int my = e.getY();
 		
-		if(mx>= Game.WIDTH/3 + 120 && mx <= Game.WIDTH /3 +320){
+		if(mx>= Game.WIDTH/3 + 120 && mx <= Game.WIDTH /3 +320 && Game.State==Game.State.MENU){
 			if (my>= 150 && my<=200){
 				//Pressed Play Button
 				Game.State = Game.State.GAME;
 			}
-		}
-		
-		//Quit Button
-		if(mx>= Game.WIDTH/3 + 120 && mx <= Game.WIDTH /3 +320){
-			if (my>= 550 && my<=600){
-				//Pressed Quit Button
-				System.exit(1);
-			}
-		}
-		
-		//Help Button
-		if(mx>= Game.WIDTH/3 + 120 && mx <= Game.WIDTH /3 +320){
-			if(my>=250 && my<=300){
-				Game.State= Game.State.HELP;
-				}
-		}
-				
+			//Quit Button
+				if (my>= 550 && my<=600){
+					//Pressed Quit Button
+					System.exit(1);
+				}				
+			//Help Button
+				if(my>=250 && my<=300){
+					Game.State= Game.State.HELP;
+					}
+			//About Button
+				if(my>=350 && my<=400){
+					Game.State = Game.State.ABOUT;
+					}
+			//Credit Button
+				if(my>=450 && my<=500){
+					Game.State = Game.State.CREDIT;
+					}
+				}		
+			
+			//Back Button
 				if(mx>= Game.WIDTH/3 + 120 && mx <= Game.WIDTH /3 +320){
 					if (my>= 600 && my<=650){
-						//Pressed Back Button
+				//Pressed Back Button
 						Game.State = Game.State.MENU;
 					}
-				}
-			
-		//About Button
-		if(mx>= Game.WIDTH/3 + 120 && mx <= Game.WIDTH /3 +320){
-			if(my>=350 && my<=400){
-				Game.State = Game.State.ABOUT;
+				}		
 			}
-		}
-		
-		//Credit Button
-		if(mx>= Game.WIDTH/3 + 120 && mx <= Game.WIDTH /3 +320){
-			if(my>=450 && my<=500){
-				Game.State = Game.State.CREDIT;
-			}
-		}
-	}
 
 	public void mouseReleased(MouseEvent arg0) {
 		
