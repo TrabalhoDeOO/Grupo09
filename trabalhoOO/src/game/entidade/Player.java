@@ -1,6 +1,5 @@
 package game.entidade;
 import game.Game;
-import game.Menu;
 import game.framework.GameObject;
 import game.framework.Handler;
 import game.framework.ObjectId;
@@ -378,14 +377,14 @@ public class Player extends GameObject implements SetandoBonus {
 		
 		//Gravidade atuando
 		if(falling || jumping){
-		velY +=gravity;
-		
+			velY +=gravity;
+					
 		//if (velY > MAX_SPEED)
 	//		velY = MAX_SPEED;
 		}
-		
-		Collision(object);
-	}
+		Collision(object);		
+		}
+	
 	BatalhaTurno battle = new BatalhaTurno();
 	InimigoEvento ie = new InimigoEvento(id);
 	

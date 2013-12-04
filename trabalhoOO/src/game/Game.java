@@ -3,6 +3,7 @@ package game;
 import game.entidade.InimigoEvento;
 import game.entidade.Player;
 import game.entidade.grimorio.Grimorio;
+import game.framework.AudioPlayer;
 import game.framework.BufferedImageLoader;
 import game.framework.Handler;
 import game.framework.KeyInput;
@@ -30,14 +31,18 @@ public class Game extends Canvas implements Runnable {
 	private Menu menu;
 	Grimorio grim = new Grimorio();
 	Handler handler;
+	private AudioPlayer bgm;
+
 //	Level1 nivel1;
 	
 	public static STATE State = STATE.MENU;
 
-	public void init(){	
+	public void init(){
+		handler = new Handler();
+		bgm = new AudioPlayer("/level1-1.mp3");
+		bgm.play();
 		BufferedImageLoader loader = new BufferedImageLoader();
 		requestFocus();
-		handler = new Handler();
 //		nivel1 = new Level1();
 		handler.addObject(new Player( "HUURGH", "homem", 1, 50,460, handler, ObjectId.Player));
 		//Inimigo 1
@@ -176,7 +181,7 @@ public class Game extends Canvas implements Runnable {
 		return thread;
 	}
 	public void setThread(Thread thread) {
-		this.thread = thread;
+		this.thread = thread;	
 	}
 	
 }

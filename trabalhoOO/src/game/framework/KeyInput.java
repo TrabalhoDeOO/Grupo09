@@ -5,12 +5,13 @@ import game.STATE;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.util.HashMap;
 
 //Classe Responsável por adicionar os comandos de teclado
 public class KeyInput extends KeyAdapter {
 
 	Handler handler;
-	
+	private HashMap <String, AudioPlayer> sfx;
 
 	public KeyInput (Handler handler){
 		this.handler = handler;
@@ -37,11 +38,16 @@ public class KeyInput extends KeyAdapter {
 			}		
 		
 		if(Game.State == STATE.GAME){
+			
+			sfx = new HashMap<String, AudioPlayer>();
+			sfx.put("jump", new AudioPlayer("/jump.mp3"));
+			
 		for (int i=0; i< handler.object.size(); i++){
 			GameObject tempObject = handler.object.get(i);
 			
 			if (tempObject.getId() ==ObjectId.Player){
 				if(key == KeyEvent.VK_UP && !tempObject.isJumping() ){
+					sfx.get("jump").play();
 					tempObject.jumping =true;
 					tempObject.setVelY(-8);
 				}
