@@ -58,7 +58,7 @@ public class BatalhaTurno extends Game{
 		Player player1 = player;
 		InimigoEvento inimigo1 = new InimigoEvento(null);
 		JavaliBoss inimigo2 = new JavaliBoss();
-		
+		resultB = 1;
 		
 		
 		

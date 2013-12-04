@@ -411,6 +411,7 @@ public class Player extends GameObject implements SetandoBonus {
 						velY = 0;
 						falling = false;
 						jumping = false;
+						handler.removeObject(ie);
 					}
 				}
 			//Colisão no topo
@@ -424,6 +425,7 @@ public class Player extends GameObject implements SetandoBonus {
 					if(getBoundsTop().intersects(tempObject.getBounds())){
 						ie = (InimigoEvento) tempObject;
 						battle.batalha(this, ie);
+						handler.removeObject(ie);
 						y = tempObject.getY() + heightP;
 						
 					}
@@ -437,6 +439,7 @@ public class Player extends GameObject implements SetandoBonus {
 					//	Game.State = Game.State.BATTLE;
 					ie = (InimigoEvento) tempObject;
 					battle.batalha(this, ie);
+					handler.removeObject(ie);
 					if (getBoundsRigth().intersects(tempObject.getBounds())){
 						x = tempObject.getX() - 64;
 						}
@@ -453,6 +456,7 @@ public class Player extends GameObject implements SetandoBonus {
 						//	Game.State = Game.State.BATTLE;
 							ie = (InimigoEvento) tempObject;
 							battle.batalha(this, ie);
+							handler.removeObject(ie);
 						}
 					}
 				}				
