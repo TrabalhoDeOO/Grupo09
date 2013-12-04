@@ -19,6 +19,7 @@ import game.entidade.grimorio.GrimorioItens;
 import game.entidade.grimorio.JavaliBoss;
 import game.framework.ObjectId;
 
+import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
@@ -60,7 +61,7 @@ public class Main{
 		
 		Scanner scanIn = new Scanner(System.in);
 		Random randomica = new Random(System.currentTimeMillis());
-		
+		Graphics b = null;
 		//criando Adm para teste
 		Adm adm = new Adm();
 		adm.criarAdm(1234, "adm");

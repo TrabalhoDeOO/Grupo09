@@ -52,7 +52,7 @@ public class MouseInput implements MouseListener {
 				}		
 			
 			//Back Button
-				if(mx>= Game.WIDTH/3 + 120 && mx <= Game.WIDTH /3 +320){
+				if(mx>= Game.WIDTH/3 + 120 && mx <= Game.WIDTH /3 +320 && !(Game.State==Game.State.SUBMENU)){
 					if (my>= 600 && my<=650){
 				//Pressed Back Button
 						Game.State = Game.State.MENU;

@@ -6,10 +6,13 @@ package game.entidade;
 
 
 import game.Game;
+import game.STATE;
 import game.Window;
 import game.entidade.grimorio.JavaliBoss;
 
 import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
@@ -26,7 +29,6 @@ public class BatalhaTurno extends Game{
 	Scanner scanIn = new Scanner(System.in);
 	public boolean resultado;
 	public int resultB = 1;
-	Font font = new Font ("Lucida Console", Font.BOLD, 15);
 	
 	public BatalhaTurno() {
 		this.resultado = false;
@@ -47,8 +49,11 @@ public class BatalhaTurno extends Game{
 	public void setResultB(int resultB) {
 		this.resultB = resultB;
 	}
-
+		
 	public Player batalha(Player player, InimigoEvento inimigo) throws NumberFormatException{
+		Game.State = STATE.BATTLE;
+//		Graphics2D b2d = (Graphics2D) b;
+		Font font = new Font ("Lucida Console", Font.BOLD, 15);
 		
 		Player player1 = player;
 		InimigoEvento inimigo1 = new InimigoEvento(null);
@@ -93,17 +98,27 @@ public class BatalhaTurno extends Game{
 		
 		
 		System.out.println("Voce encontrou um " + inimigo1.getTipo() + " lvl: " + inimigo1.getLvl() + "\n");
+		//JPanel
 		System.out.println(inimigo1.descricao());
 		
-		System.out.println("speed inimigo : " + speedI + " speed player: " + speedP  + "\n");
+//		System.out.println("speed inimigo : " + speedI, 1088 ,192);
+//		System.out.println(" speed player: " + speedP, 64, 256);
 		
 		// TODO Player Ataca Primeiro
 		if(speedP>speedI){
-			
-			System.out.println(player.getNome() + "- lvl:"+ player1.getLvl() + " hp: "+ hpP +"/"+ player.getHpMax() +" dano: " + atkP + " escudo: " + escudoP );
-			System.out.println(inimigo.getTipo() + "- lvl:"+ inimigo1.getLvl() + " hp: "+ hpI +" dano: " + atkI + " escudo: " + escudoI );
-			
-			
+			/*Dados do Player
+			b.System.out.println(player.getNome(), 64,64);
+			b.System.out.println("lvl:"+ player1.getLvl(), 64, 96);
+			b.System.out.println(" HP: "+ hpP , 64, 128);
+			b.System.out.println(" Dano: " + atkP, 64, 192);
+			b.System.out.println("Defesa: "+ escudoP, 64, 224);
+			//Dados do Inimigo
+			b.System.out.println(inimigo.getTipo(), 1088,64);
+			b.System.out.println("lvl:"+ inimigo1.getLvl(), 1088, 96);
+			b.System.out.println(" HP: "+ hpI, 1088, 128);
+			b.System.out.println(" Dano: " + atkI, 1088, 192);
+			b.System.out.println("Defesa: "+ escudoI, 1088, 224);
+			*/
 			do{
 				if(fuga == true){
 					break;
@@ -120,7 +135,7 @@ public class BatalhaTurno extends Game{
 				
 				//ação player
 				
-				//System.out.println("voce : 1/ataca 2/ ataca escudo 3/defende 4/come(recupera hp)" + player.getMochila().size() +" itens na mochila:");
+				//b.System.out.println("voce : 1/ataca 2/ ataca escudo 3/defende 4/come(recupera hp)" + player.getMochila().size() +" itens na mochila:");
 				
 				
 				boolean teste1 = false;
@@ -158,7 +173,7 @@ public class BatalhaTurno extends Game{
 				}catch (Exception e){
 						do {
 							System.err.println("Mochila Vazia!!!");
-							System.out.println("voce : 1/ataca 2/ ataca escudo 3/defende 4/come(recupera hp)" + player.getMochila().size() +" itens na mochila:");
+							b.System.out.println("voce : 1/ataca 2/ ataca escudo 3/defende 4/come(recupera hp)" + player.getMochila().size() +" itens na mochila:");
 							x = scanIn.nextInt();
 						}while(x == 4);
 				}
@@ -171,8 +186,8 @@ public class BatalhaTurno extends Game{
 				case 1:
 					//player atacando  diretamente
 					
-					System.out.println(player.getNome() +" - hp: "+ hpP +"/"+ player.getHpMax() +" dano: " + atkP + " escudo: " + escudoP );
-					System.out.println(inimigo.getTipo() +" - hp: "+ hpI +" dano: " + atkI + " escudo: " + escudoI + "\n");
+					 System.out.println(player.getNome() +" - hp: "+ hpP +"/"+ player.getHpMax() +" dano: " + atkP + " escudo: " + escudoP );
+					 System.out.println(inimigo.getTipo() +" - hp: "+ hpI +" dano: " + atkI + " escudo: " + escudoI + "\n");
 					//delay
 					try {
 						Thread.sleep(1000);
@@ -195,7 +210,7 @@ public class BatalhaTurno extends Game{
 							hpI=0;
 						}
 						//imprimindo dano causado
-						System.out.println("hp inimigo : -" + dano + "\n");
+						 System.out.println("hp inimigo : -" + dano + "\n");
 					
 					}else if(y==3){
 						
@@ -212,7 +227,7 @@ public class BatalhaTurno extends Game{
 							hpI=0;
 						}
 						//imprimindo dano causado
-						System.out.println("hp inimigo : -" + dano + "\n");
+						 System.out.println("hp inimigo : -" + dano + "\n");
 					}
 					//delay
 					try {
@@ -222,15 +237,15 @@ public class BatalhaTurno extends Game{
 						e.printStackTrace();
 					}
 					
-					System.out.println(player.getNome() +" - hp: "+ hpP +"/"+ player.getHpMax() +" dano: " + atkP + " escudo: " + escudoP );
-					System.out.println(inimigo.getTipo() +" - hp: "+ hpI +" dano: " + atkI + " escudo: " + escudoI + "\n");
+					 System.out.println(player.getNome() +" - hp: "+ hpP +"/"+ player.getHpMax() +" dano: " + atkP + " escudo: " + escudoP );
+					 System.out.println(inimigo.getTipo() +" - hp: "+ hpI +" dano: " + atkI + " escudo: " + escudoI + "\n");
 					break;
 					
 				case 2:
 					//player atacando escudo inimigo
 					
-					System.out.println(player.getNome() +" - hp: "+ hpP +"/"+ player.getHpMax() +" dano: " + atkP + " escudo: " + escudoP);
-					System.out.println(inimigo.getTipo() +" - hp: "+ hpI +" dano: " + atkI + " escudo: " + escudoI + "\n");
+					 System.out.println(player.getNome() +" - hp: "+ hpP +"/"+ player.getHpMax() +" dano: " + atkP + " escudo: " + escudoP);
+					 System.out.println(inimigo.getTipo() +" - hp: "+ hpI +" dano: " + atkI + " escudo: " + escudoI + "\n");
 					//delay
 					try {
 						Thread.sleep(1000);
@@ -243,13 +258,13 @@ public class BatalhaTurno extends Game{
 						//calculando e subtraindo dano no escudo
 						escudoI = escudoI - (atkP/2);
 						//imprimindo dano no escudo
-						System.out.println("dano escudo inimigo : -" + atkP/2 + "\n");
+						 System.out.println("dano escudo inimigo : -" + atkP/2 + "\n");
 						
 					}else if (y==3){
 						//calculando e subtraindo dano no escudo
 						escudoI = escudoI -(atkP/4);
 						//imprimindo dano no escudo
-						System.out.println("dano escudo inimigo : -" + atkP/4 + "\n");
+						 System.out.println("dano escudo inimigo : -" + atkP/4 + "\n");
 					}
 					//verificacao para evitar escudo negativo
 					if (escudoI < 0){
@@ -264,15 +279,15 @@ public class BatalhaTurno extends Game{
 						e.printStackTrace();
 					}
 					
-					System.out.println(player.getNome() +" - hp: "+ hpP +"/"+ player.getHpMax() +" dano: " + atkP + " escudo: " + escudoP);
-					System.out.println(inimigo.getTipo() +" - hp: "+ hpI +" dano: " + atkI + " escudo: " + escudoI + "\n");
+					 System.out.println(player.getNome() +" - hp: "+ hpP +"/"+ player.getHpMax() +" dano: " + atkP + " escudo: " + escudoP);
+					 System.out.println(inimigo.getTipo() +" - hp: "+ hpI +" dano: " + atkI + " escudo: " + escudoI + "\n");
 					break;
 					
 				case 3:
 					//player defendendo
 					
 					if (y==1){
-						System.out.println("DANO OBSORVIDO");
+						 System.out.println("DANO OBSORVIDO");
 					}
 					//delay
 					
@@ -283,8 +298,8 @@ public class BatalhaTurno extends Game{
 						e.printStackTrace();
 					}
 					
-					System.out.println(player.getNome() +" - hp: "+ hpP +"/"+ player.getHpMax() +" dano: " + atkP + " escudo: " + escudoP );
-					System.out.println(inimigo.getTipo() +" - hp: "+ hpI +" dano: " + atkI + " escudo: " + escudoI + "\n");
+					 System.out.println(player.getNome() +" - hp: "+ hpP +"/"+ player.getHpMax() +" dano: " + atkP + " escudo: " + escudoP );
+					 System.out.println(inimigo.getTipo() +" - hp: "+ hpI +" dano: " + atkI + " escudo: " + escudoI + "\n");
 					break;
 					
 				case 4:
@@ -295,7 +310,7 @@ public class BatalhaTurno extends Game{
 					if ( player.getMochila().size() >0){
 						
 						player.listarMochila();
-						System.out.println("Voce deseja comer qual item?(insira apenas o numero que esta antes do nome do item)");
+						 System.out.println("Voce deseja comer qual item?(insira apenas o numero que esta antes do nome do item)");
 						
 						teste1 = false;
 						while (!teste1) {
@@ -306,7 +321,7 @@ public class BatalhaTurno extends Game{
 
 									System.err.println("Entrada Invalida!!!!");
 									player.listarMochila();												
-									System.out.println("Voce deseja comer qual item?");
+									 System.out.println("Voce deseja comer qual item?");
 									numeroDoAlimentoSelecionado = scanIn.nextInt();
 
 								}
@@ -323,7 +338,7 @@ public class BatalhaTurno extends Game{
 						player.getMochila().remove(numeroDoAlimentoSelecionado);
 						hpP = player.getHp();
 					}else{
-						System.out.println("mochila vazia");
+						 System.out.println("mochila vazia");
 					}
 					
 					break;
@@ -336,12 +351,12 @@ public class BatalhaTurno extends Game{
 					int perseguir = inimigo.getSpe() + dadospeedI + hpI;
 					
 					if(fugir > perseguir){
-						System.out.println("Voce fugiu em seguranca\n");
+						 System.out.println("Voce fugiu em seguranca\n");
 						resultB = 15;
 						fuga = true;
 						
 					}else{
-						System.out.println("inimigo te alcancou\n");
+						 System.out.println("inimigo te alcancou\n");
 						fuga = false;
 						
 					}
@@ -366,7 +381,7 @@ public class BatalhaTurno extends Game{
 					
 					resultB = 2;
 					//imprimindo resultado
-					System.out.println("inimigo abatido\n");
+					 System.out.println("inimigo abatido\n");
 					//delay
 					try {
 						Thread.sleep(1000);
@@ -379,7 +394,7 @@ public class BatalhaTurno extends Game{
 					player1.addXp(inimigo1.getXp());
 					
 					
-					System.out.println("\nXp: " +player1.getXp()+"/"+player1.getXpMax());
+					 System.out.println("\nXp: " +player1.getXp()+"/"+player1.getXpMax());
 					
 					break;
 				}
@@ -454,7 +469,7 @@ public class BatalhaTurno extends Game{
 						e.printStackTrace();
 					}
 					
-					System.out.println("atk" + "\n");
+					 System.out.println("atk" + "\n");
 					//verificando se player esta defendendo
 					if(x==1 | x == 2 | x == 4 | x == 5){
 						//calculando dano
@@ -471,7 +486,7 @@ public class BatalhaTurno extends Game{
 							hpP=0;
 						}
 						//imprimindo dano
-						System.out.println("hp PLAYER : -" + dano + "\n");
+						 System.out.println("hp PLAYER : -" + dano + "\n");
 						
 					}else if(x==3){
 						//calculando dano
@@ -487,7 +502,7 @@ public class BatalhaTurno extends Game{
 							hpP=0;
 						}
 						//imprimindo dano
-						System.out.println("hp PLAYER : -" + dano + "\n");
+						 System.out.println("hp PLAYER : -" + dano + "\n");
 					}
 					//delay
 					try {
@@ -497,8 +512,8 @@ public class BatalhaTurno extends Game{
 						e.printStackTrace();
 					}
 					
-					System.out.println(player.getNome() +" - hp: "+ hpP +"/"+ player.getHpMax() +" dano: " + atkP + " escudo: " + escudoP + "\n");
-					System.out.println(inimigo.getTipo() +" - hp: "+ hpI +" dano: " + atkI + " escudo: " + escudoI + "\n");
+					 System.out.println(player.getNome() +" - hp: "+ hpP +"/"+ player.getHpMax() +" dano: " + atkP + " escudo: " + escudoP + "\n");
+					 System.out.println(inimigo.getTipo() +" - hp: "+ hpI +" dano: " + atkI + " escudo: " + escudoI + "\n");
 					break;
 					
 				case 2:
@@ -513,18 +528,18 @@ public class BatalhaTurno extends Game{
 					}
 					
 					//imprimindo acao de inimigo para player
-					System.out.println("ataca escudo\n");
+					 System.out.println("ataca escudo\n");
 					//verificando se player esta dedendendo
 					if(x==1 | x == 2 | x == 4){
 						//calculando dano em escudo player
 						escudoP = escudoP - (atkI/2);
 						//imprimindo dano no escudo player
-						System.out.println("dano escudo PLAYER : -" + atkI/2 + "\n");
+						 System.out.println("dano escudo PLAYER : -" + atkI/2 + "\n");
 					}else{
 						//calculando dano ecudo player
 						escudoP = escudoP -(atkI/4);
 						//imprimindo dano escudo player
-						System.out.println("dano escudo PLAYER : -" + atkI/4 + "\n");
+						 System.out.println("dano escudo PLAYER : -" + atkI/4 + "\n");
 					}
 					//verificacao para evitar que escudo fique negativo
 					if (escudoP<0){
@@ -541,8 +556,8 @@ public class BatalhaTurno extends Game{
 						e.printStackTrace();
 					}
 					
-					System.out.println(player.getNome() +" - hp: "+ hpP +"/"+ player.getHpMax() +" dano: " + atkP + " escudo: " + escudoP );
-					System.out.println(inimigo.getTipo() +" - hp: "+ hpI +" dano: " + atkI + " escudo: " + escudoI + "\n");
+					 System.out.println(player.getNome() +" - hp: "+ hpP +"/"+ player.getHpMax() +" dano: " + atkP + " escudo: " + escudoP );
+					 System.out.println(inimigo.getTipo() +" - hp: "+ hpI +" dano: " + atkI + " escudo: " + escudoI + "\n");
 					break;
 					
 				case 3:
@@ -556,7 +571,7 @@ public class BatalhaTurno extends Game{
 						e.printStackTrace();
 					}
 					//imprimindo acao inimigo
-					System.out.println("def" + "\n");
+					 System.out.println("def" + "\n");
 					//delay
 					try {
 						Thread.sleep(1000);
@@ -566,11 +581,11 @@ public class BatalhaTurno extends Game{
 					}
 					//verificando se inimigo esta atacando
 					if (y==1){
-						System.out.println("DANO OBSORVIDO" + "\n");
+						 System.out.println("DANO OBSORVIDO" + "\n");
 					}
 					
-					System.out.println(player.getNome() +" - hp: "+ hpP +"/"+ player.getHpMax() +" dano: " + atkP + " escudo: " + escudoP );
-					System.out.println(inimigo.getTipo() +" - hp: "+ hpI +" dano: " + atkI + " escudo: " + escudoI + "\n");
+					 System.out.println(player.getNome() +" - hp: "+ hpP +"/"+ player.getHpMax() +" dano: " + atkP + " escudo: " + escudoP );
+					 System.out.println(inimigo.getTipo() +" - hp: "+ hpI +" dano: " + atkI + " escudo: " + escudoI + "\n");
 					break;
 				case 4:
 					
@@ -581,7 +596,7 @@ public class BatalhaTurno extends Game{
 						e.printStackTrace();
 					}
 					
-					System.out.println("Inimigo usou Charge");
+					 System.out.println("Inimigo usou Charge");
 					
 					try {
 						Thread.sleep(1000);
@@ -603,7 +618,7 @@ public class BatalhaTurno extends Game{
 						hpP=0;
 					}
 					//imprimindo dano
-					System.out.println("hp PLAYER : -" + dano + "\n");
+					 System.out.println("hp PLAYER : -" + dano + "\n");
 					
 					//delay
 					try {
@@ -613,8 +628,8 @@ public class BatalhaTurno extends Game{
 						e.printStackTrace();
 					}
 					
-					System.out.println(player.getNome() +" - hp: "+ hpP +"/"+ player.getHpMax() +" dano: " + atkP + " escudo: " + escudoP + "\n");
-					System.out.println(inimigo.getTipo() +" - hp: "+ hpI +" dano: " + atkI + " escudo: " + escudoI + "\n");
+					 System.out.println(player.getNome() +" - hp: "+ hpP +"/"+ player.getHpMax() +" dano: " + atkP + " escudo: " + escudoP + "\n");
+					 System.out.println(inimigo.getTipo() +" - hp: "+ hpI +" dano: " + atkI + " escudo: " + escudoI + "\n");
 					
 					break;
 					
@@ -624,7 +639,7 @@ public class BatalhaTurno extends Game{
 				}
 				//verificacao do hp de player para avisar caso esteja abaixo da metade
 				if(hpP <= player1.getHpMax()/2& hpP != 0){
-					System.out.println("ATENÇÃO:  HP BAIXO" + "\n");
+					 System.out.println("ATENÇÃO:  HP BAIXO" + "\n");
 				}
 				
 				
@@ -642,7 +657,7 @@ public class BatalhaTurno extends Game{
 					this.resultado = false;
 					resultB = 3;
 					//imprimindo resultado
-					System.out.println("GAME OVER!" + "\n");
+					 System.out.println("GAME OVER!" + "\n");
 					
 				}
 				
@@ -736,8 +751,8 @@ public class BatalhaTurno extends Game{
 				switch(y){
 				case 1:
 					//atacando
-					System.out.println(player.getNome() +" - hp: "+ hpP +"/"+ player.getHpMax() +" dano: " + atkP + " escudo: " + escudoP );
-					System.out.println(inimigo.getNome() +" - hp: "+ hpI +" dano: " + atkI + " escudo: " + escudoI + "\n");
+					 System.out.println(player.getNome() +" - hp: "+ hpP +"/"+ player.getHpMax() +" dano: " + atkP + " escudo: " + escudoP );
+					 System.out.println(inimigo.getNome() +" - hp: "+ hpI +" dano: " + atkI + " escudo: " + escudoI + "\n");
 					//delay
 					try {
 						Thread.sleep(1000);
@@ -746,7 +761,7 @@ public class BatalhaTurno extends Game{
 						e.printStackTrace();
 					}
 					//imprimindo acao inimigo
-					System.out.println("atk" + "\n");
+					 System.out.println("atk" + "\n");
 					if (x==0 | x==1 | x==2 | x==4 | x == 5){
 						//calculando dano
 						dano = atkI - (escudoP/2);
@@ -761,7 +776,7 @@ public class BatalhaTurno extends Game{
 							hpP=0;
 						}
 						//imprimindo dano em player
-						System.out.println("hp PLAYER : -" + dano + "\n");
+						 System.out.println("hp PLAYER : -" + dano + "\n");
 					
 					}else if(x==3){
 						//calculando dano 
@@ -778,7 +793,7 @@ public class BatalhaTurno extends Game{
 							hpP=0;
 						}
 						//imprimindo dano causado
-						System.out.println("hp PLAYER : -" + dano + "\n");
+						 System.out.println("hp PLAYER : -" + dano + "\n");
 					}
 					
 					//delay
@@ -789,14 +804,14 @@ public class BatalhaTurno extends Game{
 						e.printStackTrace();
 					}
 					
-					System.out.println(player.getNome() +" - hp: "+ hpP +"/"+ player.getHpMax() +" dano: " + atkP + " escudo: " + escudoP );
-					System.out.println(inimigo.getTipo() +" - hp: "+ hpI +" dano: " + atkI + " escudo: " + escudoI + "\n");
+					 System.out.println(player.getNome() +" - hp: "+ hpP +"/"+ player.getHpMax() +" dano: " + atkP + " escudo: " + escudoP );
+					 System.out.println(inimigo.getTipo() +" - hp: "+ hpI +" dano: " + atkI + " escudo: " + escudoI + "\n");
 					break;
 					
 				case 2:
 					//atacando escudo
-					System.out.println(player.getNome() +" - hp: "+ hpP +"/"+ player.getHpMax() +" dano: " + atkP + " escudo: " + escudoP);
-					System.out.println(inimigo.getNome() +" - hp: "+ hpI +" dano: " + atkI + " escudo: " + escudoI + "\n");
+					 System.out.println(player.getNome() +" - hp: "+ hpP +"/"+ player.getHpMax() +" dano: " + atkP + " escudo: " + escudoP);
+					 System.out.println(inimigo.getNome() +" - hp: "+ hpI +" dano: " + atkI + " escudo: " + escudoI + "\n");
 					
 					//delay
 					try {
@@ -806,18 +821,18 @@ public class BatalhaTurno extends Game{
 						e.printStackTrace();
 					}
 					
-					System.out.println("ataca escudo" + "\n");
+					 System.out.println("ataca escudo" + "\n");
 					//verificando se player esta defendendo
 					if(x==0 | x==1 | x==2 | x==4 | x == 5){
 						//calculando dano em escudo
 						escudoP = escudoP - (atkI/2);
 						//imprimindo dano causado a escudo player
-						System.out.println("dano escudo PLAYER : -" + atkI/2 + "\n");
+						 System.out.println("dano escudo PLAYER : -" + atkI/2 + "\n");
 					}else{
 						//calculando dano em escudo Player
 						escudoP = escudoP -(atkI/4);
 						//imprimindo dano causado a escudo
-						System.out.println("dano escudo PLAYER : -" + atkI/4 + "\n");
+						 System.out.println("dano escudo PLAYER : -" + atkI/4 + "\n");
 					}
 					//verificacao para evitar escudo negativo
 					if (escudoP<0){
@@ -834,8 +849,8 @@ public class BatalhaTurno extends Game{
 						e.printStackTrace();
 					}
 					
-					System.out.println(player.getNome() +" - hp: "+ hpP +"/"+ player.getHpMax() +" dano: " + atkP + " escudo: " + escudoP );
-					System.out.println(inimigo.getTipo() +" - hp: "+ hpI +" dano: " + atkI + " escudo: " + escudoI + "\n");
+					 System.out.println(player.getNome() +" - hp: "+ hpP +"/"+ player.getHpMax() +" dano: " + atkP + " escudo: " + escudoP );
+					 System.out.println(inimigo.getTipo() +" - hp: "+ hpI +" dano: " + atkI + " escudo: " + escudoI + "\n");
 					break;
 					
 				case 3:
@@ -847,7 +862,7 @@ public class BatalhaTurno extends Game{
 						e.printStackTrace();
 					}
 					
-					System.out.println("def" + "\n");
+					 System.out.println("def" + "\n");
 					//delay
 					try {
 						Thread.sleep(1000);
@@ -857,11 +872,11 @@ public class BatalhaTurno extends Game{
 					}
 					
 					if (y==1){
-						System.out.println("DANO OBSORVIDO" + "\n");
+						 System.out.println("DANO OBSORVIDO" + "\n");
 					}
 					
-					System.out.println(player.getNome() +" - hp: "+ hpP +"/"+ player.getHpMax() +" dano: " + atkP + " escudo: " + escudoP );
-					System.out.println(inimigo.getTipo() +" - hp: "+ hpI +" dano: " + atkI + " escudo: " + escudoI + "\n");
+					 System.out.println(player.getNome() +" - hp: "+ hpP +"/"+ player.getHpMax() +" dano: " + atkP + " escudo: " + escudoP );
+					 System.out.println(inimigo.getTipo() +" - hp: "+ hpI +" dano: " + atkI + " escudo: " + escudoI + "\n");
 					break;
 					
 				case 4:
@@ -873,7 +888,7 @@ public class BatalhaTurno extends Game{
 						e.printStackTrace();
 					}
 					
-					System.out.println("Inimigo usou Charge");
+					 System.out.println("Inimigo usou Charge");
 					
 					try {
 						Thread.sleep(1000);
@@ -895,7 +910,7 @@ public class BatalhaTurno extends Game{
 						hpP=0;
 					}
 					//imprimindo dano
-					System.out.println("hp PLAYER : -" + dano + "\n");
+					 System.out.println("hp PLAYER : -" + dano + "\n");
 					
 					//delay
 					try {
@@ -905,13 +920,13 @@ public class BatalhaTurno extends Game{
 						e.printStackTrace();
 					}
 					
-					System.out.println(player.getNome() +" - hp: "+ hpP +"/"+ player.getHpMax() +" dano: " + atkP + " escudo: " + escudoP + "\n");
-					System.out.println(inimigo.getTipo() +" - hp: "+ hpI +" dano: " + atkI + " escudo: " + escudoI + "\n");
+					 System.out.println(player.getNome() +" - hp: "+ hpP +"/"+ player.getHpMax() +" dano: " + atkP + " escudo: " + escudoP + "\n");
+					 System.out.println(inimigo.getTipo() +" - hp: "+ hpI +" dano: " + atkI + " escudo: " + escudoI + "\n");
 					
 					break;
 					
 				default:
-					System.out.println("entrada invalida" + "\n");
+					 System.out.println("entrada invalida" + "\n");
 					
 			
 					
@@ -930,26 +945,26 @@ public class BatalhaTurno extends Game{
 					}
 					this.resultado = false;
 					resultB = 3;
-					System.out.println("GAME OVER!" + "\n");
+					 System.out.println("GAME OVER!" + "\n");
 					
 					break;
 					
 				}
 				//verificacao se o hp de player esta abaixo da metade
 				if(hpP <= player1.getHpMax()/2 & hpP != 0){
-					System.out.println("ATENÇÃO:  HP BAIXO" + "");
+					 System.out.println("ATENÇÃO:  HP BAIXO" + "");
 				}
 				
 				
 				
 				// TODO ação player
 				
-				//System.out.println("voce : 1/ataca 2/ ataca escudo 3/defende 4/come(recupera hp):" + "\n");
+				// System.out.println("voce : 1/ataca 2/ ataca escudo 3/defende 4/come(recupera hp):" + "\n");
 				//x = scanIn.nextInt();
 				
 				boolean teste1 = false;
 				while (!teste1) {
-					System.out.println("voce : 1/ataca 2/ ataca escudo 3/defende 4/come(recupera hp) " + player.getMochila().size() +" itens na mochila" +
+					 System.out.println("voce : 1/ataca 2/ ataca escudo 3/defende 4/come(recupera hp) " + player.getMochila().size() +" itens na mochila" +
 							" 5/fugir:");
 					try {				
 						scanIn = new Scanner(System.in);
@@ -981,7 +996,7 @@ public class BatalhaTurno extends Game{
 				}catch (Exception e){
 						do {
 							System.err.println("Entrada invalida!!!");
-							System.out.println("voce : 1/ataca 2/ ataca escudo 3/defende 4/come(recupera hp)" + player.getMochila().size() +" itens na mochila:");
+							 System.out.println("voce : 1/ataca 2/ ataca escudo 3/defende 4/come(recupera hp)" + player.getMochila().size() +" itens na mochila:");
 							x = scanIn.nextInt();
 						}while(x>4|x<1);
 				}
@@ -994,7 +1009,7 @@ public class BatalhaTurno extends Game{
 				}catch (Exception e){
 						do {
 							System.err.println("Mochila Vazia!!!");
-							System.out.println("voce : 1/ataca 2/ ataca escudo 3/defende 4/come(recupera hp)" + player.getMochila().size() +" itens na mochila:");
+							 System.out.println("voce : 1/ataca 2/ ataca escudo 3/defende 4/come(recupera hp)" + player.getMochila().size() +" itens na mochila:");
 							x = scanIn.nextInt();
 						}while(x == 4);
 				}
@@ -1028,7 +1043,7 @@ public class BatalhaTurno extends Game{
 							hpI=0;
 						}
 						//imprimindo dano causado
-						System.out.println("hp inimigo : -" + dano + "\n");
+						 System.out.println("hp inimigo : -" + dano + "\n");
 					}else if(y==3){
 						//calculando dano
 						dano = atkP - escudoI;
@@ -1043,7 +1058,7 @@ public class BatalhaTurno extends Game{
 							hpI=0;
 						}
 						//imprimindo dano
-						System.out.println("hp inimigo : -" + dano + "\n");
+						 System.out.println("hp inimigo : -" + dano + "\n");
 					}
 					//delay
 					try {
@@ -1053,8 +1068,8 @@ public class BatalhaTurno extends Game{
 						e.printStackTrace();
 					}
 					
-					System.out.println(player.getNome() +" - hp: "+ hpP +"/"+ player.getHpMax() +" dano: " + atkP + " escudo: " + escudoP );
-					System.out.println(inimigo.getTipo() +" - hp: "+ hpI +" dano: " + atkI + " escudo: " + escudoI + "\n");
+					 System.out.println(player.getNome() +" - hp: "+ hpP +"/"+ player.getHpMax() +" dano: " + atkP + " escudo: " + escudoP );
+					 System.out.println(inimigo.getTipo() +" - hp: "+ hpI +" dano: " + atkI + " escudo: " + escudoI + "\n");
 					break;
 					
 				case 2:
@@ -1071,12 +1086,12 @@ public class BatalhaTurno extends Game{
 						//calculando e subtraindo dano no escudo inimigo
 						escudoI = escudoI - (atkP/2);
 						//imprimindo dano
-						System.out.println("dano escudo inimigo : -" + atkP/2 + "\n");
+						 System.out.println("dano escudo inimigo : -" + atkP/2 + "\n");
 					}else if (y==3){
 						//calculando e subtraindo dano no escudo inimigo
 						escudoI = escudoI -(atkP/4);
 						//imprimindo dano
-						System.out.println("dano escudo inimigo : -" + atkP/4 + "\n");
+						 System.out.println("dano escudo inimigo : -" + atkP/4 + "\n");
 					}
 					//verificacao para evitar escudo ficar negativo
 					if (escudoI < 0){
@@ -1091,15 +1106,15 @@ public class BatalhaTurno extends Game{
 						e.printStackTrace();
 					}
 					
-					System.out.println(player.getNome() +" - hp: "+ hpP +"/"+ player.getHpMax() +" dano: " + atkP + " escudo: " + escudoP );
-					System.out.println(inimigo.getTipo() +" - hp: "+ hpI +" dano: " + atkI + " escudo: " + escudoI + "\n");
+					 System.out.println(player.getNome() +" - hp: "+ hpP +"/"+ player.getHpMax() +" dano: " + atkP + " escudo: " + escudoP );
+					 System.out.println(inimigo.getTipo() +" - hp: "+ hpI +" dano: " + atkI + " escudo: " + escudoI + "\n");
 					break;
 					
 				case 3:
 					//defendendo
 					
 					if (y==1){
-						System.out.println("DANO OBSORVIDO" + "\n");
+						 System.out.println("DANO OBSORVIDO" + "\n");
 					}
 					//delay
 					try {
@@ -1108,8 +1123,8 @@ public class BatalhaTurno extends Game{
 						
 						e.printStackTrace();
 					}
-					System.out.println(player.getNome() +" - hp: "+ hpP  +"/"+ player.getHpMax() +" dano: " + atkP + " escudo: " + escudoP );
-					System.out.println(inimigo.getTipo() +" - hp: "+ hpI +" dano: " + atkI + " escudo: " + escudoI + "\n");
+					 System.out.println(player.getNome() +" - hp: "+ hpP  +"/"+ player.getHpMax() +" dano: " + atkP + " escudo: " + escudoP );
+					 System.out.println(inimigo.getTipo() +" - hp: "+ hpI +" dano: " + atkI + " escudo: " + escudoI + "\n");
 					break;
 					
 				case 4:
@@ -1120,14 +1135,14 @@ public class BatalhaTurno extends Game{
 					if ( player.getMochila().size() >0){
 						
 						player.listarMochila();
-						System.out.println("voce deseja comer qual item?(insira apenas o numero que esta antes do nome do item)");
+						 System.out.println("voce deseja comer qual item?(insira apenas o numero que esta antes do nome do item)");
 						/**
 						numeroDoAlimentoSelecionado = scanIn.nextInt();
 						if(numeroDoAlimentoSelecionado > player.getMochila().size()-1| numeroDoAlimentoSelecionado < 0){
 							do{
 								System.err.println("Entrada Invalida!!!!");
 								
-								System.out.println("Voce deseja comer qual item?(insira apenas o numero que esta antes do nome do item)");
+								 System.out.println("Voce deseja comer qual item?(insira apenas o numero que esta antes do nome do item)");
 								numeroDoAlimentoSelecionado = scanIn.nextInt();
 							}while(numeroDoAlimentoSelecionado > player.getMochila().size()-1| numeroDoAlimentoSelecionado < 0);
 						}
@@ -1146,7 +1161,7 @@ public class BatalhaTurno extends Game{
 
 									System.err.println("Entrada Invalida!!!!");
 									player.listarMochila();												
-									System.out.println("Voce deseja comer qual item?");
+									 System.out.println("Voce deseja comer qual item?");
 									numeroDoAlimentoSelecionado = scanIn.nextInt();
 
 								}
@@ -1162,7 +1177,7 @@ public class BatalhaTurno extends Game{
 						player.getMochila().remove(numeroDoAlimentoSelecionado);
 						hpP = player.getHp();
 					}else{
-						System.out.println("mochila vazia");
+						 System.out.println("mochila vazia");
 					}
 					
 					break;
@@ -1174,16 +1189,16 @@ public class BatalhaTurno extends Game{
 					int perseguir = inimigo.getSpe() + dadospeedI + hpI;
 					
 					if(fugir > perseguir){
-						System.out.println("Voce fugiu em seguranca\n");
+						 System.out.println("Voce fugiu em seguranca\n");
 						resultB = 15;
 						fuga = true;
 					}else
-						System.out.println("inimigo te alcancou\n");
+						 System.out.println("inimigo te alcancou\n");
 						fuga = false;
 					break;
 					
 				default:
-					System.out.println("entrada invalida" + "\n");
+					 System.out.println("entrada invalida" + "\n");
 					
 					if(fuga == true){
 						break;
@@ -1379,7 +1394,7 @@ public class BatalhaTurno extends Game{
 		Game.State= Game.State.GAME;
 		return player1;		
 	}
-	
+		
 	
 	
 }
