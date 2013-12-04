@@ -56,7 +56,7 @@ public class BatalhaTurno extends Game{
 		
 		
 		
-		
+		resultB = 1;
 		int x = 0, y=0;
 		int atkP, defP, hpP, escudoP;
 		int atkI, defI, hpI, escudoI;
