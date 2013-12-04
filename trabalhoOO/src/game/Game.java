@@ -27,16 +27,14 @@ public class Game extends Canvas implements Runnable {
 	private BufferedImage background = null;
 	private boolean running = false;
 	private Thread thread;
-//	private Thread bgm;
 	private Menu menu;
 	Grimorio grim = new Grimorio();
-	//Object
 	Handler handler;
 //	Level1 nivel1;
 	
 	public static STATE State = STATE.MENU;
 
-	public void init(){		
+	public void init(){	
 		BufferedImageLoader loader = new BufferedImageLoader();
 		requestFocus();
 		handler = new Handler();

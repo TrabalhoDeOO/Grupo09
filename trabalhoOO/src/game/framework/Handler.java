@@ -9,6 +9,8 @@ public class Handler extends Game{
 	
 	public LinkedList<GameObject> object = new LinkedList<GameObject>();
 	
+	private AudioPlayer bgm;
+
 	protected GameObject tempObject;
 	private static float cte = (float) 1.92;
 	
@@ -41,6 +43,8 @@ public class Handler extends Game{
 	// Cenário da primeira fase - Acho q eu preciso modularizar isso.... =\
 	
 	public void createLevel1(){
+		bgm = new AudioPlayer("/level1-1.mp3");
+		bgm.play();
 		//Lateral esquerda da fase
 		for (int yy=0; yy <HEIGHT; yy+=32)
 			addObject(new Block(0, yy, ObjectId.Block));
