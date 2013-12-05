@@ -370,6 +370,8 @@ public class Player extends GameObject implements SetandoBonus {
 	private final float MAX_SPEED = 10;
 	
 	private Handler handler;
+	BatalhaTurno battle = new BatalhaTurno();
+	InimigoEvento ie = new InimigoEvento(id);
 	
 	public void tick(LinkedList<GameObject> object) {
 		x += velX;
@@ -384,9 +386,6 @@ public class Player extends GameObject implements SetandoBonus {
 		}
 		Collision(object);		
 		}
-	
-	BatalhaTurno battle = new BatalhaTurno();
-	InimigoEvento ie = new InimigoEvento(id);
 	
 	private void Collision(LinkedList<GameObject> object){
 		for (int i=0; i<handler.object.size(); i++){
@@ -404,12 +403,15 @@ public class Player extends GameObject implements SetandoBonus {
 						}	
 			
 			// Colisão na base com o inimigo
-				if(tempObject.getId()==ObjectId.InimigoT){
-					if(getBounds().intersects(tempObject.getBoundsTop())){
+				if(tempObject.getId()==ObjectId.InimigoT){					
+					if(getBounds().intersects(tempObject.getBounds())){
+						ie = (InimigoEvento) tempObject;
+						battle.batalha(this, ie);
 						y = tempObject.getY() - heightP;
 						velY = 0;
 						falling = false;
 						jumping = false;
+						handler.removeObject(ie);
 					}
 				}
 			//Colisão no topo
@@ -421,7 +423,11 @@ public class Player extends GameObject implements SetandoBonus {
 				// Colisão no topo com o inimigo
 				if(tempObject.getId()==ObjectId.InimigoT){
 					if(getBoundsTop().intersects(tempObject.getBounds())){
-						y = tempObject.getY() + heightP;	
+						ie = (InimigoEvento) tempObject;
+						battle.batalha(this, ie);
+						handler.removeObject(ie);
+						y = tempObject.getY() + heightP;
+						
 					}
 				}
 			//Colisão na direita
@@ -430,22 +436,27 @@ public class Player extends GameObject implements SetandoBonus {
 				
 				//Colisão na direita com o inimigo
 				if (tempObject.getId() == ObjectId.InimigoT){
+					//	Game.State = Game.State.BATTLE;
+					ie = (InimigoEvento) tempObject;
+					battle.batalha(this, ie);
+					handler.removeObject(ie);
 					if (getBoundsRigth().intersects(tempObject.getBounds())){
-						x = tempObject.getX() - widthP;
+						x = tempObject.getX() - 64;
 						}
 					}
 				}
 						
 			//Colisão na esquerda
-			if (getBoundsLeft().intersects(tempObject.getBounds())){
+			if (getBoundsLeft().intersects(tempObject.getBounds())){					
 					x = tempObject.getX() +32;
 					//Colisão na direita com o inimigo
 					if (tempObject.getId() == ObjectId.InimigoT){
 						if (getBoundsLeft().intersects(tempObject.getBounds())){
 							x = tempObject.getX() + 64;	
-							Game.State = Game.State.BATTLE;
+						//	Game.State = Game.State.BATTLE;
 							ie = (InimigoEvento) tempObject;
 							battle.batalha(this, ie);
+							handler.removeObject(ie);
 						}
 					}
 				}				

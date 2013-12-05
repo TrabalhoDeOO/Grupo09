@@ -1,5 +1,7 @@
 package game;
 
+import game.entidade.BatalhaTurno;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -19,7 +21,6 @@ public class Menu {
 	public boolean inicial = true;
 	
 	public void renderMenu(Graphics g){
-//		if (inicial==true){
 		Graphics2D g2d = (Graphics2D) g;
 		
 		Font fnt0 = new Font("arial", Font.BOLD, 50);
@@ -43,7 +44,6 @@ public class Menu {
 		}
 					
 	public void renderHelp (Graphics h){
-		inicial=false;
 		Graphics2D h2d = (Graphics2D) h;
 		
 		h.setFont(font2);
@@ -57,12 +57,11 @@ public class Menu {
 	}
 
 	public void renderBattle (Graphics i){
-	//	inicial=false;
 		Graphics2D i2d = (Graphics2D) i;
+		Font font = new Font ("Lucida Console", Font.BOLD, 15);
 		}
 	
 	public void renderAbout (Graphics j){
-	//	inicial=false;
 		Graphics2D j2d = (Graphics2D) j;
 		
 		j.setFont(font2);
@@ -76,7 +75,6 @@ public class Menu {
 	}
 	
 	public void renderCredit (Graphics k){
-	//	inicial=false;
 		Graphics2D k2d = (Graphics2D) k;
 		
 		k.setFont(font2);
@@ -92,7 +90,6 @@ public class Menu {
 	}
 	
 	public void renderSubmenu (Graphics l){
-	//	inicial=false;
 		Graphics2D l2d = (Graphics2D) l;
 		
 		l.setFont(font2);
@@ -100,9 +97,6 @@ public class Menu {
 		l.drawString("O que você quer aqui, humano?",  Game.WIDTH/6, Game.HEIGHT/3);
 		l.drawString("Q: Nos abandonar", Game.WIDTH/6, Game.HEIGHT/3+50);
 		l.drawString("Espaço: voltar para onde você não deveria ter saído",  Game.WIDTH/6, Game.HEIGHT/3+100);
-	//	l.drawString("Enter: Reiniciar o jogo",  Game.WIDTH/6, Game.HEIGHT/3+150);
-		
-		//l.drawString("Voltar", backButton.x+ 60, backButton.y +35);
-		//l2d.draw(backButton);
+		l.drawString("Enter: Voltar para o menu inicial",  Game.WIDTH/6, Game.HEIGHT/3+150);
 	}
 }

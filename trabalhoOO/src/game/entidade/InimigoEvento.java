@@ -172,7 +172,7 @@ public class InimigoEvento extends Inimigo implements Descricao{
 			Graphics2D g2d = (Graphics2D) g;
 			g.setColor(Color.green);
 			g2d.draw(getBounds());
-			g2d.draw(getBoundsTop());
+	//		g2d.draw(getBoundsTop());
 			
 		} else if (Game.State==Game.State.BATTLE){
 			g.setColor(Color.red);
@@ -182,17 +182,17 @@ public class InimigoEvento extends Inimigo implements Descricao{
 	
 	public Rectangle getBounds() {
 		if (Game.State==Game.State.GAME)
-			return new Rectangle ( (int) ((int)x+(widthIP/2-((widthIP/2)))), (int) ((int)y+(heightIP/2)), (int)widthIP, (int) heightIP/2);
+			return new Rectangle ( (int) ((int)x+(widthIP/2-((widthIP/2)))), (int) ((int)y), (int)widthIP, (int) heightIP);
 		else
 			return new Rectangle ( (int) ((int)x+(widthIT/2-((widthIT/2)))), (int) ((int)y+(heightIT/2)), (int)widthIT, (int) heightIT/2);
 	}
 	
-	public Rectangle getBoundsTop() {
+/*	public Rectangle getBoundsTop() {
 		if (Game.State==Game.State.GAME)
 		return new Rectangle ( (int) ((int)x+((widthIP/2)-((widthIP/2)))), (int) y, (int)widthIP, (int) heightIP/2);
 		else
 		return new Rectangle ( (int) ((int)x+((widthIT/2)-((widthIT/2)))), (int) y, (int)widthIT, (int) heightIT/2);	
-		}
+		} */
 	public static int getWidthIP() {
 		return widthIP;
 	}

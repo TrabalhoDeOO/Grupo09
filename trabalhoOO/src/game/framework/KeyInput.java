@@ -27,8 +27,8 @@ public class KeyInput extends KeyAdapter {
 		}
 			if (Game.State == Game.State.SUBMENU){				
 				// Estudar melhor
-			//	if (key == KeyEvent.VK_ENTER)
-				//	game.start();
+				if (key == KeyEvent.VK_ENTER)
+					Game.State=Game.State.MENU;
 							
 				if (key ==KeyEvent.VK_SPACE)
 					Game.State = Game.State.GAME;

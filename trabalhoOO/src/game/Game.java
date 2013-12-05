@@ -1,5 +1,6 @@
 package game;
 
+import game.entidade.BatalhaTurno;
 import game.entidade.InimigoEvento;
 import game.entidade.Player;
 import game.entidade.grimorio.Grimorio;
@@ -32,6 +33,7 @@ public class Game extends Canvas implements Runnable {
 	Grimorio grim = new Grimorio();
 	Handler handler;
 	private AudioPlayer bgm;
+
 
 //	Level1 nivel1;
 	
@@ -143,7 +145,7 @@ public class Game extends Canvas implements Runnable {
 		}
 		Graphics g = bs.getDrawGraphics();
 		Graphics h = bs.getDrawGraphics();
-		Graphics i = bs.getDrawGraphics();
+		Graphics b = bs.getDrawGraphics();
 		Graphics j = bs.getDrawGraphics();
 		Graphics k = bs.getDrawGraphics();
 		Graphics l = bs.getDrawGraphics();
@@ -164,7 +166,7 @@ public class Game extends Canvas implements Runnable {
 		} else if (State== STATE.SUBMENU){
 			menu.renderSubmenu(l);
 		} else if (State==STATE.BATTLE){
-			menu.renderBattle(i);
+			
 		}
 		g.dispose();
 		bs.show();
