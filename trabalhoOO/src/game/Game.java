@@ -34,18 +34,17 @@ public class Game extends Canvas implements Runnable {
 	private AudioPlayer bgm;
 	Player player;
 	int vida = 1;
+	BufferedImageLoader loader = new BufferedImageLoader();
+
 	//	Level1 nivel1;
 	
 	public static STATE State = STATE.MENU;
 
-	public void init(){
-		
-		
+	public void init(){	
 		handler = new Handler();
 		bgm = new AudioPlayer("/level1-1.mp3");
 		bgm.play();
-		BufferedImageLoader loader = new BufferedImageLoader();
-		requestFocus();
+		requestFocus();		
 //		nivel1 = new Level1();
 		player = new Player( "HUURGH", "homem", 1, 50,460, handler, ObjectId.Player);
 		handler.addObject(player);		
@@ -82,16 +81,9 @@ public class Game extends Canvas implements Runnable {
 		
 		this.addKeyListener(new KeyInput(handler));
 		this.addMouseListener(new MouseInput());
-		menu = new Menu();
+		menu = new Menu();				
+				}
 		
-		//Setando o background
-		try{			
-			background = loader.loadImage("/background.png");
-		} catch (IOException e){
-		e.printStackTrace();
-		}
-	}
-	
 	public synchronized void start(){
 		if (running)
 			return;
@@ -101,8 +93,7 @@ public class Game extends Canvas implements Runnable {
 			thread.start();
 				}
 	
-	public void run(){
-		
+	public void run(){		
 		init();
 		this.requestFocus();
 		long lastTime = System.nanoTime();
@@ -147,8 +138,8 @@ public class Game extends Canvas implements Runnable {
 				handler.removeObject(player);
 				init();
 			} else if (player.getHp() ==0 && vida==0){				
-				State = STATE.MENU;			
-			}						
+				State = STATE.MENU;	
+			}			
 		}
 			
 	private void render() {
@@ -167,8 +158,7 @@ public class Game extends Canvas implements Runnable {
 		g.drawImage(background, 0, 0, null);
 		if(State == STATE.GAME){
 			handler.render(g);
-		//nivel1.render(g);
-			} 
+		} 
 		else if (State== STATE.MENU){
 			if(vida ==0){
 				vida=2;				
@@ -184,7 +174,18 @@ public class Game extends Canvas implements Runnable {
 			menu.renderSubmenu(l);
 		} else if (State==STATE.BATTLE){
 			
-		}
+		}		
+		//Setando o background
+				try{
+					if(State==STATE.GAME){
+			//			background = loader.loadImage("/background.png");
+					}else{
+						background = loader.loadImage("/background_menu.png");
+					}
+					
+				} catch (IOException e){
+				e.printStackTrace();
+					}
 		g.dispose();
 		bs.show();
 	}
@@ -202,5 +203,31 @@ public class Game extends Canvas implements Runnable {
 	public void setThread(Thread thread) {
 		this.thread = thread;	
 	}
+	public void setBackground(String path){
+		try {
+			background = loader.loadImage(path);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 	
 }
+/*
+if (State !=STATE.GAME && State!=STATE.BATTLE){
+BufferedImageLoader loader = new BufferedImageLoader();
+	//Setando o background
+	try{			
+		background = loader.loadImage("/background_menu.png");
+	} catch (IOException e){
+	e.printStackTrace();
+		}
+	}
+	else if (State==STATE.GAME){
+			BufferedImageLoader loader = new BufferedImageLoader();
+			//Setando o background
+			try{			
+				background = loader.loadImage("/background.png");
+			} catch (IOException e){
+			e.printStackTrace();
+		} 
+	}*/

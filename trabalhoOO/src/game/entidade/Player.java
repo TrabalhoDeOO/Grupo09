@@ -473,14 +473,7 @@ public class Player extends GameObject implements SetandoBonus {
 	public void render(Graphics g) {
 		g.setColor(Color.blue);
 		g.fillRect((int)x, (int)y, (int)widthP, (int) heightP);
-		
-		Graphics2D g2d = (Graphics2D) g;
-		g.setColor(Color.green);
-		g2d.draw(getBounds());
-		g2d.draw(getBoundsRigth());
-		g2d.draw(getBoundsLeft());
-		g2d.draw(getBoundsTop());
-	}
+		}
 	
 	public Rectangle getBounds() {
 		return new Rectangle ( (int) ((int)x+((widthP/2)-((widthP/2)/2))), (int) ((int)y+(heightP/2)), (int)widthP/2, (int) heightP/2);
@@ -491,7 +484,7 @@ public class Player extends GameObject implements SetandoBonus {
 	}
 	
 	public Rectangle getBoundsRigth() {
-		return new Rectangle ((int) ((int)x+widthP-5), (int)y+5, (int)5, (int) heightP-10);
+		return new Rectangle ((int) ((int)x+widthP-6), (int)y+5, (int)5, (int) heightP-10);
 	}
 	
 	public Rectangle getBoundsLeft() {

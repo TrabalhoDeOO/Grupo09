@@ -7,6 +7,8 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 public class MouseInput implements MouseListener {
+	
+	Game game = new Game();
 
 	public MouseInput() {
 	}
