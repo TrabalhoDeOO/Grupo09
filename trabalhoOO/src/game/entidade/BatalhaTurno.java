@@ -29,12 +29,8 @@ public class BatalhaTurno extends Game{
 	Scanner scanIn = new Scanner(System.in);
 	public boolean resultado;
 	public int resultB = 1;
-	private Player player;
-	private InimigoEvento inimigo;
 	
-	public BatalhaTurno(Player player1, InimigoEvento inimigo1) {
-		this.inimigo = inimigo1;
-		this.player = player1;
+	public BatalhaTurno() {
 		this.resultado = false;
 	}
 		
@@ -54,13 +50,13 @@ public class BatalhaTurno extends Game{
 		this.resultB = resultB;
 	}
 		
-	public Player batalha() throws NumberFormatException{
+	public Player batalha(Player player, InimigoEvento inimigo) throws NumberFormatException{
 		Game.State = STATE.BATTLE;
 //		Graphics2D b2d = (Graphics2D) b;
 		Font font = new Font ("Lucida Console", Font.BOLD, 15);
 		
 		Player player1 = player;
-		InimigoEvento inimigo1 = this.inimigo;
+		InimigoEvento inimigo1 = new InimigoEvento(null);
 		JavaliBoss inimigo2 = new JavaliBoss();
 		resultB = 1;
 		
@@ -81,7 +77,7 @@ public class BatalhaTurno extends Game{
 		int dadospeedI = randomica.nextInt(10)+1;
 		int dadospeedP = randomica.nextInt(10)+1;
 		
-		inimigo1 = this.inimigo;
+		inimigo1 = inimigo;
 		
 		Loot lootB = inimigo1.getLoot();
 		
