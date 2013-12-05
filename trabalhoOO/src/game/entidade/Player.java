@@ -372,7 +372,7 @@ public class Player extends GameObject implements SetandoBonus {
 	private final float MAX_SPEED = 10;
 	
 	private Handler handler;
-	BatalhaTurno battle = new BatalhaTurno();
+	BatalhaTurno battle;
 	InimigoEvento ie = new InimigoEvento(id);
 	int vidas = 3; /* número de vidas */
 	boolean teste1 = false;
@@ -410,7 +410,8 @@ public class Player extends GameObject implements SetandoBonus {
 				if(tempObject.getId()==ObjectId.InimigoT){					
 					if(getBounds().intersects(tempObject.getBounds())){
 						ie = (InimigoEvento) tempObject;
-						battle.batalha(this, ie);
+						battle = new BatalhaTurno(this, ie);
+						battle.batalha();
 						y = tempObject.getY() - heightP;
 						velY = 0;
 						falling = false;
@@ -428,7 +429,8 @@ public class Player extends GameObject implements SetandoBonus {
 				if(tempObject.getId()==ObjectId.InimigoT){
 					if(getBoundsTop().intersects(tempObject.getBounds())){
 						ie = (InimigoEvento) tempObject;
-						battle.batalha(this, ie);
+						battle = new BatalhaTurno(this, ie);
+						battle.batalha();
 						handler.removeObject(ie);
 						y = tempObject.getY() + heightP;
 						
@@ -442,7 +444,8 @@ public class Player extends GameObject implements SetandoBonus {
 				if (tempObject.getId() == ObjectId.InimigoT){
 					//	Game.State = Game.State.BATTLE;
 					ie = (InimigoEvento) tempObject;
-					battle.batalha(this, ie);
+					battle = new BatalhaTurno(this, ie);
+					battle.batalha();
 					handler.removeObject(ie);
 					if (getBoundsRigth().intersects(tempObject.getBounds())){
 						x = tempObject.getX() - 64;
@@ -459,7 +462,8 @@ public class Player extends GameObject implements SetandoBonus {
 							x = tempObject.getX() + 64;	
 						//	Game.State = Game.State.BATTLE;
 							ie = (InimigoEvento) tempObject;
-							battle.batalha(this, ie);
+							battle = new BatalhaTurno(this, ie);
+							battle.batalha();
 							handler.removeObject(ie);
 						}
 					}
