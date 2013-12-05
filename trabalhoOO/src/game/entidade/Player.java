@@ -10,7 +10,9 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.LinkedList;
+import java.util.Scanner;
 
 
 public class Player extends GameObject implements SetandoBonus {
@@ -372,25 +374,27 @@ public class Player extends GameObject implements SetandoBonus {
 	private Handler handler;
 	BatalhaTurno battle = new BatalhaTurno();
 	InimigoEvento ie = new InimigoEvento(id);
+	int vidas = 3; /* número de vidas */
+	boolean teste1 = false;
 	
 	public void tick(LinkedList<GameObject> object) {
 		x += velX;
 		y += velY;
-		
+
 		//Gravidade atuando
 		if(falling || jumping){
 			velY +=gravity;
 					
-		//if (velY > MAX_SPEED)
-	//		velY = MAX_SPEED;
+		if (velY > MAX_SPEED)
+			velY = MAX_SPEED;
 		}
 		Collision(object);		
 		}
-	
+
 	private void Collision(LinkedList<GameObject> object){
 		for (int i=0; i<handler.object.size(); i++){
 			GameObject tempObject = handler.object.get(i);
-			
+					
 			// Colisão na base
 						if(tempObject.getId()== ObjectId.Block){
 						if (getBounds().intersects(tempObject.getBounds())){

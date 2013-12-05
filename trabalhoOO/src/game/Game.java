@@ -1,6 +1,5 @@
 package game;
 
-import game.entidade.BatalhaTurno;
 import game.entidade.InimigoEvento;
 import game.entidade.Player;
 import game.entidade.grimorio.Grimorio;
@@ -33,20 +32,23 @@ public class Game extends Canvas implements Runnable {
 	Grimorio grim = new Grimorio();
 	Handler handler;
 	private AudioPlayer bgm;
-
-
-//	Level1 nivel1;
+	Player player;
+	int vida = 1;
+	//	Level1 nivel1;
 	
 	public static STATE State = STATE.MENU;
 
 	public void init(){
+		
+		
 		handler = new Handler();
 		bgm = new AudioPlayer("/level1-1.mp3");
 		bgm.play();
 		BufferedImageLoader loader = new BufferedImageLoader();
 		requestFocus();
 //		nivel1 = new Level1();
-		handler.addObject(new Player( "HUURGH", "homem", 1, 50,460, handler, ObjectId.Player));
+		player = new Player( "HUURGH", "homem", 1, 50,460, handler, ObjectId.Player);
+		handler.addObject(player);		
 		//Inimigo 1
 		InimigoEvento ie = grim.getGrimorioInimigos().get(0);
 		ie.setX(160);
@@ -60,7 +62,7 @@ public class Game extends Canvas implements Runnable {
 		ie.setY(HEIGHT-247);
 		ie.setHandler(handler);
 		ie.setObjectId(ObjectId.InimigoT);
-		handler.addObject(ie);
+		handler.addObject(ie); 
 		//Inimigo 3
 		ie = grim.getGrimorioInimigos().get(10);
 		ie.setX(928);
@@ -81,6 +83,7 @@ public class Game extends Canvas implements Runnable {
 		this.addKeyListener(new KeyInput(handler));
 		this.addMouseListener(new MouseInput());
 		menu = new Menu();
+		
 		//Setando o background
 		try{			
 			background = loader.loadImage("/background.png");
@@ -99,6 +102,7 @@ public class Game extends Canvas implements Runnable {
 				}
 	
 	public void run(){
+		
 		init();
 		this.requestFocus();
 		long lastTime = System.nanoTime();
@@ -132,11 +136,21 @@ public class Game extends Canvas implements Runnable {
 	
 		private void tick() {
 			if (State== STATE.GAME){
-				handler.tick();	
-			}
-		
-	}
-	
+				handler.tick();					
+				}    
+			// Morte no cenário
+			if (player.getY()>=775){
+				player.setHp(0);
+			}  /* Morte em batalha */
+			if (player.getHp() <=0 && vida>=1){
+				vida --;
+				handler.removeObject(player);
+				init();
+			} else if (player.getHp() ==0 && vida==0){				
+				State = STATE.MENU;			
+			}						
+		}
+			
 	private void render() {
 		BufferStrategy bs = this.getBufferStrategy();
 		if (bs == null){
@@ -156,6 +170,9 @@ public class Game extends Canvas implements Runnable {
 		//nivel1.render(g);
 			} 
 		else if (State== STATE.MENU){
+			if(vida ==0){
+				vida=2;				
+			}
 			menu.renderMenu(g);
 		} else if (State ==STATE.HELP){
 			menu.renderHelp(h);
