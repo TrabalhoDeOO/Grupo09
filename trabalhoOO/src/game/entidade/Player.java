@@ -380,7 +380,7 @@ public class Player extends GameObject implements SetandoBonus {
 	public void tick(LinkedList<GameObject> object) {
 		x += velX;
 		y += velY;
-		
+
 		//Gravidade atuando
 		if(falling || jumping){
 			velY +=gravity;
@@ -391,13 +391,10 @@ public class Player extends GameObject implements SetandoBonus {
 		Collision(object);		
 		}
 
-	//Definindo as propriedades vitais do player
-	
-	
 	private void Collision(LinkedList<GameObject> object){
 		for (int i=0; i<handler.object.size(); i++){
 			GameObject tempObject = handler.object.get(i);
-			
+					
 			// Colisão na base
 						if(tempObject.getId()== ObjectId.Block){
 						if (getBounds().intersects(tempObject.getBounds())){

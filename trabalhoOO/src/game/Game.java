@@ -50,7 +50,7 @@ public class Game extends Canvas implements Runnable {
 		player = new Player( "HUURGH", "homem", 1, 50,460, handler, ObjectId.Player);
 		handler.addObject(player);		
 		//Inimigo 1
-		InimigoEvento ie = grim.getGrimorioInimigos().get(17);
+		InimigoEvento ie = grim.getGrimorioInimigos().get(0);
 		ie.setX(160);
 		ie.setY(HEIGHT-87);
 		ie.setHandler(handler);
@@ -62,7 +62,7 @@ public class Game extends Canvas implements Runnable {
 		ie.setY(HEIGHT-247);
 		ie.setHandler(handler);
 		ie.setObjectId(ObjectId.InimigoT);
-		handler.addObject(ie);
+		handler.addObject(ie); 
 		//Inimigo 3
 		ie = grim.getGrimorioInimigos().get(10);
 		ie.setX(928);
@@ -71,7 +71,7 @@ public class Game extends Canvas implements Runnable {
 		ie.setObjectId(ObjectId.InimigoT);
 		handler.addObject(ie);
 		//Inimigo 4
-		ie = grim.getGrimorioInimigos().get(0);
+		ie = grim.getGrimorioInimigos().get(2);
 		ie.setX(1280);
 		ie.setY(HEIGHT-151);
 		ie.setHandler(handler);
@@ -136,20 +136,21 @@ public class Game extends Canvas implements Runnable {
 	
 		private void tick() {
 			if (State== STATE.GAME){
-				handler.tick();		
-	}
+				handler.tick();					
+				}    
+			// Morte no cenário
+			if (player.getY()>=775){
+				player.setHp(0);
+			}  /* Morte em batalha */
 			if (player.getHp() <=0 && vida>=1){
 				vida --;
 				handler.removeObject(player);
 				init();
-			} else if (player.getHp() ==0 && vida==0)
-				
-				
-				
-				State = STATE.MENU;
-					
+			} else if (player.getHp() ==0 && vida==0){				
+				State = STATE.MENU;			
+			}						
 		}
-		
+			
 	private void render() {
 		BufferStrategy bs = this.getBufferStrategy();
 		if (bs == null){
@@ -170,8 +171,7 @@ public class Game extends Canvas implements Runnable {
 			} 
 		else if (State== STATE.MENU){
 			if(vida ==0){
-				vida=2;
-				
+				vida=2;				
 			}
 			menu.renderMenu(g);
 		} else if (State ==STATE.HELP){
