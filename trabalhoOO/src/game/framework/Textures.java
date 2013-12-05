@@ -5,12 +5,12 @@ import game.*;
 
 // Classe que dita as texturas
 public class Textures {
-	
+	/*
 	public BufferedImage player, enemy, boss, ground, plant, rock;
 	
 	private SpriteSheet ss;
 	
-	public Textures(Main game) {
+	public Textures(Game game) {
 		// Acrescentar dados nas demais classes!!!!
 		ss = new SpriteSheet(game.getSpriteSheet());
 		
@@ -27,5 +27,5 @@ public class Textures {
 			plant = ss.grabImage(5, 2, 120, 120);
 			//rever isso aí também, produção.
 			player = ss.grabImage(6, 1, 60, 60);
-		}
+		}*/
 }

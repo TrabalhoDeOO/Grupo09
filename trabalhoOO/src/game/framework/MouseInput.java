@@ -26,7 +26,6 @@ public class MouseInput implements MouseListener {
 	public void mousePressed(MouseEvent e) {
 		int mx = e.getX();
 		int my = e.getY();
-		
 		if(mx>= Game.WIDTH/3 + 120 && mx <= Game.WIDTH /3 +320 && Game.State==Game.State.MENU){
 			if (my>= 150 && my<=200){
 				//Pressed Play Button
