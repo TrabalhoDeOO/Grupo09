@@ -40,7 +40,7 @@ import java.util.Scanner;
  */
 
 public class Main{
-
+/*
 	public Main() {
 		// TODO Auto-generated constructor stub
 	}
@@ -48,7 +48,7 @@ public class Main{
 	/**
 	 * @param args
 	 * @throws InterruptedException 
-	 */
+
 	
 	// Aqui é onde ficará a parte principal da main
 		public void run() {
@@ -130,7 +130,7 @@ public class Main{
 			/**
 			System.out.println("\n\n"+player.getNome() + " lvl: " + player.getLvl() + "  hp: " + player.getHp() + " atk:  "
 			+ player.getAtk() + " def: " + player.getDef() + " speed:" + player.getSpeed() + " xp:" +player.getXp()+"/"+player.getXpMax());
-			*/
+		
 
 			int verificaTutorial = 0;
 			
@@ -375,5 +375,5 @@ public class Main{
 		// TODO Auto-generated method stub
 		
 	}
-
+*/
 }
