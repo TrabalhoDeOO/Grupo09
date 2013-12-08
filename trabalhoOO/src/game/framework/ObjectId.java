@@ -7,6 +7,7 @@ public enum ObjectId {
 	InimigoT(),
 	Test(), 
 	Block(),
+	Portal(),
 	Item();
 	
 }

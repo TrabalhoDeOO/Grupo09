@@ -7,12 +7,9 @@ import game.interfaces.SetandoBonus;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.util.ArrayList;
-import java.util.InputMismatchException;
 import java.util.LinkedList;
-import java.util.Scanner;
 
 
 
@@ -397,6 +394,12 @@ public class Player extends GameObject implements SetandoBonus {
 		for (int i=0; i<handler.object.size(); i++){
 			GameObject tempObject = handler.object.get(i);
 					
+			//Portal
+			if (getBoundsLeft().contains(1376, Game.HEIGHT-151) ){
+				x+=5;
+				Game game2 = new Game();
+				game.State = game.State.GAME2;
+			}
 			// Colisão na base
 						if(tempObject.getId()== ObjectId.Block){
 						if (getBounds().intersects(tempObject.getBounds())){
@@ -465,8 +468,9 @@ public class Player extends GameObject implements SetandoBonus {
 							handler.removeObject(ie);
 						}
 					}
-				}				
-		}
+				}
+			
+		}		
 	}
 			
 	//Renderizador dos gráficos, imagens e o que mais utilizar
@@ -490,5 +494,9 @@ public class Player extends GameObject implements SetandoBonus {
 	public Rectangle getBoundsLeft() {
 		return new Rectangle ((int)x, (int)y+5, (int)5, (int) heightP-10);
 	}	
+	
+	protected float getX (int X){
+		return x;
+	}
 }
 
