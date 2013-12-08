@@ -5,7 +5,8 @@ public enum STATE {
 	BATTLE,
 	HELP,
 	ABOUT,
-	GAME, 
+	GAME,
+	GAME2,
 	SUBMENU,
 	CREDIT;
 }

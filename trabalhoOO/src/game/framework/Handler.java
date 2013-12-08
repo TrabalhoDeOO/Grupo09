@@ -3,6 +3,8 @@ package game.framework;
 import game.Game;
 
 import java.awt.Graphics;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.util.LinkedList;
 
 public class Handler extends Game{

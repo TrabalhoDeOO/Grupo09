@@ -5,7 +5,9 @@ import java.util.LinkedList;
 
 import game.Game;
 
-public class Level1 extends Handler{
+public class Level1 extends Game{
+
+	public LinkedList<GameObject> object = new LinkedList<GameObject>();
 
 	private static final long serialVersionUID = 1L;
 	protected GameObject tempObject;

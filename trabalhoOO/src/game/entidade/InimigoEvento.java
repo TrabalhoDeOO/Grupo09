@@ -167,14 +167,11 @@ public class InimigoEvento extends Inimigo implements Descricao{
 	public void render(Graphics g) {
 		if (Game.State==Game.State.GAME){
 			g.setColor(Color.black);
-			g.fillRect((int) x, (int) y, widthIP, heightIP);
-			
+			g.fillRect((int) x, (int) y, widthIP, heightIP);			
 			Graphics2D g2d = (Graphics2D) g;
 			g.setColor(Color.green);
-			g2d.draw(getBounds());
-	//		g2d.draw(getBoundsTop());
-			
-		} else if (Game.State==Game.State.BATTLE){
+			}
+		else if (Game.State==Game.State.BATTLE){
 			g.setColor(Color.red);
 			g.fillRect((int) x, (int) y, widthIT, heightIT);
 		}

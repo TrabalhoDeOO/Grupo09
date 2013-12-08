@@ -1,14 +1,17 @@
 package game;
 
-import game.entidade.BatalhaTurno;
+import game.framework.BufferedImageLoader;
 
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 
 public class Menu {
+	private BufferedImage background = null;
 	
 	public Rectangle playButton = new Rectangle(Game.WIDTH/3 + 120, 150, 200, 50);
 	public Rectangle helpButton = new Rectangle(Game.WIDTH/3 + 120, 250, 200, 50);
@@ -21,6 +24,7 @@ public class Menu {
 	public boolean inicial = true;
 	
 	public void renderMenu(Graphics g){
+	
 		Graphics2D g2d = (Graphics2D) g;
 		
 		Font fnt0 = new Font("arial", Font.BOLD, 50);
@@ -67,8 +71,8 @@ public class Menu {
 		j.setFont(font2);
 		j.setColor(Color.black);
 		j.drawString("O jogo se passa em uma pré historia fantasiosa, onde é",  Game.WIDTH/6, Game.HEIGHT/3);
-		j.drawString("possível ter um Homo Neanderthal enfretando seres como Dinossauros,", Game.WIDTH/6, Game.HEIGHT/3+50);
-		j.drawString("Bichos-preguiça gigantes e coisas do genero.",  Game.WIDTH/6, Game.HEIGHT/3+100);
+		j.drawString("possível ter um Homo Neanderthal enfretando seres como: ", Game.WIDTH/6, Game.HEIGHT/3+50);
+		j.drawString(" Dinossauros, Bichos-preguiça gigantes e coisas do genero.",  Game.WIDTH/6, Game.HEIGHT/3+100);
 		
 		j.drawString("Voltar", backButton.x+ 60, backButton.y +35);
 		j2d.draw(backButton);
@@ -79,12 +83,19 @@ public class Menu {
 		
 		k.setFont(font2);
 		k.setColor(Color.black);
-		k.drawString("Agradecimentos",  Game.WIDTH/6, Game.HEIGHT/3);
-		k.drawString("[ Galera q receberá os agradecimentos]", Game.WIDTH/6, Game.HEIGHT/3+50);
-		k.drawString("Equipe Técnica: ",  Game.WIDTH/6, Game.HEIGHT/3+100);
-		k.drawString("Bruno Torrontteguy - ????????",  Game.WIDTH/6+ 100, Game.HEIGHT/3+150);
-		k.drawString("Danilo Barros - ????????",  Game.WIDTH/6+ 100, Game.HEIGHT/3+200);
-		k.drawString("Paulo Markes - ???????",  Game.WIDTH/6+ 100, Game.HEIGHT/3+250);
+		k.drawString("Agradecimentos",  Game.WIDTH/6, Game.HEIGHT/4);
+		Font fnt4 = new Font("arial", Font.BOLD, 20);
+		k.setFont(fnt4);
+		k.drawString("Milene Serrano - Orientadora", Game.WIDTH/6, Game.HEIGHT/4+40);
+		k.drawString("Maurício Serrano - Orientador", Game.WIDTH/2, Game.HEIGHT/4+40);
+		k.drawString("Rafael Akiyoshi - Alpha Tester", Game.WIDTH/6, Game.HEIGHT/4+80);
+		k.drawString("Sérgio Pedrinha - Alpha Tester", Game.WIDTH/2, Game.HEIGHT/4+80);
+		k.drawString("Thyago Makiyama - Alpha Tester", Game.WIDTH/6, Game.HEIGHT/4+120);
+		k.drawString("Arthur Pinho - Alpha Tester", Game.WIDTH/2, Game.HEIGHT/4+120);
+		k.drawString("Equipe Técnica: ",  Game.WIDTH/6, Game.HEIGHT/3+170);
+		k.drawString("Bruno Torrontteguy - Programador Chefe",  Game.WIDTH/6+ 100, Game.HEIGHT/3+210);
+		k.drawString("Danilo Barros - Programador E Designer Gráfico",  Game.WIDTH/6+ 100, Game.HEIGHT/3+250);
+		k.drawString("Paulo Markes - Programador e Implementador Gráfico",  Game.WIDTH/6+ 100, Game.HEIGHT/3+290);
 		k.drawString("Voltar", backButton.x+ 60, backButton.y +35);
 		k2d.draw(backButton);
 	}

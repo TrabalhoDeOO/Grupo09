@@ -16,6 +16,7 @@ import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 //import game.framework.Level1;
+//import game.framework.Level1;
 
 public class Game extends Canvas implements Runnable {
 
@@ -33,7 +34,8 @@ public class Game extends Canvas implements Runnable {
 	Handler handler;
 	private AudioPlayer bgm;
 	Player player;
-	int vida = 1;
+	int vida = 2;
+	boolean backgroundMenu = true;
 	BufferedImageLoader loader = new BufferedImageLoader();
 
 	//	Level1 nivel1;
@@ -44,8 +46,15 @@ public class Game extends Canvas implements Runnable {
 		handler = new Handler();
 		bgm = new AudioPlayer("/level1-1.mp3");
 		bgm.play();
-		requestFocus();		
-//		nivel1 = new Level1();
+		requestFocus();
+		BufferedImageLoader loader = new BufferedImageLoader();
+		//Setando o background
+		try{			
+			background = loader.loadImage("/fase1-1.png");
+		} catch (IOException e){
+		e.printStackTrace();
+			}
+		//nivel1 = new Level1();
 		player = new Player( "HUURGH", "homem", 1, 50,460, handler, ObjectId.Player);
 		handler.addObject(player);		
 		//Inimigo 1
@@ -127,8 +136,8 @@ public class Game extends Canvas implements Runnable {
 	
 		private void tick() {
 			if (State== STATE.GAME){
-				handler.tick();					
-				}    
+				handler.tick();
+			}    
 			// Morte no cenário
 			if (player.getY()>=775){
 				player.setHp(0);
@@ -175,17 +184,6 @@ public class Game extends Canvas implements Runnable {
 		} else if (State==STATE.BATTLE){
 			
 		}		
-		//Setando o background
-				try{
-					if(State==STATE.GAME){
-			//			background = loader.loadImage("/background.png");
-					}else{
-						background = loader.loadImage("/background_menu.png");
-					}
-					
-				} catch (IOException e){
-				e.printStackTrace();
-					}
 		g.dispose();
 		bs.show();
 	}
@@ -194,7 +192,7 @@ public class Game extends Canvas implements Runnable {
 	}
 	
 	public static void main(String args[]) {
-		new Window (WIDTH, HEIGHT, TITLE, new Game());			
+		new Window (WIDTH, HEIGHT, TITLE, new Game());	
 	}
 	
 	public Thread getThread() {
@@ -210,24 +208,23 @@ public class Game extends Canvas implements Runnable {
 			e.printStackTrace();
 		}
 	}
-	
+
 }
 /*
 if (State !=STATE.GAME && State!=STATE.BATTLE){
 BufferedImageLoader loader = new BufferedImageLoader();
-	//Setando o background
-	try{			
-		background = loader.loadImage("/background_menu.png");
-	} catch (IOException e){
-	e.printStackTrace();
-		}
+//Setando o background
+	try{
+	 background = loader.loadImage("/background_menu.png");
+} catch (IOException e){
+e.printStackTrace();
 	}
-	else if (State==STATE.GAME){
-			BufferedImageLoader loader = new BufferedImageLoader();
-			//Setando o background
-			try{			
-				background = loader.loadImage("/background.png");
-			} catch (IOException e){
-			e.printStackTrace();
-		} 
-	}*/
+}	else if (State==STATE.GAME){
+	BufferedImageLoader loader = new BufferedImageLoader();
+		//Setando o background
+		try{			
+			background = loader.loadImage("/fase1-1.png");
+		} catch (IOException e){
+		e.printStackTrace();
+	} 
+}*/
