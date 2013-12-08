@@ -392,14 +392,7 @@ public class Player extends GameObject implements SetandoBonus {
 
 	private void Collision(LinkedList<GameObject> object){
 		for (int i=0; i<handler.object.size(); i++){
-			GameObject tempObject = handler.object.get(i);
-					
-			//Portal
-			if (getBoundsLeft().contains(1376, Game.HEIGHT-151) ){
-				x+=5;
-				Game game2 = new Game();
-				game.State = game.State.GAME2;
-			}
+			GameObject tempObject = handler.object.get(i);		
 			// Colisão na base
 						if(tempObject.getId()== ObjectId.Block){
 						if (getBounds().intersects(tempObject.getBounds())){

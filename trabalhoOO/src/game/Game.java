@@ -9,8 +9,6 @@ import game.framework.Handler;
 import game.framework.KeyInput;
 import game.framework.MouseInput;
 import game.framework.ObjectId;
-import game.framework.Portal;
-
 import java.awt.Canvas;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
@@ -55,10 +53,10 @@ public class Game extends Canvas implements Runnable {
 		} catch (IOException e){
 		e.printStackTrace();
 			}
-		player = new Player( "HUURGH", "homem", 1, 1270,500, handler, ObjectId.Player);
+		player = new Player( "HUURGH", "homem", 1, 50,500, handler, ObjectId.Player);
 		handler.addObject(player);		
 		//Inimigo 1
-	/*	InimigoEvento ie = grim.getGrimorioInimigos().get(0);
+		InimigoEvento ie = grim.getGrimorioInimigos().get(0);
 		ie.setX(160);
 		ie.setY(HEIGHT-87);
 		ie.setHandler(handler);
@@ -84,24 +82,12 @@ public class Game extends Canvas implements Runnable {
 		ie.setY(HEIGHT-151);
 		ie.setHandler(handler);
 		ie.setObjectId(ObjectId.InimigoT);
-		handler.addObject(ie); */
+		handler.addObject(ie); 
 	//	nivel1.createLevel1();
-		handler.addObject( new Portal(1376, HEIGHT-151, ObjectId.Portal));
 		handler.createLevel1();
 		this.addKeyListener(new KeyInput(handler));
 		this.addMouseListener(new MouseInput());
 		menu = new Menu();	
-		
-		if (player.getX()==Game.WIDTH){
-			State=STATE.GAME2;
-			handler.createLevel2();
-			try{
-				background = loader.loadImage("/fase1-2.png");
-			} catch (IOException e){
-			e.printStackTrace();
-			
-			}
-		}
 	}
 		
 	public synchronized void start(){
@@ -146,7 +132,7 @@ public class Game extends Canvas implements Runnable {
 		}
 	
 		private void tick() {
-			if (State== STATE.GAME){
+			if (State== STATE.GAME || State==STATE.GAME2){
 				handler.tick();
 			}    
 			// Morte no cenário
