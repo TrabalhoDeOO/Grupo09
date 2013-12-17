@@ -21,7 +21,6 @@ public class Menu {
 	public Rectangle backButton = new Rectangle(Game.WIDTH/3 + 120, 600, 200, 50);
 	
 	Font font2 = new Font ("arial", Font.BOLD, 30);
-	public boolean inicial = true;
 	
 	public void renderMenu(Graphics g){
 	

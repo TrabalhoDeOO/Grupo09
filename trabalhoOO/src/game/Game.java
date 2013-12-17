@@ -29,6 +29,7 @@ public class Game extends Canvas implements Runnable {
 	private boolean running = false;
 	private Thread thread;
 	private Menu menu;
+	BatalhaTurnoGrafica battle = new BatalhaTurnoGrafica();
 	Grimorio grim = new Grimorio();
 	Handler handler;
 	private AudioPlayer bgm;
@@ -44,7 +45,7 @@ public class Game extends Canvas implements Runnable {
 	public void init(){	
 		handler = new Handler();
 		bgm = new AudioPlayer("/level1-1.mp3");
-		bgm.play();
+	//	bgm.play();
 		requestFocus();
 		BufferedImageLoader loader = new BufferedImageLoader();
 		//Setando o background
@@ -83,8 +84,8 @@ public class Game extends Canvas implements Runnable {
 		ie.setHandler(handler);
 		ie.setObjectId(ObjectId.InimigoT);
 		handler.addObject(ie); 
-	//	nivel1.createLevel1();
 		handler.createLevel1();
+	//	handler.createLevel2();
 		this.addKeyListener(new KeyInput(handler));
 		this.addMouseListener(new MouseInput());
 		menu = new Menu();	
@@ -179,7 +180,7 @@ public class Game extends Canvas implements Runnable {
 		} else if (State== STATE.SUBMENU){
 			menu.renderSubmenu(l);
 		} else if (State==STATE.BATTLE){
-			
+			battle.renderBattle(b);			
 		} else if (State == STATE.GAME2){
 			handler.render(g);
 		}

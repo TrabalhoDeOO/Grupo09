@@ -438,9 +438,9 @@ public class Player extends GameObject implements SetandoBonus {
 				
 				//Colisão na direita com o inimigo
 				if (tempObject.getId() == ObjectId.InimigoT){
-					//	Game.State = Game.State.BATTLE;
+						Game.State = Game.State.BATTLE;
 					ie = (InimigoEvento) tempObject;
-					battle.batalha(this, ie);
+		//			battle.batalha(this, ie);
 					handler.removeObject(ie);
 					if (getBoundsRigth().intersects(tempObject.getBounds())){
 						x = tempObject.getX() - 64;
