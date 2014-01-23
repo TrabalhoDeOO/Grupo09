@@ -35,7 +35,7 @@ public class BatalhaTurnoGrafica {
 		b.setFont(font);
 		b.setColor(Color.black);
 		
-		b.drawString ("BORA LUTAR, PORRA!", 384, 64);
+		b.drawString ("BORA LUTAR!", 384, 64);
 		b.drawString("Nome: ", 32, 128);
 	//	b.drawString("Ataque: ", );
 	}
